@@ -1,2 +1,3 @@
-# Ecell-Web
-The Official repository for E cell website
+Instructions for Running<br>
+npm i<br>
+npm start<br>
