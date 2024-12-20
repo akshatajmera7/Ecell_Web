@@ -1,3 +1,3 @@
-Instructions for Running
-npm i
-npm start
+Instructions for Running<br>
+npm i<br>
+npm start<br>
