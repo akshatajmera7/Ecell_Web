@@ -1,13 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from "./components/navbar";
+import Home from "./components/Home/home";
+import Team from "./components/Teams/team";
+import Program from "./components/Programs/program";
+import Footer from "./components/footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Hello World!!
-      </h1>
-    </div>
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/program" element={<Program />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
