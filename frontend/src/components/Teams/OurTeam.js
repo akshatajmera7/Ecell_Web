@@ -1,6 +1,10 @@
 import React from "react";
+<<<<<<< Updated upstream
 import "./OurTeam.css"; // Import the CSS for the "Our Team" page
 import teamBgImage from "../../assets/teamBgImage.webp"; // Import the background image
+=======
+import "././OurTeam.css"; // Import the CSS for the "Our Team" page
+>>>>>>> Stashed changes
 
 const OurTeam = () => {
   return (
