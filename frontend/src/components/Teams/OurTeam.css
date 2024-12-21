@@ -1,0 +1,68 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+.ourteam-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background Image Section */
+.bgimage {
+  height: 100vh;
+  background: url("/frontend/src/assets/teamBgImage.webp");
+  background-size: cover;
+  background-position: center center;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Background Image Content Styling */
+.bgimage-content h1 {
+  font-size: 5vw;
+  margin-bottom: 2vw;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.bgimage-content p {
+  font-size: 3vw;
+  color: #d3d3d3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bgimage {
+    height: 70vh;
+  }
+
+  .bgimage-content h1 {
+    font-size: 6vw;
+  }
+
+  .bgimage-content p {
+    font-size: 4vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .bgimage {
+    height: 40vh;
+  }
+
+  .bgimage-content h1 {
+    font-size: 7vw;
+  }
+
+  .bgimage-content p {
+    font-size: 5vw;
+  }
+}
