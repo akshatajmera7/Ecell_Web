@@ -7,7 +7,7 @@ const Hero = () => {
         <div className='main'>
             <video src={videohp} autoPlay loop muted />
             <div className="content">
-                <h1 className='vidint'>E-Cell BITS Pilani Hyderabad Campus</h1>
+                <h2 className='vidint'>E-Cell BITS Pilani Hyderabad Campus</h2>
                 <p className="subheading">Empowering Entrepreneurs, Inspiring Innovation</p>
             </div>
         </div>
