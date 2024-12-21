@@ -1,9 +1,12 @@
 import React from 'react';
+import Startup from './startups';
+import Intro from './intro';
 
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
+    <Intro/>
+    <Startup/>
 
     </div>
   );
