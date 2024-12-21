@@ -1,10 +1,10 @@
 import React from "react";
+import OurTeam from "./OurTeam";
 
 function Team() {
   return (
     <div>
-      <h1>Team</h1>
-
+      <OurTeam />
     </div>
   );
 }
