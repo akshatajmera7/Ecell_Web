@@ -1,10 +1,11 @@
 import React from "react";
 import OurTeam from "./OurTeam";
 
+
 function Team() {
   return (
     <div>
-      <OurTeam />
+    <OurTeam />
     </div>
   );
 }

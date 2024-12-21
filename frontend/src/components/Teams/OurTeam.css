@@ -13,9 +13,9 @@ body {
 }
 
 /* Background Image Section */
+/* Background Image Section */
 .bgimage {
   height: 100vh;
-  background: url("/frontend/src/assets/teamBgImage.webp");
   background-size: cover;
   background-position: center center;
   background-color: #1a1a1a;
