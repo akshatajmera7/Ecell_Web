@@ -75,7 +75,7 @@ const Initiatives = () => {
               className="min-w-full px-4 animate-slide-up"
               data-aos="slide-up"
             >
-              <div className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-transform duration-1410">
+              <div className="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-transform duration-2412">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -93,7 +93,7 @@ const Initiatives = () => {
         {/* Navigation Buttons */}
         <button
           onClick={() => setActiveIndex((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length)}
-          className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-gradient-to-r from-gray-900 via-black to-gray-900 hover:from-pink-500 hover:to-pink-500 transition-all text-2xl shadow-md"
+          className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-gradient-to-r from-gray-900 via-black to-gray-900 hover:from-purple-500 hover:to-purple-500 transition-all text-2xl shadow-md"
           aria-label="Previous slide"
         >
           &#8249;
