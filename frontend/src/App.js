@@ -16,6 +16,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/program" element={<Program />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
