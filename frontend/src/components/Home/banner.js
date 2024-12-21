@@ -2,7 +2,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom'; 
 
-const SprintBanner = () => {
+const Banner = () => {
   // Using IntersectionObserver to trigger animations on scroll
   const { ref: textRef, inView: textInView } = useInView({
     triggerOnce: true,  // Trigger only once when the element comes into view
@@ -41,4 +41,4 @@ const SprintBanner = () => {
   );
 };
 
-export default SprintBanner;
+export default Banner;

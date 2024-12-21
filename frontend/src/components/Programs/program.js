@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
+import Intro from './intro';
 
-function Program() {
+function Programs() {
   return (
     <div>
-      <h1>Program</h1>
-
+    <Intro/>
+    
     </div>
   );
 }
 
-export default Program;
+export default Programs;

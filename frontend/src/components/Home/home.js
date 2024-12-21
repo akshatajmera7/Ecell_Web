@@ -3,6 +3,7 @@ import Startup from './startups';
 import Intro from './intro';
 import Initiatives from './initiatives';
 import Banner from './banner';
+import Launchpad from './launchpad';
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
     <Intro/>
     <Startup/>
     <Initiatives/>
+    <Launchpad/>
     <Banner/>
     
     </div>
