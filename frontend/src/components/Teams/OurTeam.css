@@ -13,7 +13,6 @@ body {
 }
 
 /* Background Image Section */
-/* Background Image Section */
 .bgimage {
   height: 100vh;
   background-size: cover;
@@ -26,9 +25,26 @@ body {
 }
 
 /* Background Image Content Styling */
+.bgimage-content {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start with text slightly below */
+  animation: text-appear 1.5s ease-out forwards; /* Animation added */
+}
+
+/* Background Image Content Text Animation */
+@keyframes text-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Text starts from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Text ends at its normal position */
+  }
+}
+
 .bgimage-content h1 {
   font-size: 5vw;
-  margin-bottom: 2vw;
   color: #ffffff;
   font-weight: bolder;
 }
