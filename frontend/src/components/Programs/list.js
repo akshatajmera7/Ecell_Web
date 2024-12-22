@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const ProgramShowcase = () => {
+const List = () => {
   const programs = [
     {
       title: "Startup Accelerator",
@@ -139,4 +139,4 @@ const ProgramShowcase = () => {
   );
 };
 
-export default ProgramShowcase;
+export default List;
