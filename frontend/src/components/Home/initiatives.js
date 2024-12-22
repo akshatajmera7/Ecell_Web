@@ -8,21 +8,20 @@ const Initiatives = () => {
 
   const portfolioItems = [
     {
-      name: 'Alex',
-      type: 'Brand Identity',
-      image: 'https://via.placeholder.com/600x400',
+      name: 'Pitchers Pilot',
+      image: '/pp.png',
+
     },
     {
-      name: 'Elizabeth',
-      type: 'Brand Identity',
-      image: 'https://via.placeholder.com/600x400',
+      name: 'Internship Drive',
+      image: '/id1.png',
     },
     {
-      name: 'Molly',
-      type: 'Brand Identity',
-      image: 'https://via.placeholder.com/600x400',
+      name: 'Ground Reality',
+      image: '/gr.png',
     },
   ];
+  
   const navigate = useNavigate();
   // Initialize AOS and setup auto carousel
   useEffect(() => {
@@ -79,6 +78,7 @@ const Initiatives = () => {
                 <img
                   src={item.image}
                   alt={item.name}
+                  style={{ width: '1150px', height: '400px', objectFit: 'cover' }}
                   className="w-full h-96 object-cover"
                 />
                 <div className="p-6 text-center">
