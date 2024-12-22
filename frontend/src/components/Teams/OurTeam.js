@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion"; // Fixed: added useAnimation import
+import { motion, useAnimation } from "framer-motion"; 
 import { useInView } from "react-intersection-observer";
 import teamBgImage from "../../assets/teamBgImage.webp"; // Import the background image
 import Sagnik from "../../assets/sagnik.png";
