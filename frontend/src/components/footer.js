@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Social Media Icons */}
         <div className="flex space-x-6">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/groups/158307448076754/?ref=share&mibextid=NSMWBT"
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl text-white hover:text-purple-500 transition-colors duration-300"
@@ -18,7 +18,7 @@ const Footer = () => {
             <i className="fab fa-facebook"></i>
           </a>
           <a
-            href="https://twitter.com"
+            href="https://x.com/ecell_bphc?t=1KAgGwoLWyXLe5-li71adA&s=08"
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl text-white hover:text-purple-500 transition-colors duration-300"
@@ -26,7 +26,7 @@ const Footer = () => {
             <i className="fab fa-twitter"></i>
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/ecell_bphc?igsh=MXI5OGhld2lwMzMzNQ=="
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl text-white hover:text-purple-500 transition-colors duration-300"
@@ -34,7 +34,7 @@ const Footer = () => {
             <i className="fab fa-instagram"></i>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/e-cell-bphc/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl text-white hover:text-purple-500 transition-colors duration-300"
@@ -51,4 +51,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
