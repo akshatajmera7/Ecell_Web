@@ -44,7 +44,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              Programs & Initiatives
+              <span className="link-text">Programs & Initiatives</span>
             </NavLink>
           </li>
           <li className="nav-item">
@@ -53,7 +53,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              Our Team
+              <span className="link-text">Our Team</span>
             </NavLink>
           </li>
           <li className="nav-item">
@@ -62,7 +62,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              Launchpad
+              <span className="link-text">Launchpad</span>
             </NavLink>
           </li>
           <li className="nav-item">
@@ -71,7 +71,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              Contact Us
+              <span className="link-text">Contact Us</span>
             </NavLink>
           </li>
         </ul>
