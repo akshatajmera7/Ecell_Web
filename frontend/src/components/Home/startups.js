@@ -27,38 +27,38 @@ const Startup = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const designers = [
-    {
-      name: 'Corey',
-      role: 'Web Designer',
-      image: 'https://via.placeholder.com/240x320',
-    },
-    {
-      name: 'Molly',
-      role: 'Brand Designer',
-      image: 'https://via.placeholder.com/240x320',
-    },
-    {
-      name: 'Mike',
-      role: 'Brand Designer',
-      image: 'https://via.placeholder.com/240x320',
-    },
-    {
-      name: 'Rees',
-      role: 'Brand Designer',
-      image: 'https://via.placeholder.com/240x320',
-    },
-    {
-      name: 'Chris',
-      role: 'Brand Designer',
-      image: 'https://via.placeholder.com/240x320',
-    },
-    {
-      name: 'Abby',
-      role: 'Brand Designer',
-      image: 'https://via.placeholder.com/240x320',
-    },
-  ];
+    const designers = [
+      {
+        name: 'Sriharsha Majety',
+        role: 'CEO and Founder, Swiggy',
+        image: '/majety.png',
+      },
+      {
+        name: 'Sanjay Mehrotra',
+        role: 'Co-Founder, Sandisk',
+        image: '/mehrotra.png',
+      },
+      {
+        name: 'Hari Menon',
+        role: 'Co-Founder, BigBasket',
+        image: '/menon.png',
+      },
+      {
+        name: 'Ishan Bansal',
+        role: 'Co-Founder, Groww',
+        image: '/bansal.png',
+      },
+      {
+        name: 'Phanindra Sama',
+        role: 'Founder, RedBus',
+        image: '/sama.png',
+      },
+      {
+        name: 'Shubh Malhotra',
+        role: 'Founder, MPL',
+        image: '/malhotra.png',
+      },
+    ];
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
@@ -90,6 +90,7 @@ const Startup = () => {
                   <img
                     src={designer.image}
                     alt={designer.name}
+                    style={{ width: '300px', height: '300px', objectFit: 'cover' }}
                     className="w-full h-full object-cover"
                   />
                 </div>
