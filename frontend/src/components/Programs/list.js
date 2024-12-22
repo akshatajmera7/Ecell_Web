@@ -23,23 +23,23 @@ const ProgramShowcase = () => {
       link: "#",
     },
     {
-        title: "Startup Accelerator",
-        description: "A 12-week intensive program helping early-stage startups scale their business with mentorship and resources.",
-        image: "/api/placeholder/600/400",
-        link: "#",
-      },
-      {
-        title: "Innovation Lab",
-        description: "Access cutting-edge technology and expertise to bring your innovative ideas to life.",
-        image: "/api/placeholder/600/400",
-        link: "#",
-      },
-      {
-        title: "Community Hub",
-        description: "A collaborative space where entrepreneurs can connect, learn, and grow together.",
-        image: "/api/placeholder/600/400",
-        link: "#",
-      },
+      title: "Startup Accelerator",
+      description: "A 12-week intensive program helping early-stage startups scale their business with mentorship and resources.",
+      image: "/api/placeholder/600/400",
+      link: "#",
+    },
+    {
+      title: "Innovation Lab",
+      description: "Access cutting-edge technology and expertise to bring your innovative ideas to life.",
+      image: "/api/placeholder/600/400",
+      link: "#",
+    },
+    {
+      title: "Community Hub",
+      description: "A collaborative space where entrepreneurs can connect, learn, and grow together.",
+      image: "/api/placeholder/600/400",
+      link: "#",
+    },
   ];
 
   const containerVariants = {
@@ -110,7 +110,8 @@ const ProgramShowcase = () => {
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-medium mb-3">{program.title}</h3>
-              <p className="text-gray-400 mb-6">{program.description}</p>
+              <p className="text-gray-400">{program.description}</p>
+              {/*
               <a
                 href={program.link}
                 className="inline-flex items-center gap-2 text-white bg-zinc-800 hover:bg-purple-600 focus:bg-purple-700 px-4 py-2 rounded-lg transition-colors duration-200"
@@ -129,6 +130,7 @@ const ProgramShowcase = () => {
                   <polyline points="7 7 17 7 17 17" />
                 </svg>
               </a>
+              */}
             </div>
           </motion.div>
         ))}
