@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion"; // Fixed: added useAnimation import
 import { useInView } from "react-intersection-observer";
 import teamBgImage from "../../assets/teamBgImage.webp"; // Import the background image
 import Sagnik from "../../assets/sagnik.png";
 import Manav from "../../assets/manav.jpeg";
 import Shoaib from "../../assets/shoaib.png";
+
 
 const teamMembers = [
   {
@@ -44,26 +45,43 @@ const OurTeam = () => {
     threshold: 0.2,
   });
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselItems = [
+    "Placeholder 1",
+    "Placeholder 2",
+    "Placeholder 3",
+  ];
+
+  // Initialize section title and card animations
   useEffect(() => {
     if (inView) {
-      controls.start("visible"); // Start the section title animation when in view
+      controls.start("visible");
     }
   }, [inView, controls]);
 
   useEffect(() => {
     if (cardInView) {
-      cardControls.start("visible"); // Start the card animations when in view
+      cardControls.start("visible");
     }
   }, [cardInView, cardControls]);
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+  // Automatic sliding of the carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+    }, 3000);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  const handlePrevClick = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1
+    );
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+  const handleNextClick = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
   };
 
   return (
@@ -78,7 +96,7 @@ const OurTeam = () => {
           ref={ref}
           initial="hidden"
           animate={controls}
-          variants={sectionVariants}
+          variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 1 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight">
@@ -90,7 +108,7 @@ const OurTeam = () => {
           className="text-2xl mt-4 text-gray-300"
           initial="hidden"
           animate={controls}
-          variants={sectionVariants}
+          variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
           transition={{ duration: 1, delay: 0.2 }}
         >
           <p>E Cell 24-25</p>
@@ -108,8 +126,8 @@ const OurTeam = () => {
               ref={cardRef}
               initial="hidden"
               animate={cardControls}
-              variants={cardVariants}
-              transition={{ duration: 1, delay: index * 0.2 }} // Add a slight delay for each card
+              variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 1, delay: index * 0.2 }}
             >
               <img
                 src={member.image}
@@ -140,6 +158,30 @@ const OurTeam = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Placeholder Carousel Section */}
+      <section className="py-16">
+        <h2 className="text-4xl font-bold text-center mb-12">E cell Team Photo</h2>
+        <div className="relative flex justify-center items-center w-3/4 mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <button
+            onClick={handlePrevClick}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          <img
+            src={`https://via.placeholder.com/600x400?text=${carouselItems[activeIndex]}`}
+            alt={carouselItems[activeIndex]}
+            className="w-full h-96 object-cover transition-all duration-300 ease-in-out"
+          />
+          <button
+            onClick={handleNextClick}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full"
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
         </div>
       </section>
     </div>
