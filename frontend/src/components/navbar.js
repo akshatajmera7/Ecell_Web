@@ -25,18 +25,16 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <img 
-            src= {logo}
+            src={logo}
             alt="Brand Logo" 
             className="navbar-logo-image"
           />
         </Link>
 
         <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
-          <div className="hamburger-lines">
-            <span className="line"></span>
-            <span className="line"></span>
-            <span className="line"></span>
-          </div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
 
         <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
@@ -46,7 +44,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              <span className="link-text">Programs & Initiatives</span>
+              Programs & Initiatives
             </NavLink>
           </li>
           <li className="nav-item">
@@ -55,7 +53,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              <span className="link-text">Our Team</span>
+              Our Team
             </NavLink>
           </li>
           <li className="nav-item">
@@ -64,7 +62,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              <span className="link-text">Launchpad</span>
+              Launchpad
             </NavLink>
           </li>
           <li className="nav-item">
@@ -73,7 +71,7 @@ const Navbar = () => {
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              <span className="link-text">Contact Us</span>
+              Contact Us
             </NavLink>
           </li>
         </ul>
