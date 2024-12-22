@@ -29,37 +29,36 @@ const Startup = () => {
 
     const designers = [
       {
-        name: 'Sriharsha Majety',
-        role: 'CEO and Founder, Swiggy',
+        name: 'Swiggy',
+        role: 'Founded by Sriharsha Majety',
         image: '/majety.png',
       },
       {
-        name: 'Sanjay Mehrotra',
-        role: 'Co-Founder, Sandisk',
+        name: 'Sandisk',
+        role: 'Co-Founded by Sanjay Mehrotra',
         image: '/mehrotra.png',
       },
       {
-        name: 'Hari Menon',
-        role: 'Co-Founder, BigBasket',
+        name: 'BigBasket',
+        role: 'Co-Founded by Hari Menon',
         image: '/menon.png',
       },
       {
-        name: 'Ishan Bansal',
-        role: 'Co-Founder, Groww',
+        name: 'Groww',
+        role: 'Co-Founded by Ishan Bansal',
         image: '/bansal.png',
       },
       {
-        name: 'Phanindra Sama',
-        role: 'Founder, RedBus',
+        name: 'RedBus',
+        role: 'Founded by Phanindra Sama',
         image: '/sama.png',
       },
       {
-        name: 'Shubh Malhotra',
-        role: 'Founder, MPL',
+        name: 'MPL',
+        role: 'Founded by Shubh Malhotra',
         image: '/malhotra.png',
       },
     ];
-
   return (
     <div className="min-h-screen bg-black text-white p-8">
       <div className="max-w-6xl mx-auto">
