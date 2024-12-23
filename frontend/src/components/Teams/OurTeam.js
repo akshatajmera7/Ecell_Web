@@ -115,7 +115,7 @@ const OurTeam = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section - Kept the same */}
+      {/* Hero Section */}
       <motion.section
         className="h-screen relative overflow-hidden flex items-center justify-center"
         style={{
@@ -126,7 +126,7 @@ const OurTeam = () => {
       >
         <div className="relative z-10 text-center px-4 bg-black bg-opacity-50 p-8 rounded-xl">
           <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-6"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
@@ -135,7 +135,7 @@ const OurTeam = () => {
             Our Team
           </motion.h1>
           <motion.p
-            className="text-2xl md:text-3xl text-gray-300"
+            className="text-lg sm:text-2xl md:text-3xl text-gray-300"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
@@ -146,17 +146,17 @@ const OurTeam = () => {
         </div>
       </motion.section>
 
-      {/* Enhanced Team Members Section */}
+      {/* Team Members Section */}
       <motion.section
         ref={ref}
-        className="py-24 px-6"
+        className="py-12 sm:py-24 px-4 sm:px-6 lg:px-12"
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={fadeIn}
         transition={{ duration: 1 }}
       >
         <motion.h2
-          className="text-5xl font-bold text-center mb-16"
+          className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16"
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={fadeIn}
@@ -164,7 +164,7 @@ const OurTeam = () => {
         >
           Meet Our PORs
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 max-w-7xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
@@ -176,67 +176,20 @@ const OurTeam = () => {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="relative h-[500px] rounded-xl overflow-hidden group cursor-pointer">
-                {/* Card Background with Gradient Overlay */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black 
-                  opacity-60 group-hover:opacity-90 transition-all duration-500"
-                />
-
-                {/* Member Image */}
+              <div className="relative rounded-lg overflow-hidden group cursor-pointer">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-72 sm:h-80 md:h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-
-                {/* Content Container */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8 transform transition-all duration-500">
-                  {/* Name and Role */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="transform group-hover:-translate-y-4 transition-transform duration-500"
-                  >
-                    <h3 className="text-3xl font-bold mb-2 text-white">
-                      {member.name}
-                    </h3>
-                    <p className="text-xl font-semibold text-gray-200 mb-4">
-                      {member.role}
-                    </p>
-                  </motion.div>
-
-                  {/* Bio - Appears on Hover */}
-                  <div
-                    className={`transform transition-all duration-500 ${
-                      hoveredCard === index
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                  >
-                    <p className="text-gray-200 mb-6 text-lg">{member.bio}</p>
-
-                    {/* Social Links */}
-                    <div className="flex space-x-6">
-                      <a
-                        href={member.linkedin}
-                        className="text-white hover:text-gray-300 transition-colors duration-300"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fab fa-linkedin text-2xl transform hover:scale-110 transition-transform duration-300" />
-                      </a>
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="text-white hover:text-gray-300 transition-colors duration-300"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fas fa-envelope text-2xl transform hover:scale-110 transition-transform duration-300" />
-                      </a>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-60 group-hover:opacity-90 transition-all duration-500" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 text-white">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm sm:text-base font-semibold text-gray-300">
+                    {member.role}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -244,20 +197,20 @@ const OurTeam = () => {
         </div>
       </motion.section>
 
-      {/* Legacy Section - Kept the same */}
+      {/* Carousel Section */}
       <motion.section
         ref={teamRef}
-        className="py-24 px-6 bg-black"
+        className="py-12 sm:py-24 px-4 sm:px-6 bg-black"
         initial="hidden"
         animate={teamInView ? "visible" : "hidden"}
         variants={fadeIn}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-5xl font-bold text-center mb-16">
+        <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16">
           The Architects of Our Legacy
         </h2>
         <div className="max-w-4xl mx-auto">
-          <div className="relative aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
             <motion.img
               src={`https://via.placeholder.com/1920x1080?text=${carouselItems[activeIndex]}`}
               alt={`Carousel item ${activeIndex}`}
@@ -270,15 +223,15 @@ const OurTeam = () => {
             <div className="absolute inset-0 flex items-center justify-between p-4">
               <button
                 onClick={handlePrev}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20"
+                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20"
               >
-                <i className="fas fa-chevron-left text-xl" />
+                <i className="fas fa-chevron-left text-sm sm:text-xl" />
               </button>
               <button
                 onClick={handleNext}
-                className="p-3 rounded-full bg-white/10 hover:bg-white/20"
+                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20"
               >
-                <i className="fas fa-chevron-right text-xl" />
+                <i className="fas fa-chevron-right text-sm sm:text-xl" />
               </button>
             </div>
           </div>
