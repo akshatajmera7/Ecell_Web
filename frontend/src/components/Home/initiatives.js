@@ -8,28 +8,20 @@ const Initiatives = () => {
 
   const portfolioItems = [
     {
-      name: 'Pitchers Pilot',
-      image: '/pp.png',
+      name: 'Networking Arena',
+      image: '/na.png',
     },
     {
-      name: 'Internship Drive',
-      image: '/id1.png',
+      name: 'LaunhchPad',
+      image: '/lp.png',
     },
     {
-      name: 'Ground Reality',
-      image: '/gr.png',
+      name: 'Management Temotations',
+      image: '/mt.png',
     },
     {
-      name: 'Beyond Profits',
-      image: '/bp.png',
-    },
-    {
-      name: 'Startup Expo',
-      image: '/se.png', 
-    },
-    {
-      name: 'Pitch Perfect',
-      image: '/ppf.png', // Add your Pitch Perfect image file here
+      name: 'Speaker Sessions',
+      image: '/ss.png',
     },
   ];
   
