@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import teamBgImage from "../../assets/teamBgImage.webp";
-import Sagnik from "../../assets/sagnik.png";
-import Manav from "../../assets/manav.jpeg";
+import Sagnik from "../../assets/PORs/sagnik.jpg";
+import Manav from "../../assets/PORs/manav.jpg";
 import Shoaib from "../../assets/shoaib.png";
+import Shreshth from "../../assets/PORs/shreshth.jpg";
+import Surbhit from "../../assets/PORs/surbhit.jpeg";
 
 const teamMembers = [
   {
@@ -42,7 +44,7 @@ const teamMembers = [
   {
     name: "Shreshth Borkar",
     role: "Treasurer",
-    image: Manav,
+    image: Shreshth,
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
     bio: "Strategic thinker with a focus on innovation",
@@ -50,7 +52,7 @@ const teamMembers = [
   {
     name: "Surbhit Jain",
     role: "Operations Coordinator",
-    image: Shoaib,
+    image: Surbhit,
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
     bio: "Technology enthusiast driving digital transformation",
@@ -99,7 +101,7 @@ const OurTeam = () => {
   const handleNext = () => {
     setActiveIndex((currentIndex) => (currentIndex + 1) % carouselItems.length);
   };
-  
+
   const handlePrev = () => {
     setActiveIndex((currentIndex) =>
       currentIndex === 0 ? carouselItems.length - 1 : currentIndex - 1
@@ -176,11 +178,11 @@ const OurTeam = () => {
             >
               <div className="relative h-[500px] rounded-xl overflow-hidden group cursor-pointer">
                 {/* Card Background with Gradient Overlay */}
-                <div 
+                <div
                   className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black 
                   opacity-60 group-hover:opacity-90 transition-all duration-500"
                 />
-                
+
                 {/* Member Image */}
                 <img
                   src={member.image}
@@ -206,17 +208,15 @@ const OurTeam = () => {
                   </motion.div>
 
                   {/* Bio - Appears on Hover */}
-                  <div 
+                  <div
                     className={`transform transition-all duration-500 ${
-                      hoveredCard === index 
-                        ? 'opacity-100 translate-y-0' 
-                        : 'opacity-0 translate-y-10'
+                      hoveredCard === index
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
                     }`}
                   >
-                    <p className="text-gray-200 mb-6 text-lg">
-                      {member.bio}
-                    </p>
-                    
+                    <p className="text-gray-200 mb-6 text-lg">{member.bio}</p>
+
                     {/* Social Links */}
                     <div className="flex space-x-6">
                       <a
