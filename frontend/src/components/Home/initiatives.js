@@ -12,11 +12,11 @@ const Initiatives = () => {
       image: '/na.png',
     },
     {
-      name: 'LaunhchPad',
+      name: 'LaunchPad',
       image: '/lp.png',
     },
     {
-      name: 'Management Temotations',
+      name: 'Management Temptations',
       image: '/mt.png',
     },
     {
