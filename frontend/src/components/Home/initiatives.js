@@ -38,13 +38,13 @@ const Initiatives = () => {
   // Initialize AOS and setup auto carousel
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-
+  
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % portfolioItems.length);
     }, 2000);
-
+  
     return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+  }, [portfolioItems.length]); // Add portfolioItems.length as a dependency
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white p-8 relative">

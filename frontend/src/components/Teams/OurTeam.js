@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion"; 
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import teamBgImage from "../../assets/teamBgImage.webp"; // Import the background image
+import teamBgImage from "../../assets/teamBgImage.webp";
 import Sagnik from "../../assets/sagnik.png";
 import Manav from "../../assets/manav.jpeg";
 import Shoaib from "../../assets/shoaib.png";
-
 
 const teamMembers = [
   {
@@ -14,6 +13,7 @@ const teamMembers = [
     image: Sagnik,
     linkedin: "https://www.linkedin.com/in/johndoe",
     email: "john.doe@example.com",
+    bio: "Visionary leader passionate about entrepreneurship",
   },
   {
     name: "Manav Sharma",
@@ -21,6 +21,7 @@ const teamMembers = [
     image: Manav,
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
+    bio: "Strategic thinker with a focus on innovation",
   },
   {
     name: "Shoaib Khan",
@@ -28,162 +29,213 @@ const teamMembers = [
     image: Shoaib,
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
+    bio: "Technology enthusiast driving digital transformation",
   },
-  // Add more team members as needed
 ];
 
+const carouselItems = ["Legacy 1", "Legacy 2", "Legacy 3", "Legacy 4"];
+
 const OurTeam = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger once when the section enters view
-    threshold: 0.2, // Trigger when 20% of the section is visible
-  });
-
-  const cardControls = useAnimation();
-  const [cardRef, cardInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
   const [activeIndex, setActiveIndex] = useState(0);
-  const carouselItems = [
-    "Placeholder 1",
-    "Placeholder 2",
-    "Placeholder 3",
-  ];
+  const [ref, inView] = useInView({ threshold: 0.2 });
+  const [teamRef, teamInView] = useInView({ threshold: 0.2 });
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Initialize section title and card animations
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [inView, controls]);
-
-  useEffect(() => {
-    if (cardInView) {
-      cardControls.start("visible");
-    }
-  }, [cardInView, cardControls]);
-
-  // Automatic sliding of the carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
-    }, 3000);
-
-    return () => clearInterval(interval); // Cleanup on unmount
+      setActiveIndex((prev) => (prev + 1) % carouselItems.length);
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
-  const handlePrevClick = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1
+  const handleNext = () => {
+    setActiveIndex((currentIndex) => (currentIndex + 1) % carouselItems.length);
+  };
+  
+  const handlePrev = () => {
+    setActiveIndex((currentIndex) =>
+      currentIndex === 0 ? carouselItems.length - 1 : currentIndex - 1
     );
   };
 
-  const handleNextClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <div className="w-full bg-black text-white">
-      {/* Background Image Section */}
-      <section
-        className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-center"
-        style={{ backgroundImage: `url(${teamBgImage})` }}
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section - Kept the same */}
+      <motion.section
+        className="h-screen relative overflow-hidden flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${teamBgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <motion.div
-          className="animate-fadeIn"
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
-          transition={{ duration: 1 }}
-        >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight">
+        <div className="relative z-10 text-center px-4 bg-black bg-opacity-50 p-8 rounded-xl">
+          <motion.h1
+            className="text-6xl md:text-8xl font-bold mb-6"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.8 }}
+          >
             Our Team
-          </h1>
-        </motion.div>
+          </motion.h1>
+          <motion.p
+            className="text-2xl md:text-3xl text-gray-300"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            E - Cell 24-25
+          </motion.p>
+        </div>
+      </motion.section>
 
-        <motion.div
-          className="text-2xl mt-4 text-gray-300"
+      {/* Enhanced Team Members Section */}
+      <motion.section
+        ref={ref}
+        className="py-24 px-6"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={fadeIn}
+        transition={{ duration: 1 }}
+      >
+        <motion.h2
+          className="text-5xl font-bold text-center mb-16"
           initial="hidden"
-          animate={controls}
-          variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
+          animate={inView ? "visible" : "hidden"}
+          variants={fadeIn}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <p>E Cell 24-25</p>
-        </motion.div>
-      </section>
-
-      {/* Team Members Section */}
-      <section className="py-16">
-        <h2 className="text-4xl font-bold text-center mb-12">Meet Our PORs</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+          Meet Our PORs
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-              ref={cardRef}
+              className="relative group"
               initial="hidden"
-              animate={cardControls}
-              variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
-              transition={{ duration: 1, delay: index * 0.2 }}
+              animate={inView ? "visible" : "hidden"}
+              variants={fadeIn}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold">{member.name}</h3>
-                <p className="text-gray-400">{member.role}</p>
-                <div className="flex justify-center mt-4 space-x-4">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:text-blue-400"
+              <div className="relative h-[500px] rounded-xl overflow-hidden group cursor-pointer">
+                {/* Card Background with Gradient Overlay */}
+                <div 
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black 
+                  opacity-60 group-hover:opacity-90 transition-all duration-500"
+                />
+                
+                {/* Member Image */}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+
+                {/* Content Container */}
+                <div className="absolute inset-0 flex flex-col justify-end p-8 transform transition-all duration-500">
+                  {/* Name and Role */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="transform group-hover:-translate-y-4 transition-transform duration-500"
                   >
-                    <i className="fab fa-linkedin text-xl"></i>
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-red-500 hover:text-red-400"
+                    <h3 className="text-3xl font-bold mb-2 text-white">
+                      {member.name}
+                    </h3>
+                    <p className="text-xl font-semibold text-gray-200 mb-4">
+                      {member.role}
+                    </p>
+                  </motion.div>
+
+                  {/* Bio - Appears on Hover */}
+                  <div 
+                    className={`transform transition-all duration-500 ${
+                      hoveredCard === index 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-10'
+                    }`}
                   >
-                    <i className="fas fa-envelope text-xl"></i>
-                  </a>
+                    <p className="text-gray-200 mb-6 text-lg">
+                      {member.bio}
+                    </p>
+                    
+                    {/* Social Links */}
+                    <div className="flex space-x-6">
+                      <a
+                        href={member.linkedin}
+                        className="text-white hover:text-gray-300 transition-colors duration-300"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fab fa-linkedin text-2xl transform hover:scale-110 transition-transform duration-300" />
+                      </a>
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="text-white hover:text-gray-300 transition-colors duration-300"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fas fa-envelope text-2xl transform hover:scale-110 transition-transform duration-300" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Placeholder Carousel Section */}
-      <section className="py-16">
-        <h2 className="text-4xl font-bold text-center mb-12">E cell Team Photo</h2>
-        <div className="relative flex justify-center items-center w-3/4 mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <button
-            onClick={handlePrevClick}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full"
-          >
-            <i className="fas fa-chevron-left"></i>
-          </button>
-          <img
-            src={`https://via.placeholder.com/600x400?text=${carouselItems[activeIndex]}`}
-            alt={carouselItems[activeIndex]}
-            className="w-full h-96 object-cover transition-all duration-300 ease-in-out"
-          />
-          <button
-            onClick={handleNextClick}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full"
-          >
-            <i className="fas fa-chevron-right"></i>
-          </button>
+      {/* Legacy Section - Kept the same */}
+      <motion.section
+        ref={teamRef}
+        className="py-24 px-6 bg-black"
+        initial="hidden"
+        animate={teamInView ? "visible" : "hidden"}
+        variants={fadeIn}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="text-5xl font-bold text-center mb-16">
+          The Architects of Our Legacy
+        </h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl">
+            <motion.img
+              src={`https://via.placeholder.com/1920x1080?text=${carouselItems[activeIndex]}`}
+              alt={`Carousel item ${activeIndex}`}
+              key={activeIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 flex items-center justify-between p-4">
+              <button
+                onClick={handlePrev}
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i className="fas fa-chevron-left text-xl" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-3 rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i className="fas fa-chevron-right text-xl" />
+              </button>
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
