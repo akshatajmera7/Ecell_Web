@@ -10,7 +10,6 @@ const Initiatives = () => {
     {
       name: 'Pitchers Pilot',
       image: '/pp.png',
-
     },
     {
       name: 'Internship Drive',
@@ -20,7 +19,20 @@ const Initiatives = () => {
       name: 'Ground Reality',
       image: '/gr.png',
     },
+    {
+      name: 'Beyond Profits',
+      image: '/bp.png',
+    },
+    {
+      name: 'Startup Expo',
+      image: '/se.png', 
+    },
+    {
+      name: 'Pitch Perfect',
+      image: '/ppf.png', // Add your Pitch Perfect image file here
+    },
   ];
+  
   
   const navigate = useNavigate();
   // Initialize AOS and setup auto carousel
