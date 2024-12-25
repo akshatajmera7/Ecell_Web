@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import img1 from '../../assets/car.jpg';
 import img2 from '../../assets/pitch.jpg';
+import img3 from '../../assets/group.jpg';
 
 const Memories = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,7 +11,7 @@ const Memories = () => {
   const images = [
     img1, 
     img2, 
-    "https://via.placeholder.com/1200x800/7cffc4", 
+    img3, 
     "https://via.placeholder.com/1200x800/c47cff", 
     "https://via.placeholder.com/1200x800/7c84ff"
   ];
