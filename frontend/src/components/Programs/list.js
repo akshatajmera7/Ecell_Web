@@ -7,7 +7,7 @@ const List = () => {
     {
       title: "LAUNCHPAD",
       description: "Take your entrepreneurial journey to the next level! LaunchPad offers mentorship, resources, and insights to turn your big idea into a thriving reality.",
-      image: "/api/placeholder/600/400",
+      image: "../../assets/LaunchPad.JPG",
       link: "#",
     },
     {
