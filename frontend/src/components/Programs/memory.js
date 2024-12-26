@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import img1 from '../../assets/LaunchPad.JPG';
-import img2 from '../../assets/Speaker_session.png';
-import img3 from '../../assets/startup_expo.JPG';
+import img1 from '../../assets/Launchpad1.JPG';
+import img2 from '../../assets/speaker2.jpg';
+import img3 from '../../assets/startup.JPG';
 import img4 from '../../assets/auction.jpg';
 import img5 from '../../assets/class.jpg';
 import img6 from '../../assets/pitch.jpg';
