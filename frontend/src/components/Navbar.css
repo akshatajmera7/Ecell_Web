@@ -16,9 +16,9 @@
 }
 
 .navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +30,7 @@
   align-items: center;
   text-decoration: none;
   height: 100%;
+  margin-left: 2rem;
 }
 
 .navbar-logo-image {
@@ -44,6 +45,8 @@
   margin: 0;
   padding: 0;
   gap: 2rem;
+  margin-right: 0;
+  padding-right: 1rem;
 }
 
 .navbar-links li {
