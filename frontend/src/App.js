@@ -5,6 +5,7 @@ import Team from "./components/Teams/team";
 import Program from "./components/Programs/program";
 import Footer from "./components/footer";
 import Contact from "./components/contact";
+
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/program" element={<Program />} />
           <Route path="/contact" element={<Contact />} />
+          
         </Routes>
         <Footer />
       </div>

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import img1 from '../../assets/car.jpg';
+import img1 from '../../assets/Launchpad1.JPG';
+import img2 from '../../assets/speaker2.jpg';
+import img3 from '../../assets/startup.JPG';
+import img4 from '../../assets/auction.jpg';
+import img5 from '../../assets/class.jpg';
+import img6 from '../../assets/pitch.jpg';
 
 const Memories = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -8,10 +13,11 @@ const Memories = () => {
 
   const images = [
     img1, 
-    "https://via.placeholder.com/1200x800/ff7c7c", 
-    "https://via.placeholder.com/1200x800/7cffc4", 
-    "https://via.placeholder.com/1200x800/c47cff", 
-    "https://via.placeholder.com/1200x800/7c84ff"
+    img2, 
+    img3, 
+    img4, 
+    img5,
+    img6
   ];
 
   const controls = useAnimation();

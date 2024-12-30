@@ -1,43 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import img1 from '../../assets/LaunchPad.JPG';
+import img2 from '../../assets/Speaker_session.png';
+import img3 from '../../assets/startup_expo.JPG';
+import img4 from '../../assets/MT.png';
+import img5 from '../../assets/class.jpg';
+import img6 from '../../assets/pitch.jpg';
 
 const List = () => {
   const programs = [
     {
-      title: "Startup Accelerator",
-      description: "A 12-week intensive program helping early-stage startups scale their business with mentorship and resources.",
-      image: "/api/placeholder/600/400",
+      title: "LAUNCHPAD",
+      description: "Take your entrepreneurial journey to the next level! LaunchPad offers mentorship, resources, and insights to turn your big idea into a thriving reality.",
+      image:img1,
       link: "#",
     },
     {
-      title: "Innovation Lab",
-      description: "Access cutting-edge technology and expertise to bring your innovative ideas to life.",
-      image: "/api/placeholder/600/400",
+      title: "SPEAKERS SESSIONS",
+      description: "Gain exclusive access to industry leaders, innovators, and changemakers. Learn from their journeys, challenges, and strategies for success.",
+      image:img2,
       link: "#",
     },
     {
-      title: "Community Hub",
-      description: "A collaborative space where entrepreneurs can connect, learn, and grow together.",
-      image: "/api/placeholder/600/400",
+      title: "STARTUP SPOTLIGHT",
+      description: "Discover groundbreaking innovations as startups take the stage to showcase their visionary ideas. Be inspired by stories of grit, growth, and groundbreaking achievements.",
+      image: img3,
       link: "#",
     },
     {
-      title: "Startup Accelerator",
-      description: "A 12-week intensive program helping early-stage startups scale their business with mentorship and resources.",
-      image: "/api/placeholder/600/400",
+      title: "MANAGEMENT TEMPTATIONS",
+      description: "Unleash your strategic genius in this high-pressure simulation of real-world management challenges. Test your skills, compete with the best, and emerge as the ultimate problem-solver.",
+      image: img4,
       link: "#",
     },
     {
-      title: "Innovation Lab",
-      description: "Access cutting-edge technology and expertise to bring your innovative ideas to life.",
-      image: "/api/placeholder/600/400",
+      title: "NETWORKING ARENA",
+      description: "Connect, collaborate, and create opportunities. This is where ideas meet investors, teams find co-founders, and partnerships are forged.",
+      image:img5,
       link: "#",
     },
     {
-      title: "Community Hub",
-      description: "A collaborative space where entrepreneurs can connect, learn, and grow together.",
-      image: "/api/placeholder/600/400",
+      title: "PITCH PERFECT",
+      description: "The stage is set, the stakes are high—perfect your pitch and wow the judges. Compete to secure funding and take your startup to new heights.",
+      image: img6,
       link: "#",
     },
   ];
