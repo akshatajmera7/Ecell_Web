@@ -8,6 +8,10 @@ const Initiatives = () => {
 
   const portfolioItems = [
     {
+      name: 'Speaker Sessions',
+      image: '/ss.jpg',
+    },
+    {
       name: 'Networking Arena',
       image: '/na.png',
     },
@@ -17,11 +21,7 @@ const Initiatives = () => {
     },
     {
       name: 'Management Temptations',
-      image: '/mt.png',
-    },
-    {
-      name: 'Speaker Sessions',
-      image: '/ss.png',
+      image: '/MT2.png',
     },
   ];
   
