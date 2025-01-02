@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import logo from '../../assets/ecell.jpg';
-import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/launchpad25.JPG';
+
 
 const BrandSprintContainer = styled.div`
   display: flex;
@@ -139,7 +139,7 @@ const Launchpad = () => {
     AOS.init({ duration: 1200 });
   }, []);
 
-  const navigate = useNavigate();
+
 
   return (
     <BrandSprintContainer>
@@ -158,9 +158,11 @@ const Launchpad = () => {
           <ListItem>Networking Arena</ListItem>
         </List>
         <div>
-          <Button onClick={() => navigate('/launchpad')}>Explore Launchpad</Button>
-          <SpotsLeft>Annual Entrepreneurial Summit</SpotsLeft>
-        </div>
+  <Button onClick={() => window.location.href = 'https://launchpad-ten-rose.vercel.app/'}>
+    Explore Launchpad
+  </Button>
+  <SpotsLeft>Annual Entrepreneurial Summit</SpotsLeft>
+</div>
       </TextContainer>
     </BrandSprintContainer>
   );

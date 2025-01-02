@@ -58,7 +58,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink 
-              to="/launchpad" 
+              to="https://launchpad-ten-rose.vercel.app/" 
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >
