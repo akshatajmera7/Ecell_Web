@@ -12,12 +12,12 @@ const Memories = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const images = [
-    img1, 
-    img2, 
-    img3, 
-    img4, 
+    img1,
+    img2,
+    img3,
+    img4,
     img5,
-    img6
+    img6,
   ];
 
   const controls = useAnimation();
@@ -38,7 +38,9 @@ const Memories = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+      setActiveIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
     }, 3000);
 
     return () => clearInterval(timer);
@@ -61,49 +63,57 @@ const Memories = () => {
   };
 
   const variants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       x: isMobile ? 50 : 100,
-      scale: 0.9
+      scale: 0.9,
     },
-    visible: { 
+    visible: {
       opacity: 1,
       x: 0,
-      scale: 1
+      scale: 1,
     },
   };
 
   return (
     <div className="w-full bg-black py-12">
-      <div className="max-w-7xl mx-auto relative overflow-hidden h-[60vh]">
-        <div className={`flex justify-center items-center ${isMobile ? 'gap-0' : 'gap-8'} h-full`}>
+      <div className="max-w-7xl mx-auto relative h-[60vh]">
+        <div
+          className={`flex justify-center items-center ${
+            isMobile ? 'gap-0' : 'gap-8'
+          } h-full`}
+        >
           {getVisibleImages().map((image, idx) => (
             <motion.div
               key={image.index}
-              className={`relative transform transition-all duration-700 rounded-xl overflow-hidden
+              className={`relative transform transition-all duration-700 rounded-xl overflow-hidden bg-gray-800
                 ${isMobile
                   ? 'w-[80%] mx-auto'
                   : idx === 0
                   ? 'w-[300px] lg:w-[400px] opacity-50'
                   : idx === 1
                   ? 'w-[400px] lg:w-[500px] opacity-100 scale-105'
-                  : 'w-[300px] lg:w-[400px] opacity-50'
-                }`}
+                  : 'w-[300px] lg:w-[400px] opacity-50'}
+              `}
               initial="hidden"
               animate={controls}
               variants={variants}
-              transition={{ 
+              transition={{
                 duration: 0.7,
-                ease: "easeOut"
+                ease: 'easeOut',
               }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }} // Entry animation
-              whileOutOfView={{ opacity: 0, x: 100, scale: 0.9 }} // Exit animation
-              viewport={{ once: false, amount: 0.5 }} // Trigger animation when 50% of the element is in view
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              whileOutOfView={{ opacity: 0, x: 100, scale: 0.9 }}
+              viewport={{ once: false, amount: 0.5 }}
             >
+              {/* Image with consistent styling */}
               <img
                 src={image.src}
                 alt={`Slide ${image.index}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
+                style={{
+                  boxShadow: '0 0 30px 10px rgba(138, 46, 226, 1)',
+                }}
               />
             </motion.div>
           ))}
@@ -116,9 +126,10 @@ const Memories = () => {
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 
-                ${activeIndex === index 
-                  ? 'bg-white w-4' 
-                  : 'bg-white/50 hover:bg-white/70'
+                ${
+                  activeIndex === index
+                    ? 'bg-white w-4'
+                    : 'bg-white/50 hover:bg-white/70'
                 }`}
             />
           ))}

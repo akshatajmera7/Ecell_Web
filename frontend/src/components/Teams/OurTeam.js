@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import teamBgImage from "../../assets/teamBgImage.webp";
 import Sagnik from "../../assets/PORs/sagnik.jpg";
+import Advik from "../../assets/PORs/advik.png"
 import Manav from "../../assets/PORs/manav.jpg";
 import Shoaib from "../../assets/shoaib.png";
 import Shreshth from "../../assets/PORs/shreshth.jpg";
 import Surbhit from "../../assets/PORs/surbhit.jpeg";
+import Vaishnavi from "../../assets/PORs/vaishnavi.png";
 
 const teamMembers = [
   {
@@ -36,7 +38,7 @@ const teamMembers = [
   {
     name: "Advik Kulkarni",
     role: "Vice President Collaboration and Initiatives",
-    image: Sagnik,
+    image: Advik,
     linkedin: "https://www.linkedin.com/in/johndoe",
     email: "john.doe@example.com",
     bio: "Visionary leader passionate about entrepreneurship",
@@ -76,7 +78,7 @@ const teamMembers = [
   {
     name: "Vaishnavi K",
     role: "Media Head",
-    image: Shoaib,
+    image: Vaishnavi,
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
     bio: "Technology enthusiast driving digital transformation",
