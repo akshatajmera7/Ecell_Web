@@ -1,4 +1,4 @@
-<h1>Official Repo for E-Cell BPHC</h1>
+<h1>Official Repository for E-Cell BPHC</h1>
 
 <h4>Made With Care and Profession by E-Cell Tech Team 24-25 </h4>
 Instructions for Running<br>
