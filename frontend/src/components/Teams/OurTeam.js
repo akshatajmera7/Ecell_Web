@@ -9,6 +9,7 @@ import Shoaib from "../../assets/shoaib.png";
 import Shreshth from "../../assets/PORs/shreshth.jpg";
 import Surbhit from "../../assets/PORs/surbhit.jpeg";
 import Vaishnavi from "../../assets/PORs/vaishnavi.png";
+import Raghav from "../../assets/PORs/raghav.jpeg";
 
 const teamMembers = [
   {
@@ -30,7 +31,7 @@ const teamMembers = [
   {
     name: "Raghav Agarwal",
     role: "Vice President Projects and Learning",
-    image: Shoaib,
+    image: Raghav,
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
     bio: "Technology enthusiast driving digital transformation",

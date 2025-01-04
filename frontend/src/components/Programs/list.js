@@ -6,7 +6,6 @@ import img2 from '../../assets/Speaker_session.png';
 import img3 from '../../assets/startup_expo.JPG';
 import img4 from '../../assets/MT.png';
 import img5 from '../../assets/class.jpg';
-import img6 from '../../assets/pitch.jpg';
 
 const List = () => {
   const programs = [
@@ -39,13 +38,7 @@ const List = () => {
       description: "Connect, collaborate, and create opportunities. This is where ideas meet investors, teams find co-founders, and partnerships are forged.",
       image:img5,
       link: "#",
-    },
-    {
-      title: "PITCH PERFECT",
-      description: "The stage is set, the stakes are high—perfect your pitch and wow the judges. Compete to secure funding and take your startup to new heights.",
-      image: img6,
-      link: "#",
-    },
+    }
   ];
 
   const containerVariants = {
