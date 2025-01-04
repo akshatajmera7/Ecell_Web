@@ -9,7 +9,7 @@ const Initiatives = () => {
   const portfolioItems = [
     {
       name: 'Speaker Sessions',
-      image: '/ss.jpg',
+      image: '/ss.JPG',
     },
     {
       name: 'Networking Arena',
