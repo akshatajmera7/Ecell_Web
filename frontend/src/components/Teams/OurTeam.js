@@ -10,12 +10,13 @@ import Shreshth from "../../assets/PORs/shreshth.jpg";
 import Surbhit from "../../assets/PORs/surbhit.jpeg";
 import Vaishnavi from "../../assets/PORs/vaishnavi.png";
 import Raghav from "../../assets/PORs/raghav.jpeg";
+import Om from "../../assets/PORs/om.jpeg";
 
 const teamMembers = [
   {
     name: "Om Sonkusare",
     role: "President",
-    image: Sagnik,
+    image: Om,
     linkedin: "https://www.linkedin.com/in/johndoe",
     email: "john.doe@example.com",
     bio: "Visionary leader passionate about entrepreneurship",
