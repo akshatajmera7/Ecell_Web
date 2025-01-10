@@ -1,122 +1,116 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import img1 from '../../assets/Launchpad1.JPG';
-import img2 from '../../assets/speaker2.jpg';
-import img3 from '../../assets/startup.JPG';
-import img4 from '../../assets/auction.jpg';
-import img5 from '../../assets/class.jpg';
-import img6 from '../../assets/pitch.jpg';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+import img1 from "../../assets/Launchpad1.JPG";
+import img2 from "../../assets/speaker2.jpg";
+import img3 from "../../assets/startup.JPG";
+import img4 from "../../assets/auction.jpg";
+import img5 from "../../assets/class.jpg";
+import img6 from "../../assets/pitch.jpg";
 
 const Memories = () => {
+  const images = [img1, img2, img3, img4, img5, img6];
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const images = [
-    img1,
-    img2,
-    img3,
-    img4,
-    img5,
-    img6,
-  ];
-
-  const controls = useAnimation();
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // Initial check
-    handleResize();
-
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
-
-    return () => clearInterval(timer);
+    const interval = setInterval(() => {
+      setDirection(1);
+      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2500);
+    return () => clearInterval(interval);
   }, [images.length]);
 
-  const getVisibleImages = () => {
-    if (isMobile) {
-      return [{ src: images[activeIndex], index: activeIndex }];
-    }
-
-    const visibleImages = [];
-    for (let i = -1; i <= 1; i++) {
-      const index = (activeIndex + i + images.length) % images.length;
-      visibleImages.push({
-        src: images[index],
-        index,
-      });
-    }
-    return visibleImages;
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+      scale: 0.6,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: 1,
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -1000 : 1000,
+      opacity: 0,
+      scale: 0.6,
+      zIndex: 0,
+    }),
   };
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      x: isMobile ? 50 : 100,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-    },
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const paginate = (newDirection) => {
+    setDirection(newDirection);
+    setActiveIndex(
+      (prevIndex) => (prevIndex + newDirection + images.length) % images.length
+    );
   };
 
   return (
     <div className="w-full bg-black py-12">
-      <div className="max-w-7xl mx-auto relative h-[60vh]">
-        <div
-          className={`flex justify-center items-center ${
-            isMobile ? 'gap-0' : 'gap-8'
-          } h-full`}
-        >
-          {getVisibleImages().map((image, idx) => (
+      <div className="max-w-6xl mx-auto h-[70vh] relative overflow-hidden">
+        <div className="flex justify-center items-center h-full relative">
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
-              key={image.index}
-              className={`relative transform transition-all duration-700 rounded-xl overflow-hidden bg-gray-800
-                ${isMobile
-                  ? 'w-[80%] mx-auto'
-                  : idx === 0
-                  ? 'w-[300px] lg:w-[400px] opacity-50'
-                  : idx === 1
-                  ? 'w-[400px] lg:w-[500px] opacity-100 scale-105'
-                  : 'w-[300px] lg:w-[400px] opacity-50'}
-              `}
-              initial="hidden"
-              animate={controls}
-              variants={variants}
+              key={activeIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="absolute w-1/2 h-3/4 rounded-lg overflow-hidden shadow-lg"
               transition={{
-                duration: 0.7,
-                ease: 'easeOut',
+                x: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30,
+                  duration: 2.5,
+                }, // Increased slide time to 2.5 seconds
+                opacity: { duration: 0.2 }, // Keep opacity transition as it was
+                scale: { duration: 0.2 }, // Keep scale transition as it was
               }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              whileOutOfView={{ opacity: 0, x: 100, scale: 0.9 }}
-              viewport={{ once: false, amount: 0.5 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(_, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(-1);
+                }
+              }}
             >
-              {/* Image with consistent styling */}
               <img
-                src={image.src}
-                alt={`Slide ${image.index}`}
-                className="w-full h-full object-cover rounded-lg shadow-lg"
-                style={{
-                  boxShadow: '0 0 30px 10px rgba(138, 46, 226, 1)',
-                }}
+                src={images[activeIndex]}
+                alt={`Carousel Slide ${activeIndex}`}
+                className="w-full h-full object-cover"
               />
             </motion.div>
-          ))}
+          </AnimatePresence>
+        </div>
+
+        {/* Side previews */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-4 w-1/4 h-3/4 opacity-40 scale-75">
+          <img
+            src={images[(activeIndex - 1 + images.length) % images.length]}
+            alt="Previous"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+        <div className="absolute top-1/2 -translate-y-1/2 right-4 w-1/4 h-3/4 opacity-40 scale-75">
+          <img
+            src={images[(activeIndex + 1) % images.length]}
+            alt="Next"
+            className="w-full h-full object-cover rounded-lg"
+          />
         </div>
 
         {/* Navigation dots */}
@@ -124,13 +118,13 @@ const Memories = () => {
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 
-                ${
-                  activeIndex === index
-                    ? 'bg-white w-4'
-                    : 'bg-white/50 hover:bg-white/70'
-                }`}
+              onClick={() => {
+                setDirection(index > activeIndex ? 1 : -1);
+                setActiveIndex(index);
+              }}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                activeIndex === index ? "bg-white scale-125" : "bg-white/50"
+              }`}
             />
           ))}
         </div>
