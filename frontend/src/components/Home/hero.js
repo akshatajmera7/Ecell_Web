@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import videohp from '../../assets/videohp.mp4';
 
@@ -31,24 +31,26 @@ const Hero = () => {
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white px-4"
             >
                 <motion.h2
-                    className="text-4xl sm:text-3xl font-bold uppercase tracking-wide text-white shadow-md"
+                    className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight text-white shadow-md"
                     variants={headingAnimation}
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
                 >
-                    E-Cell BITS Pilani Hyderabad Campus
+                    E-Cell  
+                    <br />
+                    BITS Pilani Hyderabad Campus
                 </motion.h2>
                 <motion.p
-                    className="text-lg sm:text-sm mt-4 text-gray-300 shadow-sm"
+                    className="text-lg md:text-xl text-gray-400 leading-relaxed shadow-sm"
                     variants={subheadingAnimation}
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
                 >
-                    Empowering Entrepreneurs, Inspiring Innovation
+                    Leading force in fostering a vibrant entrepreneurial ecosystem within our institution and beyond.
                 </motion.p>
             </div>
         </div>
     );
-}
+};
 
 export default Hero;

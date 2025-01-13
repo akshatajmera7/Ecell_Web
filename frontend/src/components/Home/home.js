@@ -10,7 +10,6 @@ function Home() {
   return (
     <div>
     <Hero/>
-    <Intro/>
     <Startup/>
     <Initiatives/>
     <Launchpad/>
