@@ -1,53 +1,74 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import videohp from '../../assets/videohp.mp4';
 
 const Hero = () => {
-    const { ref, inView } = useInView({
-        triggerOnce: true, // Trigger animation only once
-        threshold: 0.2, // Trigger when 20% of the component is in view
-    });
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }, []);
 
     const headingAnimation = {
-        hidden: { opacity: 0, y: -50 },
+        hidden: { opacity: 0, y: -30 },
         visible: { opacity: 1, y: 0, transition: { duration: 1 } },
     };
 
     const subheadingAnimation = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
     };
 
     return (
-        <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black/60 to-black/90">
-            <div className="absolute inset-0 z-[-1]">
-                <video className="object-cover w-full h-full" autoPlay muted loop playsInline>
+        <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+            {/* Background Video */}
+            <div className="absolute inset-0 z-[-2]">
+                <video
+                    className="object-cover w-full h-full"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                >
                     <source src={videohp} type="video/mp4" />
                 </video>
             </div>
-            <div 
-                ref={ref} 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white px-4"
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+
+            {/* Content */}
+            <div
+                className="relative z-10 text-center text-white px-6 flex flex-col items-center"
+                data-aos="fade-down"
+                data-aos-easing="ease-in-out"
             >
-                <motion.h2
-                    className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight text-white shadow-md"
+                <motion.h1
+                    className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wide leading-tight mb-6"
+                    style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        letterSpacing: '-0.02em',
+                    }}
                     variants={headingAnimation}
                     initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
+                    animate="visible"
                 >
-                    E-Cell  
-                    <br />
-                    BITS Pilani Hyderabad Campus
-                </motion.h2>
-                <motion.p
-                    className="text-lg md:text-xl text-gray-400 leading-relaxed shadow-sm"
+                    E - Cell
+                </motion.h1>
+                <motion.h2
+                    className="text-xl md:text-2xl lg:text-3xl text-gray-400 font-light"
+                    style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        letterSpacing: '0em',
+                    }}
                     variants={subheadingAnimation}
                     initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
+                    animate="visible"
                 >
-                    Leading force in fostering a vibrant entrepreneurial ecosystem within our institution and beyond.
-                </motion.p>
+                    BITS Pilani Hyderabad Campus
+                </motion.h2>
             </div>
         </div>
     );
