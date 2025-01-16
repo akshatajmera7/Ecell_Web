@@ -16,14 +16,14 @@ const Startup = () => {
     const scrollEffect = () => {
       if (scrollContainer.current) {
         const container = scrollContainer.current;
-        container.scrollLeft += 1; // Adjust speed here
+        container.scrollLeft += 2; // Increased speed
         if (container.scrollLeft >= container.scrollWidth / 2) {
           container.scrollLeft = 0; // Reset to loop
         }
       }
     };
 
-    const interval = setInterval(scrollEffect, 30); // Controls the speed of scrolling
+    const interval = setInterval(scrollEffect, 20); // Increased scroll speed
     return () => clearInterval(interval);
   }, []);
 
@@ -89,7 +89,7 @@ const Startup = () => {
         {/* Scroll Buttons */}
         <div className="relative">
           <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl"
             onClick={() => handleScroll('left')}
             style={{ border: 'none', cursor: 'pointer' }}
           >
@@ -122,7 +122,7 @@ const Startup = () => {
             </div>
           </div>
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-12 h-12 flex items-center justify-center text-3xl"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl"
             onClick={() => handleScroll('right')}
             style={{ border: 'none', cursor: 'pointer' }}
           >
@@ -135,3 +135,4 @@ const Startup = () => {
 };
 
 export default Startup;
+y
