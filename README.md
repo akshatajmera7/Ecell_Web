@@ -5,4 +5,4 @@ Instructions for Running<br>
 npm i <br>
 npm start <br>
 
-<h5>First Version @ 2024-25</h5>
+<h5>First Version @ 2024 - 25</h5>
