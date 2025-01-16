@@ -6,8 +6,8 @@ function Programs() {
   return (
     <div>
     <Intro/>
-    <Memory/>
     <List/>
+    <Memory/>
     </div>
   );
 }
