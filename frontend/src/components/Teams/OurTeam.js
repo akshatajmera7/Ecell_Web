@@ -123,7 +123,7 @@ const OurTeam = () => {
       <motion.section
         className="h-screen relative overflow-hidden flex items-center justify-center"
         style={{
-          backgroundImage: `url(${teamBgImage})`,
+          // backgroundImage: `url(${teamBgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -201,7 +201,7 @@ const OurTeam = () => {
         </div>
       </motion.section>
 
-      {/* Carousel Section */}
+      {/* Carousel Section
       <motion.section
         ref={teamRef}
         className="py-12 sm:py-24 px-4 sm:px-6 bg-black"
@@ -240,7 +240,7 @@ const OurTeam = () => {
             </div>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 };
