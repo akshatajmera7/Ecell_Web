@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import teamBgImage from "../../assets/teamBgImage.webp";
+
 import Sagnik from "../../assets/PORs/sagnik.jpg";
 import Advik from "../../assets/PORs/advik.png"
 import Manav from "../../assets/PORs/manav.jpg";
@@ -90,9 +90,9 @@ const teamMembers = [
 const carouselItems = ["Legacy 1", "Legacy 2", "Legacy 3", "Legacy 4"];
 
 const OurTeam = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [, setActiveIndex] = useState(0);
   const [ref, inView] = useInView({ threshold: 0.2 });
-  const [teamRef, teamInView] = useInView({ threshold: 0.2 });
+  const [, ] = useInView({ threshold: 0.2 });
   const [, setHoveredCard] = useState(null);
 
   useEffect(() => {
@@ -101,16 +101,6 @@ const OurTeam = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleNext = () => {
-    setActiveIndex((currentIndex) => (currentIndex + 1) % carouselItems.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((currentIndex) =>
-      currentIndex === 0 ? carouselItems.length - 1 : currentIndex - 1
-    );
-  };
 
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },

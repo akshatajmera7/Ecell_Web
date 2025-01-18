@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import videohp from '../../assets/videohp.mp4';
+import videohp from '../../assets/vid2.mp4';
 
 const Hero = () => {
     useEffect(() => {
