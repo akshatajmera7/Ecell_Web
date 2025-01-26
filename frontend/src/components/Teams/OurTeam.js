@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import Sagnik from "../../assets/PORs/sagnik.jpg";
-import Advik from "../../assets/PORs/advik.png"
+import Advik from "../../assets/PORs/advik.png";
 import Manav from "../../assets/PORs/manav.jpg";
 import Shoaib from "../../assets/shoaib.png";
 import Shreshth from "../../assets/PORs/shreshth.jpg";
@@ -14,6 +14,14 @@ import Om from "../../assets/PORs/om.jpeg";
 
 const teamMembers = [
   {
+    name: "Sagnik Paul",
+    role: "Launchpad Chairman",
+    image: Sagnik,
+    linkedin: "https://www.linkedin.com/in/janesmith",
+    email: "jane.smith@example.com",
+    bio: "Strategic thinker with a focus on innovation",
+  },
+  {
     name: "Om Sonkusare",
     role: "President",
     image: Om,
@@ -22,12 +30,12 @@ const teamMembers = [
     bio: "Visionary leader passionate about entrepreneurship",
   },
   {
-    name: "Sagnik Paul",
-    role: "Launchpad Chairman",
-    image: Sagnik,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
-    bio: "Strategic thinker with a focus on innovation",
+    name: "Manav Sharma",
+    role: "Vice Chairman",
+    image: Manav,
+    linkedin: "https://www.linkedin.com/in/johndoe",
+    email: "john.doe@example.com",
+    bio: "Visionary leader passionate about entrepreneurship",
   },
   {
     name: "Raghav Agarwal",
@@ -62,14 +70,6 @@ const teamMembers = [
     bio: "Technology enthusiast driving digital transformation",
   },
   {
-    name: "Manav Sharma",
-    role: "Vice Chairman",
-    image: Manav,
-    linkedin: "https://www.linkedin.com/in/johndoe",
-    email: "john.doe@example.com",
-    bio: "Visionary leader passionate about entrepreneurship",
-  },
-  {
     name: "Shoaib Khan",
     role: "Tech Head",
     image: Shoaib,
@@ -92,7 +92,7 @@ const carouselItems = ["Legacy 1", "Legacy 2", "Legacy 3", "Legacy 4"];
 const OurTeam = () => {
   const [, setActiveIndex] = useState(0);
   const [ref, inView] = useInView({ threshold: 0.2 });
-  const [, ] = useInView({ threshold: 0.2 });
+  const [,] = useInView({ threshold: 0.2 });
   const [, setHoveredCard] = useState(null);
 
   useEffect(() => {
