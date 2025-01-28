@@ -220,6 +220,47 @@ const OurTeam = () => {
             </motion.div>
           ))}
         </div>
+        {/* Carousel Section
+      <motion.section
+        ref={teamRef}
+        className="py-12 sm:py-24 px-4 sm:px-6 bg-black"
+        initial="hidden"
+        animate={teamInView ? "visible" : "hidden"}
+        variants={fadeIn}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16">
+          The Architects of Our Legacy
+        </h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
+            <motion.img
+              src={`https://via.placeholder.com/1920x1080?text=${carouselItems[activeIndex]}`}
+              alt={`Carousel item ${activeIndex}`}
+              key={activeIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 flex items-center justify-between p-4">
+              <button
+                onClick={handlePrev}
+                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i className="fas fa-chevron-left text-sm sm:text-xl" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i className="fas fa-chevron-right text-sm sm:text-xl" />
+              </button>
+            </div>
+          </div>
+        </div>
+        
+      </motion.section> */}
       </section>
     </div>
   );
