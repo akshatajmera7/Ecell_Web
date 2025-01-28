@@ -17,14 +17,6 @@ import Ishika from "../../assets/PORs/ishika.jpeg";
 
 const teamMembers = [
   {
-    name: "Sagnik Paul",
-    role: "Launchpad Chairman",
-    image: Sagnik,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
-    bio: "Strategic thinker with a focus on innovation",
-  },
-  {
     name: "Om Sonkusare",
     role: "President",
     image: Om,
@@ -33,9 +25,17 @@ const teamMembers = [
     bio: "Visionary leader passionate about entrepreneurship",
   },
   {
-    name: "Manav Sharma",
-    role: "Vice Chairman",
-    image: Manav,
+    name: "Sagnik Paul",
+    role: "Launchpad Chairman",
+    image: Sagnik,
+    linkedin: "https://www.linkedin.com/in/janesmith",
+    email: "jane.smith@example.com",
+    bio: "Strategic thinker with a focus on innovation",
+  },
+  {
+    name: "Advik Kulkarni",
+    role: "Vice President Collaboration and Initiatives",
+    image: Advik,
     linkedin: "https://www.linkedin.com/in/johndoe",
     email: "john.doe@example.com",
     bio: "Visionary leader passionate about entrepreneurship",
@@ -49,9 +49,9 @@ const teamMembers = [
     bio: "Technology enthusiast driving digital transformation",
   },
   {
-    name: "Advik Kulkarni",
-    role: "Vice President Collaboration and Initiatives",
-    image: Advik,
+    name: "Manav Sharma",
+    role: "Vice Chairman",
+    image: Manav,
     linkedin: "https://www.linkedin.com/in/johndoe",
     email: "john.doe@example.com",
     bio: "Visionary leader passionate about entrepreneurship",
