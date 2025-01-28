@@ -108,7 +108,8 @@ const teamMembers = [
     name: "Ishika",
     role: "Internship Coordinator",
     image: Ishika,
-    linkedin: "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    linkedin:
+      "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     email: "jane.smith@example.com",
     bio: "Technology enthusiast driving digital transformation",
   },
@@ -119,14 +120,25 @@ const carouselItems = ["Legacy 1", "Legacy 2", "Legacy 3", "Legacy 4"];
 const OurTeam = () => {
   const [, setActiveIndex] = useState(0);
   const [ref, inView] = useInView({ threshold: 0.2 });
-  const [,] = useInView({ threshold: 0.2 });
   const [, setHoveredCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % carouselItems.length);
     }, 4000);
-    return () => clearInterval(interval);
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   const fadeIn = {
@@ -140,7 +152,6 @@ const OurTeam = () => {
       <motion.section
         className="h-screen relative overflow-hidden flex items-center justify-center"
         style={{
-          // backgroundImage: `url(${teamBgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -168,18 +179,11 @@ const OurTeam = () => {
       </motion.section>
 
       {/* Team Members Section */}
-      <motion.section
-        ref={ref}
-        className="py-12 sm:py-24 px-4 sm:px-6 lg:px-12"
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={fadeIn}
-        transition={{ duration: 1 }}
-      >
+      <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 lg:px-12">
         <motion.h2
           className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16"
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView && !isMobile ? "visible" : "visible"}
           variants={fadeIn}
           transition={{ duration: 1, delay: 0.2 }}
         >
@@ -191,7 +195,7 @@ const OurTeam = () => {
               key={index}
               className="relative group"
               initial="hidden"
-              animate={inView ? "visible" : "hidden"}
+              animate={inView && !isMobile ? "visible" : "visible"}
               variants={fadeIn}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               onMouseEnter={() => setHoveredCard(index)}
@@ -216,48 +220,7 @@ const OurTeam = () => {
             </motion.div>
           ))}
         </div>
-      </motion.section>
-
-      {/* Carousel Section
-      <motion.section
-        ref={teamRef}
-        className="py-12 sm:py-24 px-4 sm:px-6 bg-black"
-        initial="hidden"
-        animate={teamInView ? "visible" : "hidden"}
-        variants={fadeIn}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16">
-          The Architects of Our Legacy
-        </h2>
-        <div className="max-w-4xl mx-auto">
-          <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
-            <motion.img
-              src={`https://via.placeholder.com/1920x1080?text=${carouselItems[activeIndex]}`}
-              alt={`Carousel item ${activeIndex}`}
-              key={activeIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="object-cover w-full h-full"
-            />
-            <div className="absolute inset-0 flex items-center justify-between p-4">
-              <button
-                onClick={handlePrev}
-                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20"
-              >
-                <i className="fas fa-chevron-left text-sm sm:text-xl" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20"
-              >
-                <i className="fas fa-chevron-right text-sm sm:text-xl" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </motion.section> */}
+      </section>
     </div>
   );
 };
