@@ -1,106 +1,120 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const ImageGallery = () => {
-  const images = [
-    { id: 1, src: "/enac.png", alt: "ENACTUS" },
-    { id: 2, src: "/thub.png", alt: "T-HUB" },
-    { id: 3, src: "/ts.png", alt: "TURBO START" },
-    { id: 4, src: "/yss.png", alt: "YOUR STARTUP SOLUTIONS" },
-    { id: 5, src: "/rad.png", alt: "RENT A DESK" },
-    { id: 6, src: "/ja1.png", alt: "JAARVIS ACCELERATOR" },
-    { id: 7, src: "/ss.png", alt: "SUCSEED" },
-    { id: 8, src: "/1s.png", alt: "10000 STARTUPS" },
-    { id: 9, src: "/ca.png", alt: "CA TECHNOLOGIES" },
-    { id: 10, src: "/sc.png", alt: "SCIO FOUNDATION" },
-    { id: 11, src: "/50k.png", alt: "50K NETWORK" },
-    { id: 12, src: "/vc.png", alt: "VENTURE CATALYSTS" },
-    { id: 13, src: "/suh.png", alt: "START UP HYDERABAD" },
-    { id: 14, src: "/gc2.png", alt: "GOOGLE CLOUD" },
-    { id: 15, src: "/cd1.png", alt: "CLOUDESIGN" },
-    { id: 16, src: "/bb.png", alt: "BADA BUSINESS" },
-    { id: 17, src: "/lwt.png", alt: "LEARNING WHILE TRAVELLING" },
-    { id: 18, src: "/nc.png", alt: "N/CORE" },
-    { id: 19, src: "/lemon.png", alt: "LEMON" },
-    { id: 20, src: "/ic.png", alt: "IVYCAP VENTURES" },
-    { id: 21, src: "/la.png", alt: "LEAD ANGELS" },
-    { id: 22, src: "/cos.png", alt: "COSMOS" },
-    { id: 23, src: "/eih.png", alt: "ECELL IIIT HYDERABAD" },
+const MediaAssociates = () => {
+  const associates = [
+    {
+      id: 1,
+      name: "Aftermovie Partner",
+      image: "/api/placeholder/200/200", // Replace with your image URLs
+      link: "#",
+      category: "AFTERMOVIE PARTNER"
+    },
+    {
+      id: 2,
+      name: "Coverage Partner",
+      image: "/api/placeholder/200/200",
+      link: "#",
+      category: "COVERAGE PARTNER"
+    },
+    {
+      id: 3,
+      name: "PVR Inox",
+      image: "/api/placeholder/200/200",
+      link: "#",
+      category: "OFFICIAL MULTIPLEX PARTNER"
+    },
+    {
+      id: 4,
+      name: "BIG FM",
+      image: "/api/placeholder/200/200",
+      link: "#",
+      category: "RADIO PARTNER"
+    },
+    {
+      id: 5,
+      name: "Business Today",
+      image: "/api/placeholder/200/200",
+      link: "#",
+      category: "MEDIA PARTNER"
+    },
+    {
+      id: 6,
+      name: "Business Standard",
+      image: "/api/placeholder/200/200",
+      link: "#",
+      category: "MEDIA PARTNER"
+    }
   ];
 
   return (
-
-    <div className="relative w-full bg-black py-16 overflow-hidden">
-          <div className="relative max-w-full mx-auto px-4">
-            {/* Title */}
-            <h3 className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 mb-12 tracking-tight">
-              Our Past Partners
-            </h3>
-          </div>
-
-    <div className="relative bg-black min-h-screen w-full flex flex-col items-center py-10 overflow-hidden">
-      {/* Particle and Glow Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(100)].map((_, i) => (
+    <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
+      <div className="absolute inset-0">
+        {/* No gradient background, keeping it pure black */}
+        {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 rounded-full"
+            className="absolute rounded-full"
             style={{
+              width: Math.random() * 4 + 1 + 'px',
+              height: Math.random() * 4 + 1 + 'px',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              backgroundColor: `hsl(${220 + Math.random() * 40}, 85%, 75%)`,
-              opacity: Math.random() * 0.5 + 0.1,
-              transform: `scale(${Math.random() * 0.5 + 0.5})`,
-              animation: `twinkle ${2 + Math.random() * 4}s infinite ${Math.random() * 5}s`,
+              backgroundColor: `rgba(63, 81, 181, ${Math.random() * 0.3})`,
+              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`
             }}
           />
         ))}
       </div>
 
-      {/* Gallery Content */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 px-8 z-10 relative">
-        {images.map((image, index) => (
-          <motion.div
-            key={image.id}
-            className="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-48 object-cover rounded-lg"
-            />
-          </motion.div>
-        ))}
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <motion.h2
+          className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-16 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          MEDIA ASSOCIATES
+        </motion.h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          {associates.map((associate, index) => (
+            <motion.a
+              href={associate.link}
+              key={associate.id}
+              className="group cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className="relative rounded-2xl bg-gradient-to-b from-neutral-800/50 to-neutral-900/50 backdrop-blur-sm border border-blue-700/30 p-2 md:p-3 lg:p-4 transform transition-all duration-300 group-hover:scale-105 group-hover:border-blue-500/40">
+                <div className="aspect-square rounded-xl overflow-hidden bg-white mb-2 md:mb-3 lg:mb-4">
+                  <img
+                    src={associate.image}
+                    alt={associate.name}
+                    className="w-full h-full object-contain p-1 md:p-2"
+                  />
+                </div>
+                <div className="text-center">
+                  <p className="text-xs md:text-sm lg:text-base text-blue-400 font-medium tracking-wider">
+                    {associate.category}
+                  </p>
+                </div>
+                <div className="absolute inset-0 rounded-2xl bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
-    </div>
+
+      <style jsx>{`
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.1; transform: scale(0.6); }
+          50% { opacity: 0.6; transform: scale(1); }
+        }
+      `}</style>
     </div>
   );
 };
 
-export default ImageGallery;
-
-// Required Styles for Twinkle and Shimmer
-const styles = `
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.1; transform: scale(0.6); }
-    50% { opacity: 0.6; transform: scale(1); }
-  }
-
-  @keyframes text-shimmer {
-    0% { background-position: 200% 50%; }
-    100% { background-position: -200% 50%; }
-  }
-
-  .animate-text-shimmer {
-    background-size: 400% auto;
-    animation: text-shimmer 8s linear infinite;
-  }
-`;
-
-const styleSheet = document.createElement("style");
-styleSheet.innerText = styles;
-document.head.appendChild(styleSheet);
+export default MediaAssociates;

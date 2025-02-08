@@ -21,13 +21,17 @@ import Launchpadhome from "./components/Home/launchpadhome";
 import Event from "./components/events/event";
 import Sponsor from "./components/sponsors/sponsor";
 import Gallery from "./components/gallery/gallery";
+import Speakers from "./components/speakers/launchpadspeakers";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
+
   useEffect(() => {
+    // Force a scroll reset to the top when location.pathname changes
     window.scrollTo(0, 0);
   }, [location]);
+
   return null;
 };
 
@@ -64,6 +68,7 @@ function MainContent() {
         <Route path="/launchpad/events" element={<Event />} />
         <Route path="/launchpad/sponsor" element={<Sponsor />} />
         <Route path="/launchpad/gallery" element={<Gallery />} />
+        <Route path="/launchpad/speakers" element={<Speakers />} />
         <Route path="/launchpad/team" element={<Lteam />} />
       </Routes>
 

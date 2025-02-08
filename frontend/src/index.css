@@ -4,7 +4,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
-
+html, body {
+  height: 100%;              /* Full height for the document */
+  margin: 0;                 /* Remove any default margin */
+  overflow-x: hidden;        /* Prevent horizontal scrolling */
+  overflow-y: auto;          /* Allow vertical scrolling */
+}
 
 
 @keyframes fade-in {
