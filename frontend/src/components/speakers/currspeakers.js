@@ -55,24 +55,6 @@ const PreviousSpeakers = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/50" />
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: Math.random() * 4 + 1 + 'px',
-              height: Math.random() * 4 + 1 + 'px',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              backgroundColor: `rgba(63, 81, 181, ${Math.random() * 0.5})`,
-              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-16">
           Launchpad 2025 Speakers
@@ -107,13 +89,6 @@ const PreviousSpeakers = () => {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.1; transform: scale(0.6); }
-          50% { opacity: 0.6; transform: scale(1); }
-        }
-      `}</style>
     </div>
   );
 };

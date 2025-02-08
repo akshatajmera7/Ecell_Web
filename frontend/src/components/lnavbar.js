@@ -15,9 +15,9 @@ const MenuIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
+    <line x1="3" y1="12" x2="21" y2="12" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <line x1="3" y1="18" x2="21" y2="18" />
   </svg>
 );
 
@@ -33,8 +33,8 @@ const CloseIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <line x1="18" y1="6" x2="6" y2="18"></line>
-    <line x1="6" y1="6" x2="18" y2="18"></line>
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
 
@@ -45,7 +45,6 @@ const CosmicNavbar = () => {
     () => [
       { name: "Events", href: "/launchpad/events" },
       { name: "Speakers", href: "/launchpad/speakers" },
-      { name: "Gallery", href: "/launchpad/gallery" },
       { name: "Sponsors", href: "/launchpad/sponsor" },
       { name: "Our Team", href: "/launchpad/team" },
       { name: "Contact", href: "/launchpad/contact" },
@@ -55,12 +54,10 @@ const CosmicNavbar = () => {
 
   return (
     <nav className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
-      {/* Navbar Background with Glassmorphism */}
       <div className="absolute inset-0 backdrop-blur-md bg-black/30 border-b border-white/20" />
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -68,15 +65,10 @@ const CosmicNavbar = () => {
             className="flex-shrink-0"
           >
             <Link to="/launchpad" className="flex items-center">
-              <img
-                src={lplogo} // Using imported logo
-                alt="Logo"
-                className="h-10 w-auto"
-              />
+              <img src={lplogo} alt="Logo" className="h-10 w-auto" />
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <motion.div
@@ -87,7 +79,7 @@ const CosmicNavbar = () => {
               >
                 <Link
                   to={item.href}
-                  className="text-gray-300 hover:text-white hover:bg-gradient-to-r from-purple-600 to-blue-500 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300"
+                  className="text-gray-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:bg-blue-700/50"
                 >
                   {item.name}
                 </Link>
@@ -95,13 +87,12 @@ const CosmicNavbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-gray-400 hover:text-white p-2"
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -110,7 +101,6 @@ const CosmicNavbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Backdrop */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -118,7 +108,7 @@ const CosmicNavbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
@@ -137,8 +127,8 @@ const CosmicNavbar = () => {
                 >
                   <Link
                     to={item.href}
-                    className="block text-gray-300 hover:text-white hover:bg-gradient-to-r from-purple-600 to-blue-500 px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-                    onClick={() => setIsOpen(false)} // Close menu when clicked
+                    className="block text-gray-400 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-all duration-300 hover:bg-blue-700/50"
+                    onClick={() => setIsOpen(false)}
                   >
                     {item.name}
                   </Link>

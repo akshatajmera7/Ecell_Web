@@ -3,6 +3,7 @@ import Hero from "./hero";
 import Companies from "./companies";
 import Partners from "./companies partners"
 import Media from "./companies media"
+import Contact from "./sponsorcontact"
 
 
 function Sponsor() {
@@ -12,7 +13,7 @@ function Sponsor() {
       <Companies/>
       <Partners/>
       <Media/>
-      
+      <Contact/>
     </div>
   );
 }

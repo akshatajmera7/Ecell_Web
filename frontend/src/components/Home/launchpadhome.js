@@ -5,7 +5,7 @@ import Past from "./past";
 import Time from "./time";
 import Feature from "./feature";
 import Prevevents from "./prevevents";
-import End from "./endshow";
+
 
 function Home() {
     console.log("hello")
@@ -22,7 +22,7 @@ function Home() {
       <Feature />
       <Time />
       <Past />
-      <End />
+    
     </div>
   );
 }

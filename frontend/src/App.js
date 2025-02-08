@@ -12,7 +12,7 @@ import Home from "./components/Home/home";
 import Team from "./components/Teams/team";
 import Program from "./components/Programs/program";
 import Contact from "./components/contact";
-
+import Passes from "./components/passes";
 import LNavbar from "./components/lnavbar";
 import LFooter from "./components/lfooter";
 import Lteam from "./components/team/team";
@@ -20,7 +20,7 @@ import Lcontact from "./components/lcontact";
 import Launchpadhome from "./components/Home/launchpadhome";
 import Event from "./components/events/event";
 import Sponsor from "./components/sponsors/sponsor";
-import Gallery from "./components/gallery/gallery";
+
 import Speakers from "./components/speakers/launchpadspeakers";
 
 // Scroll to top on route change
@@ -67,7 +67,7 @@ function MainContent() {
         <Route path="/launchpad/contact" element={<Lcontact />} />
         <Route path="/launchpad/events" element={<Event />} />
         <Route path="/launchpad/sponsor" element={<Sponsor />} />
-        <Route path="/launchpad/gallery" element={<Gallery />} />
+    <Route path="/launchpad/passes" element={<Passes />} />
         <Route path="/launchpad/speakers" element={<Speakers />} />
         <Route path="/launchpad/team" element={<Lteam />} />
       </Routes>

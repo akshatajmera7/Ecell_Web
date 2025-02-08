@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -51,7 +50,7 @@ const MediaAssociates = () => {
   return (
     <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/50" />
+        {/* No gradient background, keeping it pure black */}
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
