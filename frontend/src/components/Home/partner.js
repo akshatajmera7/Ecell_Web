@@ -1,21 +1,27 @@
 import React, { useEffect, useRef } from "react";
-import img1 from '../../assets/spons/decathlon.jpg'; 
-import img2 from '../../assets/spons/PLUM.png'; 
-import img3 from '../../assets/spons/ACT.jpg'; 
-import img4 from '../../assets/spons/AMD33.png'; 
-import img5 from '../../assets/spons/altair.jpg'; 
-import img6 from '../../assets/spons/nestle.jpg'; 
-import img7 from '../../assets/spons/coke.jpg'; 
-import img8 from '../../assets/spons/bharatversity.png';
-import img9 from '../../assets/spons/FAB.jpg';
-import img10 from '../../assets/spons/HINDU.png';
-import img11 from '../../assets/spons/unstop.avif';
-import img12 from '../../assets/spons/campustimes.png'; 
-import img13 from '../../assets/spons/noticebard.jpg'; 
-import img14 from '../../assets/jagran_josh.png';
-import img15 from '../../assets/thehansindia.png';
-import img16 from '../../assets/spons/evepaper.png';
-import img17 from '../../assets/spons/dubeat.jpg';
+import img1 from '../../assets/spons/50knetwork.jpeg'; 
+import img2 from '../../assets/spons/10000startup.png'; 
+import img3 from '../../assets/spons/venturecatalysts.png'; 
+import img4 from '../../assets/spons/startuphyderabad.jpeg'; 
+import img5 from '../../assets/spons/thub.png'; 
+import img6 from '../../assets/spons/turbostart.jpeg'; 
+import img7 from '../../assets/spons/googlecloud.png'; 
+import img8 from '../../assets/spons/cloudesign.png';
+import img9 from '../../assets/spons/catechnologies.jpeg';
+import img10 from '../../assets/spons/sciofoundation.png';
+import img11 from '../../assets/spons/badabuisness.png';
+import img12 from '../../assets/spons/learnngwhile travelling.jpeg';
+import img13 from '../../assets/spons/ncore.png'; 
+import img14 from '../../assets/spons/enactus.png';
+import img15 from '../../assets/spons/lemon.png';
+import img16 from '../../assets/spons/fundsindia.png';
+import img17 from '../../assets/spons/jaarvis.png';
+import img18 from '../../assets/spons/sucseed.png';
+import img19 from '../../assets/spons/leada.png';
+import img20 from '../../assets/spons/yourstartupol.jpeg';
+import img21 from '../../assets/spons/cosmos.png';
+import img22 from '../../assets/spons/nirmaan.png';
+import img23 from '../../assets/spons/ecell.jpeg';
 
 const DisruptCarousel = () => {
   const items = [
@@ -36,6 +42,12 @@ const DisruptCarousel = () => {
     { name: "Progress", image: img15 },
     { name: "Progress", image: img16 },
     { name: "Progress", image: img17 },
+    { name: "Progress", image: img18 },
+    { name: "Progress", image: img19 },
+    { name: "Progress", image: img20 },
+    { name: "Progress", image: img21 },
+    { name: "Progress", image: img22 },
+    { name: "Progress", image: img23 },
   ];
 
   const containerRef = useRef(null);
