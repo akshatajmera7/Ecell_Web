@@ -11,8 +11,8 @@ const ContactSection = () => {
       name: "Sagnik Paul",
       role: "Chairman",
       image: Sagnik,
-      email: "mailto:prathamesh@example.com",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      email: "chairman@ecellbits.com",
+      linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
     }
   ];
 
