@@ -1,50 +1,54 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import img1 from '../../assets/spons/50knetwork.jpeg'; 
+import img2 from '../../assets/spons/10000startup.png'; 
+import img3 from '../../assets/spons/venturecatalysts.png'; 
+import img4 from '../../assets/spons/startuphyderabad.jpeg'; 
+import img5 from '../../assets/spons/thub.png'; 
+import img6 from '../../assets/spons/turbostart.jpeg'; 
+import img7 from '../../assets/spons/googlecloud.png'; 
+import img8 from '../../assets/spons/cloudesign.png';
+import img9 from '../../assets/spons/catechnologies.jpeg';
+import img10 from '../../assets/spons/sciofoundation.png';
+import img11 from '../../assets/spons/badabuisness.png';
+import img12 from '../../assets/spons/learnngwhile travelling.jpeg';
+import img13 from '../../assets/spons/ncore.png'; 
+import img14 from '../../assets/spons/enactus.png';
+import img15 from '../../assets/spons/lemon.png';
+import img16 from '../../assets/spons/fundsindia.png';
+import img17 from '../../assets/spons/jaarvis.png';
+import img18 from '../../assets/spons/sucseed.png';
+import img19 from '../../assets/spons/leada.png';
+import img20 from '../../assets/spons/yourstartupol.jpeg';
+import img21 from '../../assets/spons/cosmos.png';
+import img22 from '../../assets/spons/nirmaan.png';
+import img23 from '../../assets/spons/ecell.jpeg';
 
 const MediaAssociates = () => {
   const associates = [
-    {
-      id: 1,
-      name: "Aftermovie Partner",
-      image: "/api/placeholder/200/200", // Replace with your image URLs
-      link: "#",
-      category: "AFTERMOVIE PARTNER"
-    },
-    {
-      id: 2,
-      name: "Coverage Partner",
-      image: "/api/placeholder/200/200",
-      link: "#",
-      category: "COVERAGE PARTNER"
-    },
-    {
-      id: 3,
-      name: "PVR Inox",
-      image: "/api/placeholder/200/200",
-      link: "#",
-      category: "OFFICIAL MULTIPLEX PARTNER"
-    },
-    {
-      id: 4,
-      name: "BIG FM",
-      image: "/api/placeholder/200/200",
-      link: "#",
-      category: "RADIO PARTNER"
-    },
-    {
-      id: 5,
-      name: "Business Today",
-      image: "/api/placeholder/200/200",
-      link: "#",
-      category: "MEDIA PARTNER"
-    },
-    {
-      id: 6,
-      name: "Business Standard",
-      image: "/api/placeholder/200/200",
-      link: "#",
-      category: "MEDIA PARTNER"
-    }
+    { name: "Innovation", image: img1 },
+    { name: "Technology", image: img2 },
+    { name: "Future", image: img3 },
+    { name: "Revolution", image: img4 },
+    { name: "Progress", image: img5 },
+    { name: "Progress", image: img6 },
+    { name: "Progress", image: img7 },
+    { name: "Progress", image: img8 },
+    { name: "Progress", image: img9 },
+    { name: "Progress", image: img10 },
+    { name: "Progress", image: img11 },
+    { name: "Progress", image: img12 },
+    { name: "Progress", image: img13 },
+    { name: "Progress", image: img14 },
+    { name: "Progress", image: img15 },
+    { name: "Progress", image: img16 },
+    { name: "Progress", image: img17 },
+    { name: "Progress", image: img18 },
+    { name: "Progress", image: img19 },
+    { name: "Progress", image: img20 },
+    { name: "Progress", image: img21 },
+    { name: "Progress", image: img22 },
+    { name: "Progress", image: img23 },
   ];
 
   return (
@@ -74,7 +78,7 @@ const MediaAssociates = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          MEDIA ASSOCIATES
+          PAST PARTNERS
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">

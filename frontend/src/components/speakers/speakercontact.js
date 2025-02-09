@@ -3,24 +3,25 @@ import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
 import Shoaib from "../../assets/shoaib.png";
+import Ananya from "../../assets/ananya.jpeg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Prathamesh Yeole",
-      role: "Guest Relations Head",
+      name: "Shoaib Khan",
+      role: "Tech Head",
       image: Shoaib,
-      email: "mailto:prathamesh@example.com",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      email: "15shoaibkhan@gmail.com",
+      linkedin: "https://www.linkedin.com/in/shoaibkhan1501/",
     },
     {
       id: 2,
-      name: "Advait Kulkarni",
-      role: "Guest Relations Head",
-      image: "/api/placeholder/200/200",
-      email: "mailto:advait@example.com",
-      linkedin: "https://linkedin.com/in/advait",
+      name: "Ananya Agarwal",
+      role: "Training Coordinator",
+      image: Ananya,
+      email: "f20221697@hyderabad.bits-pilani.ac.in",
+      linkedin: "ttps://www.linkedin.com/in/ananya-agrawal-797687243",
     },
   ];
 
