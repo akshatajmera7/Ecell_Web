@@ -23,6 +23,8 @@ import Sponsor from "./components/sponsors/sponsor";
 
 import Speakers from "./components/speakers/launchpadspeakers";
 
+import Gr from "./components/lpevents/gr/grindex";
+
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
@@ -70,6 +72,7 @@ function MainContent() {
     <Route path="/launchpad/passes" element={<Passes />} />
         <Route path="/launchpad/speakers" element={<Speakers />} />
         <Route path="/launchpad/team" element={<Lteam />} />
+        <Route path="/launchpad/ground_reality" element={<Gr />} />
       </Routes>
 
       {/* Conditional Footer */}

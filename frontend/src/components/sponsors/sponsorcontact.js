@@ -64,8 +64,8 @@ const ContactSection = () => {
       </motion.h1>
 
       {/* Guest Relations Section */}
-      <section className="w-full flex justify-center lg:translate-x-0">
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <section className="w-full flex justify-center items-center">
+  <div className="grid place-items-center">
     {guestRelationsContacts.map((person) => (
       <ContactCard key={person.id} person={person} />
     ))}
