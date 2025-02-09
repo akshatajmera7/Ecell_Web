@@ -127,7 +127,7 @@ const teams = [
   {
     title: "Launchpad Heads",
     members: [
-      {
+     /* {
       name: "Sagnik Paul",
       role: "Launchpad Chairman",
       image: Sagnik,
@@ -198,7 +198,7 @@ const teams = [
       linkedin: "https://www.linkedin.com/in/vaishnavi-katragadda-9b62a3268/",
       instagram: "https://www.instagram.com/vaishh.naviiii",
       bio: "Technology enthusiast driving digital transformation",
-    },
+    },*/
     {
       name: "Mohana Varshith Bolloju",
       role: "Publicity Head",
@@ -248,7 +248,7 @@ const teams = [
       instagram: "https://www.instagram.com/utkarshpandey_183",
       bio: "Technology enthusiast driving digital transformation",
     },
-    {
+    /*{
       name: "Ananya Agarwal",
       role: "Training Coordinator",
       image: Ananya,
@@ -270,7 +270,7 @@ const teams = [
       image: Siddhant,
       instagram:"https://www.instagram.com/sid._2401?igsh=MTFyYzQyMG52ZjA2OA==",
       bio: "Technology enthusiast driving digital transformation",
-    },
+    },*/
     ],
   },
 ];
