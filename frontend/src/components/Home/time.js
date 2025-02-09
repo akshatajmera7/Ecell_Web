@@ -30,6 +30,7 @@ const EventCard = ({ event, index }) => {
 
   return (
     <div className={`transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
+     
       <div className="relative aspect-square group cursor-pointer overflow-hidden rounded-xl bg-[#0a0f1f] shadow-[0px_8px_20px_rgba(0,0,50,0.8)] border border-blue-900 transition-all duration-500">
         <img src={event.imageUrl} alt={event.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         
@@ -62,13 +63,19 @@ const EventCard = ({ event, index }) => {
 const EventGrid = () => {
   return (
     <div className="bg-black min-h-screen py-16 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+    <div className="max-w-7xl mx-auto"> {/* Removed px-4 here */}
+      <h2 className="text-center text-6xl font-bold text-blue-600 mb-16 px-4"> {/* Added heading */}
+        Our Events
+      </h2>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-4"> {/* Added px-4 here */}
         {events.map((event, index) => (
           <EventCard key={index} event={event} index={index} />
         ))}
       </div>
     </div>
-  );
+  </div>
+);
 };
+
 
 export default EventGrid;
