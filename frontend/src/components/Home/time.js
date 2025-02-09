@@ -8,13 +8,13 @@ import img6 from "../../assets/6.png";
 import img7 from "../../assets/7.png";
 
 const events = [
-  { title: "Startup Expo", description: "Discover endless opportunities at the Startup Expo.", imageUrl: img1, registerLink: "#" },
-  { title: "Pitch Perfect", description: "Showcase your ideas, compete with bright minds.", imageUrl: img2, registerLink: "#" },
-  { title: "Internship Drive", description: "Engage with startups, earn up to 30K INR.", imageUrl: img3, registerLink: "#" },
-  { title: "Beyond Profits", description: "Develop solutions, enhance skills, win prizes.", imageUrl: img4, registerLink: "#" },
-  { title: "Teen Tycoons", description: "Transform challenges into opportunities.", imageUrl: img5, registerLink: "#" },
-  { title: "Pitcher's Pilot", description: "Pitch your startup, gain mentorship.", imageUrl: img6, registerLink: "#" },
-  { title: "Ground Reality", description: "Showcase innovative ideas and craft strategies.", imageUrl: img7, registerLink: "#" },
+  { title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", imageUrl: img1, registerLink: "#" },
+  { title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", imageUrl: img2, registerLink: "#" },
+  { title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", imageUrl: img3, registerLink: "#" },
+  { title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", imageUrl: img4, registerLink: "#" },
+  { title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", imageUrl: img5, registerLink: "#" },
+  { title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success.", imageUrl: img6, registerLink: "#" },
+  { title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", imageUrl: img7, registerLink: "#" },
 ];
 
 const EventCard = ({ event, index }) => {
@@ -79,3 +79,4 @@ const EventGrid = () => {
 
 
 export default EventGrid;
+
