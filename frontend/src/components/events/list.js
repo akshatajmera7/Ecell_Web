@@ -68,13 +68,13 @@ const EventCard = ({ event, index }) => {
 
 const EventsPage = () => {
   const events = [
-    { id: 1, title: "Startup Expo", description: "Discover endless opportunities at the Startup Expo.", images: [img1], registerLink: "#" },
-    { id: 2, title: "Pitch Perfect", description: "Showcase your ideas, compete with bright minds.", images: [img2], registerLink: "#" },
-    { id: 3, title: "Internship Drive", description: "Engage with startups, earn up to 30K INR.", images: [img3], registerLink: "#" },
-    { id: 4, title: "Beyond Profits", description: "Develop solutions, enhance skills, win prizes.", images: [img4], registerLink: "https://unstop.com/competitions/beyond-profits-launchpad-25-bits-1361695" },
-    { id: 5, title: "Teen Tycoons", description: "Transform challenges into opportunities.", images: [img5], registerLink: "#" },
-    { id: 6, title: "Pitcher's Pilot", description: "Pitch your startup, gain mentorship.", images: [img6], registerLink: "#" },
-    { id: 7, title: "Ground Reality", description: "Showcase innovative ideas and craft strategies.", images: [img7], registerLink: "https://unstop.com/competitions/ground-reality-a-business-plan-competition-birla-institute-of-technology-science-pilani-hyderabad-campus-1316405" }
+    { id: 1, title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", images: [img1], registerLink: "#" },
+    { id: 2, title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", images: [img2], registerLink: "#" },
+    { id: 3, title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", images: [img3], registerLink: "#" },
+    { id: 4, title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", images: [img4], registerLink: "#" },
+    { id: 5, title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", images: [img5], registerLink: "#" },
+    { id: 6, title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success", images: [img6], registerLink: "#" },
+    { id: 7, title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", images: [img7], registerLink: "#" }
   ];
 
   return (
