@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "./lhero";
+import AtkHero from "./atk/Atk-hero";
 import Sponsor from "./sponsor";
 import Past from "./past";
 import Time from "./time";
@@ -10,11 +11,11 @@ import Dare from "./dare"
 
 
 function Home() {
-    console.log("hello")
+  console.log("hello");
   return (
     <div>
-      <div className="relative z-10">
-        <Hero />
+      <div className="relative z-[99]">
+        <AtkHero />
       </div>
   
       <Feature />
@@ -24,7 +25,7 @@ function Home() {
       <Past />
 
       {/* Ensure Sponsor is not overlapped */}
-      <div className="relative z-20">
+      <div className="relative ">
         <Sponsor />
         <Partners />
         <Media />
