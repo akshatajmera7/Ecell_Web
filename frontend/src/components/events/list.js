@@ -71,10 +71,10 @@ const EventsPage = () => {
     { id: 1, title: "Startup Expo", description: "Discover endless opportunities at the Startup Expo.", images: [img1], registerLink: "#" },
     { id: 2, title: "Pitch Perfect", description: "Showcase your ideas, compete with bright minds.", images: [img2], registerLink: "#" },
     { id: 3, title: "Internship Drive", description: "Engage with startups, earn up to 30K INR.", images: [img3], registerLink: "#" },
-    { id: 4, title: "Beyond Profits", description: "Develop solutions, enhance skills, win prizes.", images: [img4], registerLink: "#" },
+    { id: 4, title: "Beyond Profits", description: "Develop solutions, enhance skills, win prizes.", images: [img4], registerLink: "https://unstop.com/competitions/beyond-profits-launchpad-25-bits-1361695" },
     { id: 5, title: "Teen Tycoons", description: "Transform challenges into opportunities.", images: [img5], registerLink: "#" },
     { id: 6, title: "Pitcher's Pilot", description: "Pitch your startup, gain mentorship.", images: [img6], registerLink: "#" },
-    { id: 7, title: "Ground Reality", description: "Showcase innovative ideas and craft strategies.", images: [img7], registerLink: "#" }
+    { id: 7, title: "Ground Reality", description: "Showcase innovative ideas and craft strategies.", images: [img7], registerLink: "https://unstop.com/competitions/ground-reality-a-business-plan-competition-birla-institute-of-technology-science-pilani-hyderabad-campus-1316405" }
   ];
 
   return (
