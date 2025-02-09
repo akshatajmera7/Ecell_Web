@@ -1,105 +1,74 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import img1 from "../../assets/1.png";
+import img2 from "../../assets/2.png";
+import img3 from "../../assets/3.png";
+import img4 from "../../assets/4.png";
+import img5 from "../../assets/5.png";
+import img6 from "../../assets/6.png";
+import img7 from "../../assets/7.png";
 
-const TimelineEvent = ({ date, title, description, index }) => {
-  const controls = useAnimation();
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { threshold: 0.2, once: true });
+const events = [
+  { title: "Startup Expo", description: "Discover endless opportunities at the Startup Expo.", imageUrl: img1, registerLink: "#" },
+  { title: "Pitch Perfect", description: "Showcase your ideas, compete with bright minds.", imageUrl: img2, registerLink: "#" },
+  { title: "Internship Drive", description: "Engage with startups, earn up to 30K INR.", imageUrl: img3, registerLink: "#" },
+  { title: "Beyond Profits", description: "Develop solutions, enhance skills, win prizes.", imageUrl: img4, registerLink: "#" },
+  { title: "Teen Tycoons", description: "Transform challenges into opportunities.", imageUrl: img5, registerLink: "#" },
+  { title: "Pitcher's Pilot", description: "Pitch your startup, gain mentorship.", imageUrl: img6, registerLink: "#" },
+  { title: "Ground Reality", description: "Showcase innovative ideas and craft strategies.", imageUrl: img7, registerLink: "#" },
+];
+
+const EventCard = ({ event, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start('visible');
-    }
-  }, [controls, isInView]);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, index * 200);
+
+    return () => clearTimeout(timer);
+  }, [index]);
 
   return (
-    <motion.div
-      ref={ref}
-      className={`flex items-center gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.8, delay: index * 0.3 }
-        }
-      }}
-    >
-      <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="space-y-4"
-        >
-          <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-indigo-400">{date}</h3>
-          <h4 className="text-2xl font-semibold text-white">{title}</h4>
-          <p className="text-blue-200/90 text-lg">{description}</p>
-        </motion.div>
-      </div>
-
-      <div className="relative flex flex-col items-center">
-        <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 shadow-lg shadow-blue-500/50" />
-        <div className="w-1 h-32 bg-gradient-to-b from-blue-400 to-transparent" />
-      </div>
-
-      <div className="flex-1" />
-    </motion.div>
-  );
-};
-
-const Timeline = () => {
-  const events = [
-    {
-      date: '21 - 23 March 2025',
-      title: 'Pitchers Pilot',
-      description: 'Premium platform for startups to pitch,network,and secure funding,turning visions into successful ventures'
-    },
-    {
-      date: '21 -23 March 2025',
-      title: 'Startup Expo',
-      description: 'Showcase Innovation.Connect with Investors.Drive Impact'
-    },
-    {
-      date: ' 21-23 March 2025',
-      title: 'Ground Reality',
-      description: 'Our annual Business Plan Competition'
-    },
-    {
-      date: '21-23 March 2025',
-      title: 'Pitch Perfect:Young Innovators Edition',
-      description: 'Igniting the Entrepreneurial spirit in Tomorrow\'s Leaders'
-    },
-    {
-      date: '21-23 March 2025',
-      title: 'Teen Tycoons',
-      description:'Case-study based business tournament for highschool students'
-    },
-  ];
-
-  return (
-    <div className="w-full bg-black py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-indigo-400 to-purple-400"
-        >
-          Our Events
-        </motion.h2>
+    <div className={`transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
+      <div className="relative aspect-square group cursor-pointer overflow-hidden rounded-xl bg-[#0a0f1f] shadow-[0px_8px_20px_rgba(0,0,50,0.8)] border border-blue-900 transition-all duration-500">
+        <img src={event.imageUrl} alt={event.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         
-        <div className="space-y-12">
-          {events.map((event, index) => (
-            <TimelineEvent key={index} {...event} index={index} />
-          ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+        
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <h3 className="text-white font-extrabold text-lg md:text-xl">{event.title}</h3>
+        </div>
+
+        <div className="absolute inset-0 p-4 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+          <div>
+            <h3 className="text-white font-extrabold text-lg md:text-xl mb-2">{event.title}</h3>
+            <p className="text-gray-200 text-sm md:text-base font-semibold leading-relaxed mb-4">{event.description}</p>
+          </div>
+          
+          <div className="flex gap-3">
+            <a href={event.registerLink} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors text-sm">
+              Register
+            </a>
+            <a href={event.registerLink} target="_blank" rel="noopener noreferrer" className="bg-white text-blue-500 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm">
+              Explore
+            </a>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Timeline;
+const EventGrid = () => {
+  return (
+    <div className="bg-black min-h-screen py-16 px-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {events.map((event, index) => (
+          <EventCard key={index} event={event} index={index} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default EventGrid;

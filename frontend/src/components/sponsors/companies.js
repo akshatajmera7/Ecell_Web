@@ -69,7 +69,7 @@ const MediaAssociates = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <motion.h2
-          className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-16 text-center"
+          className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-16 text-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

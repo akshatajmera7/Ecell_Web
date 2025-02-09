@@ -59,11 +59,11 @@ const DisruptCarousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full bg-black py-16 overflow-hidden">
+    <div className="relative w-full bg-black pb-16 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <h3 className="text-center text-5xl font-extrabold text-blue-500 mb-12 tracking-tight">
-          Past Sponsors
+          Past Media Partners
         </h3>
 
         {/* Carousel Wrapper */}

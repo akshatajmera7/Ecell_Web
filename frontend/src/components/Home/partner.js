@@ -46,9 +46,12 @@ const DisruptCarousel = () => {
 
     const smoothScroll = () => {
       if (scrollContainer) {
-        scrollContainer.scrollLeft += 2.5; // Speed adjustment
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          scrollContainer.scrollLeft = 0; // Smooth reset
+        // Move the scroll position to the left
+        scrollContainer.scrollLeft -= 2.5; // Speed adjustment
+        
+        // Reset to the end once the content scrolls halfway through
+        if (scrollContainer.scrollLeft <= 0) {
+          scrollContainer.scrollLeft = scrollContainer.scrollWidth; // Smooth reset to end
         }
       }
       animationFrame = requestAnimationFrame(smoothScroll);
@@ -63,7 +66,7 @@ const DisruptCarousel = () => {
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <h3 className="text-center text-5xl font-extrabold text-blue-500 mb-12 tracking-tight">
-          Past Sponsors
+          Past Partners
         </h3>
 
         {/* Carousel Wrapper */}

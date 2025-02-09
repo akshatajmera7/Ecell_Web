@@ -56,7 +56,7 @@ const PreviousSpeakers = () => {
   return (
     <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-16">
+        <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-16">
           Previous Speakers
         </h2>
 
