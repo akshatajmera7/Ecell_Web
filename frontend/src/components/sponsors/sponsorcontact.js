@@ -2,26 +2,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Shoaib from "../../assets/shoaib.png";
+import Sagnik from "../../assets/sagnik.jpg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Prathamesh Yeole",
-      role: "Guest Relations Head",
-      image: Shoaib,
+      name: "Sagnik Paul",
+      role: "Chairman",
+      image: Sagnik,
       email: "mailto:prathamesh@example.com",
       linkedin: "https://linkedin.com/in/prathamesh",
-    },
-    {
-      id: 2,
-      name: "Advait Kulkarni",
-      role: "Guest Relations Head",
-      image: "/api/placeholder/200/200",
-      email: "mailto:advait@example.com",
-      linkedin: "https://linkedin.com/in/advait",
-    },
+    }
   ];
 
   const ContactCard = ({ person }) => (
