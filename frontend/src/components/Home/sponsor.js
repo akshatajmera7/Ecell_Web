@@ -8,14 +8,23 @@ import img6 from '../../assets/spons/nestle.jpg';
 import img7 from '../../assets/spons/coke.jpg'; 
 import img8 from '../../assets/spons/bharatversity.png';
 import img9 from '../../assets/spons/FAB.jpg';
-import img10 from '../../assets/spons/HINDU.png';
+import img10 from '../../assets/spons/campa.png';
 import img11 from '../../assets/spons/unstop.avif';
-import img12 from '../../assets/spons/campustimes.png'; 
-import img13 from '../../assets/spons/noticebard.jpg'; 
-import img14 from '../../assets/jagran_josh.png';
-import img15 from '../../assets/thehansindia.png';
-import img16 from '../../assets/spons/evepaper.png';
-import img17 from '../../assets/spons/dubeat.jpg';
+import img12 from '../../assets/spons/cornitos.jpg';
+import img13 from '../../assets/spons/fitness_fundas.jpg'; 
+import img14 from '../../assets/spons/switcheko.jpg';
+import img15 from '../../assets/spons/skilligence.png';
+import img16 from '../../assets/spons/2iim.png';
+import img17 from '../../assets/spons/huddle-logo.png';
+import img18 from '../../assets/spons/flyberrygourmet.jpg';
+import img19 from '../../assets/spons/hackerthehouse.png';
+import img20 from '../../assets/spons/royalbrothers.png';
+import img21 from '../../assets/spons/mototek.jpg';
+import img22 from '../../assets/spons/instax.png';
+import img23 from '../../assets/spons/businesskeeda.png';
+import img24 from '../../assets/spons/kurogaming.jpg';
+import img25 from '../../assets/spons/productfolks.png';
+import img26 from '../../assets/spons/novatechsolar.png';
 
 const DisruptCarousel = () => {
   const items = [
@@ -36,6 +45,16 @@ const DisruptCarousel = () => {
     { name: "Progress", image: img15 },
     { name: "Progress", image: img16 },
     { name: "Progress", image: img17 },
+    { name: "Progress", image: img18 },
+    { name: "Progress", image: img19 },
+    { name: "Progress", image: img20 },
+    { name: "Progress", image: img21 },
+    { name: "Progress", image: img22 },
+    { name: "Progress", image: img23 },
+    { name: "Progress", image: img24 },
+    { name: "Progress", image: img25 },
+    { name: "Progress", image: img26 },
+
   ];
 
   const containerRef = useRef(null);
