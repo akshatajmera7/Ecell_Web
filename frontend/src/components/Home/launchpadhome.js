@@ -6,6 +6,7 @@ import Time from "./time";
 import Feature from "./feature";
 import Partners from "./partner"
 import Media from "./mediapartners"
+import Dare from "./dare"
 
 
 function Home() {
@@ -15,9 +16,13 @@ function Home() {
       <div className="relative z-10">
         <Hero />
       </div>
+  
       <Feature />
+      
       <Time />
+      <Dare/>
       <Past />
+
       {/* Ensure Sponsor is not overlapped */}
       <div className="relative z-20">
         <Sponsor />
