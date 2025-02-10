@@ -14,17 +14,14 @@ function Home() {
   console.log("hello");
   return (
     <div>
-      <div className="relative z-[99]">
-        <AtkHero />
-      </div>
-  
+      <Hero />
       <Feature />
       
       <Time />
       <Dare/>
       <Past />
 
-      {/* Ensure Sponsor is not overlapped */}
+     
       <div className="relative ">
         <Sponsor />
         <Partners />

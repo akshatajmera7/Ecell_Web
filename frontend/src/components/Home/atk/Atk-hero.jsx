@@ -12,14 +12,9 @@ const ParallaxEffect = () => {
         const newScrollY =
           event.deltaY > 0 ? Math.min(prev + 30, 250) : Math.max(prev - 30, 0);
 
-        // When scroll reaches 250, lock first section and allow full scroll
         if (newScrollY >= 250) {
           setIsFixed(false);
-        } // Unlock second section
-        // } else {
-        //   setIsFixed(true); // Keep first section locked
-        // }
-
+        }
         return newScrollY;
       });
     };
@@ -30,33 +25,24 @@ const ParallaxEffect = () => {
 
   return (
     <div className="w-screen overflow-hidden">
-      {/* Parallax Section - Remains Fixed Until Fully Scrolled */}
+      {/* Parallax Section */}
       <div
-        className={`h-screen flex justify-center w-screen transition-all duration-700 ${
+        className={`h-screen flex justify-center w-screen transition-all duration-700 ease-out ${
           isFixed ? "fixed top-0 left-0" : "relative"
         }`}
         style={{
-          background:
-            "linear-gradient(to bottom, #172A3A, #143441, #67918f, #000000)",
+          background: "linear-gradient(to bottom, #1E40AF, #1E3A8A, #172554, #000000)",
         }}
       >
-        {/* <div className="absolute top-10 left-8 text-white text-2xl">
-          LAUNCHPAD
-        </div>
-
-        <div className="absolute top-10 right-8 text-white text-2xl">
-          SIGN UP
-        </div> */}
-
         {/* Launch Pad */}
         <div
-          className="absolute top-[20rem] duration-150"
+          className="absolute top-[20rem] duration-300 ease-out drop-shadow-lg"
           style={{
             transform: `translateY(-${scrollY}px) scale(${1 + scrollY / 1000})`,
           }}
         >
-          <img src={lpad} id="lpad" alt="Launch Pad" />
-          <h1 className="text-center text-white text-5xl tracking-widest">
+          <img src={lpad} id="lpad" alt="Launch Pad" className="animate-pulse" />
+          <h1 className="text-center text-white text-6xl font-bold tracking-widest drop-shadow-md">
             Dare to Disrupt
           </h1>
         </div>
@@ -66,18 +52,18 @@ const ParallaxEffect = () => {
           src={mountain}
           id="mountain"
           alt="Mountains"
-          className="absolute bottom-[-7rem] w-screen object-contain duration-150"
+          className="absolute bottom-[-5rem] w-screen object-contain duration-300 ease-out opacity-90"
           style={{
             transform: `translateY(${scrollY / 1.5}px)`,
           }}
         />
 
         {/* Buttons */}
-        <div className="absolute text-white bottom-10 right-12 z-[9] flex gap-4">
-          <button className="bg-white/10 backdrop-blur-lg border-2 border-white/20 text-white px-6 py-2 rounded-2xl transition-all duration-300 hover:bg-white/20 border-white">
+        <div className="absolute text-white bottom-10 right-12 z-[9] flex gap-6">
+          <button className="bg-blue-600/70 backdrop-blur-lg border-2 border-white/30 text-white px-6 py-2 rounded-2xl transition-all duration-300 hover:bg-blue-700 hover:scale-105 shadow-md">
             Register
           </button>
-          <button className="bg-white/10 backdrop-blur-lg border-2  border-white/20 text-white px-6 py-2 rounded-2xl transition-all duration-300 hover:bg-white/20 border-white">
+          <button className="bg-blue-600/70 backdrop-blur-lg border-2 border-white/30 text-white px-6 py-2 rounded-2xl transition-all duration-300 hover:bg-blue-700 hover:scale-105 shadow-md">
             Passes
           </button>
         </div>
