@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -30,16 +25,19 @@ const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Force a scroll reset to the top when location.pathname changes
-    window.scrollTo(0, 0);
+    console.log("Scrolling to top", location.location);
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // Force scroll
+    }, 0);
   }, [location]);
-
+  
   return null;
 };
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <MainContent />
     </Router>
   );

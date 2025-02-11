@@ -292,9 +292,13 @@ const ContactCard = ({ person }) => (
           <p className="text-sm text-blue-400">{person.role}</p>
 
           <div className="flex gap-4 justify-center mt-3">
-            <a href={person.email} className="text-blue-400 hover:text-blue-300">
-              <EnvelopeIcon className="w-5 h-5" />
-            </a>
+          <a
+    href={`mailto:${person.email}`}
+    onClick={(e) => e.stopPropagation()} // Fixes footer redirection issue
+    className="text-white hover:text-gray-400 transition-colors"
+  >
+    <EnvelopeIcon className="w-5 h-5"/>
+  </a>
             <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
               <FaLinkedin className="w-5 h-5" />
             </a>
