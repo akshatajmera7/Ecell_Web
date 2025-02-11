@@ -5,30 +5,25 @@ import Sponsor from "./sponsor";
 import Past from "./past";
 import Time from "./time";
 import Feature from "./feature";
-import Partners from "./partner"
-import Media from "./mediapartners"
-import Dare from "./dare"
-
+import Partners from "./partner";
+import Media from "./mediapartners";
+import Dare from "./dare";
 
 function Home() {
-  console.log("hello");
   return (
     <div>
       <Hero />
       <Feature />
-      
+
       <Time />
-      <Dare/>
+      <Dare />
       <Past />
 
-     
       <div className="relative ">
         <Sponsor />
         <Partners />
         <Media />
       </div>
-  
-    
     </div>
   );
 }
