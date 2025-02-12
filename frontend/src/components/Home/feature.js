@@ -1,67 +1,149 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+// import React, { useEffect, useState } from "react";
+// import { motion, useInView, useAnimation } from "framer-motion";
 
-const StatBar = ({ value, label, index }) => {
-  // Calculate width based on relative values
-  const getWidth = () => {
-    if (label.includes('ATTENDEES')) return '100%';
-    if (label.includes('STARTUPS')) return '80%';
-    return '60%';
-  };
+// const AnimatedCounter = ({ targetValue }) => {
+//   const ref = React.useRef(null);
+//   const isInView = useInView(ref, { threshold: 0.2, triggerOnce: true });
+//   const controls = useAnimation();
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     if (isInView) {
+//       controls.start({ count: parseInt(targetValue.replace(/\D/g, ""), 10) });
+//     }
+//   }, [isInView, targetValue, controls]);
+
+//   return (
+//     <motion.span
+//       ref={ref}
+//       animate={controls}
+//       initial={{ count: 0 }}
+//       transition={{ duration: 2, ease: "easeOut" }}
+//       onUpdate={(latest) => setCount(Math.floor(latest.count))}
+//     >
+//       {count.toLocaleString()}+
+//     </motion.span>
+//   );
+// };
+
+// const StatCard = ({ title, value }) => {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 20 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       viewport={{ once: true, amount: 0.2 }}
+//       transition={{ duration: 0.6 }}
+//       className="bg-blue-600/40 backdrop-blur-sm rounded-xl p-8 hover:bg-blue-600/50 transition-all duration-300 group shadow-lg hover:shadow-2xl border border-blue-600"
+//     >
+//       <motion.h3
+//         className="text-lg text-blue-200 mb-2"
+//         initial={{ opacity: 0 }}
+//         whileInView={{ opacity: 1 }}
+//         viewport={{ once: true }}
+//         transition={{ delay: 0.2 }}
+//       >
+//         {title}
+//       </motion.h3>
+//       <motion.div
+//         className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600"
+//         initial={{ scale: 0.5, opacity: 0 }}
+//         whileInView={{ scale: 1, opacity: 1 }}
+//         viewport={{ once: true }}
+//         transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+//       >
+//         <AnimatedCounter targetValue={value} />
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
+
+// const KeyFeatures = () => {
+//   return (
+//     <div className="w-full bg-black py-24 relative overflow-hidden">
+//       <div className="max-w-6xl mx-auto px-4">
+//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+//           <StatCard title="ATTENDEES" value="50000+" />
+//           <StatCard title="STARTUPS" value="1000+" />
+//           <StatCard title="EVENTS" value="30+" />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default KeyFeatures;
+
+import React, { useEffect, useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
+const AnimatedCounter = ({ targetValue, isInView }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const end = parseInt(targetValue.replace(/\D/g, ""), 10);
+      const duration = 2000; // 2 seconds
+      const increment = Math.ceil(end / (duration / 16));
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(start);
+        }
+      }, 16); // Updating every 16ms (~60fps)
+
+      return () => clearInterval(timer);
+    }
+  }, [isInView, targetValue]);
+
+  return <span>{count.toLocaleString()}+</span>;
+};
+
+const StatCard = ({ title, value }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { threshold: 0.2, triggerOnce: true });
 
   return (
-    <div className="mb-12 relative">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+      className="bg-blue-600/40 backdrop-blur-sm rounded-xl p-8 border border-blue-600 
+                 shadow-[0px_0px_20px_rgba(255,255,255,0.5)] transition-all duration-300 
+                 hover:shadow-[0px_0px_30px_rgba(255,255,255,0.7)] group"
+    >
+      <motion.h3 className="text-lg text-blue-200 mb-2">{title}</motion.h3>
       <motion.div
-        initial={{ width: 0, opacity: 0 }}
-        whileInView={{
-          width: getWidth(),
-          opacity: 1
-        }}
-        transition={{
-          width: { duration: 1, delay: index * 0.3, ease: "easeOut" },
-          opacity: { duration: 0.5, delay: index * 0.3 },
-        }}
-        className="relative h-24 bg-gradient-to-r from-blue-900 to-blue-800 flex items-center justify-start pl-8 pr-6 backdrop-blur-sm rounded-lg"
+        className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600"
+        initial={{ scale: 0.5, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
       >
-        <div className="flex items-center gap-4 relative">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.3 + 0.5 }}
-            className="text-5xl font-bold bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent"
-          >
-            {value}
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: index * 0.3 + 0.7 }}
-            className="text-blue-100 text-xl tracking-wider"
-          >
-            {label}
-          </motion.span>
-        </div>
+        <AnimatedCounter targetValue={value} isInView={isInView} />
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
-const StatsDisplay = () => {
-  const stats = [
-    { value: '50000+', label: 'ATTENDEES' },
-    { value: '1000+', label: 'STARTUPS' },
-    { value: '30+', label: 'EVENTS' },
-  ];
-
+const KeyFeatures = () => {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-8 relative overflow-hidden">
-      <div className="relative max-w-5xl w-full">
-        {stats.map((stat, index) => (
-          <StatBar key={index} value={stat.value} label={stat.label} index={index} />
-        ))}
+    <div className="w-full bg-black py-24 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StatCard title="ATTENDEES" value="50000+" />
+          <StatCard title="STARTUPS" value="1000+" />
+          <StatCard title="EVENTS" value="30+" />
+        </div>
       </div>
     </div>
   );
 };
 
-export default StatsDisplay;
+export default KeyFeatures;
