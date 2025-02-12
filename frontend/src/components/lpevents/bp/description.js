@@ -9,23 +9,16 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-              Ground Reality is a prestigious annual competition
-              that gives start-ups and aspiring entrepreneurs the
-              chance to pitch their ideas to top venture capitalists
-              and angel investors.
+            Beyond Profits is an annual competition that 
+            empowers socially conscious entrepreneurs to pitch
+            their ventures and drive social change.
             </p>
-            
-            <p className="text-lg mb-6">
-              With over 20 mentors guiding 200+ participants, it
-              bridges the gap between students, industry, and
-              market needs.
-            </p>
-            
+           
             <p className="text-lg mb-8">
-              The winners receive a prize pool of Rs. 2 Lakhs, along
-              with legal services, mentoring vouchers, cloud space,
-              accelerator programs, and incubation support,
-              offering invaluable resources for business growth.
+            The event encourages social entrepreneurship among students
+            , with prizes worth INR 200K, along with mentorship,
+             legal services, web development, and incubation space.
+             It’s one of Telangana’s most sought-after events.
             </p>
           </div>
           
