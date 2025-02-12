@@ -9,23 +9,19 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-              Ground Reality is a prestigious annual competition
-              that gives start-ups and aspiring entrepreneurs the
-              chance to pitch their ideas to top venture capitalists
-              and angel investors.
+            Teen Tycoons is a case-based business plan competition
+            that nurtures entrepreneurial talent through dynamic 
+            stages. Participants solve analytical guesstimates,
+            tailored problem statements according to their selected
+            ventures, and finalists undergo a skill-building bootcamp 
+            with expert mentorship.
             </p>
-            
-            <p className="text-lg mb-6">
-              With over 20 mentors guiding 200+ participants, it
-              bridges the gap between students, industry, and
-              market needs.
-            </p>
-            
+          
             <p className="text-lg mb-8">
-              The winners receive a prize pool of Rs. 2 Lakhs, along
-              with legal services, mentoring vouchers, cloud space,
-              accelerator programs, and incubation support,
-              offering invaluable resources for business growth.
+            The event culminates in the Grand Finale, where teams
+             pitch innovative solutions to a distinguished panel,
+             showcasing creativity, critical thinking, and business 
+             acumen.
             </p>
           </div>
           
