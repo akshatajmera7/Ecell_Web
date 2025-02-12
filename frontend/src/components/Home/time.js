@@ -8,13 +8,13 @@ import img6 from "../../assets/6.png";
 import img7 from "../../assets/7.png";
 
 const events = [
-  { title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", imageUrl: img1, registerLink: "#",exploreLink:"/launchpad/startup_expo"},
-  { title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", imageUrl: img2, registerLink: "#",exploreLink:"/launchpad/pitch_perfect"},
-  { title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", imageUrl: img3, registerLink: "#",exploreLink:"/launchpad/internship_drive"},
-  { title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", imageUrl: img4, registerLink: "#",exploreLink:"/launchpad/beyond_profits"},
-  { title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", imageUrl: img5, registerLink: "#" ,exploreLink:"/launchpad/teen_tycoons"},
-  { title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success.", imageUrl: img6, registerLink: "#",exploreLink:"/launchpad/pitchers_pilot" },
-  { title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", imageUrl: img7, registerLink: "#",exploreLink:"/launchpad/ground_reality" },
+  { title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", imageUrl: img1, registerLink: "https://unstop.com/conferences/startup-expo-launchpad-25-birla-institute-of-technology-science-pilani-hyderabad-campus-1317940",exploreLink:"/launchpad/startup_expo"},
+  { title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", imageUrl: img2, registerLink: "https://unstop.com/competitions/pitch-perfect-an-online-bussiness-plan-competition-launchpad-25-birla-institute-of-technology-and-sciences--1319979",exploreLink:"/launchpad/pitch_perfect"},
+  { title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", imageUrl: img3, registerLink: "https://bharatversity.com/event/67878d18c9499900218d641f",exploreLink:"/launchpad/internship_drive"},
+  { title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", imageUrl: img4, registerLink: "https://unstop.com/competitions/beyond-profits-launchpad-25-bits-1361695",exploreLink:"/launchpad/beyond_profits"},
+  { title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", imageUrl: img5, registerLink: "https://bharatversity.com/event/679be5698f8b890021015fd0" ,exploreLink:"/launchpad/teen_tycoons"},
+  { title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success.", imageUrl: img6, registerLink: "https://unstop.com/o/zN4GnQ6?lb=jL0ByYM&utm_medium=Share&utm_source=shortUrl",exploreLink:"/launchpad/pitchers_pilot" },
+  { title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", imageUrl: img7, registerLink: "https://unstop.com/competitions/ground-reality-a-business-plan-competition-birla-institute-of-technology-science-pilani-hyderabad-campus-1316405",exploreLink:"/launchpad/ground_reality" },
 ];
 
 const EventCard = ({ event, index }) => {
