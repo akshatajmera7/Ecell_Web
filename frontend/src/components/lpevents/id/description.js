@@ -9,23 +9,19 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-              Ground Reality is a prestigious annual competition
-              that gives start-ups and aspiring entrepreneurs the
-              chance to pitch their ideas to top venture capitalists
-              and angel investors.
-            </p>
-            
-            <p className="text-lg mb-6">
-              With over 20 mentors guiding 200+ participants, it
-              bridges the gap between students, industry, and
-              market needs.
+            Internship Drive is designed to connect enthusiastic
+            students with 50+ start-ups, offering stipends up to
+            30K INR. With 75% of the opportunities being work
+           from-home, this initiative provides students with the
+            chance to gain hands-on experience in a variety of
+            industries. 
             </p>
             
             <p className="text-lg mb-8">
-              The winners receive a prize pool of Rs. 2 Lakhs, along
-              with legal services, mentoring vouchers, cloud space,
-              accelerator programs, and incubation support,
-              offering invaluable resources for business growth.
+            It also offers valuable exposure to the selection
+            processes and interviews of leading companies,
+            helping students develop the skills and confidence
+            needed before entering the corporate world
             </p>
           </div>
           
