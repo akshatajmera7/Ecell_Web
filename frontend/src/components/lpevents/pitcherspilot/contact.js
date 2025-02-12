@@ -60,7 +60,7 @@ const ContactSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Ground Reality Handled By
+        Pitcher's Pilot Handled By
       </motion.h1>
 
       {/* Guest Relations Section */}
