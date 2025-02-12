@@ -18,22 +18,22 @@ import img15 from '../../assets/SPEAKER PICS/varun.jpeg';
 import img16 from '../../assets/SPEAKER PICS/PRANAY-PAI.png';
 
 const profiles = [
-  { id: 1, name: "SHRI VENKAIAH NAIDU", role: "FORMER VICE-PRESIDENT OF INDIA", image: img1, link: "#" },
-  { id: 2, name: "PIYUSH GOYAL", role: "UNION CABINET MINISTER", image: img2, link: "#" },
-  { id: 3, name: "KIRAN MAZUMDAR SHAW", role: "CHAIRPERSON BIOCON", image: img3, link: "#" },
-  { id: 4, name: "VINOD DHAM", role: "INDIAN INVENTOR", image: img4, link: "#" },
-  { id: 5, name: "NILESH KOTHARI", role: "CO-FOUNDER TRIFECTA CAPITAL", image: img5, link: "#" },
-  { id: 6, name: "KSHTIJ KHANDELWAL", role: "CTO - PIXXEL", image: img6, link: "#" },
-  { id: 7, name: "ANAND SRINIVASAN", role: "CO FOUNDER AKASA AIR", image: img7, link: "#" },
-  { id: 8, name: "SAM PITRODA", role: "INDIAN INVENTOR", image: img8, link: "#" },
-  { id: 9, name: "TARUN KATIYAL", role: "FOUNDER COTO EX-CEO ZEE5", image: img9, link: "#" },
-  { id: 10, name: "DR.A SIVANTHANU PILLAI", role: "INDIAN SCIENTIST DRDO AND ISRO", image: img10, link: "#" },
-  { id: 11, name: "ANKUSH SINGLA", role: "CO-FOUNDER CODING NINJAS", image: img11, link: "#" },
-  { id: 12, name: "KAVITHA SUBRAMANIAN", role: "CO FOUNDER UPSTOX", image: img12, link: "#" },
-  { id: 13, name: "GREG MOORAN", role: "CEO ZOOMCAR", image: img13, link: "#" },
-  { id: 14, name: "PRANALI MEHTA", role: "VENTURES AND ACCELERATION ANTHILL", image: img14, link: "#" },
-  { id: 15, name: "VARUN SRIDHAR", role: "CEO PAYTM COMPANY", image: img15, link: "#" },
-  { id: 16, name: "PRANAY PAI", role: "FOUNDING PARTNER 30NE4 CAPITAL", image: img16, link: "#" },
+  { id: 1, name: "SHRI VENKAIAH NAIDU", role: "FORMER VICE-PRESIDENT OF INDIA", image: img1, link: "https://x.com/mvenkaiahnaidu?lang=en&mx=2" },
+  { id: 2, name: "PIYUSH GOYAL", role: "UNION CABINET MINISTER", image: img2, link: "https://www.linkedin.com/in/piyushgoyalofficial/?originalSubdomain=in" },
+  { id: 3, name: "KIRAN MAZUMDAR SHAW", role: "CHAIRPERSON BIOCON", image: img3, link: "https://www.linkedin.com/in/kmazumdarshaw/" },
+  { id: 4, name: "VINOD DHAM", role: "INDIAN INVENTOR", image: img4, link: "https://www.linkedin.com/in/vinod-vin-dham-b07a7935/" },
+  { id: 5, name: "NILESH KOTHARI", role: "CO-FOUNDER TRIFECTA CAPITAL", image: img5, link: "https://www.linkedin.com/in/nilesh-kothari-9126588/" },
+  { id: 6, name: "KSHTIJ KHANDELWAL", role: "CTO - PIXXEL", image: img6, link: "https://www.linkedin.com/in/khandelwalkshitij/" },
+  { id: 7, name: "ANAND SRINIVASAN", role: "CO FOUNDER AKASA AIR", image: img7, link: "https://www.linkedin.com/in/anandakasa/?originalSubdomain=in" },
+  { id: 8, name: "SAM PITRODA", role: "INDIAN INVENTOR", image: img8, link: "https://www.linkedin.com/in/sampitroda/" },
+  { id: 9, name: "TARUN KATIYAL", role: "FOUNDER COTO EX-CEO ZEE5", image: img9, link: "https://www.linkedin.com/in/tarunkatial/?originalSubdomain=in" },
+  { id: 10, name: "DR.A SIVANTHANU PILLAI", role: "INDIAN SCIENTIST DRDO AND ISRO", image: img10, link: "https://www.linkedin.com/in/a-sivathanu-pillai-2b014576/?originalSubdomain=in" },
+  { id: 11, name: "ANKUSH SINGLA", role: "CO-FOUNDER CODING NINJAS", image: img11, link: "https://www.linkedin.com/in/ankushsingla/?originalSubdomain=in" },
+  { id: 12, name: "KAVITHA SUBRAMANIAN", role: "CO FOUNDER UPSTOX", image: img12, link: "https://www.linkedin.com/in/kavitha-subramanian-6a761411/?originalSubdomain=in" },
+  { id: 13, name: "GREG MOORAN", role: "CEO ZOOMCAR", image: img13, link: "https://www.linkedin.com/in/greg-moran-45b9a27/" },
+  { id: 14, name: "PRANALI MEHTA", role: "VENTURES AND ACCELERATION ANTHILL", image: img14, link: "https://www.linkedin.com/in/pranalimehta99/" },
+  { id: 15, name: "VARUN SRIDHAR", role: "CEO PAYTM COMPANY", image: img15, link: "https://www.linkedin.com/in/varun-sridhar-639146a/?originalSubdomain=in" },
+  { id: 16, name: "PRANAY PAI", role: "FOUNDING PARTNER 30NE4 CAPITAL", image: img16, link: "https://www.linkedin.com/in/pranavpai/?originalSubdomain=in" },
 ];
 
 const ProfileGrid = () => {
