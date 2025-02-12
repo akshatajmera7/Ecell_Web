@@ -8,12 +8,12 @@ import img6 from "../../assets/6.png";
 import img7 from "../../assets/7.png";
 
 const events = [
-  { title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", imageUrl: img1, registerLink: "#",exploreLink:"#" },
-  { title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", imageUrl: img2, registerLink: "#",exploreLink:"#" },
-  { title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", imageUrl: img3, registerLink: "#",exploreLink:"#"},
-  { title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", imageUrl: img4, registerLink: "#",exploreLink:"#" },
-  { title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", imageUrl: img5, registerLink: "#" ,exploreLink:"#"},
-  { title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success.", imageUrl: img6, registerLink: "#",exploreLink:"#" },
+  { title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", imageUrl: img1, registerLink: "#",exploreLink:"/launchpad/startup_expo"},
+  { title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", imageUrl: img2, registerLink: "#",exploreLink:"/launchpad/pitch_perfect"},
+  { title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", imageUrl: img3, registerLink: "#",exploreLink:"/launchpad/internship_drive"},
+  { title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", imageUrl: img4, registerLink: "#",exploreLink:"/launchpad/beyond_profits"},
+  { title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", imageUrl: img5, registerLink: "#" ,exploreLink:"/launchpad/teen_tycoons"},
+  { title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success.", imageUrl: img6, registerLink: "#",exploreLink:"/launchpad/pitchers_pilot" },
   { title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", imageUrl: img7, registerLink: "#",exploreLink:"/launchpad/ground_reality" },
 ];
 
@@ -79,4 +79,5 @@ const EventGrid = () => {
 
 
 export default EventGrid;
+
 
