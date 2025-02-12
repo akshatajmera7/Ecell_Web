@@ -19,7 +19,7 @@ import Sponsor from "./components/sponsors/sponsor";
 import Speakers from "./components/speakers/launchpadspeakers";
 
 import Gr from "./components/lpevents/gr/grindex";
-import Pitchp from "./components/lpevents/pitchp/pitchpindex";
+import Pitchp from "./components/lpevents/pitcherspilot/ppindex";
 import TT from "./components/lpevents/t3/t3index";
 import Id from "./components/lpevents/id/idindex";
 import Bp from "./components/lpevents/bp/bpindex";
