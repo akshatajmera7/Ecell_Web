@@ -19,6 +19,12 @@ import Sponsor from "./components/sponsors/sponsor";
 import Speakers from "./components/speakers/launchpadspeakers";
 
 import Gr from "./components/lpevents/gr/grindex";
+import Pitchp from "./components/lpevents/pitchp/pitchpindex";
+import TT from "./components/lpevents/t3/t3index";
+import Id from "./components/lpevents/id/idindex";
+import Bp from "./components/lpevents/bp/bpindex";
+import Pp from "./components/lpevents/pitchperfect/ppfindex";
+import Se from "./components/lpevents/startupexpo/seindex";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -71,6 +77,13 @@ function MainContent() {
         <Route path="/launchpad/speakers" element={<Speakers />} />
         <Route path="/launchpad/team" element={<Lteam />} />
         <Route path="/launchpad/ground_reality" element={<Gr />} />
+        <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
+        <Route path="/launchpad/teen_tycoons" element={<TT />} />
+        <Route path="/launchpad/beyond_profits" element={<Bp />} />
+        <Route path="/launchpad/internship_drive" element={<Id />} />
+        <Route path="/launchpad/pitch_perfect" element={<Pp />} />
+        <Route path="/launchpad/startup_expo" element={<Se />} />
+
       </Routes>
 
       {/* Conditional Footer */}
