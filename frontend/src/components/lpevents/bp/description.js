@@ -1,5 +1,5 @@
 import React from 'react';
-import Grimg from '../../../assets/lpevents/gr.jpg'
+import bpimg from '../../../assets/lpevents/beyond profits.png'
 
 
 const ProgramDescription = () => {
@@ -28,7 +28,7 @@ const ProgramDescription = () => {
               <div className="bg-black p-4 border-2 border-blue-600 rounded-lg shadow-lg">
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <img 
-                    src={Grimg} 
+                    src={bpimg} 
                     alt="Ground Reality" 
                     className="w-full h-full object-cover"
                   />
