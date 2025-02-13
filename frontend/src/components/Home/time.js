@@ -30,27 +30,48 @@ const EventCard = ({ event, index }) => {
 
   return (
     <div className={`transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-     
       <div className="relative aspect-square group cursor-pointer overflow-hidden rounded-xl bg-[#0a0f1f] shadow-[0px_8px_20px_rgba(0,0,50,0.8)] border border-blue-900 transition-all duration-500">
-        <img src={event.imageUrl} alt={event.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-        
-        <div className="absolute bottom-0 left-0 right-0 p-4">
+        {/* Background Image */}
+        <img
+          src={event.imageUrl}
+          alt={event.title}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+
+        {/* Blur Effect on Hover */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Title at Bottom - Will disappear on hover */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-4">
           <h3 className="text-white font-extrabold text-lg md:text-xl">{event.title}</h3>
         </div>
 
-        <div className="absolute inset-0 p-4 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+        {/* Full Details on Hover */}
+        <div className="absolute inset-0 p-4 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10">
           <div>
             <h3 className="text-white font-extrabold text-lg md:text-xl mb-2">{event.title}</h3>
-            <p className="text-gray-200 text-sm md:text-base font-semibold leading-relaxed mb-4">{event.description}</p>
+            <p className="text-gray-200 text-sm md:text-base font-semibold leading-relaxed mb-4">
+              {event.description}
+            </p>
           </div>
-          
+
+          {/* Buttons */}
           <div className="flex gap-3">
-            <a href={event.registerLink} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors text-sm">
+            <a
+              href={event.registerLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm"
+            >
               Register
             </a>
-            <a href={event.exploreLink} target="_blank" rel="noopener noreferrer" className="bg-white text-blue-500 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm">
+            <a
+              href={event.exploreLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-blue-500 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+            >
               Explore
             </a>
           </div>
@@ -59,6 +80,7 @@ const EventCard = ({ event, index }) => {
     </div>
   );
 };
+
 
 const EventGrid = () => {
   return (
