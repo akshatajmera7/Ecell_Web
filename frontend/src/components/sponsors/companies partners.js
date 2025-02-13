@@ -38,7 +38,6 @@ const MediaAssociates = () => {
     {
       name: "Startup Hyderabad",
       image: img4,
-      link: "https://startuphyderabad.com/",
     },
     { name: "Enactus", image: img14, link: "https://enactus.org/" },
     { name: "Lemon Ideas", image: img15, link: "https://lemonideas.in/" },
@@ -54,7 +53,7 @@ const MediaAssociates = () => {
     },
     { name: "E-Cell", image: img23, link: "https://ecell.iiit.ac.in/" },
 
-    { name: "50K Network", image: img1, link: "https://www.50knetwork.com/" },
+    { name: "50K Network", image: img1 },
     {
       name: "10,000 Startups",
       image: img2,
@@ -85,20 +84,18 @@ const MediaAssociates = () => {
       link: "https://www.badabusiness.com/",
     },
 
-    { name: "nCore Games", image: img13, link: "https://ncoregames.com/" },
+    { name: "nCore Games", image: img13 },
     {
       name: "Jaarvis Accelerator",
       image: img17,
-      link: "https://jaarvisaccelerator.com/",
     },
 
     { name: "Leada", image: img19, link: "https://leadangels.in/" },
     {
       name: "Your Startup",
       image: img20,
-      link: "#",
     },
-    { name: "Cosmos", image: img21, link: "#" },
+    { name: "Cosmos", image: img21 },
   ];
 
   return (

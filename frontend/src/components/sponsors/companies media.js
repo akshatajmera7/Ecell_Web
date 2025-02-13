@@ -50,14 +50,12 @@ const MediaAssociates = () => {
     {
       name: "AlgoCS",
       image: img3,
-      link: "https://www.instagram.com/algocs.in//",
     },
     { name: "KnowaFest", image: img5, link: "https://www.knowafest.com/" },
     { name: "StartupTalky", image: img6, link: "https://startuptalky.com/" },
     {
       name: "Biz Standards",
       image: img7,
-      link: "https://www.instagram.com/bizstandards/",
     },
     { name: "BlogAdda", image: img9, link: "https://www.blogadda.com/" },
     {
@@ -75,7 +73,7 @@ const MediaAssociates = () => {
     { name: "NoticeBard", image: img15, link: "https://www.noticebard.com/" },
     { name: "Creativals", image: img19, link: "https://creativals.com/" },
     { name: "PagalGuy", image: img20, link: "https://www.pagalguy.com/" },
-    { name: "Elyuxen", image: img21, link: "https://elyuxen.com/" },
+    { name: "Elyuxen", image: img21 },
     {
       name: "Campus Times",
       image: img22,

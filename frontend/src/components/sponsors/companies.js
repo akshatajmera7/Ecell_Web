@@ -69,7 +69,6 @@ const MediaAssociates = () => {
     {
       name: "Hacker The House",
       image: img19,
-      link: "https://hackerthehouse.com/",
     },
     {
       name: "Royal Brothers",
@@ -86,7 +85,6 @@ const MediaAssociates = () => {
     {
       name: "Novatech Solar",
       image: img26,
-      link: "http://www.novatechsolar.com/",
     },
   ];
 
