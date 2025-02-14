@@ -7,19 +7,19 @@ import videohp from '../../assets/vid2.mp4';
 const Hero = () => {
     useEffect(() => {
         AOS.init({
-            duration: 1000,
+            duration: 5000,
             once: true,
         });
     }, []);
 
     const headingAnimation = {
         hidden: { opacity: 0, y: -30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 2 } },
     };
 
     const subheadingAnimation = {
         hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 2, delay: 1} },
     };
 
     return (

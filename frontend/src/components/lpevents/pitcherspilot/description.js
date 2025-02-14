@@ -4,7 +4,7 @@ import ppimg from '../../../assets/lpevents/pitchers pilot.png'
 
 const ProgramDescription = () => {
   return (
-    <div className="min-h-screen bg-black text-white p-8 lg:pb-0">
+    <div className="bg-black text-white p-8 pb-0">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">

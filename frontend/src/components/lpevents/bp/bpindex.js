@@ -13,8 +13,7 @@ function Team() {
       <Hero />
       <Stats />
       <Desc />
-     
-     <Contact />
+      <Contact />
     </div>
   );
 }

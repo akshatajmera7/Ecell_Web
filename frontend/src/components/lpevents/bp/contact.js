@@ -52,7 +52,7 @@ const ContactSection = () => {
   );
 
   return (
-    <div className="relative w-full min-h-screen bg-black py-16 flex flex-col items-center justify-center">
+    <div className="relative w-full bg-black py-4 flex flex-col items-center justify-center">
       {/* Overall Heading */}
       <motion.h1
         className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 text-center mb-12"
