@@ -2,14 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Sagnik from "../../../assets/sagnik.jpg";
+import Sagnik from "../../../assets/raghav.jpeg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Sagnik Paul",
-      role: "Chairman",
+      name: "Raghav",
       image: Sagnik,
       email: "mailto:prathamesh@example.com",
       linkedin: "https://linkedin.com/in/prathamesh",
