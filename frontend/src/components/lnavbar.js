@@ -47,6 +47,7 @@ const CosmicNavbar = () => {
       { name: "Speakers", href: "/launchpad/speakers" },
       { name: "Sponsors", href: "/launchpad/sponsor" },
       { name: "Our Team", href: "/launchpad/team" },
+      { name: "About", href: "/launchpad/about"},
       { name: "Contact", href: "/launchpad/contact" },
     ],
     []
