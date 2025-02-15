@@ -8,7 +8,7 @@ const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Raghav",
+      name: "Raghav Agarwal",
       image: Sagnik,
       email: "mailto:prathamesh@example.com",
       linkedin: "https://linkedin.com/in/prathamesh",

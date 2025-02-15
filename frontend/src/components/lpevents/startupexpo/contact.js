@@ -34,7 +34,7 @@ const ContactSection = () => {
           </div>
           <div className="text-center mt-4">
             <h3 className="text-lg font-semibold text-white">{person.name}</h3>
-            <p className="text-sm text-blue-400">{person.role}</p>
+           
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">

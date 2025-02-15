@@ -9,7 +9,7 @@ const ProductExplorer = () => {
           Pitcher's Pilot
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 leading-relaxed tracking-wide max-w-3xl">
-        Get Funded, Get Mentored, Get Started
+        Your Runway to Investment and Growth
         </p>
         <button
   className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-2xl shadow-md transition-transform transform hover:scale-105"

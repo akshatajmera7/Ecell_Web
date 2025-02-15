@@ -44,8 +44,8 @@ const KeyFeatures = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <StatCard title="Companies" value="50+" />
           <StatCard title="Internship Offered" value="500+" />
-          <StatCard title="Stipends upto" value="1.25L" />
-          <StatCard title="total applications" value="1500+" />
+          <StatCard title="Stipends Upto" value="1.25L" />
+          <StatCard title="Total Applications" value="1500+" />
         </div>
       </div>
     </div>
