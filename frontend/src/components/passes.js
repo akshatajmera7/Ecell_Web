@@ -86,7 +86,7 @@ const PricingPasses = () => {
     },
     {
       name: 'All Access Pass',
-      price: 'Depends on No. of Days',
+      price: '',
      
       features: [
         { name: 'Startup Expo', included: true },
@@ -105,7 +105,7 @@ const PricingPasses = () => {
     },
     {
       name: 'Mega Pass',
-      price: 'Depends on Accomodation',
+      price: '',
      
       features: [
         { name: 'Startup Expo', included: true },
