@@ -10,7 +10,7 @@ const ContactSection = () => {
     {
       id: 1,
       name: "Shoaib Khan",
-      role: "Tech Head",
+      role: "Guest Relations Head",
       image: Shoaib,
       email: "15shoaibkhan@gmail.com",
       linkedin: "https://www.linkedin.com/in/shoaibkhan1501/",
@@ -18,7 +18,7 @@ const ContactSection = () => {
     {
       id: 2,
       name: "Ananya Agarwal",
-      role: "Training Coordinator",
+      role: "Guest Relations Head",
       image: Ananya,
       email: "f20221697@hyderabad.bits-pilani.ac.in",
       linkedin: "ttps://www.linkedin.com/in/ananya-agrawal-797687243",

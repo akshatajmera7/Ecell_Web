@@ -137,9 +137,9 @@ const KeyFeatures = () => {
     <div className="w-full bg-black py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <StatCard title="ATTENDEES" value="50000+" />
+          <StatCard title="ATTENDEES" value="25000+" />
           <StatCard title="STARTUPS" value="1000+" />
-          <StatCard title="EVENTS" value="30+" />
+          <StatCard title="EVENTS" value="20+" />
         </div>
       </div>
     </div>

@@ -56,7 +56,7 @@ const EventCard = ({ event, index }) => {
                 rel="noopener noreferrer"
                 className="w-1/2 text-center py-3 px-6 rounded-lg bg-blue-900 text-white font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/50 active:scale-95"
               >
-                Explore
+                View Details
               </a>
             </div>
           </div>
