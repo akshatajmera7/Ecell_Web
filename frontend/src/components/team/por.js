@@ -279,13 +279,13 @@ const ContactCard = ({ person }) => (
   <motion.div
     className="relative group"
     initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+   whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
   >
     <div className="relative rounded-2xl bg-gradient-to-b from-blue-900/50 to-gray-900/50 backdrop-blur-sm border border-blue-700/30 p-4 transform transition-all duration-300 group-hover:scale-105">
       <div className="flex flex-col items-center">
         <div className="w-full h-48 rounded-xl overflow-hidden border border-blue-700/50">
-          <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+        <img src={person.image} alt={person.name} className="w-full h-full object-cover object-[40%]" />
         </div>
         <div className="text-center mt-4">
           <h3 className="text-lg font-semibold text-white">{person.name}</h3>

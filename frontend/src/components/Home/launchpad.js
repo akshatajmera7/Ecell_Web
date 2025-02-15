@@ -158,7 +158,7 @@ const Launchpad = () => {
           <ListItem>Networking Arena</ListItem>
         </List>
         <div>
-  <Button onClick={() => window.location.href = 'https://launchpad-ten-rose.vercel.app/'}>
+  <Button onClick={() => window.location.href = '/launchpad'}>
     Explore Launchpad
   </Button>
   <SpotsLeft>Annual Entrepreneurial Summit</SpotsLeft>
