@@ -10,7 +10,7 @@ const ContactSection = () => {
       id: 1,
       name: "Manav Sharma",
       image: Sagnik,
-      email: "f20220852@hyderabad.bits-pilani.ac.in",
+      email: "f20221347@hyderabad.bits-pilani.ac.in",
       linkedin: "https://linkedin.com/in/prathamesh",
     }
   ];
@@ -37,7 +37,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={person.email} className="text-blue-400 hover:text-blue-300">
+            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
