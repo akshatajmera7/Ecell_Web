@@ -94,7 +94,7 @@ const teams = [
         role: "Media Head",
         image: Vaishnavi,
         linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        email: "f20220783@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -102,7 +102,7 @@ const teams = [
         role: "Technical Coordinator",
         image: Ananya,
         linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-        email: "jane.smith@example.com",
+        email: "f20221697@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -110,7 +110,7 @@ const teams = [
         role: "Editorial Head",
         image: Siddhant,
         linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-        email: "jane.smith@example.com",
+        email: "f20221655@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -119,7 +119,7 @@ const teams = [
         image: Ishika,
         linkedin:
           "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "f20222462@hyderabad.bits-pilani.ac.in",
+        email: "f20221462@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
     ],
