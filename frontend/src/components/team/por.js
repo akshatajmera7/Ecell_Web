@@ -30,7 +30,7 @@ const teams = [
         role: "President",
         image: Om,
         linkedin: "https://www.linkedin.com/in/johndoe",
-        email: "john.doe@example.com",
+        email: "f20221703@hyderabad.bits-pilani.ac.in",
         bio: "Visionary leader passionate about entrepreneurship",
       },
       {
@@ -38,7 +38,7 @@ const teams = [
         role: "Launchpad Chairman",
         image: Sagnik,
         linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        email: "f20220852@hyderabad.bits-pilani.ac.in",
         bio: "Strategic thinker with a focus on innovation",
       },
       {
@@ -46,7 +46,7 @@ const teams = [
         role: "Vice President Collaboration and Initiatives",
         image: Advik,
         linkedin: "https://www.linkedin.com/in/johndoe",
-        email: "john.doe@example.com",
+        email: "f20221632@hyderabad.bits-pilani.ac.in",
         bio: "Visionary leader passionate about entrepreneurship",
       },
       {
@@ -54,7 +54,7 @@ const teams = [
         role: "Vice President Projects and Learning",
         image: Raghav,
         linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        email: "f20220892@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -62,7 +62,7 @@ const teams = [
         role: "Vice Chairman",
         image: Manav,
         linkedin: "https://www.linkedin.com/in/johndoe",
-        email: "john.doe@example.com",
+        email: "f20221347@hyderabad.bits-pilani.ac.in",
         bio: "Visionary leader passionate about entrepreneurship",
       },
       {
@@ -70,7 +70,7 @@ const teams = [
         role: "Treasurer",
         image: Shreshth,
         linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        email: "f20221650@hyderabad.bits-pilani.ac.in",
         bio: "Strategic thinker with a focus on innovation",
       },
       {
@@ -78,7 +78,7 @@ const teams = [
         role: "Operations Coordinator",
         image: Surbhit,
         linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        email: "f20220868@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -86,7 +86,7 @@ const teams = [
         role: "Tech Head",
         image: Shoaib,
         linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        email: "f20220573@hyderabad.bits-pilani.ac.in",
         bio: "Strategic thinker with a focus on innovation",
       },
       {
@@ -119,7 +119,7 @@ const teams = [
         image: Ishika,
         linkedin:
           "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "jane.smith@example.com",
+        email: "f20222462@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
     ],
