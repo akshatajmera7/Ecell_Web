@@ -12,7 +12,7 @@ const ContactSection = () => {
       role: "Chairman",
       image: Sagnik,
       email: "f20220852@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
     }
   ];
 

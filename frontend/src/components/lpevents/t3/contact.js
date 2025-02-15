@@ -11,7 +11,7 @@ const ContactSection = () => {
       name: "Raghav Agarwal",
       image: Sagnik,
       email: "f20220892@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      linkedin: "https://www.linkedin.com/in/raghav-agarwal-984b44266/",
     }
   ];
 
