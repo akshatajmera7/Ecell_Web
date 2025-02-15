@@ -13,7 +13,7 @@ const ProductExplorer = () => {
         </p>
         <button
   className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-2xl shadow-md transition-transform transform hover:scale-105"
-  onClick={() => { window.location.href = "YOUR_LINK_HERE"; }}
+  onClick={() => { window.location.href = "https://unstop.com/o/zN4GnQ6?lb=jL0ByYM&utm_medium=Share&utm_source=shortUrl"; }}
 >
   Register Now
 </button>
