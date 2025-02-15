@@ -29,7 +29,7 @@ const ContactSection = () => {
             <img
               src={person.image}
               alt={person.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain rounded-lg"
             />
           </div>
           <div className="text-center mt-4">
