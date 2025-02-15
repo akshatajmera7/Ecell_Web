@@ -10,7 +10,7 @@ const ContactSection = () => {
       id: 1,
       name: "Sagnik Paul",
       image: Sagnik,
-      email: "chairman@ecellbits.com",
+      email: "f20220852@hyderabad.bits-pilani.ac.in",
       linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
     },
   ];

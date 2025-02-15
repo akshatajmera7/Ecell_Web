@@ -10,7 +10,7 @@ const ContactSection = () => {
       id: 1,
       name: "Manav Sharma",
       image: Sagnik,
-      email: "mailto:prathamesh@example.com",
+      email: "f20220852@hyderabad.bits-pilani.ac.in",
       linkedin: "https://linkedin.com/in/prathamesh",
     }
   ];
