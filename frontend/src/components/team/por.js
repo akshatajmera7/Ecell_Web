@@ -23,8 +23,16 @@ import Ishika from "../../assets/ishika.jpeg";
 
 const teams = [
   {
-    title: "E - Cell Office",
+    title: "Launchpad Executive",
     members: [
+      {
+        name: "Sagnik Paul",
+        role: "Chairman",
+        image: Sagnik,
+        linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
+        email: "f20220852@hyderabad.bits-pilani.ac.in",
+        bio: "Strategic thinker with a focus on innovation",
+      },
       {
         name: "Om Sonkusare",
         role: "President",
@@ -34,12 +42,12 @@ const teams = [
         bio: "Visionary leader passionate about entrepreneurship",
       },
       {
-        name: "Sagnik Paul",
-        role: "Launchpad Chairman",
-        image: Sagnik,
-        linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
-        email: "f20220852@hyderabad.bits-pilani.ac.in",
-        bio: "Strategic thinker with a focus on innovation",
+        name: "Manav Sharma",
+        role: "Vice Chairman",
+        image: Manav,
+        linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
+        email: "f20221347@hyderabad.bits-pilani.ac.in",
+        bio: "Visionary leader passionate about entrepreneurship",
       },
       {
         name: "Advik Kulkarni",
@@ -56,14 +64,6 @@ const teams = [
         linkedin: "https://www.linkedin.com/in/raghav-agarwal-984b44266/",
         email: "f20220892@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
-      },
-      {
-        name: "Manav Sharma",
-        role: "Vice Chairman",
-        image: Manav,
-        linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
-        email: "f20221347@hyderabad.bits-pilani.ac.in",
-        bio: "Visionary leader passionate about entrepreneurship",
       },
       {
         name: "Shreshth Borkar",
