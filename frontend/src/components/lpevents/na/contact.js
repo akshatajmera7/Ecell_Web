@@ -12,19 +12,12 @@ const ContactSection = () => {
       image: Advik,
       email: "f20220892@hyderabad.bits-pilani.ac.in",
       linkedin: "https://www.linkedin.com/in/advik-kulkarni-3386461b7",
-    },
-    {
-      id: 2,
-      name: "Advik Kulkarni",
-      image: Advik,
-      email: "f20220892@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/advik-kulkarni-3386461b7",
-    },
+    }
   ];
 
   const ContactCard = ({ person }) => (
     <motion.div
-      className="relative group w-full sm:w-80"
+      className="relative group"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -44,18 +37,10 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a
-                href={`mailto:${person.email}`}
-                className="text-blue-400 hover:text-blue-300"
-              >
+            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
-              <a
-                href={person.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300"
-              >
+              <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
                 <FaLinkedin className="w-5 h-5" />
               </a>
             </div>
@@ -78,13 +63,13 @@ const ContactSection = () => {
       </motion.h1>
 
       {/* Guest Relations Section */}
-      <section className="w-full flex justify-center">
-        <div className="flex flex-wrap gap-8 justify-center">
-          {guestRelationsContacts.map((person) => (
-            <ContactCard key={person.id} person={person} />
-          ))}
-        </div>
-      </section>
+      <section className="w-full flex justify-center items-center">
+  <div className="grid place-items-center">
+    {guestRelationsContacts.map((person) => (
+      <ContactCard key={person.id} person={person} />
+    ))}
+  </div>
+</section>
     </div>
   );
 };
