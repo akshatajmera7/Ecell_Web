@@ -15,14 +15,16 @@ const ProgramDescription = () => {
            
             <p className="text-lg mb-8">
             <ul className="list-disc list-inside">
-              <li>Panel Discussions – In-depth discussion on latest trends in entrepreneurship</li>
+              <li>Panel Discussions – Discussion on latest trends in entrepreneurship</li>
               <li>Keynote Speaker Session – Gain insights from a top industry leader</li>
               <li>Startup Pitching – Get feedback from seasoned investors</li>
               <li>Networking Conclave – Connect with founders, investors & mentors</li>
             </ul>
+            </p>
 
-            Date: 23rd February 2025
-            Time: 2PM - 6PM
+            <p className="text-lg mb-8">
+            Date: 23rd February 2025 <br/>
+            Time: 2PM - 6PM <br/>
             Venue: The Headquarters, Hi-Tech City, Hyderabad
             </p>
 

@@ -23,6 +23,7 @@ import Pitchp from "./components/lpevents/pitcherspilot/ppindex";
 import TT from "./components/lpevents/t3/t3index";
 import Id from "./components/lpevents/id/idindex";
 import Bp from "./components/lpevents/bp/bpindex";
+import Na from "./components/lpevents/na/naindex";
 import Pp from "./components/lpevents/pitchperfect/ppfindex";
 import Se from "./components/lpevents/startupexpo/seindex";
 
@@ -67,6 +68,7 @@ function MainContent() {
         <Route path="/team" element={<Team />} />
         <Route path="/program" element={<Program />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/na" element={<Na />} />
 
         {/* Launchpad Routes */}
         <Route path="/launchpad" element={<Launchpadhome />} />
