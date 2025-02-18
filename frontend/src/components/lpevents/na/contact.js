@@ -10,7 +10,7 @@ const ContactSection = () => {
       id: 1,
       name: "Advik Kulkarni",
       image: Advik,
-      email: "f20220892@hyderabad.bits-pilani.ac.in",
+      email: "f20221632@hyderabad.bits-pilani.ac.in",
       linkedin: "https://www.linkedin.com/in/advik-kulkarni-3386461b7",
     }
   ];
