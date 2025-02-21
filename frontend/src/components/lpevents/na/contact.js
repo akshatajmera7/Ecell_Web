@@ -22,9 +22,9 @@ const ContactSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="relative rounded-2xl bg-gradient-to-b from-blue-900/50 to-gray-900/50 backdrop-blur-sm border border-blue-700/30 p-4 transform transition-all duration-300 group-hover:scale-105">
+      <div className="relative rounded-2xl bg-[#18181B] backdrop-blur-sm border border-white p-4 transform transition-all duration-300 group-hover:scale-105">
         <div className="flex flex-col items-center">
-          <div className="w-full h-48 rounded-xl overflow-hidden border border-blue-700/50">
+          <div className="w-full h-48 rounded-xl overflow-hidden border border-white">
             <img
               src={person.image}
               alt={person.name}
@@ -37,10 +37,10 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
+              <a href={`mailto:${person.email}`} className="text-white hover:text-gray-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
-              <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
+              <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
                 <FaLinkedin className="w-5 h-5" />
               </a>
             </div>
@@ -54,7 +54,7 @@ const ContactSection = () => {
     <div className="relative w-full bg-black py-4 flex flex-col items-center justify-center">
       {/* Overall Heading */}
       <motion.h1
-        className="text-4xl font-bold text-white text-center mb-12"
+        className="text-4xl font-medium text-white text-center mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}

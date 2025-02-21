@@ -11,7 +11,7 @@ const ProductExplorer = () => {
           An exclusive event bringing together startup founders, investors, VCs, and mentors for high-impact conversations and collaborations.
         </p>
         <button
-          className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-2xl shadow-md transition-transform transform hover:scale-105"
+          className="px-6 py-3 text-lg font-semibold bg-white hover:bg-gray-200 text-black rounded-2xl shadow-md transition-transform transform hover:scale-105"
           onClick={() => { window.location.href = "https://forms.gle/1jeb86bn24WBGDfU7"; }}
         >
           Register Now
