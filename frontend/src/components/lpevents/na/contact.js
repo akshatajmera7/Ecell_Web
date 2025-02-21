@@ -54,7 +54,7 @@ const ContactSection = () => {
     <div className="relative w-full bg-black py-4 flex flex-col items-center justify-center">
       {/* Overall Heading */}
       <motion.h1
-        className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 text-center mb-12"
+        className="text-4xl font-bold text-white text-center mb-12"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
