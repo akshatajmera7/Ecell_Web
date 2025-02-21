@@ -10,7 +10,7 @@ const ContactSection = () => {
     {
       id: 1,
       name: "Shoaib Khan",
-      role: "Tech Head",
+      role: "Guest Relations Head",
       image: Shoaib,
       email: "15shoaibkhan@gmail.com",
       linkedin: "https://www.linkedin.com/in/shoaibkhan1501/",
@@ -18,7 +18,7 @@ const ContactSection = () => {
     {
       id: 2,
       name: "Ananya Agarwal",
-      role: "Training Coordinator",
+      role: "Guest Relations Head",
       image: Ananya,
       email: "f20221697@hyderabad.bits-pilani.ac.in",
       linkedin: "ttps://www.linkedin.com/in/ananya-agrawal-797687243",
@@ -47,7 +47,8 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={person.email} className="text-blue-400 hover:text-blue-300">
+              <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
+              
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">

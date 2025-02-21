@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -24,22 +19,32 @@ import Sponsor from "./components/sponsors/sponsor";
 import Speakers from "./components/speakers/launchpadspeakers";
 
 import Gr from "./components/lpevents/gr/grindex";
+import Pitchp from "./components/lpevents/pitcherspilot/ppindex";
+import TT from "./components/lpevents/t3/t3index";
+import Id from "./components/lpevents/id/idindex";
+import Bp from "./components/lpevents/bp/bpindex";
+import Na from "./components/lpevents/na/naindex";
+import Pp from "./components/lpevents/pitchperfect/ppfindex";
+import Se from "./components/lpevents/startupexpo/seindex";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Force a scroll reset to the top when location.pathname changes
-    window.scrollTo(0, 0);
+    console.log("Scrolling to top", location.location);
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // Force scroll
+    }, 0);
   }, [location]);
-
+  
   return null;
 };
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <MainContent />
     </Router>
   );
@@ -63,6 +68,7 @@ function MainContent() {
         <Route path="/team" element={<Team />} />
         <Route path="/program" element={<Program />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/na" element={<Na />} />
 
         {/* Launchpad Routes */}
         <Route path="/launchpad" element={<Launchpadhome />} />
@@ -71,8 +77,16 @@ function MainContent() {
         <Route path="/launchpad/sponsor" element={<Sponsor />} />
     <Route path="/launchpad/passes" element={<Passes />} />
         <Route path="/launchpad/speakers" element={<Speakers />} />
+       
         <Route path="/launchpad/team" element={<Lteam />} />
         <Route path="/launchpad/ground_reality" element={<Gr />} />
+        <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
+        <Route path="/launchpad/teen_tycoons" element={<TT />} />
+        <Route path="/launchpad/beyond_profits" element={<Bp />} />
+        <Route path="/launchpad/internship_drive" element={<Id />} />
+        <Route path="/launchpad/pitch_perfect" element={<Pp />} />
+        <Route path="/launchpad/startup_expo" element={<Se />} />
+
       </Routes>
 
       {/* Conditional Footer */}

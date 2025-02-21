@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
 import videohp from "../../assets/vid2.mp4";
 import { FaQq } from "react-icons/fa";
+=======
+import videohp from "../../assets/bgvid1.mp4";
+>>>>>>> aa0874603c36bf361809f488b9128eeef028e0c8
 
 // Simple arrow icon component
 const ArrowIcon = () => (
@@ -20,20 +24,7 @@ const ArrowIcon = () => (
 );
 
 // Simple chevron down icon component
-const ChevronDown = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-8 h-8"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="6 9 12 15 18 9"></polyline>
-  </svg>
-);
+
 
 const Hero = () => {
   const [scale, setScale] = useState(1);
@@ -133,9 +124,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/50 animate-bounce">
-          <ChevronDown />
-        </div>
+       
       </div>
     </div>
   );

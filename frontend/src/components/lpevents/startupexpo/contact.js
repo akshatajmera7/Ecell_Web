@@ -11,8 +11,8 @@ const ContactSection = () => {
       name: "Sagnik Paul",
       role: "Chairman",
       image: Sagnik,
-      email: "mailto:prathamesh@example.com",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      email: "f20220852@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
     }
   ];
 
@@ -29,16 +29,16 @@ const ContactSection = () => {
             <img
               src={person.image}
               alt={person.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain rounded-lg"
             />
           </div>
           <div className="text-center mt-4">
             <h3 className="text-lg font-semibold text-white">{person.name}</h3>
-            <p className="text-sm text-blue-400">{person.role}</p>
+           
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={person.email} className="text-blue-400 hover:text-blue-300">
+            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
@@ -60,7 +60,7 @@ const ContactSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Ground Reality Handled By
+        Startup Expo Handled By
       </motion.h1>
 
       {/* Guest Relations Section */}

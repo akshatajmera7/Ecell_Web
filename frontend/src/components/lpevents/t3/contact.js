@@ -2,17 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Sagnik from "../../../assets/sagnik.jpg";
+import Sagnik from "../../../assets/raghav.jpeg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Sagnik Paul",
-      role: "Chairman",
+      name: "Raghav Agarwal",
       image: Sagnik,
-      email: "mailto:prathamesh@example.com",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      email: "f20220892@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/raghav-agarwal-984b44266/",
     }
   ];
 
@@ -38,7 +37,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={person.email} className="text-blue-400 hover:text-blue-300">
+            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
@@ -60,7 +59,7 @@ const ContactSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Ground Reality Handled By
+        Teen Tycoons Handled By
       </motion.h1>
 
       {/* Guest Relations Section */}

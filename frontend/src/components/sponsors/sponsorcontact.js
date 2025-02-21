@@ -9,11 +9,10 @@ const ContactSection = () => {
     {
       id: 1,
       name: "Sagnik Paul",
-      role: "Chairman",
       image: Sagnik,
-      email: "chairman@ecellbits.com",
+      email: "f20220852@hyderabad.bits-pilani.ac.in",
       linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
-    }
+    },
   ];
 
   const ContactCard = ({ person }) => (
@@ -38,10 +37,15 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={person.email} className="text-blue-400 hover:text-blue-300">
+            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
-              <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
+              <a
+                href={person.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300"
+              >
                 <FaLinkedin className="w-5 h-5" />
               </a>
             </div>
@@ -65,12 +69,12 @@ const ContactSection = () => {
 
       {/* Guest Relations Section */}
       <section className="w-full flex justify-center items-center">
-  <div className="grid place-items-center">
-    {guestRelationsContacts.map((person) => (
-      <ContactCard key={person.id} person={person} />
-    ))}
-  </div>
-</section>
+        <div className="grid place-items-center">
+          {guestRelationsContacts.map((person) => (
+            <ContactCard key={person.id} person={person} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

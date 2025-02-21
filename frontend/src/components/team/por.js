@@ -23,78 +23,78 @@ import Ishika from "../../assets/ishika.jpeg";
 
 const teams = [
   {
-    title: "E - Cell Office",
+    title: "Launchpad Executive",
     members: [
+      {
+        name: "Sagnik Paul",
+        role: "Chairman",
+        image: Sagnik,
+        linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
+        email: "f20220852@hyderabad.bits-pilani.ac.in",
+        bio: "Strategic thinker with a focus on innovation",
+      },
       {
         name: "Om Sonkusare",
         role: "President",
         image: Om,
-        linkedin: "https://www.linkedin.com/in/johndoe",
-        email: "john.doe@example.com",
+        linkedin: "https://www.linkedin.com/in/omsonkusare/",
+        email: "f20221703@hyderabad.bits-pilani.ac.in",
         bio: "Visionary leader passionate about entrepreneurship",
       },
       {
-        name: "Sagnik Paul",
-        role: "Launchpad Chairman",
-        image: Sagnik,
-        linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
-        bio: "Strategic thinker with a focus on innovation",
+        name: "Manav Sharma",
+        role: "Vice Chairman",
+        image: Manav,
+        linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
+        email: "f20221347@hyderabad.bits-pilani.ac.in",
+        bio: "Visionary leader passionate about entrepreneurship",
       },
       {
         name: "Advik Kulkarni",
         role: "Vice President Collaboration and Initiatives",
         image: Advik,
-        linkedin: "https://www.linkedin.com/in/johndoe",
-        email: "john.doe@example.com",
+        linkedin: "https://www.linkedin.com/in/advik-kulkarni-3386461b7/",
+        email: "f20221632@hyderabad.bits-pilani.ac.in",
         bio: "Visionary leader passionate about entrepreneurship",
       },
       {
         name: "Raghav Agarwal",
         role: "Vice President Projects and Learning",
         image: Raghav,
-        linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        linkedin: "https://www.linkedin.com/in/raghav-agarwal-984b44266/",
+        email: "f20220892@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
-      },
-      {
-        name: "Manav Sharma",
-        role: "Vice Chairman",
-        image: Manav,
-        linkedin: "https://www.linkedin.com/in/johndoe",
-        email: "john.doe@example.com",
-        bio: "Visionary leader passionate about entrepreneurship",
       },
       {
         name: "Shreshth Borkar",
         role: "Treasurer",
         image: Shreshth,
-        linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        linkedin: "https://www.linkedin.com/in/shreshth-borkar-46abaa2a9/",
+        email: "f20221650@hyderabad.bits-pilani.ac.in",
         bio: "Strategic thinker with a focus on innovation",
       },
       {
         name: "Surbhit Jain",
         role: "Operations Coordinator",
         image: Surbhit,
-        linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        linkedin: "https://www.linkedin.com/in/surbhit-jain-b04b72259/",
+        email: "f20220868@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
         name: "Shoaib Khan",
         role: "Tech Head",
         image: Shoaib,
-        linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        linkedin: "https://www.linkedin.com/in/shoaibkhan1501/",
+        email: "f20220573@hyderabad.bits-pilani.ac.in",
         bio: "Strategic thinker with a focus on innovation",
       },
       {
         name: "Vaishnavi K",
         role: "Media Head",
         image: Vaishnavi,
-        linkedin: "https://www.linkedin.com/in/janesmith",
-        email: "jane.smith@example.com",
+        linkedin: "https://www.linkedin.com/in/vaishnavi-katragadda-9b62a3268/",
+        email: "f20220783@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -102,7 +102,7 @@ const teams = [
         role: "Technical Coordinator",
         image: Ananya,
         linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-        email: "jane.smith@example.com",
+        email: "f20221697@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -110,7 +110,7 @@ const teams = [
         role: "Editorial Head",
         image: Siddhant,
         linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-        email: "jane.smith@example.com",
+        email: "f20221655@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
       {
@@ -119,7 +119,7 @@ const teams = [
         image: Ishika,
         linkedin:
           "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "jane.smith@example.com",
+        email: "f20221462@hyderabad.bits-pilani.ac.in",
         bio: "Technology enthusiast driving digital transformation",
       },
     ],
@@ -279,22 +279,26 @@ const ContactCard = ({ person }) => (
   <motion.div
     className="relative group"
     initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+   whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
   >
     <div className="relative rounded-2xl bg-gradient-to-b from-blue-900/50 to-gray-900/50 backdrop-blur-sm border border-blue-700/30 p-4 transform transition-all duration-300 group-hover:scale-105">
       <div className="flex flex-col items-center">
         <div className="w-full h-48 rounded-xl overflow-hidden border border-blue-700/50">
-          <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
+        <img src={person.image} alt={person.name} className="w-full h-full object-contain rounded-lg" />
         </div>
         <div className="text-center mt-4">
           <h3 className="text-lg font-semibold text-white">{person.name}</h3>
           <p className="text-sm text-blue-400">{person.role}</p>
 
           <div className="flex gap-4 justify-center mt-3">
-            <a href={person.email} className="text-blue-400 hover:text-blue-300">
-              <EnvelopeIcon className="w-5 h-5" />
-            </a>
+          <a
+    href={`mailto:${person.email}`}
+    onClick={(e) => e.stopPropagation()} // Fixes footer redirection issue
+    className="text-white hover:text-gray-400 transition-colors"
+  >
+    <EnvelopeIcon className="w-5 h-5"/>
+  </a>
             <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
               <FaLinkedin className="w-5 h-5" />
             </a>

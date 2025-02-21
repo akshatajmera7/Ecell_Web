@@ -42,9 +42,9 @@ const KeyFeatures = () => {
       <div className="max-w-6xl mx-auto px-4">
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <StatCard title="Startups Registered" value="1500+" />
-          <StatCard title="Startups Mentored" value="200+" />
-          <StatCard title="Prize Pool" value="4L+" />
+          <StatCard title="Startups Registered" value="300+" />
+          <StatCard title="Startups Mentored" value="50+" />
+          <StatCard title="Prize Pool" value="2.5L+" />
         </div>
       </div>
     </div>

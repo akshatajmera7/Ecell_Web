@@ -86,16 +86,19 @@ const Startup = () => {
           </p>
         </div>
 
-        {/* Scroll Buttons */}
-        <div className="relative">
+        {/* Scrollable Section with Arrows */}
+        <div className="relative w-full">
+          {/* Left Scroll Button */}
           <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
             onClick={() => handleScroll('left')}
             style={{ border: 'none', cursor: 'pointer' }}
           >
             &#8249;
           </button>
-          <div className="overflow-hidden whitespace-nowrap" ref={scrollContainer}>
+
+          {/* Scrolling Content */}
+          <div className="overflow-hidden whitespace-nowrap mx-16" ref={scrollContainer}>
             <div className="flex space-x-4">
               {designers.concat(designers).map((designer, index) => (
                 <div
@@ -121,8 +124,10 @@ const Startup = () => {
               ))}
             </div>
           </div>
+
+          {/* Right Scroll Button */}
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
             onClick={() => handleScroll('right')}
             style={{ border: 'none', cursor: 'pointer' }}
           >

@@ -4,62 +4,123 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 const PricingPasses = () => {
   const passes = [
     {
-      name: 'Silver Pass',
-      price: 'FREE',
-      originalPrice: '₹199',
+      name: 'Entry Pass',
+      price: '₹300',
+      originalPrice: '₹400',
       features: [
+        { name: 'One Day Entry', included: true },
         { name: 'Startup Expo', included: true },
-        { name: 'LHC Speakers Sessions', included: true },
-        { name: 'Informals', included: true },
-        { name: 'OAT Event', included: false },
-        { name: 'Highlight Speaker Sessions', included: false },
-        { name: 'Internship & Job Fair', included: false },
-        { name: 'Competitions', included: false },
+        { name: 'Speakers Sessions', included: true },
+        { name: 'Business Plan Competetions', included: true },
+        { name: 'OAT Event', included: true },
+        { name: 'Food Stalls', included: true },
+        { name: 'Internship Drive', included: false },
+        { name: 'Special Performances', included: false },
         { name: 'Networking Arena', included: false },
-        { name: 'Incubator Summit', included: false },
-        { name: 'Seed Stars', included: false }
+        { name: 'Access to Investors', included: false },
+        { name: 'Networking Dinner', included: false }
       ],
       gradient: 'from-blue-300 to-blue-100',
       bgGradient: 'from-blue-900 to-blue-800'
     },
     {
-      name: 'Gold Pass',
-      price: '499',
-      originalPrice: '₹999',
+      name: 'Executive Pass',
+      price: '₹500',
+      originalPrice: '₹600',
       features: [
+        { name: 'One Day Entry', included: true },
         { name: 'Startup Expo', included: true },
-        { name: 'LHC Speakers Sessions', included: true },
-        { name: 'Informals', included: true },
+        { name: 'Speakers Sessions', included: true },
+        { name: 'Business Plan Competetions', included: true },
         { name: 'OAT Event', included: true },
-        { name: 'Highlight Speaker Sessions', included: true },
-        { name: 'Internship & Job Fair', included: true },
-        { name: 'Competitions', included: true },
-        { name: 'Networking Arena', included: true },
-        { name: 'Incubator Summit', included: false },
-        { name: 'Seed Stars', included: false }
+        { name: 'Food Stalls', included: true },
+        { name: 'Intership Drive', included: true },
+        { name: 'Special Performances', included: false },
+        { name: 'Networking Arena', included: false },
+        { name: 'Access to Investors', included: false },
+        { name: 'Networking Dinner', included: false }
       ],
       gradient: 'from-blue-400 to-blue-200',
       bgGradient: 'from-blue-900 to-blue-700',
       popular: true
     },
     {
-      name: 'Platinum Pass',
-      price: '999',
-      originalPrice: '₹1499',
+      name: 'Professional Pass',
+      price: '₹1000',
+      originalPrice: '₹1200',
       features: [
+        { name: '3 Days Entry', included: true },
         { name: 'Startup Expo', included: true },
-        { name: 'LHC Speakers Sessions', included: true },
-        { name: 'Informals', included: true },
+        { name: 'Speakers Sessions', included: true },
+        { name: 'Business Plan Competetions', included: true },
         { name: 'OAT Event', included: true },
-        { name: 'Highlight Speaker Sessions', included: true },
-        { name: 'Internship & Job Fair', included: true },
-        { name: 'Competitions', included: true },
+        { name: 'Food Stalls', included: true },
+        { name: 'Internship Drive', included: true },
         { name: 'Networking Arena', included: true },
-        { name: 'Incubator Summit', included: true },
-        { name: 'Seed Stars', included: true }
+        { name: 'Access to Investors', included: true },
+        { name: 'Networking Dinner', included: true },
+        { name: 'Special Performances', included: false }
       ],
       gradient: 'from-blue-500 to-blue-300',
       bgGradient: 'from-blue-900 to-blue-600'
+    },
+    {
+      name: 'Pioneer Pass',
+      price: '₹1000',
+      originalPrice: '₹1400',
+      features: [
+        { name: '3 Days Entry', included: true },
+        { name: 'Startup Expo', included: true },
+        { name: 'Speakers Sessions', included: true },
+        { name: 'Business Plan Competetions', included: true },
+        { name: 'OAT Event', included: true },
+        { name: 'Food Stalls', included: true },
+        { name: 'Intership Drive', included: true },
+        { name: 'Special Performances', included: false },
+        { name: 'Networking Arena', included: false },
+        { name: 'Access to Investors', included: false },
+        { name: 'Networking Dinner', included: false }
+      ],
+      gradient: 'from-blue-400 to-blue-200',
+      bgGradient: 'from-blue-900 to-blue-700',
+    },
+    {
+      name: 'All Access Pass',
+      price: '',
+     
+      features: [
+        { name: 'Startup Expo', included: true },
+        { name: 'Speakers Sessions', included: true },
+        { name: 'Business Plan Competetions', included: true },
+        { name: 'OAT Event', included: true },
+        { name: 'Food Stalls', included: true },
+        { name: 'Intership Drive', included: true },
+        { name: 'Special Performances', included: true },
+        { name: 'Networking Arena', included: false },
+        { name: 'Access to Investors', included: false },
+        { name: 'Networking Dinner', included: false }
+      ],
+      gradient: 'from-blue-400 to-blue-200',
+      bgGradient: 'from-blue-900 to-blue-700',
+    },
+    {
+      name: 'Mega Pass',
+      price: '',
+     
+      features: [
+        { name: 'Startup Expo', included: true },
+        { name: 'Speakers Sessions', included: true },
+        { name: 'Business Plan Competetions', included: true },
+        { name: 'OAT Event', included: true },
+        { name: 'Food Stalls', included: true },
+        { name: 'Intership Drive', included: true },
+        { name: 'Special Performances', included: true },
+        { name: 'Networking Arena', included: true },
+        { name: 'Access to Investors', included: true },
+        { name: 'Networking Dinner', included: true }
+      ],
+      gradient: 'from-blue-400 to-blue-200',
+      bgGradient: 'from-blue-900 to-blue-700',
     }
   ];
 
@@ -72,9 +133,11 @@ const PricingPasses = () => {
             <span className="text-blue-400">Passes</span>
             <span className="text-white"> Now!</span>
           </h2>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold mb-4 hover:bg-blue-700 transition-colors">
-            Get Passes
-          </button>
+          <a href="https://rzp.io/rzp/4PFCmCP" target="_blank" rel="noopener noreferrer">
+  <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold mb-4 hover:bg-blue-700 transition-colors">
+    Get Passes
+  </button>
+</a>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -95,7 +158,7 @@ const PricingPasses = () => {
                   <div className="mt-2">
                     <span className="text-gray-400 line-through text-lg">{pass.originalPrice}</span>
                     <span className="text-white text-3xl font-bold ml-2">
-                      {pass.price === 'FREE' ? 'FREE' : `₹${pass.price}`}
+                      {pass.price === 'FREE' ? 'FREE' : `${pass.price}`}
                     </span>
                   </div>
                 </div>

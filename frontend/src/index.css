@@ -5,10 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
 html, body {
-  height: 100%;              /* Full height for the document */
+  min-height: 100vh;
+  height: auto;              /* Full height for the document */
   margin: 0;                 /* Remove any default margin */
-  overflow-x: hidden;        /* Prevent horizontal scrolling */
-  overflow-y: auto;          /* Allow vertical scrolling */
+  overflow-x: clip;        /* Prevent horizontal scrolling */
+  overflow-y: visible;          /* Allow vertical scrolling */
 }
 
 
@@ -107,7 +108,7 @@ html, body {
 
 /* Prevent horizontal scrolling */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -117,11 +118,11 @@ html, body {
 
 /* Apply box-sizing globally to include padding/border in element width/height */
 *, *::before, *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /* Ensure body content below the navbar is correctly spaced */
-body {
+.app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -135,7 +136,7 @@ main {
 /* Ensure no content overflows horizontally */
 .container {
   max-width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 /* src/styles/globals.css or navbar.css */
 .navbar {

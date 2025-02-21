@@ -82,6 +82,17 @@ const Navbar = () => {
               <span className="link-text">Contact Us</span>
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink
+              to="/na"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="link-text">Networking Arena</span>
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>

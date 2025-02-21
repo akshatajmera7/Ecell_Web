@@ -2,17 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Sagnik from "../../../assets/sagnik.jpg";
+import Sagnik from "../../../assets/manav.jpeg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Sagnik Paul",
-      role: "Chairman",
+      name: "Manav Sharma",
       image: Sagnik,
-      email: "mailto:prathamesh@example.com",
-      linkedin: "https://linkedin.com/in/prathamesh",
+      email: "f20221347@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
     }
   ];
 
@@ -38,7 +37,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={person.email} className="text-blue-400 hover:text-blue-300">
+            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
@@ -52,7 +51,7 @@ const ContactSection = () => {
   );
 
   return (
-    <div className="relative w-full min-h-screen bg-black py-16 flex flex-col items-center justify-center">
+    <div className="relative w-full bg-black py-4 flex flex-col items-center justify-center">
       {/* Overall Heading */}
       <motion.h1
         className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 text-center mb-12"
