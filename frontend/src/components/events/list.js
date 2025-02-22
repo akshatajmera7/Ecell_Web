@@ -73,7 +73,7 @@ const EventsPage = () => {
     { id: 3, title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", images: [img3],registerLink: "https://bharatversity.com/event/67878d18c9499900218d641f",exploreLink:"/launchpad/internship_drive"},
     { id: 4, title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", images: [img4],registerLink: "https://unstop.com/competitions/beyond-profits-launchpad-25-bits-1361695",exploreLink:"/launchpad/beyond_profits"},
     { id: 5, title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", images: [img5], registerLink: "https://bharatversity.com/event/679be5698f8b890021015fd0" ,exploreLink:"/launchpad/teen_tycoons"},
-    { id: 6, title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth and success", images: [img6],  registerLink: "https://rzp.io/rzp/Fn5oSxt",exploreLink:"/launchpad/pitchers_pilot" },
+    { id: 6, title: "Pitcher's Pilot", description: "A 4-week mentorship cohort, direct access to top VCs and angel investors, and a chance to secure funding for your dream venture.", images: [img6],  registerLink: "https://rzp.io/rzp/Fn5oSxt",exploreLink:"/launchpad/pitchers_pilot" },
     { id: 7, title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", images: [img7],registerLink: "https://unstop.com/competitions/ground-reality-a-business-plan-competition-birla-institute-of-technology-science-pilani-hyderabad-campus-1316405",exploreLink:"/launchpad/ground_reality" }
   ];
 
@@ -90,3 +90,4 @@ const EventsPage = () => {
 };
 
 export default EventsPage;
+
