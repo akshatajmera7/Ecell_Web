@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
 import videohp from "../../assets/vid2.mp4";
 import { FaQq } from "react-icons/fa";
-=======
-import videohp from "../../assets/bgvid1.mp4";
->>>>>>> aa0874603c36bf361809f488b9128eeef028e0c8
 
 // Simple arrow icon component
 const ArrowIcon = () => (
