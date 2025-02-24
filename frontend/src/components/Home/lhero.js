@@ -23,7 +23,8 @@ const ArrowIcon = () => (
 
 
 const Hero = () => {
-  const [scale, setScale] = useState(1);
+  const[scale,setScale]=useState(1);
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
