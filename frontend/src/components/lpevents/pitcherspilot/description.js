@@ -21,6 +21,11 @@ const ProgramDescription = () => {
              customers, but it also allows them to discover a plethora 
              of opportunities that help them grow their ventures.
             </p>
+               
+            <p className="text-lg mb-8">
+            A 4-week mentorship cohort, direct access to top VCs and angel
+            investors, and a chance to secure funding for your dream venture
+            </p>
           </div>
           
           <div className="lg:w-1/2 w-full order-first lg:order-last">
