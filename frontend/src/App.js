@@ -26,7 +26,9 @@ import Bp from "./components/lpevents/bp/bpindex";
 import Na from "./components/lpevents/na/naindex";
 import Pp from "./components/lpevents/pitchperfect/ppfindex";
 import Se from "./components/lpevents/startupexpo/seindex";
-
+import PaymentSuccess from "./components/paymentsuccess";
+import PaymentFailed from "./components/paymentfailed";
+import PaymentCancel from "./components/paymentcancel";
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
@@ -86,7 +88,9 @@ function MainContent() {
         <Route path="/launchpad/internship_drive" element={<Id />} />
         <Route path="/launchpad/pitch_perfect" element={<Pp />} />
         <Route path="/launchpad/startup_expo" element={<Se />} />
-
+        <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
+        <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
+        <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
       </Routes>
 
       {/* Conditional Footer */}
