@@ -1,23 +1,22 @@
 {
-    "routes": [
-      {
-        "src": "/launchpad/payment-cancel",
-        "methods": ["POST"],
-        "dest": "/launchpad/payment-cancel",
-        "status": 308
-      },
-      {
-        "src": "/launchpad/payment-failed",
-        "methods": ["POST"],
-        "dest": "/launchpad/payment-failed",
-        "status": 308
-      },
-      {
-        "src": "/launchpad/payment-success",
-        "methods": ["POST"],
-        "dest": "/launchpad/payment-success",
-        "status": 308
-      }
-    ]
-  } 
-  
+  "routes": [
+    {
+      "src": "/launchpad/payment-cancel",
+      "methods": ["POST"],
+      "dest": "/launchpad/payment-cancel",
+      "status": 307
+    },
+    {
+      "src": "/launchpad/payment-failed",
+      "methods": ["POST"],
+      "dest": "/launchpad/payment-failed",
+      "status": 307
+    },
+    {
+      "src": "/launchpad/payment-success",
+      "methods": ["POST"],
+      "dest": "/launchpad/payment-success",
+      "status": 307
+    }
+  ]
+}
