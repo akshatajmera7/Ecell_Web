@@ -7,15 +7,15 @@ function PaymentFailed() {
 
   return (
     <div className="d-flex flex-column align-items-center justify-content-center min-vh-100 bg-black text-white">
-      <div className="bg-dark p-4 rounded-4 shadow-lg text-center border border-danger" style={{ maxWidth: "400px" }}>
-        <XCircle className="mb-3" size={64} color="red" />
+      <div className="bg-dark p-4 rounded-4 shadow-lg text-center border border-primary" style={{ maxWidth: "400px" }}>
+        <div className="d-flex justify-content-center mb-3">
+          <XCircle size={64} color="red" />
+        </div>
+      
         <h2 className="text-danger fw-bold">Payment Failed</h2>
         <p className="text-light">Something went wrong with your transaction. Please try again.</p>
-        
-        
-        <button className="btn btn-danger w-100 mb-2 fw-bold" onClick={() => navigate("/launchpad/passes")}>
-          Try Again
-        </button>
+        <br/>
+        <button className="btn btn-primary w-100 fw-bold" onClick={() => navigate("/launchpad/passes")}>Try Again</button>
       </div>
     </div>
   );
