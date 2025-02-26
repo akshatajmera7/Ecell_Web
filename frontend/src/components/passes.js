@@ -1,669 +1,331 @@
-import React from "react";
+import React, { useState } from "react";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 const PricingPasses = () => {
+  // All passes data
   const passes = [
     {
       name: "Mega pass",
       price: "₹4000",
       originalPrice: "₹6250",
       paymentLink: "https://pmny.in/cI5YBnYdA67t",
-      features: [
-        { name: "3 Days Entry", included: true },
-        { name: "On Campus Accommodation", included: true },
-        { name: "Day 1 Comedy Night", included: true },
-        { name: "Day 2 Comedy Night", included: true },
-        { name: "Proshow", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-      ],
+      description: "Entry for 3 days + Special Performances + 3 days on campus Accommodation",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "mega",
     },
     {
       name: "Mega pass - Hotel Accommodation",
       price: "₹7000",
       originalPrice: "₹10750",
       paymentLink: "https://pmny.in/NrPRi5yclFa5",
-      features: [
-        { name: "3 Days Entry", included: true },
-        { name: "Hotel Accommodation", included: true },
-        { name: "Day 1 Comedy Night", included: true },
-        { name: "Day 2 Comedy Night", included: true },
-        { name: "Proshow", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-      ],
+      description: "Entry for 3 days + Special Performances + 3 days Hotel Accommodation",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "Pioneer Pass",
-      price: "₹1000",
-      originalPrice: "₹1400",
-      paymentLink: "https://pmny.in/UIeMJUUeTa5U",
-      features: [
-        { name: "3 Day Entry", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 3 + Hotel Accommodation",
-      price: "₹2950",
-      originalPrice: "₹4100",
-      paymentLink: "https://pmny.in/zIYllnvqqI05",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Hotel Accommodation", included: true },
-        { name: "Proshow", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 2 + Hotel Accommodation",
-      price: "₹2200",
-      originalPrice: "₹2850",
-      paymentLink: "https://pmny.in/6r91DFkKfMQB",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Hotel Accommodation", included: true },
-        { name: "Day 2 Comedy Night", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 1 + Hotel Accommodation",
-      price: "₹2100",
-      originalPrice: "₹2700",
-      paymentLink: "https://pmny.in/kITlSnGqSsbk",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Hotel Accommodation", included: true },
-        { name: "Day 1 Comedy Night", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 3 + Accommodation (On Campus)",
-      price: "₹2150",
-      originalPrice: "₹3100",
-      paymentLink: "https://pmny.in/drm6k5v5la51",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "On Campus Accommodation", included: true },
-        { name: "Proshow", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 2 + Accommodation (On Campus)",
-      price: "₹1400",
-      originalPrice: "₹1850",
-      paymentLink: "https://pmny.in/SrYRa54css8f",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "On Campus Accommodation", included: true },
-        { name: "Day 2 Comedy Night", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 1 + Accommodation (On Campus)",
-      price: "₹1300",
-      originalPrice: "₹1700",
-      paymentLink: "https://pmny.in/pI8RcFG4QVuM",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "On Campus Accommodation", included: true },
-        { name: "Day 1 Comedy Night", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 3",
-      price: "₹1750",
-      originalPrice: "₹2600",
-      paymentLink: "https://pmny.in/LrFqsVc7z70L",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Proshow", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 2",
-      price: "₹1000",
-      originalPrice: "₹1350",
-      paymentLink: "https://pmny.in/5rg6s5856ZNo",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Day 2 Comedy Night", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-    },
-    {
-      name: "All Access Day 1",
-      price: "₹900",
-      originalPrice: "₹1200",
-      paymentLink: "https://pmny.in/5IZlZnNqSsh5",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Day 1 Comedy Night", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
+      category: "mega",
     },
     {
       name: "Day 3 Entry",
       price: "₹300",
       originalPrice: "₹400",
       paymentLink: "https://pmny.in/UIzYMnedE6g9",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Entry to campus and access to all events except comedy night and proshows",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "entry",
     },
     {
       name: "Day 2 Entry",
       price: "₹300",
       originalPrice: "₹400",
       paymentLink: "https://pmny.in/qIsYJnrdi6ih",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Entry to campus and access to all events except comedy night and proshows",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "entry",
     },
     {
       name: "Day 1 Entry",
       price: "₹250",
       originalPrice: "₹300",
       paymentLink: "https://pmny.in/tIJRgFa4GfPZ",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Entry to campus and access to all events except comedy night and proshows",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "entry",
+    },
+    
+    {
+      name: "All Access Day 3 + Hotel Accommodation",
+      price: "₹2950",
+      originalPrice: "₹4100",
+      paymentLink: "https://pmny.in/zIYllnvqqI05",
+      description: "Day 3 entry pass + Internship Drive + Special Performance + Hotel Accommodation for Day 3",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
     },
     {
-      name: "Pro Show",
-      price: "₹1250",
-      originalPrice: "₹2000",
-      paymentLink: "https://pmny.in/hJgAmmqoHYlv",
-      features: [
-        { name: "Proshow", included: true },
-        { name: "1 Day Entry", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-      ],
+      name: "All Access Day 2 + Hotel Accommodation",
+      price: "₹2200",
+      originalPrice: "₹2850",
+      paymentLink: "https://pmny.in/6r91DFkKfMQB",
+      description: "Day 2 entry pass + Internship Drive + Special Performance + Hotel Accommodation for Day 2",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
     },
     {
-      name: "Day 2 Comedy Night",
-      price: "₹500",
-      originalPrice: "₹750",
-      paymentLink: "https://pmny.in/1IClRn6qXsQx",
-      features: [
-        { name: "Day 2 Comedy Night", included: true },
-        { name: "1 Day Entry", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      name: "All Access Day 1 + Hotel Accommodation",
+      price: "₹2100",
+      originalPrice: "₹2700",
+      paymentLink: "https://pmny.in/kITlSnGqSsbk",
+      description: "Day 1 entry pass + Internship Drive + Special Performance + Hotel Accommodation for Day 1",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
     },
     {
-      name: "Day 1 Comedy Night",
-      price: "₹400",
-      originalPrice: "₹600",
-      paymentLink: "https://pmny.in/bJc5eVeY5pV0",
-      features: [
-        { name: "Day 1 Comedy Night", included: true },
-        { name: "1 Day Entry", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      name: "All Access Day 3 + Accommodation (On Campus)",
+      price: "₹2150",
+      originalPrice: "₹3100",
+      paymentLink: "https://pmny.in/drm6k5v5la51",
+      description: "Day 3 entry pass + Internship Drive + Special Performance + On Campus Accommodation for Day 3",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
+      name: "All Access Day 2 + Accommodation (On Campus)",
+      price: "₹1400",
+      originalPrice: "₹1850",
+      paymentLink: "https://pmny.in/SrYRa54css8f",
+      description: "Day 2 entry pass + Internship Drive + Special Performance + On Campus Accommodation for Day 2",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
+      name: "All Access Day 1 + Accommodation (On Campus)",
+      price: "₹1300",
+      originalPrice: "₹1700",
+      paymentLink: "https://pmny.in/pI8RcFG4QVuM",
+      description: "Day 1 entry pass + Internship Drive + Special Performance + On Campus Accommodation for Day 1",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
+      name: "All Access Day 3",
+      price: "₹1750",
+      originalPrice: "₹2600",
+      paymentLink: "https://pmny.in/LrFqsVc7z70L",
+      description: "Day 3 entry pass + Internship Drive + Special Performance ",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
+      name: "All Access Day 2",
+      price: "₹1000",
+      originalPrice: "₹1350",
+      paymentLink: "https://pmny.in/5rg6s5856ZNo",
+      description: "Day 2 entry pass + Internship Drive + Special Performance ",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
+      name: "All Access Day 1",
+      price: "₹900",
+      originalPrice: "₹1200",
+      paymentLink: "https://pmny.in/5IZlZnNqSsh5",
+      description: "Day 1 entry pass + Internship Drive + Special Performance ",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
+      name: "Pioneer Pass",
+      price: "₹1000",
+      originalPrice: "₹1400",
+      paymentLink: "https://pmny.in/UIeMJUUeTa5U",
+      description: "3 days entry to campus + Internship drive",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "entry",
     },
     {
       name: "Executive Pass",
       price: "₹500",
       originalPrice: "₹600",
       paymentLink: "https://pmny.in/krp6l5Y5KbN7",
-      features: [
-        { name: "1 Day Entry", included: true },
-        { name: "Startup Expo", included: true },
-        { name: "LHC Speakers Sessions", included: true },
-        { name: "Informals", included: true },
-        { name: "OAT Event", included: true },
-        { name: "Highlight Speaker Sessions", included: true },
-        { name: "Competitions", included: true },
-        { name: "Networking Arena", included: true },
-        { name: "Incubator Summit", included: true },
-        { name: "Seed Stars", included: true },
-        { name: "Internship & Job Fair", included: true },
-        { name: "Accommodation", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "1 day entry to campus + Internship drive",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "entry",
+    },
+    {
+      name: "Professional Pass",
+      price: "₹1500",
+      originalPrice: "₹1000",
+      paymentLink: "https://pmny.in/iIpYZnQd08Ee",
+      description: "Entry for 3 days + Networking Dinner + Investor Connect",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "entry",
     },
     {
       name: "3 Day Accommodation (Hotel)",
       price: "₹4500",
       originalPrice: "₹6000",
       paymentLink: "https://pmny.in/RJD5VVfY3pkG",
-      features: [
-        { name: "Hotel Accommodation", included: true },
-        { name: "3 Day Entry", included: true },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Accommodation on hotel for 3 days",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "accommodation",
     },
     {
       name: "3 Day Accommodation",
       price: "₹1200",
       originalPrice: "₹1500",
       paymentLink: "https://pmny.in/WICY5nHdH745",
-      features: [
-        { name: "On Campus Accommodation", included: true },
-        { name: "3 Day Entry", included: true },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Accommodation on campus for 3 days",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "accommodation",
     },
     {
       name: "1 Day Accommodation (Hotel)",
       price: "₹1500",
       originalPrice: "₹2000",
       paymentLink: "https://pmny.in/ZJ6AIm6oGcgt",
-      features: [
-        { name: "Hotel Accommodation", included: true },
-        { name: "1 Day Entry", included: true },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Accommodation on hotel for 1 day",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "accommodation",
     },
     {
       name: "1 Day Accommodation",
       price: "₹400",
       originalPrice: "₹500",
       paymentLink: "https://pmny.in/5IblMnsqxsK9",
-      features: [
-        { name: "On Campus Accommodation", included: true },
-        { name: "1 Day Entry", included: true },
-        { name: "Startup Expo", included: false },
-        { name: "LHC Speakers Sessions", included: false },
-        { name: "Informals", included: false },
-        { name: "OAT Event", included: false },
-        { name: "Highlight Speaker Sessions", included: false },
-        { name: "Competitions", included: false },
-        { name: "Networking Arena", included: false },
-        { name: "Incubator Summit", included: false },
-        { name: "Seed Stars", included: false },
-        { name: "Internship & Job Fair", included: false },
-        { name: "Day 1 Comedy Night", included: false },
-        { name: "Day 2 Comedy Night", included: false },
-        { name: "Proshow", included: false },
-      ],
+      description: "Accommodation on campus for 1 day",
       gradient: "from-blue-300 to-blue-100",
       bgGradient: "from-blue-900 to-blue-800",
+      category: "accommodation",
     },
   ];
 
-  return (
-    <div className="bg-gradient-to-b from-black to-blue-950 min-h-screen py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-8">
-            <span className="text-white">Grab Your </span>
-            <span className="text-blue-400">Passes</span>
-            <span className="text-white"> Now!</span>
-          </h2>
+  // Define categories and their display names
+  const categories = [
+    { id: "all", name: "All Passes" },
+    { id: "mega", name: "Mega Passes" },
+    { id: "entry", name: "Entry Passes" },
+    { id: "allAccess", name: "All Access Passes" },
+    { id: "accommodation", name: "Accommodation Passes" },
+  ];
+
+  // State to track the active category
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  // Filter passes based on active category
+  const filteredPasses = activeCategory === "all" 
+    ? passes 
+    : passes.filter(pass => pass.category === activeCategory);
+
+  // Pass card component
+  const PassCard = ({ pass }) => (
+    <div className="relative">
+      {pass.popular && (
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm">
+            Most Popular
+          </span>
+        </div>
+      )}
+      <div
+        className={`rounded-2xl p-6 bg-gradient-to-br ${pass.bgGradient} border border-blue-700 h-full`}
+      >
+        <div className="text-center mb-6">
+          <h3
+            className={`text-2xl font-bold bg-gradient-to-r ${pass.gradient} bg-clip-text text-transparent`}
+          >
+            {pass.name}
+          </h3>
+          <div className="mt-2">
+            <span className="text-gray-400 line-through text-lg">
+              {pass.originalPrice}
+            </span>
+            <span className="text-white text-3xl font-bold ml-2">
+              {pass.price}
+            </span>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {passes.map((pass) => (
-            <div key={pass.name} className="relative">
-              {pass.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-              <div
-                className={`rounded-2xl p-6 bg-gradient-to-br ${pass.bgGradient} border border-blue-700 h-full`}
-              >
-                <div className="text-center mb-6">
-                  <h3
-                    className={`text-2xl font-bold bg-gradient-to-r ${pass.gradient} bg-clip-text text-transparent`}
-                  >
-                    {pass.name}
-                  </h3>
-                  <div className="mt-2">
-                    <span className="text-gray-400 line-through text-lg">
-                      {pass.originalPrice}
-                    </span>
-                    <span className="text-white text-3xl font-bold ml-2">
-                      {pass.price}
-                    </span>
-                  </div>
-                </div>
+        {/* Description Section with Larger Text */}
+        <div className="text-gray-300 text-lg mb-4">
+          {pass.description}
+        </div>
 
-                <div className="space-y-3">
-                  {pass.features.map((feature) => (
-                    <div
-                      key={feature.name}
-                      className="flex items-center space-x-3"
-                    >
-                      {feature.included ? (
-                        <CheckCircleIcon className="w-5 h-5 text-green-400" />
-                      ) : (
-                        <XCircleIcon className="w-5 h-5 text-red-400" />
-                      )}
-                      <span className="text-gray-300">{feature.name}</span>
-                    </div>
-                  ))}
-                </div>
+        {/* Pay Now Button */}
+        <div className="mt-6 text-center">
+          <a
+            href={pass.paymentLink}
+            style={{
+              width: "135px",
+              backgroundColor: "#1065b7",
+              textAlign: "center",
+              fontWeight: "800",
+              padding: "11px 0px",
+              color: "white",
+              fontSize: "12px",
+              display: "inline-block",
+              textDecoration: "none",
+              borderRadius: "3.229px",
+            }}
+          >
+            Pay Now
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 
-                {/* Pay Now Button */}
-                <div className="mt-6 text-center">
-                  <a
-                    href={pass.paymentLink}
-                    style={{
-                      width: "135px",
-                      backgroundColor: "#1065b7",
-                      textAlign: "center",
-                      fontWeight: "800",
-                      padding: "11px 0px",
-                      color: "white",
-                      fontSize: "12px",
-                      display: "inline-block",
-                      textDecoration: "none",
-                      borderRadius: "3.229px",
-                    }}
-                  >
-                    Pay Now
-                  </a>
-                </div>
-              </div>
-            </div>
+  return (
+    <div className="bg-gradient-to-b from-black to-blue-950 text-white py-16 px-4 md:px-8">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Get Your Passes Now !!</h2>
+          <p className="text-xl text-gray-300">Select the perfect pass for your experience</p>
+        </div>
+  
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-6 py-2 rounded-full transition-all ${
+                activeCategory === category.id
+                  ? "bg-blue-600 text-white"
+                  : "bg-blue-900 bg-opacity-50 text-gray-300 hover:bg-blue-800"
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
+  
+        {/* Passes Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPasses.map((pass) => (
+            <PassCard key={pass.name} pass={pass} />
           ))}
         </div>
       </div>
     </div>
   );
-};
-
-export default PricingPasses;
+  };
+  
+  export default PricingPasses;
