@@ -6,8 +6,8 @@ const PricingPasses = () => {
   const passes = [
     {
       name: "Mega pass",
-      price: "₹4000",
-      originalPrice: "₹6250",
+      price: "₹3600",
+      originalPrice: "₹5750",
       paymentLink: "https://pmny.in/cI5YBnYdA67t",
       description: "Entry for 3 days + Special Performances + 3 days on campus Accommodation",
       gradient: "from-blue-300 to-blue-100",
@@ -16,8 +16,8 @@ const PricingPasses = () => {
     },
     {
       name: "Mega pass - Hotel Accommodation",
-      price: "₹7000",
-      originalPrice: "₹10750",
+      price: "₹6600",
+      originalPrice: "₹10250",
       paymentLink: "https://pmny.in/NrPRi5yclFa5",
       description: "Entry for 3 days + Special Performances + 3 days Hotel Accommodation",
       gradient: "from-blue-300 to-blue-100",
@@ -77,8 +77,8 @@ const PricingPasses = () => {
     },
     {
       name: "All Access Day 1 + Hotel Accommodation",
-      price: "₹2100",
-      originalPrice: "₹2700",
+      price: "₹1700",
+      originalPrice: "₹2200",
       paymentLink: "https://pmny.in/kITlSnGqSsbk",
       description: "Day 1 entry pass + Internship Drive + Special Performance + Hotel Accommodation for Day 1",
       gradient: "from-blue-300 to-blue-100",
@@ -107,8 +107,8 @@ const PricingPasses = () => {
     },
     {
       name: "All Access Day 1 + Accommodation (On Campus)",
-      price: "₹1300",
-      originalPrice: "₹1700",
+      price: "900",
+      originalPrice: "₹1200",
       paymentLink: "https://pmny.in/pI8RcFG4QVuM",
       description: "Day 1 entry pass + Internship Drive + Special Performance + On Campus Accommodation for Day 1",
       gradient: "from-blue-300 to-blue-100",
@@ -136,16 +136,6 @@ const PricingPasses = () => {
       category: "allAccess",
     },
     {
-      name: "All Access Day 1",
-      price: "₹900",
-      originalPrice: "₹1200",
-      paymentLink: "https://pmny.in/5IZlZnNqSsh5",
-      description: "Day 1 entry pass + Internship Drive + Special Performance ",
-      gradient: "from-blue-300 to-blue-100",
-      bgGradient: "from-blue-900 to-blue-800",
-      category: "allAccess",
-    },
-    {
       name: "Pioneer Pass",
       price: "₹1000",
       originalPrice: "₹1400",
@@ -167,8 +157,8 @@ const PricingPasses = () => {
     },
     {
       name: "Professional Pass",
-      price: "₹1500",
-      originalPrice: "₹1000",
+      price: "₹1000",
+      originalPrice: "₹1500",
       paymentLink: "https://pmny.in/iIpYZnQd08Ee",
       description: "Entry for 3 days + Networking Dinner + Investor Connect",
       gradient: "from-blue-300 to-blue-100",
