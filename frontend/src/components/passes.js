@@ -5,6 +5,16 @@ const PricingPasses = () => {
   // All passes data
   const passes = [
     {
+      name: "Internship Drive",
+      price: "₹300",
+      // originalPrice: "₹1200",
+      paymentLink: "https://pmny.in/ZJi5eWmeNiNH",
+      description: "The Internship Drive is a premier career initiative connecting students with 50+ companies across 12+ job roles, including Web Development, Machine Learning, UI/UX Design, Digital Marketing, and Product Management. With 500+ successful placements and stipends up to INR 1.25 lakhs, it’s a gateway to hands-on industry experience and career growth.",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "allAccess",
+    },
+    {
       name: "Mega pass",
       price: "₹3600",
       originalPrice: "₹5750",
