@@ -41,7 +41,8 @@ const KeyFeatures = () => {
     <div className="w-full bg-black py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* This grid layout creates a 2x2 structure for the cards */}
+        <div className="grid grid-cols-2 gap-8">
           <StatCard title="Companies" value="50+" />
           <StatCard title="Internship Offered" value="500+" />
           <StatCard title="Stipends Upto" value="1.25L" />

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -7,7 +8,7 @@ import Home from "./components/Home/home";
 import Team from "./components/Teams/team";
 import Program from "./components/Programs/program";
 import Contact from "./components/contact";
-import Passes from "./components/passes";
+
 import LNavbar from "./components/lnavbar";
 import LFooter from "./components/lfooter";
 import Lteam from "./components/team/team";
@@ -15,7 +16,7 @@ import Lcontact from "./components/lcontact";
 import Launchpadhome from "./components/Home/launchpadhome";
 import Event from "./components/events/event";
 import Sponsor from "./components/sponsors/sponsor";
-
+import Passes from "./components/passes";
 import Speakers from "./components/speakers/launchpadspeakers";
 
 import Gr from "./components/lpevents/gr/grindex";
@@ -26,7 +27,9 @@ import Bp from "./components/lpevents/bp/bpindex";
 import Na from "./components/lpevents/na/naindex";
 import Pp from "./components/lpevents/pitchperfect/ppfindex";
 import Se from "./components/lpevents/startupexpo/seindex";
-
+import PaymentSuccess from "./components/paymentsuccess";
+import PaymentFailed from "./components/paymentfailed";
+import PaymentCancel from "./components/paymentcancel";
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
@@ -75,8 +78,9 @@ function MainContent() {
         <Route path="/launchpad/contact" element={<Lcontact />} />
         <Route path="/launchpad/events" element={<Event />} />
         <Route path="/launchpad/sponsor" element={<Sponsor />} />
-    <Route path="/launchpad/passes" element={<Passes />} />
+  
         <Route path="/launchpad/speakers" element={<Speakers />} />
+        <Route path="/launchpad/passes" element={<Passes />} />
        
         <Route path="/launchpad/team" element={<Lteam />} />
         <Route path="/launchpad/ground_reality" element={<Gr />} />
@@ -86,7 +90,9 @@ function MainContent() {
         <Route path="/launchpad/internship_drive" element={<Id />} />
         <Route path="/launchpad/pitch_perfect" element={<Pp />} />
         <Route path="/launchpad/startup_expo" element={<Se />} />
-
+        <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
+        <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
+        <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
       </Routes>
 
       {/* Conditional Footer */}

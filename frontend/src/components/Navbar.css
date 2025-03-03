@@ -66,8 +66,9 @@
 
 .navbar-links a:hover,
 .navbar-links a.active {
-  font-weight: bold;
+  /* font-weight: bold; */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  color: white;
 }
 
 .navbar-links a::after {

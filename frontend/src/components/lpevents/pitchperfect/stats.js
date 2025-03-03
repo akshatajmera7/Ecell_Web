@@ -40,10 +40,9 @@ const KeyFeatures = () => {
   return (
     <div className="w-full bg-black py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <StatCard title="Registeratons" value="1500+" />
-          <StatCard title="Prize Pool" value="50k+" />
+        <div className="flex flex-wrap justify-center gap-8">
+          <div className="w-[300px]"><StatCard title="Registrations" value="1500+" /></div>
+          <div className="w-[300px]"><StatCard title="Prize Pool" value="50k+" /></div>
         </div>
       </div>
     </div>

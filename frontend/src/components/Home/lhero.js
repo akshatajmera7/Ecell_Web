@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import videohp from "../../assets/bgvid1.mp4";
+import { FaQq } from "react-icons/fa";
 
 // Simple arrow icon component
 const ArrowIcon = () => (
@@ -22,7 +23,8 @@ const ArrowIcon = () => (
 
 
 const Hero = () => {
-  const [scale, setScale] = useState(1);
+  const[scale,setScale]=useState(1);
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
