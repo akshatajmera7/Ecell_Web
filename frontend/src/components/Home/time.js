@@ -68,7 +68,7 @@ const EventCard = ({ event, index }) => {
 
 const EventsPage = () => {
   const events = [
-    { id: 1, title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", images: [img1], registerLink: "https://unstop.com/conferences/startup-expo-launchpad-25-birla-institute-of-technology-science-pilani-hyderabad-campus-1317940", exploreLink:"/launchpad/startup_expo"},
+    { id: 1, title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", images: [img1], registerLink: "https://rzp.io/rzp/66fqi0c", exploreLink:"/launchpad/startup_expo"},
     { id: 2, title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", images: [img2], registerLink: "https://unstop.com/competitions/pitch-perfect-an-online-bussiness-plan-competition-launchpad-25-birla-institute-of-technology-and-sciences--1319979", exploreLink:"/launchpad/pitch_perfect"},
     { id: 3, title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", images: [img3], registerLink: "https://bharatversity.com/event/67878d18c9499900218d641f", exploreLink:"/launchpad/internship_drive"},
     { id: 4, title: "Beyond Profits", description: "Empowering socially-conscious entrepreneurs to create change and unlock incredible opportunities.", images: [img4], registerLink: "https://unstop.com/competitions/beyond-profits-launchpad-25-bits-1361695", exploreLink:"/launchpad/beyond_profits"},
