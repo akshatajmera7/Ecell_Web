@@ -13,7 +13,7 @@ const ProductExplorer = () => {
         </p>
         <button
   className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-2xl shadow-md transition-transform transform hover:scale-105"
-  onClick={() => { window.location.href = "https://pmny.in/ZJi5eWmeNiNH"; }}
+  onClick={() => { window.location.href = "https://rzp.io/rzp/MFXKL5k0"; }}
 >
   Register Now
 </button>
