@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/Home/home";
@@ -17,6 +17,7 @@ import Launchpadhome from "./components/Home/launchpadhome";
 import Event from "./components/events/event";
 import Sponsor from "./components/sponsors/sponsor";
 import Passes from "./components/passes";
+import Schedules from "./components/schedules";
 import Speakers from "./components/speakers/launchpadspeakers";
 
 import Gr from "./components/lpevents/gr/grindex";
@@ -81,7 +82,7 @@ function MainContent() {
   
         <Route path="/launchpad/speakers" element={<Speakers />} />
         <Route path="/launchpad/passes" element={<Passes />} />
-       
+       <Route path="/launchpad/schedules" element={<Schedules />} />
         <Route path="/launchpad/team" element={<Lteam />} />
         <Route path="/launchpad/ground_reality" element={<Gr />} />
         <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
@@ -97,6 +98,7 @@ function MainContent() {
 
       {/* Conditional Footer */}
       {isLaunchpadRoute ? <LFooter /> : <Footer />}
+      <SpeedInsights/>
     </div>
   );
 }
