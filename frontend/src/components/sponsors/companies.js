@@ -26,6 +26,7 @@ import img23 from "../../assets/spons/businesskeeda.png";
 import img24 from "../../assets/spons/kurogaming.jpg";
 import img25 from "../../assets/spons/productfolks.png";
 import img26 from "../../assets/spons/novatechsolar.png";
+import img27 from "../../assets/spons/Lawseek.png";
 
 const MediaAssociates = () => {
   const associates = [
@@ -39,6 +40,7 @@ const MediaAssociates = () => {
     { name: "Altair", image: img5, link: "https://www.altair.com/" },
     { name: "Bharatversity", image: img8, link: "https://bharatversity.com/" },
     { name: "Unstop", image: img11, link: "https://unstop.com/" },
+    { name: "Lawseek", image: img27, link: "https://www.lawseek.ai/" },
     { name: "Instax", image: img22, link: "https://www.instax.com/" },
     ,
     {

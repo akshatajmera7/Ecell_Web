@@ -25,6 +25,7 @@ import img23 from '../../assets/spons/businesskeeda.png';
 import img24 from '../../assets/spons/kurogaming.jpg';
 import img25 from '../../assets/spons/productfolks.png';
 import img26 from '../../assets/spons/novatechsolar.png';
+import img27 from '../../assets/spons/Lawseek.png';
 
 const DisruptCarousel = () => {
   const items = [
@@ -54,6 +55,7 @@ const DisruptCarousel = () => {
     { name: "Progress", image: img24 },
     { name: "Progress", image: img25 },
     { name: "Progress", image: img26 },
+    { name: "Progress", image: img27 },
 
   ];
 
