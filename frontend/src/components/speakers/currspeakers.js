@@ -1,15 +1,30 @@
 import React from "react";
 import { motion } from "framer-motion";
 import img1 from "../../assets/SPEAKER PICS/amangupta.jpeg";
-
+import img2 from "../../assets/SPEAKER PICS/SP.jpeg";
+import img3 from "../../assets/SPEAKER PICS/SAKCHI.jpeg";
 
 const profiles = [
   {
     id: 1,
     name: "AMAN GUPTA",
-    role: "Co Founder and CMO at boAt",
+    role: "Co-Founder and CMO at boAt",
     image: img1,
     link: "https://www.linkedin.com/in/aman-gupta-7217a515/",
+  },
+  {
+    id: 2,
+    name: "SURESH PRABHU",
+    role: "Former Union Minister",
+    image: img2,
+    link: "https://www.linkedin.com/in/sureshpprabhu/",
+  },
+  {
+    id: 3,
+    name: "SAKCHI JAIN",
+    role: "FINANCIAL EDUCATOR",
+    image: img3,
+    link: "https://www.linkedin.com/in/sakchi-jain/",
   },
 ];
 
@@ -21,19 +36,21 @@ const ProfileGrid = () => {
           Launchpad 2025 Speakers
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {profiles.map((profile, index) => (
+          {profiles.map((profile) => (
             <motion.a
               key={profile.id}
               href={profile.link}
+              aria-label={`Profile of ${profile.name}`}
               className="relative group block"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
               <div className="relative rounded-2xl bg-gradient-to-b from-blue-900/50 to-gray-900/50 p-3 sm:p-4 md:p-5 lg:p-6 backdrop-blur-sm border border-blue-500/20 transform transition-all duration-300 group-hover:scale-105">
                 <div className="aspect-square rounded-full overflow-hidden mb-2 sm:mb-3 md:mb-4 border-2 border-blue-500/30">
                   <img
                     src={profile.image}
-                    alt={profile.name}
+                    alt={`Image of ${profile.name}`}
                     className="w-full h-full object-cover"
                   />
                 </div>
