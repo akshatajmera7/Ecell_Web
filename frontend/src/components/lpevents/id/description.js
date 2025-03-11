@@ -9,19 +9,11 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-            Internship Drive is designed to connect enthusiastic
-            students with 50+ start-ups, offering stipends up to
-            30K INR. With 75% of the opportunities being work
-           from-home, this initiative provides students with the
-            chance to gain hands-on experience in a variety of
-            industries. 
+            Internship Drive connects enthusiastic students with 50+ start-ups, offering stipends up to 125K INR. With 75% of the opportunities being remote, this initiative provides students with the chance to gain hands-on experience in a variety of industries while working from home. 
             </p>
             
             <p className="text-lg mb-8">
-            It also offers valuable exposure to the selection
-            processes and interviews of leading companies,
-            helping students develop the skills and confidence
-            needed before entering the corporate world
+            It also offers valuable exposure to the selection processes and interviews of leading companies, helping students develop the skills and confidence needed to step into the corporate world.
             </p>
           </div>
           

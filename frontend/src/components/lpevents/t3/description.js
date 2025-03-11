@@ -10,8 +10,8 @@ const ProgramDescription = () => {
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
             Teen Tycoons is a case-based business plan competition
-            that nurtures entrepreneurial talent through dynamic 
-            stages. Participants solve analytical guesstimates,
+            that nurtures entrepreneurial talent through  
+            a structured, multi-stage process. Participants solve analytical guesstimates,
             tailored problem statements according to their selected
             ventures, and finalists undergo a skill-building bootcamp 
             with expert mentorship.
@@ -21,7 +21,7 @@ const ProgramDescription = () => {
             The event culminates in the Grand Finale, where teams
              pitch innovative solutions to a distinguished panel,
              showcasing creativity, critical thinking, and business 
-             acumen.
+             acumen.With a prize pool of more than 50L INR, Teen Tycoons offers unparalleled opportunities for aspiring entrepreneurs to bring their ideas to life.
             </p>
           </div>
           

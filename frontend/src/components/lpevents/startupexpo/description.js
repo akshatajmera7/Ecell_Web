@@ -12,15 +12,12 @@ const ProgramDescription = () => {
 entrepreneurs to showcase their companies to
 investors, customers, and industry experts.
 Featuring startups from various industries and
-stages, it offers a dynamic platform for discovering
+stages, it offers a platform for discovering
 innovative ideas.
             </p>
 
             <p className="text-lg mb-8">
-            Entrepreneurs can connect with potential investors,
-customers, and partners, gaining valuable exposure.
-It’s a must-attend for anyone interested in the
-startup ecosystem and the latest innovations.
+            The Startup Expo at Launchpad is a key event for entrepreneurs to showcase their companies to investors, customers, and industry experts. Featuring startups from various industries and stages, it offers a dynamic platform for discovering innovative ideas and emerging businesses.
             </p>
           </div>
 

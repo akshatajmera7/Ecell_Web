@@ -8,13 +8,11 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-             Launchpad is a three - day entrepreneurial summit by E-Cell,Bits Pilani Hyderabad, celebrting innovation and startups.
+            Launchpad is three-day annual entrepreneurial summit by E-Cell, BITS Pilani Hyderabad Campus, celebrating innovation and startups.
             </p>
            
             <p className="text-lg mb-8">
-            Learn from industry-leading CEOs and founders sharing thier success stories.
-            Participate in unique events like Pitchers Pilot, Startup Expo, and Beyond Profits.
-            Connect with investors, entrepreneurs, and peers to grow your ideas.
+            Learn from industry-leading CEOs and founders who share their success stories. Participate in unique events like Pitchers Pilot, Startup Expo, Beyond Profits and many more. Get a chance to connect with investors, entrepreneurs, and like-minded peers, empowering you to grow your ideas and unleash the true entrepreneur within you.
             </p>
           </div>
           

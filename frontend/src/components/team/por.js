@@ -23,7 +23,7 @@ import Ishika from "../../assets/ishika.jpeg";
 
 const teams = [
   {
-    title: "Launchpad Executive",
+    title: "Launchpad Executives",
     members: [
       {
         name: "Sagnik Paul",

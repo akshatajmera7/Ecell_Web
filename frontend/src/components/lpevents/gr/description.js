@@ -10,7 +10,7 @@ const ProgramDescription = () => {
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
               Ground Reality is a prestigious annual competition
-              that gives start-ups and aspiring entrepreneurs the
+              where start-ups and aspiring entrepreneurs the
               chance to pitch their ideas to top venture capitalists
               and angel investors.
             </p>
@@ -22,7 +22,7 @@ const ProgramDescription = () => {
             </p>
             
             <p className="text-lg mb-8">
-              The winners receive a prize pool of Rs. 2 Lakhs, along
+              The winners receive a prize pool of Rs. 4 Lakhs, along
               with legal services, mentoring vouchers, cloud space,
               accelerator programs, and incubation support,
               offering invaluable resources for business growth.

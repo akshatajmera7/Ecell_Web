@@ -16,9 +16,9 @@ const ProgramDescription = () => {
            
             <p className="text-lg mb-8">
             The event encourages social entrepreneurship among students
-            , with prizes worth INR 200K, along with mentorship,
+            , with prizes worth INR 250K, along with mentorship,
              legal services, web development, and incubation space.
-             It’s one of Telangana’s most sought-after events.
+             It stands as one of Telangana’s most sought-after events for aspiring changemakers.
             </p>
           </div>
           

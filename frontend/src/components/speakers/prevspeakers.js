@@ -77,7 +77,7 @@ const profiles = [
   },
   {
     id: 10,
-    name: "DR.A SIVANTHANU PILLAI",
+    name: "DR.A SIVATHANU PILLAI",
     role: "INDIAN SCIENTIST DRDO AND ISRO",
     image: img10,
     link: "https://www.linkedin.com/in/a-sivathanu-pillai-2b014576/?originalSubdomain=in",

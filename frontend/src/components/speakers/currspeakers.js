@@ -22,7 +22,7 @@ const profiles = [
   {
     id: 3,
     name: "SAKCHI JAIN",
-    role: "FINANCIAL EDUCATOR",
+    role: "Financial Educator",
     image: img3,
     link: "https://www.linkedin.com/in/sakchi-jain/",
   },

@@ -9,22 +9,18 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-            Pitchers Pilot is a fantastic initiative that provides
+            Pitchers Pilot is an initiative that provides
             budding entrepreneurs with the spotlight they deserve by 
-            showcasing their enterprises to the investors present.
+            connecting them directly with top investors.
             </p>
             
         
             <p className="text-lg mb-8">
-            Not only is it an enriching experience for them as they
-             receive invaluable feedback from their potential 
-             customers, but it also allows them to discover a plethora 
-             of opportunities that help them grow their ventures.
+            Beyond showcasing their ventures, participants gain invaluable feedback from potential customers and unlock a world of opportunities to accelerate their growth..
             </p>
                
             <p className="text-lg mb-8">
-            A 4-week mentorship cohort, direct access to top VCs and angel
-            investors, and a chance to secure funding for your dream venture
+            With a 4-week mentorship cohort, direct access to top VCs and angel investors, and a chance to secure funding for your dream venture, Pitchers Pilot is the place where great ideas come alive.
             </p>
           </div>
           
