@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import img1 from "../../assets/spons/decathlon.jpg";
-import img2 from "../../assets/spons/PLUM.png";
+import img2 from "../../assets/spons/plum.avif";
 import img3 from "../../assets/spons/ACT.jpg";
 import img4 from "../../assets/spons/AMD33.png";
 import img5 from "../../assets/spons/altair.jpg";

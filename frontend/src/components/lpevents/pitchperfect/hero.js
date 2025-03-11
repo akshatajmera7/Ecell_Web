@@ -13,7 +13,7 @@ const ProductExplorer = () => {
         </p>
         <button
   className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-2xl shadow-md transition-transform transform hover:scale-105"
-  onClick={() => { window.location.href = "https://rzp.io/rzp/Fn5oSxt"; }}
+  onClick={() => { window.location.href = "https://unstop.com/competitions/pitch-perfect-an-online-bussiness-plan-competition-launchpad-25-birla-institute-of-technology-and-sciences--1319979"; }}
 >
   Register Now
 </button>
