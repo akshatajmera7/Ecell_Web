@@ -214,6 +214,38 @@ const PricingPasses = () => {
       bgGradient: "from-blue-900 to-blue-800",
       category: "entry",
     },
+    {
+      name: "TechXcelerate Gen",
+      price: "₹1200",
+      originalPrice: "",
+      paymentLink: "https://pages.razorpay.com/pl_PnCSN0NwmkxWwC/view",
+      description: "For one Person Entry to all Workshop,entry to hackathon & afternoon snack",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "bv",
+    },
+    {
+      name: "TechXcelerate With Internship Drive",
+      price: "₹1500",
+      originalPrice: "",
+      paymentLink: "https://pages.razorpay.com/pl_Pgq54RzVkK9aLW/view",
+      description: "For one Person Entry to all Workshop,entry to hackathon,afternoon snack & access to Internship Drive",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "bv",
+    },
+    {
+      name: "TechXcelerate Ultimate",
+      price: "₹4500",
+      originalPrice: "",
+      paymentLink: "https://pages.razorpay.com/pl_Pgq9BYyT4tOLHT/view",
+      description: "For one Person Entry to all Workshop,entry to hackathon,afternoon snack,access to Internship Drive & Accommodation For 2 days with food",
+      gradient: "from-blue-300 to-blue-100",
+      bgGradient: "from-blue-900 to-blue-800",
+      category: "bv",
+    },
+
+
   ];
 
   // Define categories and their display names
@@ -223,6 +255,7 @@ const PricingPasses = () => {
     { id: "entry", name: "Entry Passes" },
     { id: "allAccess", name: "All Access Passes" },
     { id: "accommodation", name: "Accommodation Passes" },
+    { id: "bv", name: "Bharat Versity" },
   ];
 
   // State to track the active category
