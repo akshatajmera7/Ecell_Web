@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import img1 from "../../assets/SPEAKER PICS/amangupta.jpeg";
 import img2 from "../../assets/SPEAKER PICS/SP.jpeg";
 import img3 from "../../assets/SPEAKER PICS/SAKCHI.jpeg";
+import img4 from "../../assets/SPEAKER PICS/gov_mizo.avif";
+import img5 from "../../assets/SPEAKER PICS/gupta_mathongo.jpg";
+import img6 from "../../assets/SPEAKER PICS/periperi.png";
+import img7 from "../../assets/SPEAKER PICS/skippiboy.jpg";
 
 const profiles = [
   {
@@ -25,6 +29,33 @@ const profiles = [
     role: "Financial Educator",
     image: img3,
     link: "https://www.linkedin.com/in/sakchi-jain/",
+  },
+  {
+    id: 4,
+    name: "GENERAL VIJAY KUMAR SINGH",
+    role: "Governer of Mizoram",
+    image: img4,
+  },
+  {
+    id: 5,
+    name: "ANUP GUPTA",
+    role: "Founder and CEO - Mathongo",
+    image: img5,
+    link: "https://www.linkedin.com/in/anup-gupta-8a3a986",
+  },
+  {
+    id: 6,
+    name: "MAHESHWAR PERI",
+    role: "Founder and CEO - Careers360",
+    image: img6,
+    link: "https://in.linkedin.com/in/maheshwer-peri-1723ba3b",
+  },
+  {
+    id: 7,
+    name: "RAVI KABRA",
+    role: "Co-founder and Director - Skippi",
+    image: img7,
+    link: "https://in.linkedin.com/in/kabraravi",
   },
 ];
 
@@ -70,4 +101,3 @@ const ProfileGrid = () => {
 };
 
 export default ProfileGrid;
-
