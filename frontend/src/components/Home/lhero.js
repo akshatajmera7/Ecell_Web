@@ -100,10 +100,10 @@ const Hero = () => {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
           <a
-            href="/launchpad/events"
+            href="/launchpad/schedules"
             className="group flex items-center gap-2 px-8 py-3 bg-blue-600 rounded-full text-white font-medium hover:bg-blue-700 transition-all duration-300"
           >
-            Register Now
+            Check Out the Schedule
             <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
               <ArrowIcon />
             </span>
@@ -113,7 +113,7 @@ const Hero = () => {
             href="/launchpad/passes"
             className="group flex items-center gap-2 px-8 py-3 border-2 border-blue-600 rounded-full text-blue-600 font-medium hover:bg-blue-600 hover:text-white transition-all duration-300"
           >
-            Passes
+            Get Your Passes Now !!
             <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
               <ArrowIcon />
             </span>

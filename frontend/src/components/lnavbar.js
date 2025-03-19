@@ -43,6 +43,7 @@ const CosmicNavbar = () => {
 
   const navItems = useMemo(
     () => [
+      { name: "Schedule", href: "/launchpad/schedules" },
       { name: "Passes", href: "/launchpad/passes" },
       { name: "Events", href: "/launchpad/events" },
       { name: "Speakers", href: "/launchpad/speakers" },
