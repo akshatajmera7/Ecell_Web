@@ -29,6 +29,18 @@ const EventSchedule = () => {
         type: "event",
       },
       {
+        time: "5:00 PM",
+        title: "Speech by Mr. Jayesh",
+        location: "Auditorium",
+        type: "speaker",
+      },
+      {
+        time: "5:45 PM",
+        title: "Speech by Mr. Suresh Prabhu",
+        location: "Auditorium",
+        type: "speaker",
+      },
+      {
         time: "6:30 PM - 12:00 AM",
         title: "Informal Inauguration",
         location: "Auditorium",
