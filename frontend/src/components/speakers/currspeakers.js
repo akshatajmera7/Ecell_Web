@@ -7,6 +7,8 @@ import img4 from "../../assets/SPEAKER PICS/gov_mizo.avif";
 import img5 from "../../assets/SPEAKER PICS/gupta_mathongo.jpg";
 import img6 from "../../assets/SPEAKER PICS/periperi.png";
 import img7 from "../../assets/SPEAKER PICS/skippiboy.jpg";
+import img8 from "../../assets/SPEAKER PICS/Miheeka.jpeg";
+
 
 const profiles = [
   {
@@ -57,6 +59,20 @@ const profiles = [
     image: img7,
     link: "https://in.linkedin.com/in/kabraravi",
   },
+  {
+    id: 8,
+    name: "MIHEEKA DAGGUBATI",
+    role: "Co-founder of Boheim Studio",
+    image: img8,
+    link: "https://www.linkedin.com/in/miheeka-daggubati-3a253477/",
+  },
+  // {
+  //   id: 7,
+  //   name: "RAVI KABRA",
+  //   role: "Co-founder and Director - Skippi",
+  //   image: img7,
+  //   link: "https://in.linkedin.com/in/kabraravi",
+  // },
 ];
 
 const ProfileGrid = () => {
