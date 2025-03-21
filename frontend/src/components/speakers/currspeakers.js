@@ -8,6 +8,7 @@ import img5 from "../../assets/SPEAKER PICS/gupta_mathongo.jpg";
 import img6 from "../../assets/SPEAKER PICS/periperi.png";
 import img7 from "../../assets/SPEAKER PICS/skippiboy.jpg";
 import img8 from "../../assets/SPEAKER PICS/Miheeka.jpeg";
+import img9 from "../../assets/SPEAKER PICS/jayesh.jpeg";
 
 
 const profiles = [
@@ -66,13 +67,13 @@ const profiles = [
     image: img8,
     link: "https://www.linkedin.com/in/miheeka-daggubati-3a253477/",
   },
-  // {
-  //   id: 7,
-  //   name: "RAVI KABRA",
-  //   role: "Co-founder and Director - Skippi",
-  //   image: img7,
-  //   link: "https://in.linkedin.com/in/kabraravi",
-  // },
+  {
+    id: 9,
+    name: "JAYESH RANJAN",
+    role: "SPECIAL CHIEF SECRETARY",
+    image: img9,
+    link: "https://www.linkedin.com/in/jayesh-ranjan-37415963/",
+  },
 ];
 
 const ProfileGrid = () => {
