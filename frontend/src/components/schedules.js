@@ -157,13 +157,26 @@ const EventSchedule = () => {
         title: "Campus War (LUDO NO 1)",
         location: "online Tournament Code - BITS25",
         type: "event",
-      },{
+      },
+      {
         time: "5:00 PM",
         title: "IPL AUCTION (PRIZE MONEY - 10K)",
         location: "G105",
         type: "event",
       },
-
+      {
+        time: "7:30 PM",
+        title: "Live Screening IPL 2025 (KKR VS RCB)",
+        location: "Library Lawns",
+        type: "event",
+      },
+      {
+        time: "10:00 AM - 8:00 PM",
+        title: "BGMI Tournament (PRIZE POOL - 1L+)",
+        location: "https://forms.gle/hhzksTJLgU4UztGG6",
+        type: "event",
+      },
+      
     ],
     day4: [
       {
@@ -226,6 +239,25 @@ const EventSchedule = () => {
         location: "Library Lawns",
         type: "event",
       },
+      {
+        time: "10:00 AM - 6:00 PM",
+        title: "Startup Odyssey",
+        location: "G105,G106",
+        type: "event",
+      },
+      {
+        time: "4:00 PM - 6:00 PM",
+        title: "Takeoff",
+        location: "F107",
+        type: "event",
+      },
+      {
+        time: "10:00 AM - 8:00 PM",
+        title: "Valorant Tournament (PRIZE POOL - 1L+)",
+        location: "https://forms.gle/LKcDNWanc2kRRV8BA",
+        type: "event",
+      },
+
     ],
   };
 
