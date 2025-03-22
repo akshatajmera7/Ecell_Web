@@ -241,13 +241,13 @@ const EventSchedule = () => {
       },
       {
         time: "10:00 AM - 6:00 PM",
-        title: "Startup Odyssey",
+        title: "Startup Odyssey (PRIZE POOL - 7K)",
         location: "G105,G106",
         type: "event",
       },
       {
         time: "4:00 PM - 6:00 PM",
-        title: "Takeoff",
+        title: "Takeoff (PRIZE POOL - 5K)",
         location: "F107",
         type: "event",
       },
