@@ -68,7 +68,7 @@ const EventSchedule = () => {
       },
       {
         time: "5:00 PM - 7:00 PM",
-        title: "Speaker Session by Gen. VK Singh",
+        title: "Speaker Session by General Vijay Kumar Singh",
         location: "Auditorium",
         type: "speaker",
       },
@@ -86,12 +86,12 @@ const EventSchedule = () => {
         location: "Library Lawns",
         type: "event",
       },
-      {
-        time: "10:00 AM - 8:00 PM",
-        title: "Internship Drive",
-        location: "I212 , I213 , I221 , I222",
-        type: "event",
-      },
+      // {
+      //   time: "10:00 AM - 8:00 PM",
+      //   title: "Internship Drive",
+      //   location: "I212 , I213 , I221 , I222",
+      //   type: "event",
+      // },
       {
         time: "12:00 PM - 6:00 PM",
         title: "Pitch Perfect",
@@ -128,12 +128,12 @@ const EventSchedule = () => {
         location: "F104",
         type: "speaker",
       },
-      {
-        time: "1:00 PM - 2:00 PM",
-        title: "CA Sakshi Jain (Social Media Personality and Entrepreneurship Guide)",
-        location: "Auditorium",
-        type: "speaker",
-      },
+      // {
+      //   time: "1:00 PM - 2:00 PM",
+      //   title: "CA Sakshi Jain (Social Media Personality and Entrepreneurship Guide)",
+      //   location: "Auditorium",
+      //   type: "speaker",
+      // },
       {
         time: "2:00 PM - 3:00 PM",
         title: "HireVC Panel (Panel of VCs)",
@@ -185,24 +185,24 @@ const EventSchedule = () => {
         location: "Library Lawns",
         type: "event",
       },
-      {
-        time: "10:00 AM - 8:00 PM",
-        title: "Internship Drive",
-        location: "I212 , I213 , I221 , I222",
-        type: "event",
-      },
+      // {
+      //   time: "10:00 AM - 8:00 PM",
+      //   title: "Internship Drive",
+      //   location: "I212 , I213 , I221 , I222",
+      //   type: "event",
+      // },
       {
         time: "10:00 AM - 11:00 AM",
         title: "Shashank Randev(CoFounder , 100xVC)",
         location: "Auditorium",
         type: "speaker",
       },
-      {
-        time: "11:00 PM - 12:00 PM",
-        title: "Miheeka Daggubati (Founder of Mudita Tribe)",
-        location: "Auditorium",
-        type: "speaker",
-      },
+      // {
+      //   time: "11:00 PM - 12:00 PM",
+      //   title: "Miheeka Daggubati (Founder of Mudita Tribe)",
+      //   location: "Auditorium",
+      //   type: "speaker",
+      // },
       {
         time: "12:00 PM - 2:00 PM",
         title: "Meeraj Faheem",
