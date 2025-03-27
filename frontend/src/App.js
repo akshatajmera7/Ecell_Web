@@ -16,7 +16,7 @@ import Lcontact from "./components/lcontact";
 import Launchpadhome from "./components/Home/launchpadhome";
 import Event from "./components/events/event";
 import Sponsor from "./components/sponsors/sponsor";
-import Passes from "./components/passes";
+
 import Schedules from "./components/schedules";
 import Speakers from "./components/speakers/launchpadspeakers";
 
@@ -81,7 +81,7 @@ function MainContent() {
         <Route path="/launchpad/sponsor" element={<Sponsor />} />
   
         <Route path="/launchpad/speakers" element={<Speakers />} />
-        <Route path="/launchpad/passes" element={<Passes />} />
+     
        <Route path="/launchpad/schedules" element={<Schedules />} />
         <Route path="/launchpad/team" element={<Lteam />} />
         <Route path="/launchpad/ground_reality" element={<Gr />} />
