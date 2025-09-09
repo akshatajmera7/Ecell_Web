@@ -31,6 +31,9 @@ import Se from "./components/lpevents/startupexpo/seindex";
 import PaymentSuccess from "./components/paymentsuccess";
 import PaymentFailed from "./components/paymentfailed";
 import PaymentCancel from "./components/paymentcancel";
+
+// startup connect form component
+import StartupConnectForm from './components/StartupConnectForm';
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
@@ -94,6 +97,10 @@ function MainContent() {
         <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
         <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
         <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
+
+
+        {/* startup connect form route */}
+        <Route path="/startup-connect" element={<StartupConnectForm />} />
       </Routes>
 
       {/* Conditional Footer */}
