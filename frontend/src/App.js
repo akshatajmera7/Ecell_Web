@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/Home/home";
@@ -50,10 +51,12 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <MainContent />
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <ScrollToTop />
+        <MainContent />
+      </Router>
+    </ErrorBoundary>
   );
 }
 
