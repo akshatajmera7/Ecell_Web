@@ -10,8 +10,8 @@ const BrandSprintContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 80px;
-  background-color: #000; /* Dark background */
-  color: #fff; /* White text for contrast */
+  background-color: #0C233C; /* E-Cell theme background */
+  color: #F5EDE4; /* E-Cell theme text */
 
   @media (max-width: 768px) {
     flex-direction: column; /* Stack items vertically */
@@ -28,7 +28,7 @@ const ImageContainer = styled.div`
     height: auto;
     display: block;
     border-radius: 15px; /* Smooth rounded corners */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Stylish shadow */
+    box-shadow: 0 8px 16px rgba(41, 102, 133, 0.3); /* E-Cell theme shadow */
   }
 
   @media (max-width: 768px) {
@@ -52,7 +52,7 @@ const TextContainer = styled.div`
 const Title = styled.h1`
   font-size: 3.5rem; /* Large font for desktop */
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #F5EDE4; /* E-Cell theme text */
   text-transform: uppercase; /* Stylish uppercase title */
   font-weight: 700; /* Bold title */
   letter-spacing: 2px;
@@ -66,6 +66,7 @@ const Description = styled.p`
   line-height: 1.8;
   margin-bottom: 30px;
   font-size: 1.2rem;
+  color: #F5EDE4; /* E-Cell theme text */
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -88,19 +89,20 @@ const ListItem = styled.li`
   position: relative;
   padding-left: 25px;
   font-size: 1.2rem;
+  color: #F5EDE4; /* E-Cell theme text */
 
   &::before {
     content: '•'; /* Bullet point */
     position: absolute;
     left: 0;
-    color: #7c3aed; /* Stylish purple bullet */
+    color: #FD8916; /* E-Cell secondary color */
     font-size: 1.5rem;
   }
 `;
 
 const Button = styled.button`
-  background-color: #7c3aed; /* Purple background */
-  color: white;
+  background-color: #296685; /* E-Cell primary color */
+  color: #F5EDE4; /* E-Cell text color */
   padding: 15px 30px;
   border: none;
   border-radius: 30px; /* Full-rounded button */
@@ -111,9 +113,9 @@ const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #5b21b6; /* Darker purple on hover */
+    background-color: #FD8916; /* E-Cell secondary color on hover */
     transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Hover shadow */
+    box-shadow: 0 8px 16px rgba(253, 137, 22, 0.3); /* Hover shadow */
   }
 
   @media (max-width: 768px) {
@@ -124,7 +126,8 @@ const Button = styled.button`
 const SpotsLeft = styled.span`
   font-size: 0.9rem;
   margin-left: 20px;
-  color: #bbbbbb;
+  color: #F5EDE4;
+  opacity: 0.8;
 
   @media (max-width: 768px) {
     margin-left: 0;

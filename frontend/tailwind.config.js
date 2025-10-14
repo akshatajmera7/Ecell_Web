@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'ecell-bg': '#0C233C',
+        'ecell-primary': '#296685',
+        'ecell-secondary': '#FD8916',
+        'ecell-text': '#F5EDE4',
+      },
       animation: {
         'gradient-x': 'gradient-x 6s ease infinite',
         'fade-in': 'fade-in 2s ease-out',

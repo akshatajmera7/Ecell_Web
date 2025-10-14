@@ -147,36 +147,85 @@ const StartupConnectForm = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-8 rounded shadow-lg mt-16 mb-8">
+    <div className="min-h-screen py-16 px-4" style={{ backgroundColor: '#0C233C' }}>
+    <div className="max-w-2xl mx-auto p-8 rounded shadow-lg mt-16 mb-8" style={{ backgroundColor: '#296685' }}>
       {/* Header with gap, no logo, text only */}
       <div className="flex items-center justify-center mb-8">
-        <h2 className="text-3xl font-extrabold tracking-tight text-black">Connect with E-Cell BITS Hyderabad</h2>
+        <h2 className="text-3xl font-extrabold tracking-tight" style={{ color: '#F5EDE4' }}>Connect with E-Cell BITS Hyderabad</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold">Startup Name <span className="text-red-500">*</span></label>
-          <input type="text" name="startupName" value={formData.startupName} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Startup Name <span className="text-red-500">*</span></label>
+          <input 
+            type="text" 
+            name="startupName" 
+            value={formData.startupName} 
+            onChange={handleChange} 
+            className="w-full border px-3 py-2 rounded" 
+            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            required 
+          />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold">One-line Pitch / Tagline</label>
-          <input type="text" name="tagline" value={formData.tagline} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>One-line Pitch / Tagline</label>
+          <input 
+            type="text" 
+            name="tagline" 
+            value={formData.tagline} 
+            onChange={handleChange} 
+            className="w-full border px-3 py-2 rounded" 
+            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            required 
+          />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold">Website / Social Media Links</label>
-          <input type="text" name="website" value={formData.website} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Website / Social Media Links</label>
+          <input 
+            type="text" 
+            name="website" 
+            value={formData.website} 
+            onChange={handleChange} 
+            className="w-full border px-3 py-2 rounded" 
+            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            required 
+          />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold">Founder(s) Name(s) <span className="text-red-500">*</span></label>
-          <input type="text" name="founders" value={formData.founders} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Founder(s) Name(s) <span className="text-red-500">*</span></label>
+          <input 
+            type="text" 
+            name="founders" 
+            value={formData.founders} 
+            onChange={handleChange} 
+            className="w-full border px-3 py-2 rounded" 
+            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            required 
+          />
         </div>
         <div className="mb-4 grid grid-cols-2 gap-4">
           <div>
-            <label className="block mb-1 font-semibold">Email <span className="text-red-500">*</span></label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+            <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Email <span className="text-red-500">*</span></label>
+            <input 
+              type="email" 
+              name="email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              className="w-full border px-3 py-2 rounded" 
+              style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+              required 
+            />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">Contact Number <span className="text-red-500">*</span></label>
-            <input type="tel" name="contact" value={formData.contact} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+            <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Contact Number <span className="text-red-500">*</span></label>
+            <input 
+              type="tel" 
+              name="contact" 
+              value={formData.contact} 
+              onChange={handleChange} 
+              className="w-full border px-3 py-2 rounded" 
+              style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+              required 
+            />
           </div>
         </div>
         <div className="mb-4">
@@ -248,10 +297,19 @@ const StartupConnectForm = () => {
             <span className="text-sm">I agree to share my startup details with E-Cell BITS Hyderabad for mentorship, collaboration, and promotional purposes.</span>
           </label>
         </div>
-        {error && <div className="text-red-500 mb-2">{error}</div>}
-        {success && <div className="text-green-500 mb-2">{success}</div>}
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full text-lg font-semibold mt-2">Submit</button>
+        {error && <div style={{ color: '#FD8916' }} className="mb-2">{error}</div>}
+        {success && <div style={{ color: '#FD8916' }} className="mb-2">{success}</div>}
+        <button 
+          type="submit" 
+          className="w-full text-lg font-semibold mt-2 px-4 py-2 rounded transition-colors"
+          style={{ backgroundColor: '#FD8916', color: '#F5EDE4' }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = '#296685'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = '#FD8916'}
+        >
+          Submit
+        </button>
       </form>
+    </div>
     </div>
   );
 };

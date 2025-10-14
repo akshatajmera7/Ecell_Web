@@ -54,7 +54,7 @@ const Memories = () => {
   };
 
   return (
-    <div className="w-full bg-black py-12">
+    <div className="w-full py-12" style={{ backgroundColor: '#0C233C' }}>
       <div className="max-w-6xl mx-auto h-[70vh] relative overflow-hidden">
         <div className="flex justify-center items-center h-full relative">
           <AnimatePresence initial={false} custom={direction}>
@@ -123,8 +123,12 @@ const Memories = () => {
                 setActiveIndex(index);
               }}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeIndex === index ? "bg-white scale-125" : "bg-white/50"
+                activeIndex === index ? "scale-125" : ""
               }`}
+              style={{ 
+                backgroundColor: activeIndex === index ? '#FD8916' : '#296685',
+                opacity: activeIndex === index ? 1 : 0.5
+              }}
             />
           ))}
         </div>

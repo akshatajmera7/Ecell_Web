@@ -33,10 +33,11 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-300 flex flex-col items-center justify-center px-6 sm:px-12 space-y-8">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 space-y-8" style={{ background: 'linear-gradient(to right, #0C233C, #296685, #0C233C)', color: '#F5EDE4' }}>
       {/* Animated Heading */}
       <motion.h1
-        className="text-4xl sm:text-5xl font-extrabold text-white text-center"
+        className="text-4xl sm:text-5xl font-extrabold text-center"
+        style={{ color: '#F5EDE4' }}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -47,7 +48,8 @@ function Contact() {
       {/* Animated Form */}
       <motion.form
         onSubmit={handleSubmit}
-        className="w-full max-w-md bg-gray-800 bg-opacity-80 p-6 rounded-lg shadow-lg space-y-6"
+        className="w-full max-w-md p-6 rounded-lg shadow-lg space-y-6"
+        style={{ backgroundColor: 'rgba(41, 102, 133, 0.8)' }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
@@ -65,7 +67,13 @@ function Contact() {
             onChange={handleChange}
             placeholder="Your Name"
             required
-            className="w-full bg-gray-900 border border-gray-700 p-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2"
+            style={{ 
+              backgroundColor: '#0C233C', 
+              borderColor: '#296685', 
+              color: '#F5EDE4',
+              focusRingColor: '#FD8916'
+            }}
           />
         </motion.div>
 
@@ -82,7 +90,13 @@ function Contact() {
             onChange={handleChange}
             placeholder="Your Email"
             required
-            className="w-full bg-gray-900 border border-gray-700 p-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2"
+            style={{ 
+              backgroundColor: '#0C233C', 
+              borderColor: '#296685', 
+              color: '#F5EDE4',
+              focusRingColor: '#FD8916'
+            }}
           />
         </motion.div>
 
@@ -98,7 +112,13 @@ function Contact() {
             onChange={handleChange}
             placeholder="Your Message"
             required
-            className="w-full bg-gray-900 border border-gray-700 p-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500 h-40 resize-none"
+            className="w-full border p-4 rounded-md focus:outline-none focus:ring-2 h-40 resize-none"
+            style={{ 
+              backgroundColor: '#0C233C', 
+              borderColor: '#296685', 
+              color: '#F5EDE4',
+              focusRingColor: '#FD8916'
+            }}
           />
         </motion.div>
 
@@ -110,7 +130,13 @@ function Contact() {
         >
           <button
             type="submit"
-            className="w-full bg-white text-gray-900 font-semibold p-4 rounded-md hover:bg-purple-600 hover:text-white hover:shadow-lg transform hover:scale-105 transition duration-300"
+            className="w-full font-semibold p-4 rounded-md hover:shadow-lg transform hover:scale-105 transition duration-300"
+            style={{ 
+              backgroundColor: '#FD8916', 
+              color: '#F5EDE4' 
+            }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = '#296685'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = '#FD8916'}
           >
             Send Message
           </button>

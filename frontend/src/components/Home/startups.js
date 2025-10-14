@@ -73,14 +73,14 @@ const Startup = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white p-8">
+    <div className="min-h-screen p-8" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="mb-16 text-center" data-aos="fade-down" data-aos-easing="ease-in-out">
-          <h1 className="text-5xl font-bold mb-8 leading-tight">
+          <h1 className="text-5xl font-bold mb-8 leading-tight" style={{ color: '#F5EDE4' }}>
             BITS Pilani: Fueling the Next Wave of Innovation.
           </h1>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg max-w-3xl mx-auto" style={{ color: '#F5EDE4', opacity: 0.8 }}>
             Our university has a rich history of fostering innovation and entrepreneurship, as
             evidenced by the success of several notable startups founded by our alumni.
           </p>
@@ -90,9 +90,9 @@ const Startup = () => {
         <div className="relative w-full">
           {/* Left Scroll Button */}
           <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
             onClick={() => handleScroll('left')}
-            style={{ border: 'none', cursor: 'pointer' }}
+            style={{ backgroundColor: '#296685', color: '#F5EDE4', border: 'none', cursor: 'pointer' }}
           >
             &#8249;
           </button>
@@ -103,7 +103,8 @@ const Startup = () => {
               {designers.concat(designers).map((designer, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900 rounded-lg overflow-hidden min-w-[240px] transform hover:scale-105 transition-transform duration-300"
+                  className="rounded-lg overflow-hidden min-w-[240px] transform hover:scale-105 transition-transform duration-300"
+                  style={{ backgroundColor: '#296685' }}
                   data-aos="fade-up"
                   data-aos-delay={(index % 6) * 150}
                   data-aos-easing="ease-out-cubic"
@@ -117,8 +118,8 @@ const Startup = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-medium text-lg">{designer.name}</h3>
-                    <p className="text-gray-400 text-sm">{designer.role}</p>
+                    <h3 className="font-medium text-lg" style={{ color: '#F5EDE4' }}>{designer.name}</h3>
+                    <p className="text-sm" style={{ color: '#F5EDE4', opacity: 0.8 }}>{designer.role}</p>
                   </div>
                 </div>
               ))}
@@ -127,9 +128,9 @@ const Startup = () => {
 
           {/* Right Scroll Button */}
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
             onClick={() => handleScroll('right')}
-            style={{ border: 'none', cursor: 'pointer' }}
+            style={{ backgroundColor: '#296685', color: '#F5EDE4', border: 'none', cursor: 'pointer' }}
           >
             &#8250;
           </button>

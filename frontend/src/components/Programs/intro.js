@@ -21,7 +21,7 @@ const Intro = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
       <motion.div
         className="max-w-6xl mx-auto px-4 py-16 text-center"
         ref={ref} // Attach observer to this element
@@ -30,13 +30,13 @@ const Intro = () => {
         variants={variants} // Apply the animation states
         transition={{ duration: 1 }} // Duration of the animation
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight" style={{ color: '#F5EDE4' }}>
           Our 
           <br />
           Programs and Initiatives
         </h1>
         <div className="max-w-3xl mx-auto">
-          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
+          <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#F5EDE4', opacity: 0.8 }}>
             Supporting entrepreneurs. Building communities. Driving innovation
           </p>
         </div>

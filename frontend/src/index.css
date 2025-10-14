@@ -10,6 +10,8 @@ html, body {
   margin: 0;                 /* Remove any default margin */
   overflow-x: clip;        /* Prevent horizontal scrolling */
   overflow-y: visible;          /* Allow vertical scrolling */
+  background-color: #0C233C;
+  color: #F5EDE4;
 }
 
 
