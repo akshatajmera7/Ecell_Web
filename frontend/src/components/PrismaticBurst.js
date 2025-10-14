@@ -235,7 +235,8 @@ const PrismaticBurst = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Lower the device pixel ratio for performance
+    const dpr = Math.min((window.devicePixelRatio || 1) * 0.5, 1);
     const renderer = new Renderer({
       dpr,
       alpha: false,
@@ -333,15 +334,26 @@ const PrismaticBurst = ({
     const onVis = () => {};
     document.addEventListener('visibilitychange', onVis);
 
+
     let raf = 0;
     let last = performance.now();
     let accumTime = 0;
+    let lastFrameTime = 0;
+    const targetFPS = 30;
+    const frameDuration = 1000 / targetFPS;
 
     const update = now => {
       const dt = Math.max(0, now - last) * 0.001;
       last = now;
       const visible = isVisibleRef.current && !document.hidden;
       if (!pausedRef.current) accumTime += dt;
+
+      // Throttle to 30fps
+      if (now - lastFrameTime < frameDuration) {
+        raf = requestAnimationFrame(update);
+        return;
+      }
+      lastFrameTime = now;
 
       if (!visible) {
         raf = requestAnimationFrame(update);
