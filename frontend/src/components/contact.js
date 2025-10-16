@@ -33,7 +33,7 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 space-y-8" style={{ background: 'linear-gradient(to right, #0C233C, #296685, #0C233C)', color: '#F5EDE4' }}>
+  <div className="min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 space-y-8" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
       {/* Animated Heading */}
       <motion.h1
         className="text-4xl sm:text-5xl font-extrabold text-center"
@@ -48,8 +48,8 @@ function Contact() {
       {/* Animated Form */}
       <motion.form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-6 rounded-lg shadow-lg space-y-6"
-        style={{ backgroundColor: 'rgba(41, 102, 133, 0.8)' }}
+  className="w-full max-w-md p-6 rounded-lg shadow-lg space-y-6"
+  style={{ backgroundColor: 'rgba(12, 35, 60, 0.85)', border: '1px solid rgba(245,237,228,0.12)' }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}

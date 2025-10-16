@@ -155,3 +155,39 @@ main {
     padding-top: 60px; /* Adjust for smaller devices if necessary */
   }
 }
+
+/* Utility: masked reveal container for headings */
+.mask-reveal {
+  clip-path: inset(0 100% 0 0);
+}
+
+/* Utility: text stroke for outline-to-fill effect */
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+}
+
+/* Subtle background parallax wrapper */
+.subtle-parallax-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: transparent;
+}
+
+/* Layer above background for content */
+.content-layer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Respect user's reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-mask-reveal,
+  .animate-text-fill-in,
+  .animate-bg-pan-slow {
+    animation: none !important;
+  }
+}

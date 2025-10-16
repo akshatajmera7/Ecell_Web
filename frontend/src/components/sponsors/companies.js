@@ -41,8 +41,7 @@ const MediaAssociates = () => {
     { name: "Bharatversity", image: img8, link: "https://bharatversity.com/" },
     { name: "Unstop", image: img11, link: "https://unstop.com/" },
     { name: "Lawseek", image: img27, link: "https://www.lawseek.ai/" },
-    { name: "Instax", image: img22, link: "https://www.instax.com/" },
-    ,
+  { name: "Instax", image: img22, link: "https://www.instax.com/" },
     {
       name: "Product Folks",
       image: img25,
@@ -91,7 +90,7 @@ const MediaAssociates = () => {
   ];
 
   return (
-    <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
+  <div className="relative w-full min-h-screen py-16 overflow-hidden" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
       <div className="absolute inset-0">
         {/* No gradient background, keeping it pure black */}
         {[...Array(50)].map((_, i) => (
@@ -114,7 +113,8 @@ const MediaAssociates = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <motion.h2
-          className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-16 text-center"
+          className="text-5xl font-bold mb-16 text-center"
+          style={{ color: '#F5EDE4', textShadow: '0 0 14px rgba(0,0,0,0.35)' }}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -133,7 +133,7 @@ const MediaAssociates = () => {
               whileInView={{ opacity: 1, y: 0 }}
               // transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="relative rounded-2xl bg-gradient-to-b from-neutral-800/50 to-neutral-900/50 backdrop-blur-sm border border-blue-700/30 p-2 md:p-3 lg:p-4 transform transition-all duration-300 group-hover:scale-105 group-hover:border-blue-500/40">
+              <div className="relative rounded-2xl p-2 md:p-3 lg:p-4 transform transition-all duration-300 group-hover:scale-105" style={{ backgroundColor: 'rgba(12,35,60,0.85)', border: '1px solid rgba(245,237,228,0.12)' }}>
                 <div className="aspect-square rounded-xl overflow-hidden bg-white mb-2 md:mb-3 lg:mb-4">
                   <img
                     src={associate.image}
@@ -142,11 +142,11 @@ const MediaAssociates = () => {
                   />
                 </div>
                 <div className="text-center">
-                  <p className="text-xs md:text-sm lg:text-base text-blue-400 font-medium tracking-wider">
+                  <p className="text-xs md:text-sm lg:text-base font-medium tracking-wider" style={{ color: 'rgba(245,237,228,0.7)' }}>
                     {associate.category}
                   </p>
                 </div>
-                <div className="absolute inset-0 rounded-2xl bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ backgroundColor: 'rgba(253, 137, 22, 0.08)' }} />
               </div>
             </motion.a>
           ))}

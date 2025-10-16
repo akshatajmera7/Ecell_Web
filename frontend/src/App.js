@@ -32,9 +32,12 @@ import Se from "./components/lpevents/startupexpo/seindex";
 import PaymentSuccess from "./components/paymentsuccess";
 import PaymentFailed from "./components/paymentfailed";
 import PaymentCancel from "./components/paymentcancel";
+import Loadingscreen from './components/Loadingscreen';
+import LaunchPadLoader from './components/LaunchPadLoader';
 
 // startup connect form component
 import StartupConnectForm from './components/StartupConnectForm';
+import GlobalHeroEffects from './components/GlobalHeroEffects';
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
@@ -51,12 +54,15 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <Router>
-        <ScrollToTop />
-        <MainContent />
-      </Router>
-    </ErrorBoundary>
+    <>
+      
+      <ErrorBoundary>
+        <Router>
+          <ScrollToTop />
+          <MainContent />
+        </Router>
+      </ErrorBoundary>
+    </>
   );
 }
 
@@ -69,8 +75,14 @@ function MainContent() {
     <div className="app-container">
       <ScrollToTop />
 
+      {/* Route-specific loaders */}
+      {isLaunchpadRoute ? <LaunchPadLoader /> : <Loadingscreen />}
+
       {/* Conditional Navbar */}
       {isLaunchpadRoute ? <LNavbar /> : <Navbar />}
+
+      {/* Global page transitions and background */}
+      <GlobalHeroEffects />
 
       <Routes>
         {/* Normal Routes */}

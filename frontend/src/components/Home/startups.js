@@ -92,7 +92,7 @@ const Startup = () => {
           <button
             className="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
             onClick={() => handleScroll('left')}
-            style={{ backgroundColor: '#296685', color: '#F5EDE4', border: 'none', cursor: 'pointer' }}
+            style={{ backgroundColor: '#0C233C', color: '#F5EDE4', border: '1px solid #FD8916', cursor: 'pointer' }}
           >
             &#8249;
           </button>
@@ -104,7 +104,7 @@ const Startup = () => {
                 <div
                   key={index}
                   className="rounded-lg overflow-hidden min-w-[240px] transform hover:scale-105 transition-transform duration-300"
-                  style={{ backgroundColor: '#296685' }}
+                  style={{ backgroundColor: '#0C233C', border: '1px solid rgba(245, 237, 228, 0.15)' }}
                   data-aos="fade-up"
                   data-aos-delay={(index % 6) * 150}
                   data-aos-easing="ease-out-cubic"
@@ -130,7 +130,7 @@ const Startup = () => {
           <button
             className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
             onClick={() => handleScroll('right')}
-            style={{ backgroundColor: '#296685', color: '#F5EDE4', border: 'none', cursor: 'pointer' }}
+            style={{ backgroundColor: '#0C233C', color: '#F5EDE4', border: '1px solid #FD8916', cursor: 'pointer' }}
           >
             &#8250;
           </button>

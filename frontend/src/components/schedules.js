@@ -282,13 +282,13 @@ const EventSchedule = () => {
       : scheduleData[activeDay].filter((event) => event.type === selectedType);
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black text-white py-16 px-4 md:px-8 min-h-screen">
+  <div className="text-white py-16 px-4 md:px-8 min-h-screen" style={{ backgroundColor: '#0C233C' }}>
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-extrabold text-blue-600 tracking-tight">
+          <h2 className="text-5xl font-extrabold tracking-tight" style={{ color: '#F5EDE4' }}>
             Event Schedule
           </h2>
-          <p className="text-lg text-gray-400 mt-2">Launchpad 2025</p>
+          <p className="text-lg mt-2" style={{ color: 'rgba(245,237,228,0.75)' }}>Launchpad 2025</p>
         </div>
 
         {/* Day Selection */}

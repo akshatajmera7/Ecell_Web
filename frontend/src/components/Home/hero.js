@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import PrismaticBurst from '../PrismaticBurst';
-
+import videohp from '../../assets/vid2.mp4';
 const Hero = () => {
     useEffect(() => {
         AOS.init({
@@ -15,23 +14,14 @@ const Hero = () => {
     return (
         <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden p-0 m-0" style={{ backgroundColor: '#0C233C' }}>
             {/* Animated Background */}
-            <div className="absolute inset-0 w-full h-full min-h-screen">
-                <PrismaticBurst
-                    animationType="rotate3d"
-                    intensity={3}
-                    speed={0.5}
-                    distort={0}
-                    paused={false}
-                    offset={{ x: 0, y: 0 }}
-                    hoverDampness={0}
-                    rayCount={0}
-                    mixBlendMode="screen"
-                    colors={[]}
-                />
-            </div>
+                <div className="absolute inset-0 w-full h-full min-h-screen z-0">
+                    <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
+                        <source src={videohp} type="video/mp4" />
+                    </video>
+                </div>
             
-            {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
+            {/* Solid overlay for better text readability (no gradients) */}
+            <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }} />
 
             {/* Content */}
             <div className="relative z-10 text-center px-6 flex flex-col items-center" style={{ color: '#F5EDE4' }}>
