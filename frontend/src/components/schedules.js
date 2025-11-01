@@ -282,13 +282,13 @@ const EventSchedule = () => {
       : scheduleData[activeDay].filter((event) => event.type === selectedType);
 
   return (
-  <div className="text-white py-16 px-4 md:px-8 min-h-screen" style={{ backgroundColor: '#0C233C' }}>
+  <div className="text-white py-16 px-4 md:px-8 min-h-screen bg-ecell-bg">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-extrabold tracking-tight" style={{ color: '#F5EDE4' }}>
+          <h2 className="text-5xl font-extrabold tracking-tight text-ecell-text">
             Event Schedule
           </h2>
-          <p className="text-lg mt-2" style={{ color: 'rgba(245,237,228,0.75)' }}>Launchpad 2025</p>
+          <p className="text-lg mt-2 text-ecell-text opacity-75">Launchpad 2025</p>
         </div>
 
         {/* Day Selection */}
@@ -302,13 +302,13 @@ const EventSchedule = () => {
               }}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-white ${
                 activeDay === day.id
-                  ? "bg-blue-600 shadow-lg scale-105"
-                  : "bg-gray-800 hover:bg-gray-700"
+                  ? "bg-ecell-secondary shadow-lg shadow-ecell-secondary/30 scale-105"
+                  : "bg-ecell-dark hover:bg-ecell-dark/80 border border-ecell-secondary/30"
               }`}
             >
               {day.name}
               <br />
-              <span className="text-sm text-blue-300">{day.date}</span>
+              <span className="text-sm text-ecell-primary">{day.date}</span>
             </button>
           ))}
         </div>

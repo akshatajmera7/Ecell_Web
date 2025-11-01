@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import ErrorBoundary from "./components/ErrorBoundary";
-import Navbar from "./components/navbar";
+import StaggeredMenu from "./components/StaggeredMenu";
 import Footer from "./components/footer";
 import Home from "./components/Home/home";
 import Team from "./components/Teams/team";
 import Program from "./components/Programs/program";
 import Contact from "./components/contact";
+import Gallery from "./components/Gallery/gallery";
 
-import LNavbar from "./components/lnavbar";
 import LFooter from "./components/lfooter";
 import Lteam from "./components/team/team";
 import Lcontact from "./components/lcontact";
@@ -33,11 +33,9 @@ import PaymentSuccess from "./components/paymentsuccess";
 import PaymentFailed from "./components/paymentfailed";
 import PaymentCancel from "./components/paymentcancel";
 import Loadingscreen from './components/Loadingscreen';
-import LaunchPadLoader from './components/LaunchPadLoader';
 
 // startup connect form component
 import StartupConnectForm from './components/StartupConnectForm';
-import GlobalHeroEffects from './components/GlobalHeroEffects';
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
@@ -58,6 +56,7 @@ function App() {
       
       <ErrorBoundary>
         <Router>
+          <Loadingscreen />
           <ScrollToTop />
           <MainContent />
         </Router>
@@ -71,24 +70,81 @@ function MainContent() {
   const location = useLocation();
   const isLaunchpadRoute = location.pathname.startsWith("/launchpad");
 
+  // Menu items for StaggeredMenu
+  const menuItems = [
+    { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+    { label: 'Programs', ariaLabel: 'View our programs', link: '/program' },
+    { label: 'Our Team', ariaLabel: 'Meet the team', link: '/team' },
+    { label: 'Gallery', ariaLabel: 'View our gallery', link: '/gallery' },
+    { label: 'Launchpad', ariaLabel: 'Explore Launchpad', link: '/launchpad' },
+    { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+  ];
+
+  const socialItems = [
+    { label: 'Instagram', link: 'https://www.instagram.com/ecell_bphc' },
+    { label: 'LinkedIn', link: 'https://www.linkedin.com/company/e-cell-bphc/' },
+    { label: 'Twitter', link: 'https://x.com/ecell_bphc' },
+    { label: 'Facebook', link: 'https://www.facebook.com/groups/158307448076754/' }
+  ];
+
+  // Launchpad menu items
+  const launchpadMenuItems = [
+    { label: 'Home', ariaLabel: 'Go to Launchpad home', link: '/launchpad' },
+    { label: 'Schedule', ariaLabel: 'View schedule', link: '/launchpad/schedules' },
+    { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
+    { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
+    { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
+    { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
+    { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' }
+  ];
+
   return (
     <div className="app-container">
       <ScrollToTop />
 
-      {/* Route-specific loaders */}
-      {isLaunchpadRoute ? <LaunchPadLoader /> : <Loadingscreen />}
-
-      {/* Conditional Navbar */}
-      {isLaunchpadRoute ? <LNavbar /> : <Navbar />}
-
-      {/* Global page transitions and background */}
-      <GlobalHeroEffects />
+      {/* Conditional Navbar - Use StaggeredMenu for both */}
+      {isLaunchpadRoute ? (
+        <StaggeredMenu
+          position="right"
+          items={launchpadMenuItems}
+          socialItems={socialItems}
+          displaySocials={true}
+          displayItemNumbering={true}
+          menuButtonColor="#fff"
+          openMenuButtonColor="#fff"
+          changeMenuColorOnOpen={false}
+          colors={['#1a1a1a', '#2a2a2a']}
+          logoUrl="/lplogo.jpeg"
+          accentColor="#d4ff00"
+          isFixed={true}
+          onMenuOpen={() => console.log('Launchpad menu opened')}
+          onMenuClose={() => console.log('Launchpad menu closed')}
+        />
+      ) : (
+        <StaggeredMenu
+          position="right"
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials={true}
+          displayItemNumbering={true}
+          menuButtonColor="#fff"
+          openMenuButtonColor="#fff"
+          changeMenuColorOnOpen={false}
+          colors={['#1a1a1a', '#2a2a2a']}
+          logoUrl="/navbarlogo.png"
+          accentColor="#d4ff00"
+          isFixed={true}
+          onMenuOpen={() => console.log('Menu opened')}
+          onMenuClose={() => console.log('Menu closed')}
+        />
+      )}
 
       <Routes>
         {/* Normal Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<Team />} />
         <Route path="/program" element={<Program />} />
+  <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/na" element={<Na />} />
 

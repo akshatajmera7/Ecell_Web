@@ -147,99 +147,93 @@ const StartupConnectForm = () => {
   };
 
   return (
-    <div className="min-h-screen py-16 px-4" style={{ backgroundColor: '#0C233C' }}>
-    <div className="max-w-2xl mx-auto p-8 rounded shadow-lg mt-16 mb-8" style={{ backgroundColor: '#296685' }}>
+    <div className="min-h-screen py-16 px-4 bg-ecell-bg">
+    <div className="max-w-2xl mx-auto p-8 rounded shadow-lg mt-16 mb-8 bg-ecell-dark border-2 border-ecell-secondary/30">
       {/* Header with gap, no logo, text only */}
       <div className="flex items-center justify-center mb-8">
-        <h2 className="text-3xl font-extrabold tracking-tight" style={{ color: '#F5EDE4' }}>Connect with E-Cell BITS Hyderabad</h2>
+        <h2 className="text-3xl font-extrabold tracking-tight text-ecell-text">Connect with E-Cell BITS Hyderabad</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Startup Name <span className="text-red-500">*</span></label>
+          <label className="block mb-1 font-semibold text-ecell-text">Startup Name <span className="text-red-500">*</span></label>
           <input 
             type="text" 
             name="startupName" 
             value={formData.startupName} 
             onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded" 
-            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
             required 
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>One-line Pitch / Tagline</label>
+          <label className="block mb-1 font-semibold text-ecell-text">One-line Pitch / Tagline</label>
           <input 
             type="text" 
             name="tagline" 
             value={formData.tagline} 
             onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded" 
-            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
             required 
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Website / Social Media Links</label>
+          <label className="block mb-1 font-semibold text-ecell-text">Website / Social Media Links</label>
           <input 
             type="text" 
             name="website" 
             value={formData.website} 
             onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded" 
-            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
             required 
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Founder(s) Name(s) <span className="text-red-500">*</span></label>
+          <label className="block mb-1 font-semibold text-ecell-text">Founder(s) Name(s) <span className="text-red-500">*</span></label>
           <input 
             type="text" 
             name="founders" 
             value={formData.founders} 
             onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded" 
-            style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
             required 
           />
         </div>
         <div className="mb-4 grid grid-cols-2 gap-4">
           <div>
-            <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Email <span className="text-red-500">*</span></label>
+            <label className="block mb-1 font-semibold text-ecell-text">Email <span className="text-red-500">*</span></label>
             <input 
               type="email" 
               name="email" 
               value={formData.email} 
               onChange={handleChange} 
-              className="w-full border px-3 py-2 rounded" 
-              style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+              className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
               required 
             />
           </div>
           <div>
-            <label className="block mb-1 font-semibold" style={{ color: '#F5EDE4' }}>Contact Number <span className="text-red-500">*</span></label>
+            <label className="block mb-1 font-semibold text-ecell-text">Contact Number <span className="text-red-500">*</span></label>
             <input 
               type="tel" 
               name="contact" 
               value={formData.contact} 
               onChange={handleChange} 
-              className="w-full border px-3 py-2 rounded" 
-              style={{ backgroundColor: '#0C233C', borderColor: '#FD8916', color: '#F5EDE4' }}
+              className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
               required 
             />
           </div>
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-semibold">LinkedIn Profile(s)</label>
-          <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+          <label className="block mb-1 font-semibold text-ecell-text">LinkedIn Profile(s)</label>
+          <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400" required />
         </div>
         <div className="mb-4 grid grid-cols-2 gap-4">
           <div>
-            <label className="block mb-1 font-semibold">Number of Team Members</label>
-            <input type="number" name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full border px-3 py-2 rounded" required min="1" />
+            <label className="block mb-1 font-semibold text-ecell-text">Number of Team Members</label>
+            <input type="number" name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400" required min="1" />
           </div>
           <div>
-            <label className="block mb-1 font-semibold">Stage of Startup <span className="text-red-500">*</span></label>
-            <select name="stage" value={formData.stage} onChange={handleChange} className="w-full border px-3 py-2 rounded" required>
+            <label className="block mb-1 font-semibold text-ecell-text">Stage of Startup <span className="text-red-500">*</span></label>
+            <select name="stage" value={formData.stage} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary" required>
               <option value="">Select</option>
               {stages.map((s) => <option key={s} value={s}>{s}</option>)}
             </select>
@@ -247,8 +241,8 @@ const StartupConnectForm = () => {
         </div>
         <div className="mb-4 grid grid-cols-2 gap-4">
           <div>
-            <label className="block mb-1 font-semibold">Industry / Sector</label>
-            <input type="text" name="industry" value={formData.industry} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
+            <label className="block mb-1 font-semibold text-ecell-text">Industry / Sector</label>
+            <input type="text" name="industry" value={formData.industry} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400" required />
           </div>
           <div>
             <label className="block mb-1 font-semibold">Current Status <span className="text-red-500">*</span></label>
@@ -298,13 +292,10 @@ const StartupConnectForm = () => {
           </label>
         </div>
         {error && <div style={{ color: '#FD8916' }} className="mb-2">{error}</div>}
-        {success && <div style={{ color: '#FD8916' }} className="mb-2">{success}</div>}
+        {success && <div className="text-ecell-primary mb-2">{success}</div>}
         <button 
           type="submit" 
-          className="w-full text-lg font-semibold mt-2 px-4 py-2 rounded transition-colors"
-          style={{ backgroundColor: '#FD8916', color: '#F5EDE4' }}
-          onMouseEnter={(e) => e.target.style.backgroundColor = '#296685'}
-          onMouseLeave={(e) => e.target.style.backgroundColor = '#FD8916'}
+          className="w-full text-lg font-semibold mt-2 px-4 py-2 rounded transition-colors bg-ecell-primary text-ecell-dark hover:bg-ecell-secondary hover:text-ecell-text"
         >
           Submit
         </button>

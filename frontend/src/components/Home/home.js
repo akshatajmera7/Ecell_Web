@@ -8,7 +8,7 @@ import Hero from './hero';
 
 function Home() {
   return (
-    <div>
+    <div className="relative">
     <Hero/>
     <Startup/>
     <Initiatives/>

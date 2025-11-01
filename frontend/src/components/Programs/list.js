@@ -85,7 +85,7 @@ const List = () => {
   });
 
   return (
-    <div className="min-h-screen py-20 px-4" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
+    <div className="min-h-screen py-20 px-4 bg-ecell-bg text-ecell-text">
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -98,8 +98,7 @@ const List = () => {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="group relative rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            style={{ backgroundColor: '#296685' }}
+            className="group relative rounded-xl overflow-hidden hover:shadow-xl hover:shadow-ecell-secondary/20 transition-all duration-300 bg-ecell-dark border-2 border-ecell-secondary/30 hover:border-ecell-primary"
           >
             <div className="aspect-video overflow-hidden">
               <img
@@ -109,8 +108,8 @@ const List = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-2xl font-medium mb-3" style={{ color: '#F5EDE4' }}>{program.title}</h3>
-              <p style={{ color: '#F5EDE4', opacity: 0.8 }}>{program.description}</p>
+              <h3 className="text-2xl font-medium mb-3 text-ecell-text">{program.title}</h3>
+              <p className="text-ecell-text opacity-80">{program.description}</p>
               {/*
               <a
                 href={program.link}

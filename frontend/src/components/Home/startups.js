@@ -1,14 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 
 const Startup = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
 
   const scrollContainer = useRef(null);
 
@@ -73,14 +65,14 @@ const Startup = () => {
   ];
 
   return (
-    <div className="min-h-screen p-8" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
+    <div className="relative min-h-screen p-8 bg-ecell-bg text-ecell-text" style={{ pointerEvents: 'auto', zIndex: 1 }}>
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="mb-16 text-center" data-aos="fade-down" data-aos-easing="ease-in-out">
-          <h1 className="text-5xl font-bold mb-8 leading-tight" style={{ color: '#F5EDE4' }}>
+        <div className="mb-16 text-center">
+          <h1 className="text-5xl font-bold mb-8 leading-tight text-ecell-text">
             BITS Pilani: Fueling the Next Wave of Innovation.
           </h1>
-          <p className="text-lg max-w-3xl mx-auto" style={{ color: '#F5EDE4', opacity: 0.8 }}>
+          <p className="text-lg max-w-3xl mx-auto text-ecell-text opacity-80">
             Our university has a rich history of fostering innovation and entrepreneurship, as
             evidenced by the success of several notable startups founded by our alumni.
           </p>
@@ -90,9 +82,9 @@ const Startup = () => {
         <div className="relative w-full">
           {/* Left Scroll Button */}
           <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl bg-ecell-dark text-ecell-text border-2 border-ecell-primary hover:bg-ecell-primary hover:text-ecell-dark transition-colors cursor-pointer"
+            style={{ zIndex: 30, pointerEvents: 'auto' }}
             onClick={() => handleScroll('left')}
-            style={{ backgroundColor: '#0C233C', color: '#F5EDE4', border: '1px solid #FD8916', cursor: 'pointer' }}
           >
             &#8249;
           </button>
@@ -103,11 +95,7 @@ const Startup = () => {
               {designers.concat(designers).map((designer, index) => (
                 <div
                   key={index}
-                  className="rounded-lg overflow-hidden min-w-[240px] transform hover:scale-105 transition-transform duration-300"
-                  style={{ backgroundColor: '#0C233C', border: '1px solid rgba(245, 237, 228, 0.15)' }}
-                  data-aos="fade-up"
-                  data-aos-delay={(index % 6) * 150}
-                  data-aos-easing="ease-out-cubic"
+                  className="rounded-lg overflow-hidden min-w-[240px] transform hover:scale-105 transition-transform duration-300 bg-ecell-dark border-2 border-ecell-secondary/20 hover:border-ecell-secondary"
                 >
                   <div className="aspect-w-1 aspect-h-1">
                     <img
@@ -118,8 +106,8 @@ const Startup = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-medium text-lg" style={{ color: '#F5EDE4' }}>{designer.name}</h3>
-                    <p className="text-sm" style={{ color: '#F5EDE4', opacity: 0.8 }}>{designer.role}</p>
+                    <h3 className="font-medium text-lg text-ecell-text">{designer.name}</h3>
+                    <p className="text-sm text-ecell-text opacity-80">{designer.role}</p>
                   </div>
                 </div>
               ))}
@@ -128,9 +116,9 @@ const Startup = () => {
 
           {/* Right Scroll Button */}
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl z-10"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl bg-ecell-dark text-ecell-text border-2 border-ecell-primary hover:bg-ecell-primary hover:text-ecell-dark transition-colors cursor-pointer"
+            style={{ zIndex: 30, pointerEvents: 'auto' }}
             onClick={() => handleScroll('right')}
-            style={{ backgroundColor: '#0C233C', color: '#F5EDE4', border: '1px solid #FD8916', cursor: 'pointer' }}
           >
             &#8250;
           </button>

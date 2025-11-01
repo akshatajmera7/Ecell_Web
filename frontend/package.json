@@ -6,9 +6,13 @@
     "@gsap/react": "^2.1.2",
     "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.57.2",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
+    "@use-gesture/react": "^10.3.1",
     "@vercel/speed-insights": "^1.2.0",
-    "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
+    "clsx": "^2.1.1",
     "cra-template": "1.2.0",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.15.0",
@@ -27,6 +31,7 @@
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.13",
+    "tailwind-merge": "^3.3.1",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
@@ -59,8 +64,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^24.8.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3"
   }
 }

@@ -2,7 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+/* Import Google Fonts for 5 Typography Themes */
+/* ⚡ Startup Minimal */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* 💼 Professional Tech */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* 🚀 Futuristic / LaunchPad */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
+
+/* 🧠 University + Modern */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+/* 🌐 Elegant + Premium */
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700;800&display=swap');
 
 html, body {
   min-height: 100vh;
@@ -12,6 +33,65 @@ html, body {
   overflow-y: visible;          /* Allow vertical scrolling */
   background-color: #0C233C;
   color: #F5EDE4;
+  font-family: 'Inter', 'Manrope', 'Work Sans', sans-serif;
+}
+
+/* 5 Typography Theme System */
+@layer components {
+  /* ⚡ Startup Minimal */
+  .text-startup-header {
+    @apply font-startup-header font-bold tracking-startup-header;
+  }
+  .text-startup-box {
+    @apply font-startup-box font-semibold tracking-startup-box;
+  }
+  .text-startup-body {
+    @apply font-startup-body font-normal;
+  }
+  
+  /* 💼 Professional Tech */
+  .text-tech-header {
+    @apply font-tech-header font-bold tracking-tech-header;
+  }
+  .text-tech-box {
+    @apply font-tech-box font-semibold tracking-tech-box;
+  }
+  .text-tech-body {
+    @apply font-tech-body font-normal;
+  }
+  
+  /* 🚀 Futuristic / LaunchPad */
+  .text-futuristic-header {
+    @apply font-futuristic-header font-bold tracking-futuristic-header;
+  }
+  .text-futuristic-box {
+    @apply font-futuristic-box font-semibold tracking-futuristic-box;
+  }
+  .text-futuristic-body {
+    @apply font-futuristic-body font-normal;
+  }
+  
+  /* 🧠 University + Modern */
+  .text-university-header {
+    @apply font-university-header font-bold tracking-university-header;
+  }
+  .text-university-box {
+    @apply font-university-box font-semibold tracking-university-box;
+  }
+  .text-university-body {
+    @apply font-university-body font-normal;
+  }
+  
+  /* 🌐 Elegant + Premium */
+  .text-elegant-header {
+    @apply font-elegant-header font-bold tracking-elegant-header;
+  }
+  .text-elegant-box {
+    @apply font-elegant-box font-semibold tracking-elegant-box;
+  }
+  .text-elegant-body {
+    @apply font-elegant-body font-normal;
+  }
 }
 
 
@@ -74,6 +154,7 @@ html, body {
   height: 100%;
   overflow: hidden;
   z-index: 0;
+  pointer-events: none;
 }
 
 .star {
@@ -156,38 +237,13 @@ main {
   }
 }
 
-/* Utility: masked reveal container for headings */
-.mask-reveal {
-  clip-path: inset(0 100% 0 0);
+/* Ensure particle backgrounds don't block clicks */
+#tsparticlesecellhero,
+#tsparticlesfullpage {
+  pointer-events: none !important;
 }
 
-/* Utility: text stroke for outline-to-fill effect */
-.text-stroke {
-  -webkit-text-stroke: 1px currentColor;
-  color: transparent;
-}
-
-/* Subtle background parallax wrapper */
-.subtle-parallax-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: transparent;
-}
-
-/* Layer above background for content */
-.content-layer {
-  position: relative;
-  z-index: 1;
-}
-
-/* Respect user's reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-up,
-  .animate-mask-reveal,
-  .animate-text-fill-in,
-  .animate-bg-pan-slow {
-    animation: none !important;
-  }
+#tsparticlesecellhero canvas,
+#tsparticlesfullpage canvas {
+  pointer-events: none !important;
 }

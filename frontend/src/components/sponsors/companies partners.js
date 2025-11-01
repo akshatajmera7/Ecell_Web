@@ -99,9 +99,9 @@ const MediaAssociates = () => {
   ];
 
   return (
-  <div className="relative w-full min-h-screen py-16 overflow-hidden" style={{ backgroundColor: '#0C233C', color: '#F5EDE4' }}>
+  <div className="relative w-full min-h-screen py-16 overflow-hidden bg-ecell-bg text-ecell-text">
       <div className="absolute inset-0">
-        {/* No gradient background, keeping it pure black */}
+        {/* Decorative particles with new theme colors */}
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
@@ -111,7 +111,7 @@ const MediaAssociates = () => {
               height: Math.random() * 4 + 1 + "px",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              backgroundColor: `rgba(63, 81, 181, ${Math.random() * 0.3})`,
+              backgroundColor: `rgba(107, 95, 255, ${Math.random() * 0.3})`,
               animation: `twinkle ${Math.random() * 3 + 2}s infinite ${
                 Math.random() * 2
               }s`,
@@ -122,8 +122,7 @@ const MediaAssociates = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <motion.h2
-          className="text-5xl font-bold mb-16 text-center"
-          style={{ color: '#F5EDE4', textShadow: '0 0 14px rgba(0,0,0,0.35)' }}
+          className="text-5xl font-bold mb-16 text-center text-ecell-text"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           // transition={{ duration: 0.6 }}

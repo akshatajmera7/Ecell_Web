@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/launchpad25.JPG';
 
 
@@ -10,8 +9,11 @@ const BrandSprintContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 80px;
-  background-color: #0C233C; /* E-Cell theme background */
-  color: #F5EDE4; /* E-Cell theme text */
+  background-color: #2a2a2a; /* Updated theme background */
+  color: #ffffff; /* Updated theme text */
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
 
   @media (max-width: 768px) {
     flex-direction: column; /* Stack items vertically */
@@ -52,10 +54,11 @@ const TextContainer = styled.div`
 const Title = styled.h1`
   font-size: 3.5rem; /* Large font for desktop */
   margin-bottom: 20px;
-  color: #F5EDE4; /* E-Cell theme text */
+  color: #ffffff; /* Updated theme text */
   text-transform: uppercase; /* Stylish uppercase title */
-  font-weight: 700; /* Bold title */
-  letter-spacing: 2px;
+  font-weight: 800; /* Bold title */
+  letter-spacing: 0.02em;
+  font-family: 'Syne', sans-serif;
 
   @media (max-width: 768px) {
     font-size: 2.5rem; /* Reduce size for mobile */
@@ -66,7 +69,8 @@ const Description = styled.p`
   line-height: 1.8;
   margin-bottom: 30px;
   font-size: 1.2rem;
-  color: #F5EDE4; /* E-Cell theme text */
+  color: #ffffff; /* Updated theme text */
+  font-family: 'Work Sans', sans-serif;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -89,33 +93,40 @@ const ListItem = styled.li`
   position: relative;
   padding-left: 25px;
   font-size: 1.2rem;
-  color: #F5EDE4; /* E-Cell theme text */
+  color: #ffffff; /* Updated theme text */
+  font-family: 'Work Sans', sans-serif;
 
   &::before {
     content: '•'; /* Bullet point */
     position: absolute;
     left: 0;
-    color: #FD8916; /* E-Cell secondary color */
+    color: #d4ff00; /* Updated primary color */
     font-size: 1.5rem;
   }
 `;
 
 const Button = styled.button`
-  background-color: #296685; /* E-Cell primary color */
-  color: #F5EDE4; /* E-Cell text color */
+  background-color: #6b5fff; /* Updated secondary color */
+  color: #ffffff; /* Updated text color */
   padding: 15px 30px;
   border: none;
   border-radius: 30px; /* Full-rounded button */
   cursor: pointer;
   font-size: 1rem;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-family: 'Satoshi', sans-serif;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 
   &:hover {
-    background-color: #FD8916; /* E-Cell secondary color on hover */
+    background-color: #d4ff00; /* Updated primary color on hover */
+    color: #1a1a1a; /* Dark text on hover */
     transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 8px 16px rgba(253, 137, 22, 0.3); /* Hover shadow */
+    box-shadow: 0 8px 16px rgba(212, 255, 0, 0.3); /* Hover shadow */
   }
 
   @media (max-width: 768px) {
@@ -126,7 +137,7 @@ const Button = styled.button`
 const SpotsLeft = styled.span`
   font-size: 0.9rem;
   margin-left: 20px;
-  color: #F5EDE4;
+  color: #ffffff;
   opacity: 0.8;
 
   @media (max-width: 768px) {
@@ -138,18 +149,14 @@ const SpotsLeft = styled.span`
 `;
 
 const Launchpad = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-  }, []);
-
-
+  const navigate = useNavigate();
 
   return (
     <BrandSprintContainer>
-      <ImageContainer data-aos="fade-right">
+      <ImageContainer>
         <img src={logo} alt="Launchpad Example" />
       </ImageContainer>
-      <TextContainer data-aos="fade-left">
+      <TextContainer>
         <Title>Launchpad</Title>
         <Description>
           Ignite entrepreneurial passion at our 3-day summit featuring industry leaders, innovative startups, and knowledge-sharing for the next generation.
@@ -160,8 +167,8 @@ const Launchpad = () => {
           <ListItem>Ground Reality</ListItem>
           <ListItem>Networking Arena</ListItem>
         </List>
-        <div>
-  <Button onClick={() => window.location.href = '/launchpad'}>
+        <div style={{ position: 'relative', zIndex: 20 }}>
+  <Button onClick={() => navigate('/launchpad')}>
     Explore Launchpad
   </Button>
   <SpotsLeft>Annual Entrepreneurial Summit</SpotsLeft>

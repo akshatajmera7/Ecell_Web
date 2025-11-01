@@ -13,10 +13,14 @@ export default function GlobalHeroEffects() {
       const root = document.querySelector('main') || document.body;
       if (!root) return;
 
-      // Heuristics for hero elements
-  const h1 = root.querySelector('h1, .hero h1, .hero-title');
-  const h2 = root.querySelector('h2, .hero h2, .hero-subtitle');
-  const btn = root.querySelector('a.button, button, .btn, .cta');
+      // Only target hero sections - be more specific to avoid affecting other buttons
+      const heroSection = root.querySelector('.hero, [class*="Hero"]');
+      if (!heroSection) return;
+
+      // Heuristics for hero elements - only within hero section
+      const h1 = heroSection.querySelector('h1, .hero-title');
+      const h2 = heroSection.querySelector('h2, .hero-subtitle');
+      const btn = heroSection.querySelector('a.button, .btn, .cta');
 
       // Clear any previous inline styles/classes we added
       [h1, h2, btn].forEach(el => {
