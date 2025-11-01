@@ -19,17 +19,7 @@ const Startup = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleScroll = (direction) => {
-    if (scrollContainer.current) {
-      const container = scrollContainer.current;
-      const scrollAmount = 300; // Adjust the scroll amount as needed
-      if (direction === 'left') {
-        container.scrollLeft -= scrollAmount;
-      } else if (direction === 'right') {
-        container.scrollLeft += scrollAmount;
-      }
-    }
-  };
+  // Manual scroll buttons removed as per request
 
   const designers = [
     {
@@ -66,7 +56,25 @@ const Startup = () => {
 
   return (
     <div className="relative min-h-screen p-8 bg-ecell-bg text-ecell-text" style={{ pointerEvents: 'auto', zIndex: 1 }}>
-      <div className="max-w-6xl mx-auto">
+      {/* Decorative particles background (pointer-events disabled) */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: Math.random() * 4 + 1 + 'px',
+              height: Math.random() * 4 + 1 + 'px',
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              backgroundColor: `rgba(107, 95, 255, ${Math.random() * 0.3})`, // ecell-secondary tint
+              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`,
+            }}
+          />
+        ))}
+      </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
         {/* Header Section */}
         <div className="mb-16 text-center">
           <h1 className="text-5xl font-bold mb-8 leading-tight text-ecell-text">
@@ -78,30 +86,21 @@ const Startup = () => {
           </p>
         </div>
 
-        {/* Scrollable Section with Arrows */}
+        {/* Scrollable Section without buttons (auto-scroll remains) */}
         <div className="relative w-full">
-          {/* Left Scroll Button */}
-          <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl bg-ecell-dark text-ecell-text border-2 border-ecell-primary hover:bg-ecell-primary hover:text-ecell-dark transition-colors cursor-pointer"
-            style={{ zIndex: 30, pointerEvents: 'auto' }}
-            onClick={() => handleScroll('left')}
-          >
-            &#8249;
-          </button>
-
           {/* Scrolling Content */}
-          <div className="overflow-hidden whitespace-nowrap mx-16" ref={scrollContainer}>
+          <div className="overflow-hidden whitespace-nowrap px-2 sm:px-4 lg:px-6" ref={scrollContainer}>
             <div className="flex space-x-4">
               {designers.concat(designers).map((designer, index) => (
                 <div
                   key={index}
-                  className="rounded-lg overflow-hidden min-w-[240px] transform hover:scale-105 transition-transform duration-300 bg-ecell-dark border-2 border-ecell-secondary/20 hover:border-ecell-secondary"
+                  className="rounded-lg overflow-hidden min-w-[240px] md:min-w-[280px] lg:min-w-[320px] transform hover:scale-105 transition-transform duration-300 bg-ecell-dark border-2 border-ecell-secondary/20 hover:border-ecell-secondary"
                 >
                   <div className="aspect-w-1 aspect-h-1">
                     <img
                       src={designer.image}
                       alt={designer.name}
-                      style={{ width: '300px', height: '300px', objectFit: 'cover' }}
+                      style={{ width: '320px', height: '320px', objectFit: 'cover' }}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -113,17 +112,16 @@ const Startup = () => {
               ))}
             </div>
           </div>
-
-          {/* Right Scroll Button */}
-          <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 rounded-full w-14 h-14 flex items-center justify-center text-4xl bg-ecell-dark text-ecell-text border-2 border-ecell-primary hover:bg-ecell-primary hover:text-ecell-dark transition-colors cursor-pointer"
-            style={{ zIndex: 30, pointerEvents: 'auto' }}
-            onClick={() => handleScroll('right')}
-          >
-            &#8250;
-          </button>
         </div>
       </div>
+
+      {/* Keyframes for twinkle animation (non-Next style) */}
+      <style>{`
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.1; transform: scale(0.6); }
+          50% { opacity: 0.6; transform: scale(1); }
+        }
+      `}</style>
     </div>
   );
 };

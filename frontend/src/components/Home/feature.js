@@ -3,26 +3,34 @@ import { motion, useInView } from "framer-motion";
 
 const AnimatedCounter = ({ targetValue, isInView }) => {
   const [count, setCount] = useState(0);
+  const rafRef = useRef();
+  const startTimeRef = useRef(null);
 
   useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = parseInt(targetValue.replace(/\D/g, ""), 10);
-      const duration = 2000; // 2 seconds
-      const increment = Math.ceil(end / (duration / 16));
+    if (!isInView) return;
 
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(start);
-        }
-      }, 16); // Updating every 16ms (~60fps)
+    const end = parseInt(targetValue.replace(/\D/g, ""), 10);
+    const duration = 2000; // 2 seconds — all counters share the same duration
 
-      return () => clearInterval(timer);
-    }
+    const step = (timestamp) => {
+      if (startTimeRef.current == null) startTimeRef.current = timestamp;
+      const elapsed = timestamp - startTimeRef.current;
+      const t = Math.min(elapsed / duration, 1); // linear progress 0..1
+      const value = Math.floor(end * t);
+      setCount(value);
+      if (t < 1) {
+        rafRef.current = requestAnimationFrame(step);
+      } else {
+        setCount(end);
+      }
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      startTimeRef.current = null;
+    };
   }, [isInView, targetValue]);
 
   return <span>{count.toLocaleString()}+</span>;
