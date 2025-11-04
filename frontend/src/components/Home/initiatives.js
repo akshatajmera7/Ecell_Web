@@ -44,6 +44,10 @@ const Initiatives = () => {
 
   // Swipe / drag navigation (pointer events)
   const onPointerDown = (e) => {
+    // Ignore if clicking on a button or interactive element
+    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+      return;
+    }
     pointerDownRef.current = true;
     startXRef.current = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
     setPaused(true);
@@ -70,6 +74,7 @@ const Initiatives = () => {
 
   const onPointerLeave = () => {
     pointerDownRef.current = false;
+    setPaused(false);
   };
 
   return (
@@ -140,7 +145,12 @@ const Initiatives = () => {
               return (
                 <button
                   key={`dot-${i}`}
-                  onClick={() => setActiveIndex(i)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setPaused(true);
+                    setActiveIndex(i);
+                    setTimeout(() => setPaused(false), 100);
+                  }}
                   className={
                     `w-3 h-3 rounded-full border transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-ecell-primary/60 ` +
                     (isActive
@@ -150,6 +160,7 @@ const Initiatives = () => {
                   title={item.name}
                   aria-label={`Go to ${item.name}`}
                   aria-pressed={isActive}
+                  style={{ pointerEvents: 'auto' }}
                 />
               );
             })}

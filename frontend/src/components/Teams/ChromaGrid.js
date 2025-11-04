@@ -27,6 +27,11 @@ export const ChromaGrid = ({
     pos.current = { x: width / 2, y: height / 2 };
     setX.current(pos.current.x);
     setY.current(pos.current.y);
+    
+    // Set fade to 0 initially for always bright cards
+    if (fadeRef.current) {
+      gsap.set(fadeRef.current, { opacity: 0 });
+    }
   }, []);
 
   const moveTo = (x, y) => {
@@ -46,15 +51,11 @@ export const ChromaGrid = ({
   const handleMove = e => {
     const r = rootRef.current.getBoundingClientRect();
     moveTo(e.clientX - r.left, e.clientY - r.top);
-    gsap.to(fadeRef.current, { opacity: 0, duration: 0.25, overwrite: true });
+    // Fade stays at 0 for always bright cards
   };
 
   const handleLeave = () => {
-    gsap.to(fadeRef.current, {
-      opacity: 1,
-      duration: fadeOut,
-      overwrite: true
-    });
+    // No fade animation on leave - cards stay bright
   };
 
   const handleCardClick = url => {

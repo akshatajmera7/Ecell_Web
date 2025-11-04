@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 import ErrorBoundary from "./components/ErrorBoundary";
 import StaggeredMenu from "./components/StaggeredMenu";
 import Footer from "./components/footer";
+import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import Home from "./components/Home/home";
 import Team from "./components/Teams/team";
 import Program from "./components/Programs/program";
@@ -81,10 +82,10 @@ function MainContent() {
   ];
 
   const socialItems = [
-    { label: 'Instagram', link: 'https://www.instagram.com/ecell_bphc' },
-    { label: 'LinkedIn', link: 'https://www.linkedin.com/company/e-cell-bphc/' },
-    { label: 'Twitter', link: 'https://x.com/ecell_bphc' },
-    { label: 'Facebook', link: 'https://www.facebook.com/groups/158307448076754/' }
+    { label: 'Instagram', link: 'https://www.instagram.com/ecell_bphc', icon: <FaInstagram /> },
+    { label: 'LinkedIn', link: 'https://www.linkedin.com/company/e-cell-bphc/', icon: <FaLinkedin /> },
+    { label: 'Twitter', link: 'https://x.com/ecell_bphc', icon: <FaTwitter /> },
+    { label: 'Facebook', link: 'https://www.facebook.com/groups/158307448076754/', icon: <FaFacebook /> }
   ];
 
   // Launchpad menu items
@@ -109,7 +110,7 @@ function MainContent() {
           items={launchpadMenuItems}
           socialItems={socialItems}
           displaySocials={true}
-          displayItemNumbering={true}
+          displayItemNumbering={false}
           menuButtonColor="#fff"
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={false}
@@ -126,7 +127,7 @@ function MainContent() {
           items={menuItems}
           socialItems={socialItems}
           displaySocials={true}
-          displayItemNumbering={true}
+          displayItemNumbering={false}
           menuButtonColor="#fff"
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={false}
