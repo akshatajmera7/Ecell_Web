@@ -23,7 +23,7 @@ const Loadingscreen = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       // sessionStorage.setItem('hasLoaded', 'true'); // Commented out to ensure visibility for testing
-    }, 4500);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);

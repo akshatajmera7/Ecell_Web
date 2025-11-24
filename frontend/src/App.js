@@ -122,7 +122,8 @@ function MainContent() {
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
-    { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' }
+    { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
+    { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
   ];
 
   return (
