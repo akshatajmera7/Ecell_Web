@@ -1,65 +1,47 @@
-// LoadingScreen.jsx
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { ParticleTextEffect } from './ui/particle-text-effect';
 
-export default function LoadingScreen() {
-  const [isVisible, setIsVisible] = useState(true);
+const Loadingscreen = () => {
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(false), 2500); // 2.5 seconds duration
+    // Check if we are on the home page
+    const isHomePage = location.pathname === '/' || location.pathname === '/launchpad';
+
+    if (!isHomePage) {
+      setLoading(false);
+      return;
+    }
+
+    // Ensure loading is true initially if conditions are met
+    setLoading(true);
+
+    // Set loading to false after a delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+      // sessionStorage.setItem('hasLoaded', 'true'); // Commented out to ensure visibility for testing
+    }, 4500);
+
     return () => clearTimeout(timer);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {loading && (
         <motion.div
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-ecell-bg overflow-hidden"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.5 } }}
-          className="fixed inset-0 flex items-center justify-center bg-ecell-bg z-[9999] overflow-hidden"
-          style={{ pointerEvents: 'none' }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative flex items-center justify-center">
-            {/* Outline text */}
-            <div
-              className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-extrabold text-transparent leading-none tracking-wider select-none"
-              style={{ 
-                WebkitTextStroke: "2px #ffffff",
-                paintOrder: "stroke fill"
-              }}
-            >
-              E-CELL
-            </div>
-
-            {/* Wave-filled duplicate text - Absolutely positioned on top */}
-            <div 
-              className="absolute inset-0 flex items-center justify-center overflow-hidden wave-fill"
-            >
-              <span 
-                className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-extrabold text-ecell-text leading-none tracking-wider select-none"
-                style={{ WebkitTextFillColor: "#ffffff" }}
-              >
-                E-CELL
-              </span>
-            </div>
-          </div>
-
-          <style>{`
-            .wave-fill {
-              animation: waveRise 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            }
-
-            @keyframes waveRise {
-              0% {
-                clip-path: inset(100% 0 0 0);
-              }
-              100% {
-                clip-path: inset(0 0 0 0);
-              }
-            }
-          `}</style>
+          <ParticleTextEffect words={["E-CELL"]} />
         </motion.div>
       )}
     </AnimatePresence>
   );
-}
+};
+
+export default Loadingscreen;

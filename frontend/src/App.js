@@ -34,27 +34,28 @@ import PaymentSuccess from "./components/paymentsuccess";
 import PaymentFailed from "./components/paymentfailed";
 import PaymentCancel from "./components/paymentcancel";
 import Loadingscreen from './components/Loadingscreen';
-
-// startup connect form component
 import StartupConnectForm from './components/StartupConnectForm';
+
+import Lenis from 'lenis';
+import { AnimatePresence } from 'framer-motion';
+
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log("Scrolling to top", location.location);
+    console.log("Scrolling to top", location.pathname);
     setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // Force scroll
     }, 0);
   }, [location]);
-  
+
   return null;
 };
 
 function App() {
   return (
     <>
-      
       <ErrorBoundary>
         <Router>
           <Loadingscreen />
@@ -70,6 +71,31 @@ function App() {
 function MainContent() {
   const location = useLocation();
   const isLaunchpadRoute = location.pathname.startsWith("/launchpad");
+
+  // Lenis Smooth Scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   // Menu items for StaggeredMenu
   const menuItems = [
@@ -140,44 +166,46 @@ function MainContent() {
         />
       )}
 
-      <Routes>
-        {/* Normal Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/program" element={<Program />} />
-  <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/na" element={<Na />} />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          {/* Normal Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/program" element={<Program />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/na" element={<Na />} />
 
-        {/* Launchpad Routes */}
-        <Route path="/launchpad" element={<Launchpadhome />} />
-        <Route path="/launchpad/contact" element={<Lcontact />} />
-        <Route path="/launchpad/events" element={<Event />} />
-        <Route path="/launchpad/sponsor" element={<Sponsor />} />
-  
-        <Route path="/launchpad/speakers" element={<Speakers />} />
-     
-       <Route path="/launchpad/schedules" element={<Schedules />} />
-        <Route path="/launchpad/team" element={<Lteam />} />
-        <Route path="/launchpad/ground_reality" element={<Gr />} />
-        <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
-        <Route path="/launchpad/teen_tycoons" element={<TT />} />
-        <Route path="/launchpad/beyond_profits" element={<Bp />} />
-        <Route path="/launchpad/internship_drive" element={<Id />} />
-        <Route path="/launchpad/pitch_perfect" element={<Pp />} />
-        <Route path="/launchpad/startup_expo" element={<Se />} />
-        <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
-        <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
-        <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
+          {/* Launchpad Routes */}
+          <Route path="/launchpad" element={<Launchpadhome />} />
+          <Route path="/launchpad/contact" element={<Lcontact />} />
+          <Route path="/launchpad/events" element={<Event />} />
+          <Route path="/launchpad/sponsor" element={<Sponsor />} />
+
+          <Route path="/launchpad/speakers" element={<Speakers />} />
+
+          <Route path="/launchpad/schedules" element={<Schedules />} />
+          <Route path="/launchpad/team" element={<Lteam />} />
+          <Route path="/launchpad/ground_reality" element={<Gr />} />
+          <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
+          <Route path="/launchpad/teen_tycoons" element={<TT />} />
+          <Route path="/launchpad/beyond_profits" element={<Bp />} />
+          <Route path="/launchpad/internship_drive" element={<Id />} />
+          <Route path="/launchpad/pitch_perfect" element={<Pp />} />
+          <Route path="/launchpad/startup_expo" element={<Se />} />
+          <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
+          <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
+          <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
 
 
-        {/* startup connect form route */}
-        <Route path="/startup-connect" element={<StartupConnectForm />} />
-      </Routes>
+          {/* startup connect form route */}
+          <Route path="/startup-connect" element={<StartupConnectForm />} />
+        </Routes>
+      </AnimatePresence>
 
       {/* Conditional Footer */}
       {isLaunchpadRoute ? <LFooter /> : <Footer />}
-      <SpeedInsights/>
+      <SpeedInsights />
     </div>
   );
 }

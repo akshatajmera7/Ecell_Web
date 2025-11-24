@@ -34,22 +34,22 @@ function Contact() {
   };
 
   return (
-    <div className="h-screen w-full bg-black flex items-center justify-center px-6">
+    <div className="h-screen w-full bg-ecell-bg flex items-center justify-center px-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="w-full max-w-lg bg-gray-900 p-8 rounded-xl shadow-xl"
+        className="w-full max-w-lg bg-ecell-bg-light p-8 rounded-xl shadow-xl shadow-ecell-secondary/10"
       >
-        <h1 className="text-3xl font-bold text-white text-center mb-4">
+        <h1 className="text-3xl font-bold text-ecell-text text-center mb-4">
           Get in Touch
         </h1>
-        <p className="text-gray-400 text-center mb-6">
+        <p className="text-ecell-text-muted text-center mb-6">
           Feel free to drop a message. We'll get back to you soon!
         </p>
         {isSent && (
           <motion.div
-            className="text-green-400 text-center text-lg mb-4"
+            className="text-ecell-primary text-center text-lg mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -65,7 +65,7 @@ function Contact() {
             onChange={handleChange}
             placeholder="Your Name"
             required
-            className="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-3 bg-ecell-bg text-ecell-text border border-ecell-secondary/30 rounded-lg focus:ring-2 focus:ring-ecell-primary outline-none"
           />
           <input
             type="email"
@@ -74,7 +74,7 @@ function Contact() {
             onChange={handleChange}
             placeholder="Your Email"
             required
-            className="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-3 bg-ecell-bg text-ecell-text border border-ecell-secondary/30 rounded-lg focus:ring-2 focus:ring-ecell-primary outline-none"
           />
           <textarea
             name="message"
@@ -82,11 +82,11 @@ function Contact() {
             onChange={handleChange}
             placeholder="Your Message"
             required
-            className="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none resize-none h-32"
+            className="w-full p-3 bg-ecell-bg text-ecell-text border border-ecell-secondary/30 rounded-lg focus:ring-2 focus:ring-ecell-primary outline-none resize-none h-32"
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition duration-300 font-semibold"
+            className="w-full bg-ecell-primary text-ecell-bg py-3 rounded-lg hover:bg-ecell-primary/80 transition duration-300 font-bold"
           >
             Send Message
           </button>

@@ -19,76 +19,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
 
 /* 🧠 University + Modern */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
 
 /* 🌐 Elegant + Premium */
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700;800&display=swap');
 
-html, body {
+/* ✨ New Modern Standard */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+html,
+html,
+body {
   min-height: 100vh;
-  height: auto;              /* Full height for the document */
-  margin: 0;                 /* Remove any default margin */
-  overflow-x: clip;        /* Prevent horizontal scrolling */
-  overflow-y: visible;          /* Allow vertical scrolling */
-  background-color: #0C233C;
-  color: #F5EDE4;
-  font-family: 'Inter', 'Manrope', 'Work Sans', sans-serif;
+  height: auto;
+  margin: 0;
+  overflow-x: clip;
+  overflow-y: visible;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Poppins', 'Inter', 'Manrope', 'Work Sans', sans-serif;
+  /* Hide default cursor */
 }
 
 /* 5 Typography Theme System */
 @layer components {
+
   /* ⚡ Startup Minimal */
   .text-startup-header {
     @apply font-startup-header font-bold tracking-startup-header;
   }
+
   .text-startup-box {
     @apply font-startup-box font-semibold tracking-startup-box;
   }
+
   .text-startup-body {
     @apply font-startup-body font-normal;
   }
-  
+
   /* 💼 Professional Tech */
   .text-tech-header {
     @apply font-tech-header font-bold tracking-tech-header;
   }
+
   .text-tech-box {
     @apply font-tech-box font-semibold tracking-tech-box;
   }
+
   .text-tech-body {
     @apply font-tech-body font-normal;
   }
-  
+
   /* 🚀 Futuristic / LaunchPad */
   .text-futuristic-header {
     @apply font-futuristic-header font-bold tracking-futuristic-header;
   }
+
   .text-futuristic-box {
     @apply font-futuristic-box font-semibold tracking-futuristic-box;
   }
+
   .text-futuristic-body {
     @apply font-futuristic-body font-normal;
   }
-  
+
   /* 🧠 University + Modern */
   .text-university-header {
     @apply font-university-header font-bold tracking-university-header;
   }
+
   .text-university-box {
     @apply font-university-box font-semibold tracking-university-box;
   }
+
   .text-university-body {
     @apply font-university-body font-normal;
   }
-  
+
   /* 🌐 Elegant + Premium */
   .text-elegant-header {
     @apply font-elegant-header font-bold tracking-elegant-header;
   }
+
   .text-elegant-box {
     @apply font-elegant-box font-semibold tracking-elegant-box;
   }
+
   .text-elegant-body {
     @apply font-elegant-body font-normal;
   }
@@ -96,30 +113,34 @@ html, body {
 
 
 @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .animate-fade-in {
-    animation: fade-in 1.5s ease-in-out;
+  from {
+    opacity: 0;
   }
 
-  @keyframes scale {
-    from {
-      transform: scale(0.9);
-    }
-    to {
-      transform: scale(1);
-    }
+  to {
+    opacity: 1;
   }
-  .animate-scale {
-    animation: scale 5s ease-in-out;
-  } 
+}
 
-  /* Starry background */
+.animate-fade-in {
+  animation: fade-in 1.5s ease-in-out;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-scale {
+  animation: scale 5s ease-in-out;
+}
+
+/* Starry background */
 .stars {
   width: 100%;
   height: 100%;
@@ -130,10 +151,13 @@ html, body {
 
 /* Twinkling animation */
 @keyframes twinkling {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.8;
     transform: translateY(0px);
   }
+
   50% {
     opacity: 1;
     transform: translateY(1px);
@@ -141,8 +165,13 @@ html, body {
 }
 
 @keyframes starfield {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-100%, -100%); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%);
+  }
 }
 
 /* Create a starry background */
@@ -168,9 +197,11 @@ html, body {
   0% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.5;
   }
@@ -187,10 +218,12 @@ html, body {
   opacity: 0.05;
   pointer-events: none;
 }
+
 /* src/styles/globals.css or src/index.css */
 
 /* Prevent horizontal scrolling */
-html, body {
+html,
+body {
   overflow-x: clip;
   width: 100%;
   height: 100%;
@@ -200,7 +233,9 @@ html, body {
 }
 
 /* Apply box-sizing globally to include padding/border in element width/height */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -213,7 +248,8 @@ html, body {
 
 /* Fix layout for sections */
 main {
-  flex-grow: 1; /* Ensures the main content fills the available height */
+  flex-grow: 1;
+  /* Ensures the main content fills the available height */
 }
 
 /* Ensure no content overflows horizontally */
@@ -221,19 +257,24 @@ main {
   max-width: 100%;
   /* overflow-x: hidden; */
 }
+
 /* src/styles/globals.css or navbar.css */
 .navbar {
-  height: 80px; /* Replace with your actual navbar height */
+  height: 80px;
+  /* Replace with your actual navbar height */
 }
+
 /* Ensure content below fixed navbar is not hidden or misaligned */
 .main-content {
-  padding-top: 80px; /* Adjust this value based on your navbar height */
+  padding-top: 80px;
+  /* Adjust this value based on your navbar height */
 }
 
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 60px; /* Adjust for smaller devices if necessary */
+    padding-top: 60px;
+    /* Adjust for smaller devices if necessary */
   }
 }
 
@@ -246,4 +287,37 @@ main {
 #tsparticlesecellhero canvas,
 #tsparticlesfullpage canvas {
   pointer-events: none !important;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4ff00;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }

@@ -23,7 +23,7 @@ const ArrowIcon = () => (
 
 
 const Hero = () => {
-  const[scale,setScale]=useState(1);
+  const [scale, setScale] = useState(1);
 
 
   useEffect(() => {
@@ -72,36 +72,42 @@ const Hero = () => {
         </video>
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 " />
+      {/* Gradient Overlay - Intensified */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ecell-bg/50 to-ecell-bg pointer-events-none" />
+
+      {/* Ambient Glows */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-ecell-secondary/30 rounded-full blur-[128px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-ecell-primary/20 rounded-full blur-[128px] pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
 
       {/* Main Content */}
       <div
-        className="relative z-10 text-center text-white px-6 flex flex-col items-center max-w-4xl"
+        className="relative z-10 text-center text-white px-6 flex flex-col items-center max-w-5xl"
         style={{
           transform: `scale(${scale})`,
           opacity: `${scale < 25 ? 1 / scale : 0}`,
         }}
       >
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 transition-transform duration-200">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+        <h1 className="text-6xl md:text-7xl lg:text-9xl font-bold mb-6 transition-transform duration-200 drop-shadow-[0_0_15px_rgba(107,95,255,0.5)]">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-ecell-secondary via-white to-ecell-primary animate-gradient-x">
             Launchpad 2025
           </span>
         </h1>
 
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light mb-4 transition-transform duration-200">
-          Annual Entrepreneurship Summit of BITS Pilani Hyderabad Campus
+        <h2 className="text-2xl md:text-3xl lg:text-4xl text-ecell-text-muted font-light mb-8 transition-transform duration-200">
+          Annual Entrepreneurship Summit of <span className="text-ecell-primary font-medium">BITS Pilani Hyderabad Campus</span>
         </h2>
 
-        <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl transition-transform duration-200">
+        <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl transition-transform duration-200 font-medium tracking-wide">
           21st - 23rd March 2025
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+        <div className="flex flex-col sm:flex-row gap-6 mt-4">
           <a
             href="/launchpad/schedules"
-            className="group flex items-center gap-2 px-8 py-3 bg-blue-600 rounded-full text-white font-medium hover:bg-blue-700 transition-all duration-300"
+            className="group flex items-center gap-3 px-10 py-4 bg-ecell-primary text-black text-lg font-bold rounded-full 
+                     shadow-[0_0_20px_rgba(212,255,0,0.4)] hover:shadow-[0_0_30px_rgba(212,255,0,0.6)] 
+                     hover:scale-105 transition-all duration-300"
           >
             Check Out the Schedule
             <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
@@ -111,7 +117,9 @@ const Hero = () => {
 
           <a
             href="/launchpad/passes"
-            className="group flex items-center gap-2 px-8 py-3 border-2 border-blue-600 rounded-full text-blue-600 font-medium hover:bg-blue-600 hover:text-white transition-all duration-300"
+            className="group flex items-center gap-3 px-10 py-4 border-2 border-ecell-secondary text-ecell-secondary text-lg font-bold rounded-full 
+                     hover:bg-ecell-secondary hover:text-white shadow-[0_0_15px_rgba(107,95,255,0.2)] 
+                     hover:shadow-[0_0_25px_rgba(107,95,255,0.5)] hover:scale-105 transition-all duration-300"
           >
             Get Your Passes Now !!
             <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
@@ -121,7 +129,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-       
+
       </div>
     </div>
   );
