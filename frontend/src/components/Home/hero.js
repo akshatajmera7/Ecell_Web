@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import maskImage from '../../assets/startup_expo.JPG';
 
 const Hero = () => {
@@ -13,12 +13,23 @@ const Hero = () => {
     const yMove = useTransform(scrollYProgress, [0, 1], [0, 100]);
     const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    // Text Rotator Logic
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    const rotatingTexts = ["IDEA", "INNOVATE", "INCUBATE"];
+
     useEffect(() => {
         const updateMousePosition = (ev) => {
             setMousePosition({ x: ev.clientX, y: ev.clientY });
         };
         window.addEventListener('mousemove', updateMousePosition);
         return () => window.removeEventListener('mousemove', updateMousePosition);
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+        }, 2000); // Change text every 2 seconds
+        return () => clearInterval(interval);
     }, []);
 
     // Staggered Text setup
@@ -92,50 +103,69 @@ const Hero = () => {
                 </div>
 
                 {/* PART 2: Middle Content (Full Width / No max-w constraint) */}
-                {/* 6. Masked "INNOVATE" Text */}
+                {/* 6. Masked Rotating Text */}
                 <motion.div
-                    className="relative w-full overflow-hidden hidden md:block"
+                    className="relative w-full overflow-hidden hidden md:block min-h-[15vw] flex items-center justify-center"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 1.5 }}
                 >
                     <div className="relative group cursor-pointer w-full text-center">
-                        <h2 className="text-[11vw] font-black font-syne leading-none tracking-tighter text-center uppercase transition-all duration-700 hover:tracking-wide inline-block relative py-4">
-                            {/* Background Image Mask */}
-                            <span
-                                className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-clip-text text-transparent animate-pan-image"
-                                style={{
-                                    backgroundImage: `url(${maskImage}), linear-gradient(135deg, #ffffff 0%, #808080 100%)`,
-                                    backgroundSize: '120% auto, cover',
-                                    backgroundPosition: 'center 40%, center',
-                                    WebkitBackgroundClip: 'text',
-                                    backgroundClip: 'text',
-                                    zIndex: 10
-                                }}
+                        <AnimatePresence mode="wait">
+                            <motion.h2
+                                key={rotatingTexts[currentTextIndex]}
+                                initial={{ opacity: 0, y: 50, filter: "blur(20px)" }}
+                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                exit={{ opacity: 0, y: -50, filter: "blur(20px)" }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                className="text-[11vw] font-black font-syne leading-none tracking-tighter text-center uppercase transition-all duration-700 hover:tracking-wide inline-block relative py-4"
                             >
-                                INNOVATE
-                            </span>
-                            {/* Stroke/Outline for definition */}
-                            <span className="relative z-20 text-transparent select-none" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}>INNOVATE</span>
-                        </h2>
+                                {/* Background Image Mask */}
+                                <span
+                                    className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-clip-text text-transparent animate-pan-image"
+                                    style={{
+                                        backgroundImage: `url(${maskImage}), linear-gradient(135deg, #ffffff 0%, #808080 100%)`,
+                                        backgroundSize: '120% auto, cover',
+                                        backgroundPosition: 'center 40%, center',
+                                        WebkitBackgroundClip: 'text',
+                                        backgroundClip: 'text',
+                                        zIndex: 10
+                                    }}
+                                >
+                                    {rotatingTexts[currentTextIndex]}
+                                </span>
+                                {/* Stroke/Outline for definition */}
+                                <span className="relative z-20 text-transparent select-none" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}>
+                                    {rotatingTexts[currentTextIndex]}
+                                </span>
+                            </motion.h2>
+                        </AnimatePresence>
                     </div>
                 </motion.div>
 
                 {/* Mobile version of INNOVATE (smaller) */}
                 <motion.div
-                    className="relative w-full max-w-5xl mx-auto overflow-hidden block md:hidden mt-8 px-4"
+                    className="relative w-full max-w-5xl mx-auto overflow-hidden block md:hidden mt-8 px-4 h-24 flex items-center justify-center"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.5 }}
                 >
-                    <h2 className="text-5xl font-black font-syne leading-none tracking-tighter text-center uppercase text-transparent bg-clip-text bg-cover"
-                        style={{
-                            backgroundImage: `url(${maskImage}), linear-gradient(135deg, #ffffff 0%, #808080 100%)`, // Fallback added
-                            WebkitBackgroundClip: 'text',
-                            backgroundClip: 'text'
-                        }}>
-                        INNOVATE
-                    </h2>
+                    <AnimatePresence mode="wait">
+                        <motion.h2
+                            key={rotatingTexts[currentTextIndex]}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 20 }}
+                            transition={{ duration: 0.5 }}
+                            className="text-5xl font-black font-syne leading-none tracking-tighter text-center uppercase text-transparent bg-clip-text bg-cover absolute"
+                            style={{
+                                backgroundImage: `url(${maskImage}), linear-gradient(135deg, #ffffff 0%, #808080 100%)`, // Fallback added
+                                WebkitBackgroundClip: 'text',
+                                backgroundClip: 'text'
+                            }}>
+                            {rotatingTexts[currentTextIndex]}
+                        </motion.h2>
+                    </AnimatePresence>
                 </motion.div>
 
 
