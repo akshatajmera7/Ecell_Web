@@ -28,7 +28,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
-        }, 2000); // Change text every 2 seconds
+        }, 3500); // 3.5 seconds total: ~2.5s stay
         return () => clearInterval(interval);
     }, []);
 
@@ -105,7 +105,7 @@ const Hero = () => {
                 {/* PART 2: Middle Content (Full Width / No max-w constraint) */}
                 {/* 6. Masked Rotating Text */}
                 <motion.div
-                    className="relative w-full overflow-hidden hidden md:block min-h-[15vw] flex items-center justify-center"
+                    className="relative w-full overflow-hidden hidden md:block min-h-[10vw] flex items-center justify-center my-8"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 1.5 }}
@@ -114,11 +114,11 @@ const Hero = () => {
                         <AnimatePresence mode="wait">
                             <motion.h2
                                 key={rotatingTexts[currentTextIndex]}
-                                initial={{ opacity: 0, y: 50, filter: "blur(20px)" }}
+                                initial={{ opacity: 0, y: 30, filter: "blur(15px)" }}
                                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, y: -50, filter: "blur(20px)" }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className="text-[11vw] font-black font-syne leading-none tracking-tighter text-center uppercase transition-all duration-700 hover:tracking-wide inline-block relative py-4"
+                                exit={{ opacity: 0, y: -30, filter: "blur(15px)" }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className="text-[7vw] font-black font-syne leading-none tracking-tight text-center uppercase transition-all duration-700 hover:tracking-wide inline-block relative py-2"
                             >
                                 {/* Background Image Mask */}
                                 <span
