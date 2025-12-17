@@ -33,7 +33,7 @@ import Se from "./components/lpevents/startupexpo/seindex";
 import PaymentSuccess from "./components/paymentsuccess";
 import PaymentFailed from "./components/paymentfailed";
 import PaymentCancel from "./components/paymentcancel";
-import Loadingscreen from './components/Loadingscreen';
+import ECellLoader from './components/ECellLoader';
 import StartupConnectForm from './components/StartupConnectForm';
 
 import Lenis from 'lenis';
@@ -58,7 +58,7 @@ function App() {
     <>
       <ErrorBoundary>
         <Router>
-          <Loadingscreen />
+          <ECellLoader />
           <ScrollToTop />
           <MainContent />
         </Router>
