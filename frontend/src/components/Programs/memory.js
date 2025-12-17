@@ -17,7 +17,7 @@ const Memories = () => {
     const interval = setInterval(() => {
       setDirection(1);
       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2500);
+    }, 4000); // Slower for better viewing
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -25,7 +25,7 @@ const Memories = () => {
     enter: (direction) => ({
       x: direction > 0 ? 1000 : -1000,
       opacity: 0,
-      scale: 0.6,
+      scale: 0.8,
     }),
     center: {
       x: 0,
@@ -36,7 +36,7 @@ const Memories = () => {
     exit: (direction) => ({
       x: direction > 0 ? -1000 : 1000,
       opacity: 0,
-      scale: 0.6,
+      scale: 0.8,
       zIndex: 0,
     }),
   };
@@ -54,79 +54,86 @@ const Memories = () => {
   };
 
   return (
-    <div className="w-full py-12 bg-ecell-bg">
-      <div className="max-w-6xl mx-auto h-[70vh] relative overflow-hidden">
-        <div className="flex justify-center items-center h-full relative">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={activeIndex}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="absolute w-1/2 h-3/4 rounded-lg overflow-hidden shadow-lg"
-              transition={{
-                x: {
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 30,
-                  duration: 2.5,
-                }, // Increased slide time to 2.5 seconds
-                opacity: { duration: 0.2 }, // Keep opacity transition as it was
-                scale: { duration: 0.2 }, // Keep scale transition as it was
-              }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
-              onDragEnd={(_, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
-                }
-              }}
-            >
-              <img
-                src={images[activeIndex]}
-                alt={`Carousel Slide ${activeIndex}`}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+    <div className="w-full py-20 bg-ecell-bg relative overflow-hidden">
+      {/* Background Textural Element */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-ecell-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-        {/* Side previews */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-4 w-1/4 h-3/4 opacity-40 scale-75">
-          <img
-            src={images[(activeIndex - 1 + images.length) % images.length]}
-            alt="Previous"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-        <div className="absolute top-1/2 -translate-y-1/2 right-4 w-1/4 h-3/4 opacity-40 scale-75">
-          <img
-            src={images[(activeIndex + 1) % images.length]}
-            alt="Next"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
+      <div className="max-w-6xl mx-auto px-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-bold text-white text-center mb-16 font-syne"
+        >
+          Memory <span className="text-ecell-secondary">Lane</span>
+        </motion.h2>
 
-        {/* Navigation dots */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {images.map((_, index) => (
+        <div className="h-[60vh] md:h-[70vh] relative overflow-hidden rounded-[2rem] glass-dark border border-white/5">
+          <div className="flex justify-center items-center h-full relative p-8">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+              <motion.div
+                key={activeIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="absolute w-full md:w-3/4 h-3/4 md:h-4/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.4 },
+                  scale: { duration: 0.4 },
+                }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={(_, { offset, velocity }) => {
+                  const swipe = swipePower(offset.x, velocity.x);
+                  if (swipe < -swipeConfidenceThreshold) {
+                    paginate(1);
+                  } else if (swipe > swipeConfidenceThreshold) {
+                    paginate(-1);
+                  }
+                }}
+              >
+                <img
+                  src={images[activeIndex]}
+                  alt={`Carousel Slide ${activeIndex}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation and Indicators */}
+          <div className="absolute bottom-6 left-0 w-full flex justify-center items-center gap-4 z-10">
             <button
-              key={index}
-              onClick={() => {
-                setDirection(index > activeIndex ? 1 : -1);
-                setActiveIndex(index);
-              }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeIndex === index ? "scale-125 bg-ecell-primary" : "bg-ecell-secondary opacity-50"
-              }`}
-            />
-          ))}
+              onClick={() => paginate(-1)}
+              className="p-3 rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
+            >
+              ←
+            </button>
+            <div className="flex space-x-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setDirection(index > activeIndex ? 1 : -1);
+                    setActiveIndex(index);
+                  }}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === index ? "w-8 bg-ecell-secondary" : "w-2 bg-white/30"
+                    }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={() => paginate(1)}
+              className="p-3 rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
+            >
+              →
+            </button>
+          </div>
         </div>
       </div>
     </div>
