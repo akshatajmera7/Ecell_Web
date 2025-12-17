@@ -47,13 +47,13 @@ const ECellLoader = () => {
                 >
                     {/* Inner Core Detail */}
                     <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
-                        <span className="text-ecell-primary font-bold text-xl font-startup-header">E</span>
+                        <span className="text-ecell-primary font-bold text-xl font-syne">E</span>
                     </div>
                 </motion.div>
 
                 {/* Loading Text */}
                 <motion.div
-                    className="mt-12 text-ecell-text font-startup-header tracking-widest text-lg uppercase"
+                    className="mt-12 text-ecell-text font-syne tracking-widest text-lg uppercase"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}

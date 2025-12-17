@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const Startup = () => {
 
@@ -8,18 +9,16 @@ const Startup = () => {
     const scrollEffect = () => {
       if (scrollContainer.current) {
         const container = scrollContainer.current;
-        container.scrollLeft += 2; // Increased speed
+        container.scrollLeft += 1; // Slightly slower for better visibility
         if (container.scrollLeft >= container.scrollWidth / 2) {
           container.scrollLeft = 0; // Reset to loop
         }
       }
     };
 
-    const interval = setInterval(scrollEffect, 20); // Increased scroll speed
+    const interval = setInterval(scrollEffect, 20);
     return () => clearInterval(interval);
   }, []);
-
-  // Manual scroll buttons removed as per request
 
   const designers = [
     {
@@ -55,7 +54,7 @@ const Startup = () => {
   ];
 
   return (
-    <div className="relative min-h-screen p-8 bg-ecell-bg text-ecell-text" style={{ pointerEvents: 'auto', zIndex: 1 }}>
+    <div className="relative min-h-[50vh] py-20 bg-ecell-bg text-ecell-text" style={{ pointerEvents: 'auto', zIndex: 1 }}>
       {/* Decorative particles background (pointer-events disabled) */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(50)].map((_, i) => (
@@ -74,48 +73,83 @@ const Startup = () => {
         ))}
       </div>
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
         {/* Header Section */}
-        <div className="mb-16 text-center">
-          <h1 className="text-5xl font-bold mb-8 leading-tight text-ecell-text">
-            BITS Pilani: Fueling the Next Wave of Innovation.
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-white font-syne">
+            BITS Pilani: Fueling the <span className="text-ecell-secondary">Next Wave</span> of Innovation.
           </h1>
-          <p className="text-lg max-w-3xl mx-auto text-ecell-text opacity-80">
+          <p className="text-lg max-w-3xl mx-auto text-gray-300 opacity-90 font-manrope">
             Our university has a rich history of fostering innovation and entrepreneurship, as
             evidenced by the success of several notable startups founded by our alumni.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Scrollable Section without buttons (auto-scroll remains) */}
-        <div className="relative w-full">
+        {/* Scrollable Section */}
+        <motion.div
+          className="relative w-full"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          {/* Left Grayscale & Fade Overlay */}
+          <div className="absolute top-0 left-0 w-32 md:w-48 h-full z-20 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to right, rgba(26,26,26,1) 0%, transparent 100%)',
+              backdropFilter: 'grayscale(100%)',
+              WebkitBackdropFilter: 'grayscale(100%)',
+              maskImage: 'linear-gradient(to right, black, transparent)',
+              WebkitMaskImage: 'linear-gradient(to right, black, transparent)'
+            }} >
+          </div>
+
+          {/* Right Grayscale & Fade Overlay */}
+          <div className="absolute top-0 right-0 w-32 md:w-48 h-full z-20 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to left, rgba(26,26,26,1) 0%, transparent 100%)',
+              backdropFilter: 'grayscale(100%)',
+              WebkitBackdropFilter: 'grayscale(100%)',
+              maskImage: 'linear-gradient(to left, black, transparent)',
+              WebkitMaskImage: 'linear-gradient(to left, black, transparent)'
+            }} >
+          </div>
+
           {/* Scrolling Content */}
           <div className="overflow-hidden whitespace-nowrap px-2 sm:px-4 lg:px-6" ref={scrollContainer}>
-            <div className="flex space-x-4">
+            <div className="flex space-x-8">
               {designers.concat(designers).map((designer, index) => (
                 <div
                   key={index}
-                  className="rounded-lg overflow-hidden min-w-[240px] md:min-w-[280px] lg:min-w-[320px] transform hover:scale-105 transition-transform duration-300 bg-ecell-dark border-2 border-ecell-secondary/20 hover:border-ecell-secondary"
+                  className="group rounded-2xl overflow-hidden min-w-[240px] md:min-w-[280px] lg:min-w-[320px] transform hover:scale-105 transition-all duration-300 bg-white/5 border border-white/10 hover:border-ecell-secondary glass-dark"
                 >
-                  <div className="aspect-w-1 aspect-h-1">
+                  <div className="aspect-w-1 aspect-h-1 relative">
                     <img
                       src={designer.image}
                       alt={designer.name}
                       style={{ width: '320px', height: '320px', objectFit: 'cover' }}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-all duration-500"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-lg text-ecell-text">{designer.name}</h3>
-                    <p className="text-sm text-ecell-text opacity-80">{designer.role}</p>
+                  <div className="p-6 absolute bottom-0 left-0 w-full">
+                    <h3 className="font-bold text-2xl text-white font-syne">{designer.name}</h3>
+                    <p className="text-sm text-ecell-secondary font-manrope font-semibold tracking-wide">{designer.role}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Keyframes for twinkle animation (non-Next style) */}
+      {/* Keyframes for twinkle animation */}
       <style>{`
         @keyframes twinkle {
           0%, 100% { opacity: 0.1; transform: scale(0.6); }

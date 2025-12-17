@@ -1,175 +1,133 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Initiatives = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const slideDuration = 2000; // ms
-  const startXRef = useRef(0);
-  const pointerDownRef = useRef(false);
-  // Dots pagination – no per-segment fill needed
+  const navigate = useNavigate();
 
   const portfolioItems = [
     {
+      name: 'LaunchPad',
+      subtitle: 'Startup Accelerator',
+      image: '/lp.png',
+      description: 'The ultimate startup accelerator program providing mentorship, funding, and resources.',
+      className: 'md:col-span-2 md:row-span-2 min-h-[400px]', // Large tile
+    },
+    {
       name: 'Speaker Sessions',
+      subtitle: 'Industry Insights',
       image: '/ss.JPG',
+      description: 'Interact with and learn from the pioneers of the industry through exclusive sessions.',
+      className: 'md:col-span-1 md:row-span-2 min-h-[400px]', // Tall tile
     },
     {
       name: 'Networking Arena',
+      subtitle: 'Connect & Grow',
       image: '/na.png',
-    },
-    {
-      name: 'LaunchPad',
-      image: '/lp.png',
+      description: 'A dedicated space to connect with like-minded innovators and potential co-founders.',
+      className: 'md:col-span-1 md:row-span-1 min-h-[250px]', // Standard tile
     },
     {
       name: 'Management Temptations',
+      subtitle: 'Skill Building',
       image: '/MT2.png',
+      description: 'Test your management skills through real-world business simulations and challenges.',
+      className: 'md:col-span-2 md:row-span-1 min-h-[250px]', // Wide tile
     },
   ];
-  
-  
-  const navigate = useNavigate();
-  // Setup auto carousel
-  useEffect(() => {
-    if (paused) return; // do not advance when paused
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % portfolioItems.length);
-    }, slideDuration);
-  
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [portfolioItems.length, paused]); // depend on paused so we can pause/resume
-
-  // no progress bar animation when using dots
-
-  // Swipe / drag navigation (pointer events)
-  const onPointerDown = (e) => {
-    // Ignore if clicking on a button or interactive element
-    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
-      return;
-    }
-    pointerDownRef.current = true;
-    startXRef.current = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
-    setPaused(true);
-  };
-
-  const onPointerUp = (e) => {
-    if (!pointerDownRef.current) return;
-    const endX = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX) ?? startXRef.current;
-    const delta = endX - startXRef.current;
-    pointerDownRef.current = false;
-    const threshold = 50; // px
-    if (Math.abs(delta) > threshold) {
-      setActiveIndex((prev) => {
-        if (delta < 0) {
-          // swipe left -> next
-          return (prev + 1) % portfolioItems.length;
-        }
-        // swipe right -> prev
-        return (prev - 1 + portfolioItems.length) % portfolioItems.length;
-      });
-    }
-    setPaused(false);
-  };
-
-  const onPointerLeave = () => {
-    pointerDownRef.current = false;
-    setPaused(false);
-  };
 
   return (
-    <div className="relative min-h-screen p-8 bg-ecell-bg text-ecell-text" style={{ pointerEvents: 'auto', zIndex: 1 }}>
-      {/* Header Section */}
-      <div
-        className="max-w-4xl mx-auto mb-16 text-center"
-      >
-        <h1 className="text-6xl font-extrabold tracking-tight mb-6 text-ecell-text">
-          Our Initiatives and Programs
-        </h1>
-        <p className="text-xl leading-relaxed text-ecell-text opacity-80">
-        We believe in the power of entrepreneurship to transform lives and communities. Our programs and initiatives provide the necessary support, resources, and mentorship to help aspiring entrepreneurs turn their dreams into reality, fostering innovation and driving economic growth.
-        </p>
-      </div>
-      
-      {/* Filter Button */}
-      <div className="max-w-4xl mx-auto mb-12 flex justify-center" style={{ position: 'relative', zIndex: 20 }}>
-      <button 
-        className="px-6 py-2 rounded-full border-2 border-ecell-primary text-ecell-text bg-transparent hover:bg-ecell-primary hover:text-ecell-dark transition-colors font-semibold cursor-pointer"
-        onClick={() => navigate('/program')}
-        style={{ pointerEvents: 'auto', position: 'relative', zIndex: 20 }}
-      >
-        Explore
-      </button>
-      </div>
+    <section className="relative min-h-screen py-24 px-4 md:px-8 bg-transparent text-white overflow-hidden">
 
-      {/* Portfolio Carousel */}
-      <div
-        className="max-w-6xl mx-auto relative overflow-hidden"
+      {/* Scroll Triggered Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="max-w-4xl mx-auto mb-20 text-center relative z-10"
       >
-        <div
-          className="flex transition-transform duration-700 select-none"
-          style={{ transform: `translateX(-${activeIndex * 100}%)`, touchAction: 'pan-y' }}
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          onPointerDown={onPointerDown}
-          onPointerUp={onPointerUp}
-          onPointerCancel={onPointerLeave}
-          onPointerLeave={onPointerLeave}
-        >
-          {portfolioItems.map((item, index) => (
-            <div
-              key={index}
-              className="min-w-full px-4"
-            >
-              <div className="rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-transform duration-2412 bg-ecell-dark border-2 border-ecell-secondary">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  style={{ width: '1150px', height: '400px', objectFit: 'cover' }}
-                  className="w-full h-96 object-cover"
-                />
-                <div className="p-6 text-center">
-                  <h3 className="text-3xl font-bold text-ecell-text">{item.name}</h3>
-                  {/* Optional subtitle / description can go here */}
+        <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-white font-syne">
+          Programs & <span className="text-ecell-primary">Initiatives</span>
+        </h2>
+        <p className="text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light">
+          Fostering innovation through our curated programs designed to support and accelerate your entrepreneurial journey.
+        </p>
+      </motion.div>
+
+      {/* Bento Grid Layout - Explicit Heights and Rows */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] gap-6 relative z-10">
+        {portfolioItems.map((item, index) => (
+          <motion.div
+            key={index}
+            className={`group relative overflow-hidden rounded-[2rem] glass-dark border border-white/10 ${item.className}`}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {/* Background Image with Zoom Effect */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+              {/* Refined Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
+
+              {/* Hover highlight overlay */}
+              <div className="absolute inset-0 bg-ecell-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+            </div>
+
+            {/* Content Container */}
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+
+              <div className="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
+                <span className="text-ecell-primary text-sm font-bold tracking-wider uppercase mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                  {item.subtitle}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 font-syne leading-tight">
+                  {item.name}
+                </h3>
+
+                <div className="overflow-hidden max-h-0 group-hover:max-h-[100px] transition-all duration-500 ease-in-out">
+                  <p className="text-gray-300 text-sm md:text-base mb-6 font-manrope leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-300">
+                  <button
+                    onClick={(e) => { e.stopPropagation(); navigate('/program'); }}
+                    className="flex items-center gap-2 text-white hover:text-ecell-primary transition-colors text-sm font-bold tracking-wide group/btn"
+                  >
+                    EXPLORE
+                    <span className="transform transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
+                  </button>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Modern controls: 4 small dots (one filled for active) */}
-        <div className="mt-6 w-full flex justify-center" style={{ position: 'relative', zIndex: 20 }}>
-          <div className="flex items-center gap-3">
-            {portfolioItems.map((item, i) => {
-              const isActive = i === activeIndex;
-              return (
-                <button
-                  key={`dot-${i}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setPaused(true);
-                    setActiveIndex(i);
-                    setTimeout(() => setPaused(false), 100);
-                  }}
-                  className={
-                    `w-3 h-3 rounded-full border transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-ecell-primary/60 ` +
-                    (isActive
-                      ? 'bg-ecell-primary border-ecell-primary shadow'
-                      : 'bg-transparent border-ecell-secondary/60 hover:border-ecell-primary hover:bg-ecell-primary/10')
-                  }
-                  title={item.name}
-                  aria-label={`Go to ${item.name}`}
-                  aria-pressed={isActive}
-                  style={{ pointerEvents: 'auto' }}
-                />
-              );
-            })}
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
 
-
-    </div>
+      {/* Bottom CTA */}
+      <motion.div
+        className="max-w-4xl mx-auto mt-20 text-center relative z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <button
+          className="btn-premium px-10 py-4 rounded-full text-lg font-bold tracking-wide uppercase"
+          onClick={() => navigate('/program')}
+        >
+          View All Programs
+        </button>
+      </motion.div>
+    </section>
   );
 };
 

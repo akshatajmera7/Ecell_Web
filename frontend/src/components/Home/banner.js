@@ -1,38 +1,41 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import { useNavigate } from 'react-router-dom'; 
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
-  // Using IntersectionObserver to trigger animations on scroll
-  const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: true,  // Trigger only once when the element comes into view
-    threshold: 0.3,     // Trigger when 30% of the element is in view
-  });
-
   const navigate = useNavigate();
 
   return (
     <div className="relative flex items-center justify-center h-screen text-white overflow-hidden bg-ecell-bg" style={{ pointerEvents: 'auto', zIndex: 1 }}>
       {/* Main Content */}
-      <div className="relative text-center space-y-8" style={{ zIndex: 20, pointerEvents: 'auto' }}>
+      <div className="relative text-center space-y-10" style={{ zIndex: 20, pointerEvents: 'auto' }}>
         {/* Text */}
-        <h1
-          ref={textRef}
-          className={`text-4xl md:text-6xl font-bold transition-all duration-700 text-ecell-text ${
-            textInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+        <motion.h1
+          className="text-4xl md:text-7xl font-bold transition-all duration-700 text-white font-syne leading-tight"
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          viewport={{ once: true }}
         >
-          Embrace Innovation, Achieve Extraordinary
-        </h1>
+          Embrace Innovation, <br />
+          <span className="text-ecell-secondary">Achieve Extraordinary</span>
+        </motion.h1>
 
         {/* Button */}
-        <button
-          className="px-8 py-4 text-lg font-semibold rounded-full transition-all bg-ecell-primary text-ecell-dark hover:bg-opacity-90 hover:shadow-xl hover:shadow-ecell-primary/30 cursor-pointer relative"
-          onClick={() => navigate('/contact')}
-          style={{ pointerEvents: 'auto', zIndex: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
         >
-          Let's Connect
-        </button>
+          <button
+            className="btn-premium px-12 py-5 text-xl font-bold rounded-full transition-all tracking-wider uppercase"
+            onClick={() => navigate('/contact')}
+            style={{ pointerEvents: 'auto', zIndex: 30 }}
+          >
+            Let's Connect
+          </button>
+        </motion.div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 
 const DisruptImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   const slides = [
     {
       title: "Innovation",
@@ -35,16 +35,16 @@ const DisruptImageCarousel = () => {
     if (isInView) {
       controls.start("visible");
     } else {
-      controls.start("hidden");
+      controls.start("hidden"); // Optional: reset if you want it to animate every time
     }
   }, [controls, isInView]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 4000); // 4 seconds for better readability
     return () => clearInterval(timer);
-  }, [slides.length]); // Include slides.length as a dependency
+  }, [slides.length]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -55,63 +55,71 @@ const DisruptImageCarousel = () => {
   };
 
   return (
-    <div className="relative w-full bg-black py-16 overflow-hidden">
-      <div className="relative max-w-6xl mx-auto px-4">
+    <div className="relative w-full bg-black py-24 overflow-hidden">
+      {/* Grain overlay for this specific section can be implied by global css, but added here if component isolated */}
+      <div className="relative max-w-7xl mx-auto px-6">
         <motion.h3
           ref={ref}
-          className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 mb-12 tracking-tight"
-          initial={{ opacity: 0, scale: 0.9 }}
+          className="text-center text-5xl md:text-6xl font-bold mb-16 font-syne text-white"
+          initial={{ opacity: 0, y: 30 }}
           animate={controls}
           variants={{
-            hidden: { opacity: 0, scale: 0.9 },
-            visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.2 } },
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
           }}
         >
-        Revisiting the Glorious Chapters
+          Revisiting the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Glorious Chapters</span>
         </motion.h3>
 
         <motion.div
-          className="relative overflow-hidden rounded-lg"
-          initial={{ opacity: 0, x: 100 }}
+          className="relative rounded-3xl overflow-hidden glass-dark border border-white/10 shadow-2xl"
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
           animate={controls}
           variants={{
-            hidden: { opacity: 0, x: 100 },
-            visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.4 } },
+            hidden: { opacity: 0, y: 50, scale: 0.95 },
+            visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, delay: 0.2, ease: "easeOut" } },
           }}
         >
-          <div className="aspect-video relative">
+          <div className="aspect-video relative group">
             <motion.div
               className="flex w-full h-full"
               animate={{
                 x: `-${currentIndex * 100}%`,
               }}
               transition={{
-                duration: 0.5,
-                ease: "easeInOut",
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1], // Custom bezier for premium feel
               }}
             >
               {slides.map((slide, index) => (
                 <div key={index} className="w-full flex-shrink-0 relative">
+                  {/* Darkened overlay for better text contrast */}
                   <img
                     src={slide.imageUrl}
                     alt={slide.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover filter brightness-75 transition-all duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent flex flex-col items-center justify-center">
-                    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
-                      {slide.title}
-                    </h2>
-                    <p className="text-xl text-gray-300 mt-2">{slide.subtitle}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-12">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <h2 className="text-5xl font-bold text-white font-syne mb-2">
+                        {slide.title}
+                      </h2>
+                      <p className="text-xl text-gray-200 font-manrope font-light tracking-wide">{slide.subtitle}</p>
+                    </motion.div>
                   </div>
                 </div>
               ))}
             </motion.div>
 
             {/* Navigation buttons */}
-            <div className="absolute inset-0 flex items-center justify-between p-4">
+            <div className="absolute inset-0 flex items-center justify-between p-8 pointer-events-none">
               <button
                 onClick={prevSlide}
-                className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                className="pointer-events-auto p-4 rounded-full bg-white/5 backdrop-blur-md text-white hover:bg-white/20 transition-all transform hover:scale-110 border border-white/10"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -119,7 +127,7 @@ const DisruptImageCarousel = () => {
               </button>
               <button
                 onClick={nextSlide}
-                className="p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                className="pointer-events-auto p-4 rounded-full bg-white/5 backdrop-blur-md text-white hover:bg-white/20 transition-all transform hover:scale-110 border border-white/10"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -127,21 +135,16 @@ const DisruptImageCarousel = () => {
               </button>
             </div>
 
-            {/* Gradient overlays */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black/50 to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black/50 to-transparent z-10" />
-
-            {/* Dots navigation */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+            {/* Pagination Lines instead of dots for modern look */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-20">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex 
-                      ? 'bg-gradient-to-r from-blue-400 to-purple-400' 
-                      : 'bg-white/50 hover:bg-white/75'
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex
+                      ? 'w-12 bg-ecell-primary shadow-[0_0_10px_rgba(212,255,0,0.5)]'
+                      : 'w-6 bg-white/30 hover:bg-white/50'
+                    }`}
                 />
               ))}
             </div>
