@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import img1 from '../../assets/spons/decathlon.jpg'; 
-import img2 from '../../assets/spons/plum.avif'; 
-import img3 from '../../assets/spons/ACT.jpg'; 
-import img4 from '../../assets/spons/AMD33.png'; 
-import img5 from '../../assets/spons/altair.jpg'; 
-import img6 from '../../assets/spons/nestle.jpg'; 
-import img7 from '../../assets/spons/coke.jpg'; 
+import img1 from '../../assets/spons/decathlon.jpg';
+import img2 from '../../assets/spons/plum.avif';
+import img3 from '../../assets/spons/ACT.jpg';
+import img4 from '../../assets/spons/AMD33.png';
+import img5 from '../../assets/spons/altair.jpg';
+import img6 from '../../assets/spons/nestle.jpg';
+import img7 from '../../assets/spons/coke.jpg';
 import img8 from '../../assets/spons/bharatversity.png';
 import img9 from '../../assets/spons/FAB.jpg';
 import img10 from '../../assets/spons/campa.png';
 import img11 from '../../assets/spons/unstop.avif';
 import img12 from '../../assets/spons/cornitos.jpg';
-import img13 from '../../assets/spons/fitness_fundas.jpg'; 
+import img13 from '../../assets/spons/fitness_fundas.jpg';
 import img14 from '../../assets/spons/switcheko.jpg';
 import img15 from '../../assets/spons/skilligence.png';
 import img16 from '../../assets/spons/2iim.png';
@@ -60,13 +60,14 @@ const DisruptCarousel = () => {
   ];
 
   const containerRef = useRef(null);
+  const isPaused = useRef(false);
 
   useEffect(() => {
     const scrollContainer = containerRef.current;
     let animationFrame;
 
     const smoothScroll = () => {
-      if (scrollContainer) {
+      if (scrollContainer && !isPaused.current) {
         scrollContainer.scrollLeft += 2.5; // Speed adjustment
         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
           scrollContainer.scrollLeft = 0; // Smooth reset
@@ -92,6 +93,8 @@ const DisruptCarousel = () => {
           <div
             ref={containerRef}
             className="flex items-center gap-8 whitespace-nowrap overflow-hidden"
+            onMouseEnter={() => (isPaused.current = true)}
+            onMouseLeave={() => (isPaused.current = false)}
           >
             {[...items, ...items].map((item, index) => (
               <div

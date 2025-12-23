@@ -11,28 +11,28 @@ const Initiatives = () => {
       subtitle: 'Startup Accelerator',
       image: '/lp.png',
       description: 'The ultimate startup accelerator program providing mentorship, funding, and resources.',
-      className: 'md:col-span-2 md:row-span-2 min-h-[400px]', // Large tile
+      className: 'md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-[400px]', // Large tile
     },
     {
       name: 'Speaker Sessions',
       subtitle: 'Industry Insights',
       image: '/ss.JPG',
       description: 'Interact with and learn from the pioneers of the industry through exclusive sessions.',
-      className: 'md:col-span-1 md:row-span-2 min-h-[400px]', // Tall tile
+      className: 'md:col-span-1 md:row-span-2 min-h-[300px] md:min-h-[400px]', // Tall tile
     },
     {
       name: 'Networking Arena',
       subtitle: 'Connect & Grow',
       image: '/na.png',
       description: 'A dedicated space to connect with like-minded innovators and potential co-founders.',
-      className: 'md:col-span-1 md:row-span-1 min-h-[250px]', // Standard tile
+      className: 'md:col-span-1 md:row-span-1 min-h-[220px] md:min-h-[250px]', // Standard tile
     },
     {
       name: 'Management Temptations',
       subtitle: 'Skill Building',
       image: '/MT2.png',
       description: 'Test your management skills through real-world business simulations and challenges.',
-      className: 'md:col-span-2 md:row-span-1 min-h-[250px]', // Wide tile
+      className: 'md:col-span-2 md:row-span-1 min-h-[220px] md:min-h-[250px]', // Wide tile
     },
   ];
 

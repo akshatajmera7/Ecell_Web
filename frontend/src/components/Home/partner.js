@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import img1 from '../../assets/spons/50knetwork.jpeg'; 
-import img2 from '../../assets/spons/10000startup.png'; 
-import img3 from '../../assets/spons/venturecatalysts.png'; 
-import img4 from '../../assets/spons/startuphyderabad.jpeg'; 
-import img5 from '../../assets/spons/thub.png'; 
-import img6 from '../../assets/spons/turbostart.jpeg'; 
-import img7 from '../../assets/spons/googlecloud.png'; 
+import img1 from '../../assets/spons/50knetwork.jpeg';
+import img2 from '../../assets/spons/10000startup.png';
+import img3 from '../../assets/spons/venturecatalysts.png';
+import img4 from '../../assets/spons/startuphyderabad.jpeg';
+import img5 from '../../assets/spons/thub.png';
+import img6 from '../../assets/spons/turbostart.jpeg';
+import img7 from '../../assets/spons/googlecloud.png';
 import img8 from '../../assets/spons/cloudesign.png';
 import img9 from '../../assets/spons/catechnologies.jpeg';
 import img10 from '../../assets/spons/sciofoundation.png';
 import img11 from '../../assets/spons/badabuisness.png';
 import img12 from '../../assets/spons/learnngwhile travelling.jpeg';
-import img13 from '../../assets/spons/ncore.png'; 
+import img13 from '../../assets/spons/ncore.png';
 import img14 from '../../assets/spons/enactus.png';
 import img15 from '../../assets/spons/lemon.png';
 import img16 from '../../assets/spons/fundsindia.png';
@@ -51,16 +51,17 @@ const DisruptCarousel = () => {
   ];
 
   const containerRef = useRef(null);
+  const isPaused = useRef(false);
 
   useEffect(() => {
     const scrollContainer = containerRef.current;
     let animationFrame;
 
     const smoothScroll = () => {
-      if (scrollContainer) {
+      if (scrollContainer && !isPaused.current) {
         // Move the scroll position to the left
         scrollContainer.scrollLeft -= 2.5; // Speed adjustment
-        
+
         // Reset to the end once the content scrolls halfway through
         if (scrollContainer.scrollLeft <= 0) {
           scrollContainer.scrollLeft = scrollContainer.scrollWidth; // Smooth reset to end
@@ -86,6 +87,8 @@ const DisruptCarousel = () => {
           <div
             ref={containerRef}
             className="flex items-center gap-8 whitespace-nowrap overflow-hidden"
+            onMouseEnter={() => (isPaused.current = true)}
+            onMouseLeave={() => (isPaused.current = false)}
           >
             {[...items, ...items].map((item, index) => (
               <div

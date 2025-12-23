@@ -11,6 +11,8 @@ import Team from "./components/Teams/team";
 import Program from "./components/Programs/program";
 import Contact from "./components/contact";
 import Gallery from "./components/Gallery/gallery";
+import LaunchpadGallery from "./components/Gallery/launchpadgallery";
+
 
 import LFooter from "./components/lfooter";
 import Lteam from "./components/team/team";
@@ -121,6 +123,7 @@ function MainContent() {
     { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
+    { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
     { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
@@ -174,6 +177,7 @@ function MainContent() {
           <Route path="/team" element={<Team />} />
           <Route path="/program" element={<Program />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/launchpad/gallery" element={<LaunchpadGallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/na" element={<Na />} />
 

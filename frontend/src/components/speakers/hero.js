@@ -1,21 +1,36 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const ProductExplorer = () => {
+const SpeakersHero = () => {
   return (
-    <div className="bg-black bg-gradient-to-t from-black to-blue-900 py-32 px-6 flex items-center justify-center h-[20vh]">
-      <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-        <br></br>
-        <br></br>
-        <h1 className="text-6xl md:text-8xl font-extrabold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent drop-shadow-lg">
-          Our Speakers
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-gray-400 leading-relaxed tracking-wide md:text-right md:max-w-xl mt-4 md:mt-0">
-        Igniting conversations, sparking change.
-        </p>
+    <div className="relative bg-black flex items-center justify-center pt-40 pb-20 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 w-full h-full">
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-ecell-primary/5 rounded-full blur-[150px]" />
+      </div>
+
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl md:text-8xl font-extrabold text-white mb-8 font-syne tracking-tight"
+        >
+          Our <span className="bg-gradient-to-r from-blue-500 to-ecell-primary bg-clip-text text-transparent">Speakers</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xl md:text-2xl text-gray-400 font-manrope max-w-2xl mx-auto"
+        >
+          Igniting conversations, sparking change.
+        </motion.p>
       </div>
     </div>
   );
 };
 
-export default ProductExplorer;
+export default SpeakersHero;

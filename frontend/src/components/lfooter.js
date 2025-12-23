@@ -27,7 +27,7 @@ const LFooter = () => {
           {/* Brand + Social */}
           <div>
             <div className="mb-6">
-              <div className="text-xl text-ecell-text leading-tight" style={{fontWeight: 800}}>E-CELL</div>
+              <div className="text-xl text-ecell-text leading-tight" style={{ fontWeight: 800 }}>E-CELL</div>
               <div className="text-sm text-ecell-text opacity-80">BITS Pilani Hyderabad Campus</div>
             </div>
 
@@ -75,9 +75,7 @@ const LFooter = () => {
               <li className="opacity-90 hover:text-ecell-primary transition-colors">
                 <a href="mailto:ecell@hyderabad.bits-pilani.ac.in">ecell@hyderabad.bits-pilani.ac.in</a>
               </li>
-              <li className="opacity-90">
-                <a href="tel:+919369844662" className="hover:text-ecell-primary transition-colors">Sharad- +91 9369844662</a>
-              </li>
+
               <li className="opacity-90">
                 <a href="tel:+919347270686" className="hover:text-ecell-primary transition-colors">Shihab- +91 9347270686</a>
               </li>

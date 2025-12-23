@@ -77,11 +77,11 @@ const EventsPage = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-ecell-primary mb-4 drop-shadow-[0_0_15px_rgba(212,255,0,0.5)]">
             Our Events
           </h1>
-          <p className="text-xl text-ecell-text-muted max-w-md">
+          <p className="text-xl text-ecell-text-muted max-w-md mt-16">
             Scroll down to explore our flagship events.
           </p>
         </div>
-        <motion.div style={{ x }} className="flex gap-4 pl-[40vw]">
+        <motion.div style={{ x }} className="flex gap-4 pl-[75vw]">
           {events.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}

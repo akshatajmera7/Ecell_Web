@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import img1 from '../../assets/spons/times nie.png'; 
-import img2 from '../../assets/spons/startupindia.png'; 
-import img3 from '../../assets/spons/algocs.jpg'; 
-import img4 from '../../assets/spons/acn.jpg'; 
-import img5 from '../../assets/spons/knowafest.jpg'; 
-import img6 from '../../assets/spons/startuptalky.jpg'; 
-import img7 from '../../assets/spons/bizstandards.png'; 
+import img1 from '../../assets/spons/times nie.png';
+import img2 from '../../assets/spons/startupindia.png';
+import img3 from '../../assets/spons/algocs.jpg';
+import img4 from '../../assets/spons/acn.jpg';
+import img5 from '../../assets/spons/knowafest.jpg';
+import img6 from '../../assets/spons/startuptalky.jpg';
+import img7 from '../../assets/spons/bizstandards.png';
 import img8 from '../../assets/spons/timesnetwork.png';
 import img9 from '../../assets/spons/blogadda.jpg';
 import img10 from '../../assets/spons/HINDU.png';
 import img11 from '../../assets/spons/startupstory.jpg';
 import img12 from '../../assets/spons/educationtree.png';
-import img13 from '../../assets/spons/campustimes.png'; 
+import img13 from '../../assets/spons/campustimes.png';
 import img14 from '../../assets/spons/fundaspring.jpg';
 import img15 from '../../assets/spons/noticebard.jpg';
 import img16 from '../../assets/spons/edtimes.jpg';
@@ -56,13 +56,14 @@ const DisruptCarousel = () => {
   ];
 
   const containerRef = useRef(null);
+  const isPaused = useRef(false);
 
   useEffect(() => {
     const scrollContainer = containerRef.current;
     let animationFrame;
 
     const smoothScroll = () => {
-      if (scrollContainer) {
+      if (scrollContainer && !isPaused.current) {
         scrollContainer.scrollLeft += 2.5; // Speed adjustment
         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
           scrollContainer.scrollLeft = 0; // Smooth reset
@@ -88,6 +89,8 @@ const DisruptCarousel = () => {
           <div
             ref={containerRef}
             className="flex items-center gap-8 whitespace-nowrap overflow-hidden"
+            onMouseEnter={() => (isPaused.current = true)}
+            onMouseLeave={() => (isPaused.current = false)}
           >
             {[...items, ...items].map((item, index) => (
               <div

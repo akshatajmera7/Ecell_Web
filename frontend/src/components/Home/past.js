@@ -1,18 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '../../assets/SPEAKER PICS/vp_india_naidu.jpg'; 
-import img2 from '../../assets/SPEAKER PICS/piyush-goyal.jpeg'; 
-import img3 from '../../assets/SPEAKER PICS/kiran_mazumdar_shaw.jpeg'; 
-import img4 from '../../assets/SPEAKER PICS/dham.webp'; 
-import img5 from '../../assets/SPEAKER PICS/Nilesh-Kothari1.png'; 
-import img6 from '../../assets/SPEAKER PICS/kshitij_khandelwal.jpeg'; 
-import img7 from '../../assets/SPEAKER PICS/ANAND-SRINIVASAN.webp'; 
+import img1 from '../../assets/SPEAKER PICS/vp_india_naidu.jpg';
+import img2 from '../../assets/SPEAKER PICS/piyush-goyal.jpeg';
+import img3 from '../../assets/SPEAKER PICS/kiran_mazumdar_shaw.jpeg';
+import img4 from '../../assets/SPEAKER PICS/dham.webp';
+import img5 from '../../assets/SPEAKER PICS/Nilesh-Kothari1.png';
+import img6 from '../../assets/SPEAKER PICS/kshitij_khandelwal.jpeg';
+import img7 from '../../assets/SPEAKER PICS/ANAND-SRINIVASAN.webp';
 import img8 from '../../assets/SPEAKER PICS/sam.jpg';
 import img9 from '../../assets/SPEAKER PICS/TARUN-KATHIYAL.webp';
 import img10 from '../../assets/SPEAKER PICS/A_SIVANTHANU.png';
 import img11 from '../../assets/SPEAKER PICS/ANKUSH-SINGHLA.jpeg';
 import img12 from '../../assets/SPEAKER PICS/kav.png';
-import img13 from '../../assets/SPEAKER PICS/greg.webp'; 
+import img13 from '../../assets/SPEAKER PICS/greg.webp';
 import img14 from '../../assets/SPEAKER PICS/pranalimehta.jpeg';
 import img15 from '../../assets/SPEAKER PICS/varun.jpeg';
 import img16 from '../../assets/SPEAKER PICS/PRANAY-PAI.png';
@@ -44,8 +44,8 @@ const ProfileGrid = () => {
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {profiles.map((profile) => (
             <motion.a
-              key={profile.id} 
-              href={profile.link} 
+              key={profile.id}
+              href={profile.link}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-blue-700 p-6 flex flex-col items-center"

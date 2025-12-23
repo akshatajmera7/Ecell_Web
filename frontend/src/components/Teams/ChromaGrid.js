@@ -27,7 +27,7 @@ export const ChromaGrid = ({
     pos.current = { x: width / 2, y: height / 2 };
     setX.current(pos.current.x);
     setY.current(pos.current.y);
-    
+
     // Set fade to 0 initially for always bright cards
     if (fadeRef.current) {
       gsap.set(fadeRef.current, { opacity: 0 });
@@ -76,39 +76,39 @@ export const ChromaGrid = ({
       ref={rootRef}
       className={`chroma-grid ${className}`}
       style={{
-        '--r': `${radius}px`,
-        '--cols': columns,
-        '--rows': rows
+        '--r': `${radius}px`
       }}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
     >
-      {items.map((c, i) => (
-        <article
-          key={i}
-          className="chroma-card"
-          onMouseMove={handleCardMove}
-          onClick={() => handleCardClick(c.url)}
-          style={{
-            '--card-border': c.borderColor || 'transparent',
-            '--card-gradient': c.gradient,
-            cursor: c.url ? 'pointer' : 'default'
-          }}
-        >
-          <div className="chroma-img-wrapper">
-            <img src={c.image} alt={c.title} loading="lazy" />
-          </div>
-          <footer className="chroma-info">
-            <h3 className="name">{c.title}</h3>
-            {c.handle && <span className="handle">{c.handle}</span>}
-            <p className="role">{c.subtitle}</p>
-            {c.location && <span className="location">{c.location}</span>}
-          </footer>
-        </article>
-      ))}
-      <div className="chroma-overlay" />
+      {
+        items.map((c, i) => (
+          <article
+            key={i}
+            className="chroma-card"
+            onMouseMove={handleCardMove}
+            onClick={() => handleCardClick(c.url)}
+            style={{
+              '--card-border': c.borderColor || 'transparent',
+              '--card-gradient': c.gradient,
+              cursor: c.url ? 'pointer' : 'default'
+            }}
+          >
+            <div className="chroma-img-wrapper">
+              <img src={c.image} alt={c.title} loading="lazy" />
+            </div>
+            <footer className="chroma-info">
+              <h3 className="name">{c.title}</h3>
+              {c.handle && <span className="handle">{c.handle}</span>}
+              <p className="role">{c.subtitle}</p>
+              {c.location && <span className="location">{c.location}</span>}
+            </footer>
+          </article>
+        ))
+      }
+      < div className="chroma-overlay" />
       <div ref={fadeRef} className="chroma-fade" />
-    </div>
+    </div >
   );
 };
 

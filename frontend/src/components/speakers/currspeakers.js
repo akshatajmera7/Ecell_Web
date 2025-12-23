@@ -2,14 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import img1 from "../../assets/SPEAKER PICS/amangupta.jpeg";
 import img2 from "../../assets/SPEAKER PICS/SP.jpeg";
-import img3 from "../../assets/SPEAKER PICS/SAKCHI.jpeg";
 import img4 from "../../assets/SPEAKER PICS/gov_mizo.avif";
 import img5 from "../../assets/SPEAKER PICS/gupta_mathongo.jpg";
 import img6 from "../../assets/SPEAKER PICS/periperi.png";
-import img7 from "../../assets/SPEAKER PICS/skippiboy.jpg";
-import img8 from "../../assets/SPEAKER PICS/Miheeka.jpeg";
 import img9 from "../../assets/SPEAKER PICS/jayesh.jpeg";
-
 
 const profiles = [
   {
@@ -26,13 +22,6 @@ const profiles = [
     image: img2,
     link: "https://www.linkedin.com/in/sureshpprabhu/",
   },
-  // {
-  //   id: 3,
-  //   name: "SAKCHI JAIN",
-  //   role: "Financial Educator",
-  //   image: img3,
-  //   link: "https://www.linkedin.com/in/sakchi-jain/",
-  // },
   {
     id: 4,
     name: "GENERAL VIJAY KUMAR SINGH",
@@ -53,20 +42,6 @@ const profiles = [
     image: img6,
     link: "https://in.linkedin.com/in/maheshwer-peri-1723ba3b",
   },
-  // {
-  //   id: 7,
-  //   name: "RAVI KABRA",
-  //   role: "Co-founder and Director - Skippi",
-  //   image: img7,
-  //   link: "https://in.linkedin.com/in/kabraravi",
-  // },
-  // {
-  //   id: 8,
-  //   name: "MIHEEKA DAGGUBATI",
-  //   role: "Co-founder of Boheim Studio",
-  //   image: img8,
-  //   link: "https://www.linkedin.com/in/miheeka-daggubati-3a253477/",
-  // },
   {
     id: 9,
     name: "JAYESH RANJAN",
@@ -76,38 +51,59 @@ const profiles = [
   },
 ];
 
-const ProfileGrid = () => {
+const CurrentSpeakers = () => {
   return (
-    <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
-        <h1 className="text-5xl font-bold text-blue-500 mb-8 text-center">
-          Launchpad 2025 Speakers
-        </h1>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {profiles.map((profile) => (
+    <div className="relative w-full bg-black py-20 overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-ecell-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 font-syne">
+            Launchpad 2025 <span className="text-ecell-primary">Speakers</span>
+          </h1>
+          <div className="h-1 w-24 bg-ecell-primary mx-auto rounded-full" />
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-center">
+          {profiles.map((profile, index) => (
             <motion.a
               key={profile.id}
               href={profile.link}
-              aria-label={`Profile of ${profile.name}`}
-              className="relative group block"
-              initial={{ opacity: 0, y: 20 }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative h-[450px] overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,255,0,0.1)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
             >
-              <div className="relative rounded-2xl bg-gradient-to-b from-blue-900/50 to-gray-900/50 p-3 sm:p-4 md:p-5 lg:p-6 backdrop-blur-sm border border-blue-500/20 transform transition-all duration-300 group-hover:scale-105">
-                <div className="aspect-square rounded-full overflow-hidden mb-2 sm:mb-3 md:mb-4 border-2 border-blue-500/30">
-                  <img
-                    src={profile.image}
-                    alt={`Image of ${profile.name}`}
-                    className="w-full h-full object-cover"
-                  />
+              {/* Image Container */}
+              <div className="h-full w-full relative">
+                <img
+                  src={profile.image}
+                  alt={profile.name}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+
+                {/* Text Content */}
+                <div className="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-2xl font-bold text-white mb-2 font-syne uppercase tracking-wide leading-tight group-hover:text-ecell-primary transition-colors">
+                    {profile.name}
+                  </h3>
+                  <p className="text-base text-gray-300 font-manrope font-medium leading-normal border-l-2 border-ecell-primary pl-3">
+                    {profile.role}
+                  </p>
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-1 sm:mb-1.5 md:mb-2">
-                  {profile.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-blue-200/80 leading-tight">
-                  {profile.role}
-                </p>
               </div>
             </motion.a>
           ))}
@@ -117,4 +113,4 @@ const ProfileGrid = () => {
   );
 };
 
-export default ProfileGrid;
+export default CurrentSpeakers;

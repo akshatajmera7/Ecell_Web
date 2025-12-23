@@ -35,10 +35,9 @@ const TypographyComponent = () => {
         viewport={{ once: false }}    // Triggers animation on both entry and exit on scroll
         className="text-center text-5xl sm:text-6xl lg:text-7xl font-extrabold"
       >
-        <span className="text-white">We</span>{' '}
-        <span className="text-blue-600">Dare</span>{' '}
-        <span className="text-blue-600">to</span>{' '}
-        <span className="text-white">Disrupt</span>
+        <span className="text-white">A</span>{' '}
+        <span className="text-blue-600">decennial</span>{' '}
+        <span className="text-white">journey</span>
       </motion.h1>
     </div>
   );
