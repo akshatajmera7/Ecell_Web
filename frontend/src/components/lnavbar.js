@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import lplogo from "../assets/lplogo.jpeg"; // Import the logo
@@ -40,6 +40,8 @@ const CloseIcon = () => (
 
 const CosmicNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navItems = useMemo(
     () => [
@@ -54,8 +56,39 @@ const CosmicNavbar = () => {
     []
   );
 
+  // Scroll handler to show/hide navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        // Always show navbar at top of page
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down & past threshold - hide navbar
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <nav className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed w-full z-50 bg-transparent backdrop-blur-sm"
+    >
       <div className="absolute inset-0 backdrop-blur-md bg-black/30 border-b border-white/20" />
 
       <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,7 +173,7 @@ const CosmicNavbar = () => {
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 

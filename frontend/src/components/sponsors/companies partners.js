@@ -99,7 +99,7 @@ const MediaAssociates = () => {
   ];
 
   return (
-  <div className="relative w-full min-h-screen py-16 overflow-hidden bg-ecell-bg text-ecell-text">
+    <div className="relative w-full min-h-screen pt-24 pb-16 overflow-hidden bg-ecell-bg text-ecell-text">
       <div className="absolute inset-0">
         {/* Decorative particles with new theme colors */}
         {[...Array(50)].map((_, i) => (
@@ -112,48 +112,43 @@ const MediaAssociates = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               backgroundColor: `rgba(107, 95, 255, ${Math.random() * 0.3})`,
-              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${
-                Math.random() * 2
-              }s`,
+              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2
+                }s`,
             }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:pl-24 lg:pl-32">
         <motion.h2
-          className="text-5xl font-bold mb-16 text-center text-ecell-text"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center text-ecell-text"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.6 }}
+        // transition={{ duration: 0.6 }}
         >
           PAST PARTNERS
         </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 md:gap-5 lg:gap-6">
           {associates.map((associate, index) => (
             <motion.a
               href={associate.link}
-              key={associate.id}
+              key={index}
               target="_blank"
               className="group cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              // transition={{ duration: 0.6, delay: index * 0.1 }}
+            // transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="relative rounded-2xl p-2 md:p-3 lg:p-4 transform transition-all duration-300 group-hover:scale-105" style={{ backgroundColor: 'rgba(12,35,60,0.85)', border: '1px solid rgba(245,237,228,0.12)' }}>
-                <div className="aspect-square rounded-xl overflow-hidden bg-white mb-2 md:mb-3 lg:mb-4">
+              <div className="relative rounded-2xl backdrop-blur-md bg-white/5 border border-white/[0.08] p-2 md:p-2.5 lg:p-3 transform transition-all duration-300 group-hover:scale-105 group-hover:bg-white/10 group-hover:border-white/20 group-hover:shadow-xl group-hover:shadow-orange-500/25">
+                <div className="aspect-square rounded-lg overflow-hidden bg-white/95 backdrop-blur-sm">
                   <img
                     src={associate.image}
                     alt={associate.name}
-                    className="w-full h-full object-contain p-1 md:p-2"
+                    className="w-full h-full object-contain p-0.5 md:p-1 transition-all duration-300"
                   />
                 </div>
-                <div className="text-center">
-                  <p className="text-xs md:text-sm lg:text-base font-medium tracking-wider" style={{ color: 'rgba(245,237,228,0.7)' }}>
-                    {associate.category}
-                  </p>
-                </div>
+
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ backgroundColor: 'rgba(253, 137, 22, 0.08)' }} />
               </div>
             </motion.a>

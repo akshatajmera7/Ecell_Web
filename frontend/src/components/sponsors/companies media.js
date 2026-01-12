@@ -87,7 +87,7 @@ const MediaAssociates = () => {
   ];
 
   return (
-    <div className="relative w-full min-h-screen bg-black py-16 overflow-hidden">
+    <div className="relative w-full min-h-screen pt-24 pb-16 overflow-hidden bg-black">
       <div className="absolute inset-0">
         {/* No gradient background, keeping it pure black */}
         {[...Array(50)].map((_, i) => (
@@ -100,48 +100,43 @@ const MediaAssociates = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               backgroundColor: `rgba(63, 81, 181, ${Math.random() * 0.3})`,
-              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${
-                Math.random() * 2
-              }s`,
+              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2
+                }s`,
             }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:pl-24 lg:pl-32">
         <motion.h2
-          className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-16 text-center"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-12 md:mb-16 text-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.6 }}
+        // transition={{ duration: 0.6 }}
         >
           PAST MEDIA PARTNERS
         </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 md:gap-5 lg:gap-6">
           {associates.map((associate, index) => (
             <motion.a
               href={associate.link}
-              key={associate.id}
+              key={index}
               target="_blank"
               className="group cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              // transition={{ duration: 0.6, delay: index * 0.1 }}
+            // transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="relative rounded-2xl bg-gradient-to-b from-neutral-800/50 to-neutral-900/50 backdrop-blur-sm border border-blue-700/30 p-2 md:p-3 lg:p-4 transform transition-all duration-300 group-hover:scale-105 group-hover:border-blue-500/40">
-                <div className="aspect-square rounded-xl overflow-hidden bg-white mb-2 md:mb-3 lg:mb-4">
+              <div className="relative rounded-2xl backdrop-blur-md bg-white/5 border border-blue-500/[0.12] p-2 md:p-2.5 lg:p-3 transform transition-all duration-300 group-hover:scale-105 group-hover:bg-white/10 group-hover:border-blue-400/40 group-hover:shadow-xl group-hover:shadow-blue-500/25">
+                <div className="aspect-square rounded-lg overflow-hidden bg-white/95 backdrop-blur-sm">
                   <img
                     src={associate.image}
                     alt={associate.name}
-                    className="w-full h-full object-contain p-1 md:p-2"
+                    className="w-full h-full object-contain p-0.5 md:p-1 transition-all duration-300"
                   />
                 </div>
-                <div className="text-center">
-                  <p className="text-xs md:text-sm lg:text-base text-blue-400 font-medium tracking-wider">
-                    {associate.category}
-                  </p>
-                </div>
+
                 <div className="absolute inset-0 rounded-2xl bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </motion.a>
