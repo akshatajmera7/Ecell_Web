@@ -1,161 +1,249 @@
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Import local logos
+import sandiskLogo from '../../assets/Bitsian startups/SanDisk Logo.png';
+import mplLogo from '../../assets/Bitsian startups/MPL_Logo 1.png';
+import bbLogo from '../../assets/Bitsian startups/bb.png';
+import redbusLogo from '../../assets/Bitsian startups/redbus.png';
+import swiggyLogo from '../../assets/Bitsian startups/Swiggy.png';
+import growwLogo from '../../assets/Bitsian startups/groww.png';
+
+const startups = [
+  {
+    name: 'SanDisk',
+    foundedBy: 'Sanjay Mehrotra',
+    description: 'Founded in 1988 as SunDisk by Eli Harari, Sanjay Mehrotra, and Jack Yuan, the company was acquired by Western Digital in 2016/',
+    logo: sandiskLogo,
+    founderImage: '/mehrotra.png',
+    color: '#ff0000',
+    position: { x: 8, y: 88 },
+    logoPos: 'bottom',
+    logoHeight: 56,
+    logoWidth: 150  // Width in pixels - change this to resize SanDisk logo width
+  },
+  {
+    name: 'MPL',
+    foundedBy: 'Shubham Malhotra',
+    description: 'Mobile Premier League (MPL) is an Indian online gaming platform based in Bengaluru. It was founded in 2018 by Sai Srinivas Kiran G and Shubham Malhotra.',
+    logo: mplLogo,
+    founderImage: '/malhotra.png',
+    color: '#ff0000',
+    position: { x: 21, y: 65 },
+    logoPos: 'top',
+    logoHeight: 56,
+    logoWidth: 120  // Width in pixels - change this to resize MPL logo width
+  },
+  {
+    name: 'bigbasket',
+    foundedBy: 'Hari Menon',
+    description: 'BigBasket is an Indian online grocer headquartered in Bangalore. It was founded in December 2011 by V.S. Sudhakar, Hari Menon, V.S. Ramesh, Vipul Parekh, and Abhinay Choudhari.',
+    logo: bbLogo,
+    founderImage: '/menon.png',
+    color: '#6bbd45',
+    position: { x: 43, y: 77 },
+    logoPos: 'bottom',
+    logoHeight: 56,
+    logoWidth: 100  // Width in pixels - change this to resize BigBasket logo width
+  },
+  {
+    name: 'redBus',
+    foundedBy: 'Phanindra Sama',
+    description: 'redBus is an Indian multinational online bus ticketing platform founded in 2006 by Phanindra Sama, Sudhakar Pasupunuri, and Charan Padmaraju, all alumni of BITS Pilani.',
+    logo: redbusLogo,
+    founderImage: '/sama.png',
+    color: '#d84e55',
+    position: { x: 53, y: 47 },
+    logoPos: 'top',
+    logoHeight: 80,
+    logoWidth: 100  // Width in pixels - change this to resize redBus logo width
+  },
+  {
+    name: 'SWIGGY',
+    foundedBy: 'Sriharsha Majety',
+    description: 'Swiggy is India\'s leading on-demand delivery platform, founded in 2014 by BITS Pilani alumni Sriharsha Majety and Nandan Reddy, and Rahul Jaimini.',
+    logo: swiggyLogo,
+    founderImage: '/majety.png',
+    color: '#fc8019',
+    position: { x: 80, y: 55 },
+    logoPos: 'bottom',
+    logoHeight: 56,
+    logoWidth: 140  // Width in pixels - change this to resize Swiggy logo width
+  },
+  {
+    name: 'Groww',
+    foundedBy: 'Ishan Bansal',
+    description: 'Groww is a financial services platform founded in 2016 by Lalit Keshre, Harsh Jain, Neeraj Singh, and Ishan Bansal to democratize investing in India.',
+    logo: growwLogo,
+    founderImage: '/bansal.png',
+    color: '#00d09c',
+    position: { x: 93, y: 33 },
+    logoPos: 'top',
+    logoHeight: 56,
+    logoWidth: 120  // Width in pixels - change this to resize Groww logo width
+  }
+];
+
+const StartupCard = ({ startup, isVisible }) => (
+  <AnimatePresence>
+    {isVisible && (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 10 }}
+        className="absolute z-50 w-80 p-6 bg-[#e0e0e0] rounded-[2rem] shadow-2xl pointer-events-none border border-white/20"
+        style={{
+          left: '50%',
+          transform: 'translateX(-50%)',
+          bottom: startup.logoPos === 'top' ? 'unset' : '100%',
+          top: startup.logoPos === 'top' ? '100%' : 'unset',
+          marginTop: startup.logoPos === 'top' ? '20px' : '0',
+          marginBottom: startup.logoPos === 'bottom' ? '20px' : '0'
+        }}
+      >
+        <div className="flex flex-col gap-4 text-left">
+          <div className="flex justify-start mb-2">
+            <img src={startup.logo} alt={startup.name} className="h-10 object-contain" />
+          </div>
+          <div className="text-[#666666] font-manrope text-lg">
+            Founded By <span className="text-[#f1211e] font-bold">{startup.foundedBy}</span>
+          </div>
+          <p className="text-[#333333] font-manrope text-sm leading-tight tracking-tight">
+            {startup.description}
+          </p>
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
 
 const Startup = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const scrollContainer = useRef(null);
-
-  useEffect(() => {
-    const scrollEffect = () => {
-      if (scrollContainer.current) {
-        const container = scrollContainer.current;
-        container.scrollLeft += 1; // Slightly slower for better visibility
-        if (container.scrollLeft >= container.scrollWidth / 2) {
-          container.scrollLeft = 0; // Reset to loop
-        }
-      }
-    };
-
-    const interval = setInterval(scrollEffect, 20);
-    return () => clearInterval(interval);
-  }, []);
-
-  const designers = [
-    {
-      name: 'Swiggy',
-      role: 'Founded by Sriharsha Majety',
-      image: '/majety.png',
-    },
-    {
-      name: 'Sandisk',
-      role: 'Co-Founded by Sanjay Mehrotra',
-      image: '/mehrotra.png',
-    },
-    {
-      name: 'BigBasket',
-      role: 'Co-Founded by Hari Menon',
-      image: '/menon.png',
-    },
-    {
-      name: 'Groww',
-      role: 'Co-Founded by Ishan Bansal',
-      image: '/bansal.png',
-    },
-    {
-      name: 'RedBus',
-      role: 'Founded by Phanindra Sama',
-      image: '/sama.png',
-    },
-    {
-      name: 'MPL',
-      role: 'Founded by Shubh Malhotra',
-      image: '/malhotra.png',
-    },
-  ];
+  // Curved Path for SVG - adjusted to match Image 1
+  // Curved Path for SVG - adjusted to match reference image exactly
+  const pathData = "M 8 88 C 13 88, 17 65, 21 65 S 35 82, 43 77 S 48 47, 53 47 S 70 60, 80 55 S 88 33, 93 33";
 
   return (
-    <div className="relative min-h-[50vh] py-20 bg-ecell-bg text-ecell-text" style={{ pointerEvents: 'auto', zIndex: 1 }}>
-      {/* Decorative particles background (pointer-events disabled) */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: Math.random() * 4 + 1 + 'px',
-              height: Math.random() * 4 + 1 + 'px',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              backgroundColor: `rgba(107, 95, 255, ${Math.random() * 0.3})`, // ecell-secondary tint
-              animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`,
-            }}
+    <div className="relative min-h-screen py-20 bg-black text-white overflow-hidden flex flex-col items-center justify-center">
+      {/* Header */}
+      <div className="text-center mb-24 px-4 z-10">
+        <h1 className="text-4xl md:text-6xl font-bold font-syne leading-tight">
+          <span className="text-[#6b5fff]">BITS Pilani:</span> Fueling the <span className="text-[#d4ff00]">Next Wave</span> of <br className="hidden md:block" /> Innovation.
+        </h1>
+      </div>
+
+      {/* Timeline Container */}
+      <div className="relative w-full max-w-7xl h-[400px] md:h-[600px] px-4 md:px-20">
+        <svg
+          viewBox="0 0 100 100"
+          className="w-full h-full overflow-visible"
+          preserveAspectRatio="none"
+        >
+          {/* Dotted Line */}
+          {/* Dashed/Broken Line - Matching reference image style */}
+          <motion.path
+            d={pathData}
+            fill="none"
+            stroke="#d4ff00"
+            strokeWidth="3"
+            strokeDasharray="10 8"
+            strokeLinecap="round"
+            style={{ vectorEffect: 'non-scaling-stroke' }}
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            viewport={{ once: true }}
           />
+
+          {/* Nodes are now handled in the HTML layer below for distortion-free circles */}
+        </svg>
+
+        {/* HTML Layer for Logos and Cards */}
+        {startups.map((startup, index) => (
+          <div
+            key={index}
+            className="absolute flex flex-col items-center"
+            style={{
+              left: `${startup.position.x}%`,
+              top: `${startup.position.y}%`,
+              transform: 'translate(-50%, -50%)',
+              zIndex: hoveredIndex === index ? 50 : 20
+            }}
+          >
+            {/* Circular Node dot - Perfect circle in HTML */}
+            <div
+              className={`w-3.5 h-3.5 md:w-5 md:h-5 bg-[#d4ff00] rounded-full shadow-[0_0_15px_rgba(212,255,0,0.6)] cursor-pointer transition-transform duration-300 ${hoveredIndex === index ? 'scale-125' : 'scale-100'}`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            />
+
+            {/* Logo Wrapper */}
+            <div
+              className={`absolute flex flex-col items-center cursor-pointer transition-all duration-300 ${hoveredIndex === index ? 'scale-110' : 'scale-100'}`}
+              style={{
+                top: startup.logoPos === 'top' ? 'auto' : '100%',
+                bottom: startup.logoPos === 'top' ? '100%' : 'auto',
+                paddingTop: startup.logoPos === 'top' ? '0' : '20px',
+                paddingBottom: startup.logoPos === 'top' ? '20px' : '0',
+                pointerEvents: 'none'
+              }}
+            >
+              <div className="flex items-center pointer-events-auto"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {startup.name === 'bigbasket' ? (
+                  <img
+                    src={startup.logo}
+                    alt={startup.name}
+                    style={{
+                      height: `${startup.logoHeight}px`,
+                      width: startup.logoWidth ? `${startup.logoWidth}px` : 'auto'
+                    }}
+                    className="object-contain rounded-xl bg-[#98cb4b] p-2 flex-shrink-0"
+                  />
+                ) : startup.name === 'redBus' ? (
+                  <img
+                    src={startup.logo}
+                    alt={startup.name}
+                    style={{
+                      height: `${startup.logoHeight}px`,
+                      width: startup.logoWidth ? `${startup.logoWidth}px` : 'auto'
+                    }}
+                    className="object-contain rounded-2xl bg-[#d84e55] p-3 flex-shrink-0 shadow-lg"
+                  />
+                ) : (
+                  <div className="flex items-center flex-shrink-0 h-fit">
+                    <img
+                      src={startup.logo}
+                      alt={startup.name}
+                      style={{
+                        height: `${startup.logoHeight}px`,
+                        width: startup.logoWidth ? `${startup.logoWidth}px` : 'auto'
+                      }}
+                      className="object-contain flex-shrink-0"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Hover Card */}
+              <div className="absolute left-1/2 -translate-x-1/2" style={{
+                top: startup.logoPos === 'top' ? 'auto' : '100%',
+                bottom: startup.logoPos === 'top' ? '100%' : 'auto',
+              }}>
+                <StartupCard startup={startup} isVisible={hoveredIndex === index} />
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
-        {/* Header Section */}
-        <motion.div
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-white font-syne">
-            BITS Pilani: Fueling the <span className="text-ecell-secondary">Next Wave</span> of Innovation.
-          </h1>
-          <p className="text-lg max-w-3xl mx-auto text-gray-300 opacity-90 font-manrope">
-            Our university has a rich history of fostering innovation and entrepreneurship, as
-            evidenced by the success of several notable startups founded by our alumni.
-          </p>
-        </motion.div>
-
-        {/* Scrollable Section */}
-        <motion.div
-          className="relative w-full"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          {/* Left Grayscale & Fade Overlay */}
-          <div className="absolute top-0 left-0 w-32 md:w-48 h-full z-20 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to right, rgba(26,26,26,1) 0%, transparent 100%)',
-              backdropFilter: 'grayscale(100%)',
-              WebkitBackdropFilter: 'grayscale(100%)',
-              maskImage: 'linear-gradient(to right, black, transparent)',
-              WebkitMaskImage: 'linear-gradient(to right, black, transparent)'
-            }} >
-          </div>
-
-          {/* Right Grayscale & Fade Overlay */}
-          <div className="absolute top-0 right-0 w-32 md:w-48 h-full z-20 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to left, rgba(26,26,26,1) 0%, transparent 100%)',
-              backdropFilter: 'grayscale(100%)',
-              WebkitBackdropFilter: 'grayscale(100%)',
-              maskImage: 'linear-gradient(to left, black, transparent)',
-              WebkitMaskImage: 'linear-gradient(to left, black, transparent)'
-            }} >
-          </div>
-
-          {/* Scrolling Content */}
-          <div className="overflow-hidden whitespace-nowrap px-2 sm:px-4 lg:px-6" ref={scrollContainer}>
-            <div className="flex space-x-8">
-              {designers.concat(designers).map((designer, index) => (
-                <div
-                  key={index}
-                  className="group rounded-2xl overflow-hidden min-w-[240px] md:min-w-[280px] lg:min-w-[320px] transform hover:scale-105 transition-all duration-300 bg-white/5 border border-white/10 hover:border-ecell-secondary glass-dark"
-                >
-                  <div className="aspect-w-1 aspect-h-1 relative">
-                    <img
-                      src={designer.image}
-                      alt={designer.name}
-                      style={{ width: '320px', height: '320px', objectFit: 'cover' }}
-                      className="w-full h-full object-cover transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                  </div>
-                  <div className="p-6 absolute bottom-0 left-0 w-full">
-                    <h3 className="font-bold text-2xl text-white font-syne">{designer.name}</h3>
-                    <p className="text-sm text-ecell-secondary font-manrope font-semibold tracking-wide">{designer.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+      {/* Decorative background if any */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <div className="stars"></div>
       </div>
-
-      {/* Keyframes for twinkle animation */}
-      <style>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.1; transform: scale(0.6); }
-          50% { opacity: 0.6; transform: scale(1); }
-        }
-      `}</style>
     </div>
   );
 };
