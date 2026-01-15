@@ -11,33 +11,29 @@ const Initiatives = () => {
       subtitle: 'Startup Accelerator',
       image: '/lp.png',
       description: 'The ultimate startup accelerator program providing mentorship, funding, and resources.',
-      className: 'md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-[400px]', // Large tile
     },
     {
       name: 'Speaker Sessions',
       subtitle: 'Industry Insights',
       image: '/ss.JPG',
       description: 'Interact with and learn from the pioneers of the industry through exclusive sessions.',
-      className: 'md:col-span-1 md:row-span-2 min-h-[300px] md:min-h-[400px]', // Tall tile
     },
     {
       name: 'Networking Arena',
       subtitle: 'Connect & Grow',
       image: '/na.png',
       description: 'A dedicated space to connect with like-minded innovators and potential co-founders.',
-      className: 'md:col-span-1 md:row-span-1 min-h-[220px] md:min-h-[250px]', // Standard tile
     },
     {
       name: 'Management Temptations',
       subtitle: 'Skill Building',
       image: '/MT2.png',
       description: 'Test your management skills through real-world business simulations and challenges.',
-      className: 'md:col-span-2 md:row-span-1 min-h-[220px] md:min-h-[250px]', // Wide tile
     },
   ];
 
   return (
-    <section className="relative min-h-screen py-24 px-4 md:px-8 bg-transparent text-white overflow-hidden">
+    <section className="relative min-h-screen py-16 md:py-24 px-4 md:px-8 bg-transparent text-white overflow-hidden">
 
       {/* Scroll Triggered Header */}
       <motion.div
@@ -45,22 +41,26 @@ const Initiatives = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-4xl mx-auto mb-20 text-center relative z-10"
+        className="max-w-4xl mx-auto mb-12 md:mb-20 text-center relative z-10"
       >
-        <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-white font-syne">
+        <h2 className="text-4xl md:text-7xl font-bold tracking-tight mb-6 md:mb-8 text-white font-syne">
           Programs & <span className="text-ecell-primary">Initiatives</span>
         </h2>
-        <p className="text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light">
+        <p className="text-base md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light">
           Fostering innovation through our curated programs designed to support and accelerate your entrepreneurial journey.
         </p>
       </motion.div>
 
-      {/* Bento Grid Layout - Explicit Heights and Rows */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] gap-6 relative z-10">
+      {/* Bento Grid Layout - Responsive Columns and Heights */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:auto-rows-[250px] gap-4 md:gap-6 relative z-10">
         {portfolioItems.map((item, index) => (
           <motion.div
             key={index}
-            className={`group relative overflow-hidden rounded-[2rem] glass-dark border border-white/10 ${item.className}`}
+            className={`group relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] glass-dark border border-white/10 ${index === 0 ? 'sm:col-span-2 md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-full' :
+              index === 1 ? 'sm:col-span-1 md:col-span-1 md:row-span-2 min-h-[300px] md:min-h-full' :
+                index === 2 ? 'sm:col-span-1 md:col-span-1 md:row-span-1 min-h-[200px] md:min-h-full' :
+                  'sm:col-span-2 md:col-span-2 md:row-span-1 min-h-[200px] md:min-h-full'
+              }`}
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
@@ -81,7 +81,7 @@ const Initiatives = () => {
             </div>
 
             {/* Content Container */}
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+            <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
 
               <div className="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
                 <span className="text-ecell-primary text-sm font-bold tracking-wider uppercase mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
