@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import maskImage from '../../assets/startup_expo.JPG';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -10,12 +9,8 @@ const Hero = () => {
         offset: ["start start", "end start"]
     });
 
-    const yMove = useTransform(scrollYProgress, [0, 1], [0, 100]);
-    const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-    // Text Rotator Logic
-    const [currentTextIndex, setCurrentTextIndex] = useState(0);
-    const rotatingTexts = ["IDEA", "INNOVATE", "INCUBATE"];
+    const yMove = useTransform(scrollYProgress, [0, 1], [0, 150]);
+    const opacityFade = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
     useEffect(() => {
         const updateMousePosition = (ev) => {
@@ -25,185 +20,95 @@ const Hero = () => {
         return () => window.removeEventListener('mousemove', updateMousePosition);
     }, []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
-        }, 3500); // 3.5 seconds total: ~2.5s stay
-        return () => clearInterval(interval);
-    }, []);
-
-    // Staggered Text setup
-    const tagline = "BITS Pilani Hyderabad Campus";
-    const taglineWords = tagline.split(" ");
-
     return (
-        <div ref={containerRef} className="relative w-full min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-ecell-bg text-white">
+        <div ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black text-white">
 
-            {/* 1. Background Grain (Global CSS handles it, but adding local for specific texture if needed) */}
+            {/* Background elements */}
+            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#6F66FF]/5 blur-[150px] rounded-full pointer-events-none"></div>
+            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[#BCFF2F]/5 blur-[150px] rounded-full pointer-events-none"></div>
 
-            {/* 2. Mesh Gradients (Nebulae) */}
-            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-ecell-secondary/15 blur-[150px] rounded-full mix-blend-screen pointer-events-none animate-pulse-slow"></div>
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-ecell-primary/10 blur-[150px] rounded-full mix-blend-screen pointer-events-none animate-pulse-slow"></div>
-
-            {/* 3. Grid & Glow */}
-            {/* Base faint grid */}
-            <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-            {/* Active glow grid masked by mouse */}
+            {/* Grid & Glow */}
+            <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
             <div
-                className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none transition-opacity duration-200"
+                className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"
                 style={{
-                    maskImage: `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`,
-                    WebkitMaskImage: `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`
+                    maskImage: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`,
+                    WebkitMaskImage: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`
                 }}
             ></div>
 
-            {/* Content Content Content */}
+            {/* Main Content */}
             <motion.div
-                className="relative z-10 flex flex-col items-center text-center w-full"
+                className="relative z-10 w-full flex flex-col items-center justify-center select-none px-4"
                 style={{ y: yMove, opacity: opacityFade }}
             >
-                {/* PART 1: Top Content (Constrained width) */}
-                <div className="max-w-7xl px-4 w-full flex flex-col items-center">
-                    {/* 4. "E-CELL" Main Title: Outline to Filled */}
-                    <div className="relative mb-4 md:mb-8">
-                        {/* The Fill Animation Layer */}
-                        <motion.h1
-                            className="text-7xl md:text-[10rem] font-bold font-syne leading-none tracking-tighter text-transparent bg-clip-text bg-white bg-gradient-to-b from-white to-gray-400 relative z-10"
-                            initial={{ clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)" }}
-                            animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-                            transition={{ duration: 1.5, ease: "circOut", delay: 0.2 }}
-                        >
-                            E-CELL
-                        </motion.h1>
+                <div className="flex flex-col items-start w-full max-w-fit mx-auto">
 
-                        {/* The Outline Layer (Always visible behind or initially) */}
-                        <h1
-                            className="absolute inset-0 text-7xl md:text-[10rem] font-bold font-syne leading-none tracking-tighter text-transparent z-0 select-none"
-                            style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.2)' }}
-                        >
-                            E-CELL
-                        </h1>
-                    </div>
-
-                    {/* 5. Staggered Subheading Reveal */}
-                    <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 mb-12 overflow-hidden">
-                        {taglineWords.map((word, i) => (
-                            <motion.span
-                                key={i}
-                                className="text-xl md:text-3xl font-manrope font-light text-gray-300 tracking-wide"
-                                initial={{ y: 40, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.6, delay: 0.8 + (i * 0.1), ease: "easeOut" }}
-                                whileHover={{ scale: 1.05, fontWeight: 500, color: "#fff" }} // Weight shift simulation
-                            >
-                                {word}
-                            </motion.span>
-                        ))}
-                    </div>
-                </div>
-
-                {/* PART 2: Middle Content (Full Width / No max-w constraint) */}
-                {/* 6. Masked Rotating Text */}
-                <motion.div
-                    className="relative w-full overflow-hidden hidden md:block min-h-[10vw] flex items-center justify-center my-8"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 1.5 }}
-                >
-                    <div className="relative group cursor-pointer w-full text-center">
-                        <AnimatePresence mode="wait">
-                            <motion.h2
-                                key={rotatingTexts[currentTextIndex]}
-                                initial={{ opacity: 0, y: 30, filter: "blur(15px)" }}
-                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, y: -30, filter: "blur(15px)" }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="text-[7vw] font-black font-syne leading-none tracking-tight text-center uppercase transition-all duration-700 hover:tracking-wide inline-block relative py-2"
-                            >
-                                {/* Background Image Mask */}
-                                <span
-                                    className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-clip-text text-transparent animate-pan-image"
-                                    style={{
-                                        backgroundImage: `url(${maskImage}), linear-gradient(135deg, #ffffff 0%, #808080 100%)`,
-                                        backgroundSize: '120% auto, cover',
-                                        backgroundPosition: 'center 40%, center',
-                                        WebkitBackgroundClip: 'text',
-                                        backgroundClip: 'text',
-                                        zIndex: 10
-                                    }}
-                                >
-                                    {rotatingTexts[currentTextIndex]}
-                                </span>
-                                {/* Stroke/Outline for definition */}
-                                <span className="relative z-20 text-transparent select-none" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}>
-                                    {rotatingTexts[currentTextIndex]}
-                                </span>
-                            </motion.h2>
-                        </AnimatePresence>
-                    </div>
-                </motion.div>
-
-                {/* Mobile version of INNOVATE (smaller) */}
-                <motion.div
-                    className="relative w-full max-w-5xl mx-auto overflow-hidden block md:hidden mt-8 px-4 h-24 flex items-center justify-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.5 }}
-                >
-                    <AnimatePresence mode="wait">
-                        <motion.h2
-                            key={rotatingTexts[currentTextIndex]}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 20 }}
-                            transition={{ duration: 0.5 }}
-                            className="text-5xl font-black font-syne leading-none tracking-tighter text-center uppercase text-transparent bg-clip-text bg-cover absolute"
-                            style={{
-                                backgroundImage: `url(${maskImage}), linear-gradient(135deg, #ffffff 0%, #808080 100%)`, // Fallback added
-                                WebkitBackgroundClip: 'text',
-                                backgroundClip: 'text'
-                            }}>
-                            {rotatingTexts[currentTextIndex]}
-                        </motion.h2>
-                    </AnimatePresence>
-                </motion.div>
-
-
-                {/* PART 3: Bottom Content (Constrained width) */}
-                <div className="max-w-7xl px-4 w-full flex flex-col items-center">
-                    {/* Animated Line with Gradients */}
+                    {/* IDEATE */}
                     <motion.div
-                        className="w-full max-w-[40rem] h-px relative mt-16 bg-white/10"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
                     >
-                        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-ecell-primary to-transparent blur-[1px]"></div>
+                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
+                            IDEATE
+                        </h1>
                     </motion.div>
 
-                    {/* Taglines with Neon Glow */}
-                    <motion.p
-                        className="mt-8 text-lg md:text-xl font-manrope text-gray-400"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 2, duration: 1 }}
+                    {/* INNOVATE */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                        className="-mt-1 md:-mt-4 ml-[6vw] sm:ml-[8vw] md:ml-[10vw]"
                     >
-                        <span className="text-ecell-primary drop-shadow-[0_0_8px_rgba(212,255,0,0.6)]">Idea.</span>{' '}
-                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Innovate.</span>{' '}
-                        <span className="text-ecell-secondary drop-shadow-[0_0_8px_rgba(107,95,255,0.6)]">Incubate.</span>
-                    </motion.p>
-                </div>
+                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
+                            INNOVATE
+                        </h1>
+                    </motion.div>
 
+                    {/* INCUBATE */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                        className="-mt-1 md:-mt-4 ml-[12vw] sm:ml-[16vw] md:ml-[20vw]"
+                    >
+                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
+                            INCUBATE
+                        </h1>
+                    </motion.div>
+
+                </div>
+            </motion.div>
+
+            {/* Bottom Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30"
+            >
+                <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
             </motion.div>
 
             <style jsx>{`
-                @keyframes pan-image {
-                    0% { background-position: 50% 50%; }
-                    50% { background-position: 60% 60%; }
-                    100% { background-position: 50% 50%; }
+                .gradient-text {
+                    background: linear-gradient(90deg, #6F66FF 0%, #A5B6FF 30%, #BCFF2F 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    display: inline-block;
+                    white-space: nowrap;
                 }
-                .animate-pan-image {
-                    animation: pan-image 20s ease-in-out infinite;
+                
+                @media (max-width: 768px) {
+                    .gradient-text {
+                        background: linear-gradient(135deg, #6F66FF 0%, #BCFF2F 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                    }
                 }
             `}</style>
         </div>
@@ -211,3 +116,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

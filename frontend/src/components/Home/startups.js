@@ -127,8 +127,8 @@ const Startup = () => {
   return (
     <div className="relative min-h-screen py-20 bg-black text-white overflow-hidden flex flex-col items-center justify-center">
       {/* Header */}
-      <div className="text-center mb-24 px-4 z-10">
-        <h1 className="text-4xl md:text-6xl font-bold font-syne leading-tight">
+      <div className="text-center mb-16 md:mb-24 px-4 z-10">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-syne leading-tight">
           <span className="text-[#6b5fff]">BITS Pilani:</span> Fueling the <span className="text-[#d4ff00]">Next Wave</span> of <br className="hidden md:block" /> Innovation.
         </h1>
       </div>
