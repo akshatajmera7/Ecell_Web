@@ -37,7 +37,7 @@ import PaymentFailed from "./components/paymentfailed";
 import PaymentCancel from "./components/paymentcancel";
 import ECellLoader from './components/ECellLoader';
 import StartupConnectForm from './components/StartupConnectForm';
-
+import EventDemo from "./components/lpevents/EventTemplate/EventDemo";
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 
@@ -200,6 +200,7 @@ function MainContent() {
           <Route path="/launchpad/startup_expo" element={<Se />} />
           <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
           <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
+          <Route path="/launchpad/event-demo" element={<EventDemo />} />
           <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
 
 
