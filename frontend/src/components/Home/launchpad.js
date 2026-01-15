@@ -29,6 +29,36 @@ const Launchpad = () => {
     return () => clearInterval(timer);
   }, [carouselImages.length]);
 
+  const VerticalMarquee = ({ items }) => {
+    return (
+      <div className="relative h-[256px] w-full overflow-hidden flex flex-col items-center">
+        <motion.div
+          animate={{
+            y: [0, -(items.length * 64)],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="flex flex-col items-center"
+        >
+          {[...items, ...items, ...items].map((item, idx) => (
+            <h3
+              key={idx}
+              className="text-[32px] md:text-[48px] leading-[64px] font-hypebuzz font-normal uppercase tracking-[4px] md:tracking-[8px] text-center bg-gradient-to-r from-[#7E74FF] to-[#A1A1C2] bg-clip-text text-transparent select-none"
+            >
+              {item}
+            </h3>
+          ))}
+        </motion.div>
+        {/* Fading overlays for smooth transition */}
+        <div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+      </div>
+    );
+  };
+
   return (
     <section className="relative py-16 md:py-24 px-4 md:px-8 bg-black text-white overflow-hidden">
       {/* Background Gradients */}
@@ -83,20 +113,7 @@ const Launchpad = () => {
           >
             <span className="text-[#6F66FF] text-xl md:text-2xl font-bold font-syne uppercase tracking-widest">Our Events</span>
           </motion.div>
-          <div className="flex flex-col items-center gap-2 md:gap-4 overflow-hidden">
-            {events.map((event, idx) => (
-              <motion.h3
-                key={event}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="text-4xl md:text-8xl font-bold font-syne text-gray-700/60 hover:text-white transition-all duration-500 cursor-default tracking-tighter text-center"
-              >
-                {event}
-              </motion.h3>
-            ))}
-          </div>
+          <VerticalMarquee items={events} />
         </div>
 
         {/* Bottom Bento Grid - Reduced size max-w-5xl */}

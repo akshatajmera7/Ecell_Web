@@ -80,7 +80,8 @@ const startups = [
     position: { x: 93, y: 33 },
     logoPos: 'top',
     logoHeight: 56,
-    logoWidth: 120  // Width in pixels - change this to resize Groww logo width
+    logoWidth: 120, // Width in pixels - change this to resize Groww logo width
+    cardAlign: 'left' // Explicitly shift card to the left to avoid screen overflow
   }
 ];
 
@@ -93,8 +94,9 @@ const StartupCard = ({ startup, isVisible }) => (
         exit={{ opacity: 0, scale: 0.9, y: 10 }}
         className="absolute z-50 w-80 p-6 bg-[#e0e0e0] rounded-[2rem] shadow-2xl pointer-events-none border border-white/20"
         style={{
-          left: '50%',
-          transform: 'translateX(-50%)',
+          left: startup.cardAlign === 'left' ? 'auto' : startup.cardAlign === 'right' ? '0' : '50%',
+          right: startup.cardAlign === 'left' ? '0' : 'auto',
+          transform: startup.cardAlign ? 'none' : 'translateX(-50%)',
           bottom: startup.logoPos === 'top' ? 'unset' : '100%',
           top: startup.logoPos === 'top' ? '100%' : 'unset',
           marginTop: startup.logoPos === 'top' ? '20px' : '0',
@@ -140,23 +142,34 @@ const Startup = () => {
           className="w-full h-full overflow-visible"
           preserveAspectRatio="none"
         >
-          {/* Dotted Line */}
-          {/* Dashed/Broken Line - Matching reference image style */}
-          <motion.path
+          <defs>
+            <mask id="pathMask">
+              <motion.path
+                d={pathData}
+                fill="none"
+                stroke="white"
+                strokeWidth="5"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                transition={{ duration: 3, ease: "easeInOut" }}
+                viewport={{ once: true }}
+              />
+            </mask>
+          </defs>
+
+          {/* Masked Dashed Line */}
+          <path
             d={pathData}
             fill="none"
             stroke="#d4ff00"
             strokeWidth="3"
-            strokeDasharray="10 8"
+            strokeDasharray="6 6"
             strokeLinecap="round"
+            strokeLinejoin="round"
+            mask="url(#pathMask)"
             style={{ vectorEffect: 'non-scaling-stroke' }}
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            viewport={{ once: true }}
           />
-
-          {/* Nodes are now handled in the HTML layer below for distortion-free circles */}
         </svg>
 
         {/* HTML Layer for Logos and Cards */}

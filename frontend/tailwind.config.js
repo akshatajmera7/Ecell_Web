@@ -9,7 +9,7 @@ module.exports = {
         // ⚡ Startup Minimal
         'startup-header': ['Outfit', 'sans-serif'],
         'startup-box': ['Plus Jakarta Sans', 'sans-serif'],
-        'startup-body': ['Poppins', 'sans-serif'],
+        'startup-body': ['Syne', 'sans-serif'],
 
         // 💼 Professional Tech
         'tech-header': ['Lexend', 'sans-serif'],
@@ -22,7 +22,7 @@ module.exports = {
         'futuristic-body': ['Work Sans', 'sans-serif'],
 
         // 🧠 University + Modern
-        'university-header': ['Poppins', 'sans-serif'],
+        'university-header': ['Syne', 'sans-serif'],
         'university-box': ['DM Sans', 'sans-serif'],
         'university-body': ['Inter', 'sans-serif'],
 
@@ -32,10 +32,11 @@ module.exports = {
         'elegant-body': ['Manrope', 'sans-serif'],
 
         // ✨ New Modern Standard
-        'sans': ['Poppins', 'sans-serif'],
+        'sans': ['Syne', 'sans-serif'],
         'header': ['Outfit', 'sans-serif'],
         'outfit': ['Outfit', 'sans-serif'],
-        'poppins': ['Poppins', 'sans-serif'],
+        'syne': ['Syne', 'sans-serif'],
+        'hypebuzz': ['Hypebuzz', 'sans-serif'],
       },
       letterSpacing: {
         'startup-header': '0.02em',
