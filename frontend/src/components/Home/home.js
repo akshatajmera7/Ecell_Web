@@ -9,12 +9,12 @@ import Hero from './hero';
 function Home() {
   return (
     <div className="relative">
-    <Hero/>
-    <Startup/>
-    <Initiatives/>
-    <Launchpad/>
-    <Banner/>
-    
+      <Hero />
+      <Startup />
+      <Initiatives />
+      <Launchpad />
+      <Banner />
+
     </div>
   );
 }

@@ -46,9 +46,9 @@ const Hero = () => {
 
                     {/* IDEATE */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
                     >
                         <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
                             IDEATE
@@ -57,9 +57,9 @@ const Hero = () => {
 
                     {/* INNOVATE */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 4.5, ease: "easeOut" }}
                         className="-mt-1 md:-mt-4 ml-[6vw] sm:ml-[8vw] md:ml-[10vw]"
                     >
                         <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
@@ -69,9 +69,9 @@ const Hero = () => {
 
                     {/* INCUBATE */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 5.5, ease: "easeOut" }}
                         className="-mt-1 md:-mt-4 ml-[12vw] sm:ml-[16vw] md:ml-[20vw]"
                     >
                         <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
@@ -82,14 +82,52 @@ const Hero = () => {
                 </div>
             </motion.div>
 
-            {/* Bottom Scroll Indicator */}
+            {/* Bottom Scroll Animation */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30"
+                transition={{ delay: 6.5, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 cursor-pointer group z-20"
+                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
             >
-                <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
+                <div className="relative flex flex-col items-center">
+                    <div className="w-[1px] h-12 bg-white/10 relative overflow-hidden rounded-full">
+                        <motion.div
+                            className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#BCFF2F] to-transparent shadow-[0_0_10px_#BCFF2F]"
+                            animate={{
+                                y: ["100%", "-200%"]
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
+                    </div>
+
+                    <div className="absolute -top-6 flex flex-col items-center">
+                        {[0, 1].map((i) => (
+                            <motion.div
+                                key={i}
+                                animate={{
+                                    opacity: [0, 1, 0],
+                                    y: [10, -15],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    delay: i * 0.5,
+                                    ease: "easeOut"
+                                }}
+                                className="absolute"
+                            >
+                                <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 7L7 1L13 7" stroke="#BCFF2F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </motion.div>
 
             <style jsx>{`
@@ -111,7 +149,7 @@ const Hero = () => {
                     }
                 }
             `}</style>
-        </div>
+        </div >
     );
 };
 
