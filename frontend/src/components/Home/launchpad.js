@@ -18,7 +18,8 @@ const BrandSprintContainer = styled(motion.div)`
 
   @media (max-width: 768px) {
     flex-direction: column; /* Stack items vertically */
-    padding: 40px;
+    padding: 40px 20px;
+    text-align: center;
   }
 `;
 
@@ -36,7 +37,13 @@ const ImageContainer = styled(motion.div)`
 
   @media (max-width: 768px) {
     max-width: 100%;
-    margin-bottom: 30px; /* Add spacing for mobile */
+    width: 60%;
+    margin-bottom: 25px; /* Add spacing for mobile */
+    
+    img {
+      max-width: 100%;
+      margin: 0 auto;
+    }
   }
 `;
 
@@ -48,6 +55,9 @@ const TextContainer = styled(motion.div)`
   @media (max-width: 768px) {
     max-width: 100%;
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center; /* Center-align text on smaller screens */
   }
 `;
@@ -61,9 +71,12 @@ const Title = styled.h1`
   letter-spacing: -0.02em;
   font-family: 'Syne', sans-serif;
   line-height: 0.9;
+  word-wrap: break-word;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem; /* Reduce size for mobile */
+    font-size: clamp(2rem, 8vw, 2.8rem); /* More compact scaling */
+    width: 100%;
+    margin-bottom: 15px;
   }
 `;
 
@@ -77,7 +90,9 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-    line-height: 1.6; /* Adjust spacing for mobile */
+    line-height: 1.5; /* Tightened spacing */
+    max-width: 90%;
+    margin-bottom: 20px;
   }
 `;
 
@@ -85,21 +100,25 @@ const List = styled.ul`
   list-style-type: none;
   padding: 0;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   @media (max-width: 768px) {
-    text-align: center;
-    display: inline-block;
-    text-align: left;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
   }
 `;
 
 const ListItem = styled(motion.li)`
   margin-bottom: 12px;
   position: relative;
-  padding-left: 25px;
+  padding-left: 30px;
   font-size: 1.1rem;
   color: #d1d5db; /* Updated theme text */
   font-family: 'Manrope', sans-serif;
+  text-align: left;
 
   &::before {
     content: '→'; /* Bullet point */
@@ -108,6 +127,12 @@ const ListItem = styled(motion.li)`
     color: #d4ff00; /* Updated primary color */
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    width: fit-content;
   }
 `;
 
