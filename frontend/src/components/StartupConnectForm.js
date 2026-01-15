@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { supabase } from '../supabaseClient';
 
 const initialState = {
@@ -147,160 +148,264 @@ const StartupConnectForm = () => {
   };
 
   return (
-    <div className="min-h-screen py-16 px-4 bg-ecell-bg">
-    <div className="max-w-2xl mx-auto p-8 rounded shadow-lg mt-16 mb-8 bg-ecell-dark border-2 border-ecell-secondary/30">
-      {/* Header with gap, no logo, text only */}
-      <div className="flex items-center justify-center mb-8">
-        <h2 className="text-3xl font-extrabold tracking-tight text-ecell-text">Connect with E-Cell BITS Hyderabad</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold text-ecell-text">Startup Name <span className="text-red-500">*</span></label>
-          <input 
-            type="text" 
-            name="startupName" 
-            value={formData.startupName} 
-            onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
-            required 
-          />
+    <div className="min-h-screen py-16 px-4 bg-ecell-bg overflow-hidden relative">
+      {/* Background Ambience */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-ecell-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-ecell-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-2xl mx-auto p-8 md:p-12 rounded-[2rem] glass-dark border border-white/10 mt-16 mb-8 relative z-10">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold tracking-tight text-white font-syne mb-2">
+            Startup <span className="text-ecell-primary">Connect</span>
+          </h2>
+          <p className="text-gray-400 font-manrope font-light">Join the most vibrant entrepreneurial ecosystem.</p>
         </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold text-ecell-text">One-line Pitch / Tagline</label>
-          <input 
-            type="text" 
-            name="tagline" 
-            value={formData.tagline} 
-            onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
-            required 
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold text-ecell-text">Website / Social Media Links</label>
-          <input 
-            type="text" 
-            name="website" 
-            value={formData.website} 
-            onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
-            required 
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold text-ecell-text">Founder(s) Name(s) <span className="text-red-500">*</span></label>
-          <input 
-            type="text" 
-            name="founders" 
-            value={formData.founders} 
-            onChange={handleChange} 
-            className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
-            required 
-          />
-        </div>
-        <div className="mb-4 grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block mb-1 font-semibold text-ecell-text">Email <span className="text-red-500">*</span></label>
-            <input 
-              type="email" 
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
-              className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
-              required 
-            />
-          </div>
-          <div>
-            <label className="block mb-1 font-semibold text-ecell-text">Contact Number <span className="text-red-500">*</span></label>
-            <input 
-              type="tel" 
-              name="contact" 
-              value={formData.contact} 
-              onChange={handleChange} 
-              className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400"
-              required 
-            />
-          </div>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold text-ecell-text">LinkedIn Profile(s)</label>
-          <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400" required />
-        </div>
-        <div className="mb-4 grid grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1 font-semibold text-ecell-text">Number of Team Members</label>
-            <input type="number" name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400" required min="1" />
-          </div>
-          <div>
-            <label className="block mb-1 font-semibold text-ecell-text">Stage of Startup <span className="text-red-500">*</span></label>
-            <select name="stage" value={formData.stage} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary" required>
-              <option value="">Select</option>
-              {stages.map((s) => <option key={s} value={s}>{s}</option>)}
-            </select>
-          </div>
-        </div>
-        <div className="mb-4 grid grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1 font-semibold text-ecell-text">Industry / Sector</label>
-            <input type="text" name="industry" value={formData.industry} onChange={handleChange} className="w-full border px-3 py-2 rounded bg-ecell-bg border-ecell-primary/50 text-ecell-text focus:outline-none focus:ring-2 focus:ring-ecell-primary placeholder-gray-400" required />
-          </div>
-          <div>
-            <label className="block mb-1 font-semibold">Current Status <span className="text-red-500">*</span></label>
-            <select name="status" value={formData.status} onChange={handleChange} className="w-full border px-3 py-2 rounded" required>
-              <option value="">Select</option>
-              {statuses.map((s) => <option key={s} value={s}>{s}</option>)}
-            </select>
-          </div>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Any Achievements / Recognition / Funding</label>
-          <textarea name="achievements" value={formData.achievements} onChange={handleChange} className="w-full border px-3 py-2 rounded" rows={2} required />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Looking for:</label>
-          <div className="flex flex-wrap gap-4 mt-2">
-            {lookingForOptions.map((option) => (
-              <label key={option} className="flex items-center">
-                <input
-                  type="checkbox"
-                  name="lookingFor"
-                  value={option}
-                  checked={formData.lookingFor.includes(option)}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                {option}
-              </label>
-            ))}
-          </div>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Pitch Deck Upload (PDF, max 5 MB)</label>
-          <input type="file" accept="application/pdf" onChange={handleFileChange} className="w-full border px-3 py-2 rounded" required />
-        </div>
-        <div className="mb-4">
-          <label className="flex items-center">
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Startup Name <span className="text-ecell-primary">*</span></label>
             <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
+              type="text"
+              name="startupName"
+              value={formData.startupName}
               onChange={handleChange}
-              className="mr-2"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+              placeholder="e.g. Acme Corp"
               required
             />
-            <span className="text-sm">I agree to share my startup details with E-Cell BITS Hyderabad for mentorship, collaboration, and promotional purposes.</span>
-          </label>
-        </div>
-        {error && <div style={{ color: '#FD8916' }} className="mb-2">{error}</div>}
-        {success && <div className="text-ecell-primary mb-2">{success}</div>}
-        <button 
-          type="submit" 
-          className="w-full text-lg font-semibold mt-2 px-4 py-2 rounded transition-colors bg-ecell-primary text-ecell-dark hover:bg-ecell-secondary hover:text-ecell-text"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">One-line Pitch / Tagline</label>
+            <input
+              type="text"
+              name="tagline"
+              value={formData.tagline}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+              placeholder="What problem do you solve?"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Website / Social Media Links</label>
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+              placeholder="https://yourstartup.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Founder(s) Name(s) <span className="text-ecell-primary">*</span></label>
+            <input
+              type="text"
+              name="founders"
+              value={formData.founders}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+              placeholder="John Doe, Jane Smith"
+              required
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Email <span className="text-ecell-primary">*</span></label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+                placeholder="founder@startup.com"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Contact Number <span className="text-ecell-primary">*</span></label>
+              <input
+                type="tel"
+                name="contact"
+                value={formData.contact}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+                placeholder="+91 XXXXX XXXXX"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">LinkedIn Profile(s)</label>
+            <input
+              type="text"
+              name="linkedin"
+              value={formData.linkedin}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+              placeholder="linkedin.com/in/yourprofile"
+              required
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Team Size</label>
+              <input
+                type="number"
+                name="teamSize"
+                value={formData.teamSize}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+                required
+                min="1"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Stage <span className="text-ecell-primary">*</span></label>
+              <select
+                name="stage"
+                value={formData.stage}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all shadow-inner appearance-none cursor-pointer"
+                required
+              >
+                <option value="" className="bg-black text-white">Select Stage</option>
+                {stages.map((s) => <option key={s} value={s} className="bg-black text-white">{s}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Industry / Sector</label>
+              <input
+                type="text"
+                name="industry"
+                value={formData.industry}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+                placeholder="e.g. FinTech, AgriTech"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Current Status <span className="text-ecell-primary">*</span></label>
+              <select
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all shadow-inner appearance-none cursor-pointer"
+                required
+              >
+                <option value="" className="bg-black text-white">Select Status</option>
+                {statuses.map((s) => <option key={s} value={s} className="bg-black text-white">{s}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Achievements / Funding</label>
+            <textarea
+              name="achievements"
+              value={formData.achievements}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
+              rows={3}
+              placeholder="Briefly mention your milestones..."
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-4 ml-1">What are you looking for?</label>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {lookingForOptions.map((option) => (
+                <label key={option} className="flex items-center gap-2 group cursor-pointer">
+                  <div className="relative flex items-center justify-center">
+                    <input
+                      type="checkbox"
+                      name="lookingFor"
+                      value={option}
+                      checked={formData.lookingFor.includes(option)}
+                      onChange={handleChange}
+                      className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-white/10 bg-white/5 transition-all checked:bg-ecell-primary checked:border-ecell-primary"
+                    />
+                    <svg className="absolute h-3.5 w-3.5 text-black opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">{option}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Pitch Deck (PDF, max 5MB) <span className="text-ecell-primary">*</span></label>
+            <input
+              type="file"
+              accept="application/pdf"
+              onChange={handleFileChange}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white/10 file:text-white hover:file:bg-white/20 transition-all"
+              required
+            />
+          </div>
+
+          <div className="py-2">
+            <label className="flex items-start gap-3 group cursor-pointer">
+              <div className="relative flex items-center justify-center mt-1">
+                <input
+                  type="checkbox"
+                  name="consent"
+                  checked={formData.consent}
+                  onChange={handleChange}
+                  className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-white/10 bg-white/5 transition-all checked:bg-ecell-primary checked:border-ecell-primary"
+                  required
+                />
+                <svg className="absolute h-3.5 w-3.5 text-black opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span className="text-xs text-gray-400 font-light leading-relaxed group-hover:text-gray-300 transition-colors">
+                I agree to share my startup details with E-Cell BITS Hyderabad for mentorship, collaboration, and promotional purposes.
+              </span>
+            </label>
+          </div>
+
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="p-4 rounded-xl bg-red-500/10 border border-red-500/50 text-red-500 text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
+
+          {success && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-4 rounded-xl bg-ecell-primary/10 border border-ecell-primary/50 text-ecell-primary text-sm"
+            >
+              {success}
+            </motion.div>
+          )}
+
+          <button
+            type="submit"
+            className="btn-premium w-full py-4 rounded-xl text-lg font-bold tracking-wider uppercase transition-all"
+          >
+            Submit Application
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

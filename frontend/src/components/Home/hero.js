@@ -37,7 +37,7 @@ const Hero = () => {
     const taglineWords = tagline.split(" ");
 
     return (
-        <div ref={containerRef} className="relative w-full min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a] text-white">
+        <div ref={containerRef} className="relative w-full min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-ecell-bg text-white">
 
             {/* 1. Background Grain (Global CSS handles it, but adding local for specific texture if needed) */}
 

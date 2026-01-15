@@ -50,8 +50,8 @@ module.exports = {
         'elegant-box': '0.05em',
       },
       colors: {
-        'ecell-bg': '#1a1a1a', // Darker base background
-        'ecell-bg-light': '#2a2a2a', // Slightly lighter for cards/sections
+        'ecell-bg': '#000000', // Pure black for complete synchronization
+        'ecell-bg-light': '#0a0a0a', // Slightly lighter black for contrast
         'ecell-primary': '#d4ff00', // Bright Lime Green
         'ecell-secondary': '#6b5fff', // Purple
         'ecell-text': '#ffffff', // Pure White
