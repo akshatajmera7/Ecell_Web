@@ -88,7 +88,7 @@ const Launchpad = () => {
             className="flex justify-center md:justify-end"
           >
             <div className="w-[180px] md:w-[280px]">
-              <img src={lpLogo} alt="LP'26" className="w-full h-auto object-contain" />
+              <img src={lpLogo} alt="LP'26" className="w-full h-auto object-contain" loading="lazy" />
             </div>
           </motion.div>
           <motion.div
@@ -135,6 +135,7 @@ const Launchpad = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
             </AnimatePresence>
 

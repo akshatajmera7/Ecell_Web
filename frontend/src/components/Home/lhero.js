@@ -27,22 +27,19 @@ const Hero = () => {
 
   useEffect(() => {
     const handleScroll = (event) => {
-      setScale((prevScale) => prevScale + 1);
+      // Sensitivity factor
+      const sensitivity = 0.05;
 
       if (event.deltaY > 0) {
-        setScale((prevScale) => Math.min(prevScale + 0.1, 25));
-        if (scale > 2) {
-          console.log("scrolled down");
-        }
+        setScale((prevScale) => Math.min(prevScale + sensitivity, 25));
       } else {
-        // setScale((prevScale) => Math.max(prevScale - 0.2, 0));
-        setScale((prevScale) => Math.max(prevScale - 1.5, 1));
+        setScale((prevScale) => Math.max(prevScale - sensitivity * 15, 1));
       }
     };
 
-    window.addEventListener("wheel", handleScroll);
+    window.addEventListener("wheel", handleScroll, { passive: true });
     return () => window.removeEventListener("wheel", handleScroll);
-  }, [scale]);
+  }, []);
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">

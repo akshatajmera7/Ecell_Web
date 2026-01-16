@@ -51,7 +51,7 @@ const ProfileGrid = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-blue-700 p-6 flex flex-col items-center"
             >
               <div className="w-full h-48 overflow-hidden shadow-md mb-4">
-                <img src={profile.image} alt={profile.name} className="w-full h-full object-cover" />
+                <img src={profile.image} alt={profile.name} className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="text-center">
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">{profile.name}</h3>

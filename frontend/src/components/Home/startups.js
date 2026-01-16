@@ -105,7 +105,7 @@ const StartupCard = ({ startup, isVisible }) => (
       >
         <div className="flex flex-col gap-4 text-left">
           <div className="flex justify-start mb-2">
-            <img src={startup.logo} alt={startup.name} className="h-10 object-contain" />
+            <img src={startup.logo} alt={startup.name} className="h-10 object-contain" loading="lazy" />
           </div>
           <div className="text-[#666666] font-manrope text-lg">
             Founded By <span className="text-[#f1211e] font-bold">{startup.foundedBy}</span>
@@ -164,7 +164,7 @@ const Startup = () => {
             fill="none"
             stroke="#d4ff00"
             strokeWidth="3"
-            strokeDasharray="6 6"
+            strokeDasharray="12 12"
             strokeLinecap="round"
             strokeLinejoin="round"
             mask="url(#pathMask)"
@@ -215,6 +215,7 @@ const Startup = () => {
                       width: startup.logoWidth ? `${startup.logoWidth}px` : 'auto'
                     }}
                     className="object-contain rounded-xl bg-[#98cb4b] p-2 flex-shrink-0"
+                    loading="lazy"
                   />
                 ) : startup.name === 'redBus' ? (
                   <img
@@ -225,6 +226,7 @@ const Startup = () => {
                       width: startup.logoWidth ? `${startup.logoWidth}px` : 'auto'
                     }}
                     className="object-contain rounded-2xl bg-[#d84e55] p-3 flex-shrink-0 shadow-lg"
+                    loading="lazy"
                   />
                 ) : (
                   <div className="flex items-center flex-shrink-0 h-fit">
@@ -236,6 +238,7 @@ const Startup = () => {
                         width: startup.logoWidth ? `${startup.logoWidth}px` : 'auto'
                       }}
                       className="object-contain flex-shrink-0"
+                      loading="lazy"
                     />
                   </div>
                 )}

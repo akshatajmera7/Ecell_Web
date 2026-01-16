@@ -18,7 +18,9 @@ export const StaggeredMenu = React.forwardRef(({
   isFixed = false,
   onMenuOpen,
   onMenuClose,
-  hideHeader = false
+  hideHeader = false,
+  showHamburgerAlways = false,
+  logoLink = "/"
 }, ref) => {
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
@@ -303,8 +305,13 @@ export const StaggeredMenu = React.forwardRef(({
           return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
         })()}
       </div>
-      {!hideHeader && open && (
+      {!hideHeader && (showHamburgerAlways || open) && (
         <header className="staggered-menu-header" aria-label="Main navigation header">
+          <div className="sm-logo">
+            <a href={logoLink}>
+              <img src={logoUrl} alt="Logo" className="sm-logo-img" />
+            </a>
+          </div>
           <div style={{ flex: 1 }}></div>
           <button
             ref={toggleBtnRef}

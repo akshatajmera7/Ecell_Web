@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -6,41 +6,42 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import StaggeredMenu from "./components/StaggeredMenu";
 import Footer from "./components/footer";
 import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
-import Home from "./components/Home/home";
-import Team from "./components/Teams/team";
-import Program from "./components/Programs/program";
-import Contact from "./components/contact";
-import Gallery from "./components/Gallery/gallery";
-import LaunchpadGallery from "./components/Gallery/launchpadgallery";
-import Navbar from "./components/navbar";
-
-
-import LFooter from "./components/lfooter";
-import Lteam from "./components/team/team";
-import Lcontact from "./components/lcontact";
-import Launchpadhome from "./components/Home/launchpadhome";
-import Event from "./components/events/event";
-import Sponsor from "./components/sponsors/sponsor";
-
-import Schedules from "./components/schedules";
-import Speakers from "./components/speakers/launchpadspeakers";
-
-import Gr from "./components/lpevents/gr/grindex";
-import Pitchp from "./components/lpevents/pitcherspilot/ppindex";
-import TT from "./components/lpevents/t3/t3index";
-import Id from "./components/lpevents/id/idindex";
-import Bp from "./components/lpevents/bp/bpindex";
-import Na from "./components/lpevents/na/naindex";
-import Pp from "./components/lpevents/pitchperfect/ppfindex";
-import Se from "./components/lpevents/startupexpo/seindex";
-import PaymentSuccess from "./components/paymentsuccess";
-import PaymentFailed from "./components/paymentfailed";
-import PaymentCancel from "./components/paymentcancel";
 import ECellLoader from './components/ECellLoader';
-import StartupConnectForm from './components/StartupConnectForm';
-import EventDemo from "./components/lpevents/EventTemplate/EventDemo";
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
+
+// Lazy load components
+const Home = lazy(() => import("./components/Home/home"));
+const Team = lazy(() => import("./components/Teams/team"));
+const Program = lazy(() => import("./components/Programs/program"));
+const Contact = lazy(() => import("./components/contact"));
+const Gallery = lazy(() => import("./components/Gallery/gallery"));
+const LaunchpadGallery = lazy(() => import("./components/Gallery/launchpadgallery"));
+const Navbar = lazy(() => import("./components/navbar"));
+
+const LFooter = lazy(() => import("./components/lfooter"));
+const Lteam = lazy(() => import("./components/team/team"));
+const Lcontact = lazy(() => import("./components/lcontact"));
+const Launchpadhome = lazy(() => import("./components/Home/launchpadhome"));
+const Event = lazy(() => import("./components/events/event"));
+const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
+
+const Schedules = lazy(() => import("./components/schedules"));
+const Speakers = lazy(() => import("./components/speakers/launchpadspeakers"));
+
+const Gr = lazy(() => import("./components/lpevents/gr/grindex"));
+const Pitchp = lazy(() => import("./components/lpevents/pitcherspilot/ppindex"));
+const TT = lazy(() => import("./components/lpevents/t3/t3index"));
+const Id = lazy(() => import("./components/lpevents/id/idindex"));
+const Bp = lazy(() => import("./components/lpevents/bp/bpindex"));
+const Na = lazy(() => import("./components/lpevents/na/naindex"));
+const Pp = lazy(() => import("./components/lpevents/pitchperfect/ppfindex"));
+const Se = lazy(() => import("./components/lpevents/startupexpo/seindex"));
+const PaymentSuccess = lazy(() => import("./components/paymentsuccess"));
+const PaymentFailed = lazy(() => import("./components/paymentfailed"));
+const PaymentCancel = lazy(() => import("./components/paymentcancel"));
+const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"));
+const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -146,6 +147,7 @@ function MainContent() {
 
       {isLaunchpadRoute ? (
         <StaggeredMenu
+          ref={menuRef}
           position="right"
           items={launchpadMenuItems}
           socialItems={socialItems}
@@ -156,8 +158,10 @@ function MainContent() {
           changeMenuColorOnOpen={false}
           colors={['#1a1a1a', '#2a2a2a']}
           logoUrl="/lplogo.jpeg"
+          logoLink="/launchpad"
           accentColor="#d4ff00"
           isFixed={true}
+          showHamburgerAlways={true}
           onMenuOpen={() => setIsMenuOpen(true)}
           onMenuClose={() => setIsMenuOpen(false)}
         />
@@ -182,42 +186,44 @@ function MainContent() {
       )}
 
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          {/* Normal Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/program" element={<Program />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/launchpad/gallery" element={<LaunchpadGallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/na" element={<Na />} />
+        <Suspense fallback={<ECellLoader />}>
+          <Routes location={location} key={location.pathname}>
+            {/* Normal Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/program" element={<Program />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/launchpad/gallery" element={<LaunchpadGallery />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/na" element={<Na />} />
 
-          {/* Launchpad Routes */}
-          <Route path="/launchpad" element={<Launchpadhome />} />
-          <Route path="/launchpad/contact" element={<Lcontact />} />
-          <Route path="/launchpad/events" element={<Event />} />
-          <Route path="/launchpad/sponsor" element={<Sponsor />} />
+            {/* Launchpad Routes */}
+            <Route path="/launchpad" element={<Launchpadhome />} />
+            <Route path="/launchpad/contact" element={<Lcontact />} />
+            <Route path="/launchpad/events" element={<Event />} />
+            <Route path="/launchpad/sponsor" element={<Sponsor />} />
 
-          <Route path="/launchpad/speakers" element={<Speakers />} />
+            <Route path="/launchpad/speakers" element={<Speakers />} />
 
-          <Route path="/launchpad/schedules" element={<Schedules />} />
-          <Route path="/launchpad/team" element={<Lteam />} />
-          <Route path="/launchpad/ground_reality" element={<Gr />} />
-          <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
-          <Route path="/launchpad/teen_tycoons" element={<TT />} />
-          <Route path="/launchpad/beyond_profits" element={<Bp />} />
-          <Route path="/launchpad/internship_drive" element={<Id />} />
-          <Route path="/launchpad/pitch_perfect" element={<Pp />} />
-          <Route path="/launchpad/startup_expo" element={<Se />} />
-          <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
-          <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
-          <Route path="/launchpad/event-demo" element={<EventDemo />} />
-          <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
+            <Route path="/launchpad/schedules" element={<Schedules />} />
+            <Route path="/launchpad/team" element={<Lteam />} />
+            <Route path="/launchpad/ground_reality" element={<Gr />} />
+            <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
+            <Route path="/launchpad/teen_tycoons" element={<TT />} />
+            <Route path="/launchpad/beyond_profits" element={<Bp />} />
+            <Route path="/launchpad/internship_drive" element={<Id />} />
+            <Route path="/launchpad/pitch_perfect" element={<Pp />} />
+            <Route path="/launchpad/startup_expo" element={<Se />} />
+            <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
+            <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
+            <Route path="/launchpad/event-demo" element={<EventDemo />} />
+            <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
 
 
-          {/* startup connect form route */}
-          <Route path="/startup-connect" element={<StartupConnectForm />} />
-        </Routes>
+            {/* startup connect form route */}
+            <Route path="/startup-connect" element={<StartupConnectForm />} />
+          </Routes>
+        </Suspense>
       </AnimatePresence>
 
       {/* Conditional Footer */}
