@@ -30,31 +30,48 @@ const Launchpad = () => {
   }, []);
 
   const VerticalMarquee = ({ items }) => {
+    // Octagon has 8 sides, we have 4 items, so double them to fill all 8 faces
+    const fullItems = [...items, ...items];
+    const radius = 75; // Significantly reduced from 180 to bring them "very close"
+
     return (
-      <div className="relative h-[256px] w-full overflow-hidden flex flex-col items-center">
+      <div className="relative h-[320px] w-full flex items-center justify-center overflow-hidden"
+        style={{ perspective: '1000px' }}>
         <motion.div
-          animate={{
-            y: [0, -(items.length * 64)],
-          }}
+          animate={{ rotateX: [0, 360] }}
           transition={{
             duration: 20,
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex flex-col items-center"
+          className="relative w-full h-[60px]"
+          style={{ transformStyle: 'preserve-3d' }}
         >
-          {[...items, ...items, ...items].map((item, idx) => (
-            <h3
+          {fullItems.map((item, idx) => (
+            <div
               key={idx}
-              className="text-[32px] md:text-[48px] leading-[64px] font-hypebuzz font-normal uppercase tracking-[4px] md:tracking-[8px] text-center bg-gradient-to-r from-[#7E74FF] to-[#A1A1C2] bg-clip-text text-transparent select-none"
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                transform: `rotateX(${idx * 45}deg) translateZ(${radius}px)`,
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden'
+              }}
             >
-              {item}
-            </h3>
+              <h3
+                className="text-[24px] md:text-[48px] leading-none font-hypebuzz font-normal uppercase tracking-[2px] md:tracking-[6px] text-center bg-gradient-to-r from-[#7E74FF] via-white to-[#A1A1C2] bg-clip-text text-transparent select-none whitespace-nowrap"
+              >
+                {item}
+              </h3>
+            </div>
           ))}
         </motion.div>
-        {/* Fading overlays for smooth transition */}
-        <div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+
+        {/* Adjusted fading to match the tighter spacing */}
+        <div className="absolute top-0 left-0 w-full h-[32%] bg-gradient-to-b from-black via-black/90 to-transparent z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-[32%] bg-gradient-to-t from-black via-black/90 to-transparent z-20 pointer-events-none" />
+
+        {/* Glow for the focus area */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-16 bg-[#6F66FF]/5 blur-[60px] pointer-events-none z-10" />
       </div>
     );
   };
