@@ -2,7 +2,7 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import './StaggeredMenu.css';
 
-export const StaggeredMenu = ({
+export const StaggeredMenu = React.forwardRef(({
   position = 'right',
   colors = ['#B19EEF', '#5227FF'],
   items = [],
@@ -17,8 +17,9 @@ export const StaggeredMenu = ({
   changeMenuColorOnOpen = true,
   isFixed = false,
   onMenuOpen,
-  onMenuClose
-}) => {
+  onMenuClose,
+  hideHeader = false
+}, ref) => {
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
   const panelRef = useRef(null);
@@ -35,6 +36,7 @@ export const StaggeredMenu = ({
   const busyRef = useRef(false);
   const itemEntranceTweenRef = useRef(null);
 
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const panel = panelRef.current;
@@ -42,7 +44,7 @@ export const StaggeredMenu = ({
       const plusH = plusHRef.current;
       const plusV = plusVRef.current;
       const icon = iconRef.current;
-      if (!panel || !plusH || !plusV || !icon) return;
+      if (!panel) return;
 
       let preLayers = [];
       if (preContainer) {
@@ -52,9 +54,12 @@ export const StaggeredMenu = ({
 
       const offscreen = position === 'left' ? -100 : 100;
       gsap.set([panel, ...preLayers], { xPercent: offscreen });
-      gsap.set(plusH, { transformOrigin: '50% 50%' });
-      gsap.set(plusV, { transformOrigin: '50% 50%' });
-      gsap.set(icon, { transformOrigin: '50% 50%' });
+
+      if (plusH && plusV && icon) {
+        gsap.set(plusH, { transformOrigin: '50% 50%' });
+        gsap.set(plusV, { transformOrigin: '50% 50%' });
+        gsap.set(icon, { transformOrigin: '50% 50%' });
+      }
       if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
     });
     return () => ctx.revert();
@@ -275,6 +280,11 @@ export const StaggeredMenu = ({
     animateText(target);
   }, [playOpen, playClose, animateIcon, animateColor, animateText, onMenuOpen, onMenuClose]);
 
+  React.useImperativeHandle(ref, () => ({
+    toggle: toggleMenu,
+    isOpen: open
+  }));
+
   return (
     <div
       className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
@@ -293,33 +303,26 @@ export const StaggeredMenu = ({
           return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
         })()}
       </div>
-      <header className="staggered-menu-header" aria-label="Main navigation header">
-        <div className="sm-logo" aria-label="Logo">
-          <img
-            src={logoUrl}
-            alt="Logo"
-            className="sm-logo-img"
-            draggable={false}
-            width={110}
-            height={24}
-          />
-        </div>
-        <button
-          ref={toggleBtnRef}
-          className="sm-toggle"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="staggered-menu-panel"
-          onClick={toggleMenu}
-          type="button"
-        >
-          <span ref={iconRef} className="sm-hamburger" aria-hidden="true">
-            <span ref={plusHRef} className="sm-hamburger-line" />
-            <span className="sm-hamburger-line" />
-            <span ref={plusVRef} className="sm-hamburger-line" />
-          </span>
-        </button>
-      </header>
+      {!hideHeader && open && (
+        <header className="staggered-menu-header" aria-label="Main navigation header">
+          <div style={{ flex: 1 }}></div>
+          <button
+            ref={toggleBtnRef}
+            className="sm-toggle"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            aria-controls="staggered-menu-panel"
+            onClick={toggleMenu}
+            type="button"
+          >
+            <span ref={iconRef} className="sm-hamburger" aria-hidden="true">
+              <span ref={plusHRef} className="sm-hamburger-line" />
+              <span className="sm-hamburger-line" />
+              <span ref={plusVRef} className="sm-hamburger-line" />
+            </span>
+          </button>
+        </header>
+      )}
 
       <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
         <div className="sm-panel-inner">
@@ -346,10 +349,10 @@ export const StaggeredMenu = ({
               <ul className="sm-socials-list">
                 {socialItems.map((s, i) => (
                   <li key={s.label + i} className="sm-socials-item">
-                    <a 
-                      href={s.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="sm-socials-link"
                       aria-label={s.label}
                       title={s.label}
@@ -365,6 +368,6 @@ export const StaggeredMenu = ({
       </aside>
     </div>
   );
-};
+});
 
 export default StaggeredMenu;

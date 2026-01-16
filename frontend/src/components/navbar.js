@@ -5,8 +5,7 @@ import "./Navbar.css";
 import logo from "../assets/navbarlogo.png";
 import lplogo from "../assets/lplogo.jpeg";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = ({ onToggleMenu, isOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,12 +17,8 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <nav className={`navbar-new ${isScrolled ? "scrolled" : ""}`}>
+    <nav className={`navbar-new ${isScrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""}`}>
       <div className="navbar-container-new">
         <div className="nav-logo-box">
           <Link to="/" className="navbar-logo-link">
@@ -74,23 +69,13 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="nav-hamburger-box" onClick={toggleMenu}>
-          <div className={`hamburger-new ${isOpen ? "active" : ""}`}>
-            <div className="h-bar"></div>
-            <div className="h-bar"></div>
-            <div className="h-bar"></div>
+        <div className="nav-hamburger-box" onClick={onToggleMenu}>
+          <div className={`sm-hamburger ${isOpen ? "active" : ""}`}>
+            <span className="sm-hamburger-line"></span>
+            <span className="sm-hamburger-line"></span>
+            <span className="sm-hamburger-line"></span>
           </div>
         </div>
-      </div>
-
-      <div className={`mobile-overlay ${isOpen ? "active" : ""}`}>
-        <ul className="mobile-links">
-          <li><NavLink to="/program" onClick={toggleMenu}>Programs & Initiatives</NavLink></li>
-          <li><NavLink to="/team" onClick={toggleMenu}>Our Team</NavLink></li>
-          <li><NavLink to="/na" onClick={toggleMenu}>Networking Arena</NavLink></li>
-          <li><NavLink to="/launchpad" onClick={toggleMenu}>Launchpad</NavLink></li>
-          <li><NavLink to="/contact" onClick={toggleMenu}>Contact Us</NavLink></li>
-        </ul>
       </div>
     </nav>
   );

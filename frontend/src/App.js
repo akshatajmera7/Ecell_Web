@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -12,6 +12,7 @@ import Program from "./components/Programs/program";
 import Contact from "./components/contact";
 import Gallery from "./components/Gallery/gallery";
 import LaunchpadGallery from "./components/Gallery/launchpadgallery";
+import Navbar from "./components/navbar";
 
 
 import LFooter from "./components/lfooter";
@@ -99,6 +100,13 @@ function MainContent() {
     };
   }, []);
 
+  const menuRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    menuRef.current?.toggle();
+  };
+
   // Menu items for StaggeredMenu
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
@@ -133,7 +141,9 @@ function MainContent() {
     <div className="app-container">
       <ScrollToTop />
 
-      {/* Conditional Navbar - Use StaggeredMenu for both */}
+      {/* Conditional Navbar */}
+      {!isLaunchpadRoute && <Navbar onToggleMenu={toggleMenu} isOpen={isMenuOpen} />}
+
       {isLaunchpadRoute ? (
         <StaggeredMenu
           position="right"
@@ -148,11 +158,12 @@ function MainContent() {
           logoUrl="/lplogo.jpeg"
           accentColor="#d4ff00"
           isFixed={true}
-          onMenuOpen={() => console.log('Launchpad menu opened')}
-          onMenuClose={() => console.log('Launchpad menu closed')}
+          onMenuOpen={() => setIsMenuOpen(true)}
+          onMenuClose={() => setIsMenuOpen(false)}
         />
       ) : (
         <StaggeredMenu
+          ref={menuRef}
           position="right"
           items={menuItems}
           socialItems={socialItems}
@@ -165,8 +176,8 @@ function MainContent() {
           logoUrl="/navbarlogo.png"
           accentColor="#d4ff00"
           isFixed={true}
-          onMenuOpen={() => console.log('Menu opened')}
-          onMenuClose={() => console.log('Menu closed')}
+          onMenuOpen={() => setIsMenuOpen(true)}
+          onMenuClose={() => setIsMenuOpen(false)}
         />
       )}
 
