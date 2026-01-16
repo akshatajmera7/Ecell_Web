@@ -27,37 +27,38 @@ import img25 from '../../assets/spons/productfolks.png';
 import img26 from '../../assets/spons/novatechsolar.png';
 import img27 from '../../assets/spons/Lawseek.png';
 
-const DisruptCarousel = () => {
-  const items = [
-    { name: "Innovation", image: img1 },
-    { name: "Technology", image: img2 },
-    { name: "Future", image: img3 },
-    { name: "Revolution", image: img4 },
-    { name: "Progress", image: img5 },
-    { name: "Progress", image: img6 },
-    { name: "Progress", image: img7 },
-    { name: "Progress", image: img8 },
-    { name: "Progress", image: img9 },
-    { name: "Progress", image: img10 },
-    { name: "Progress", image: img11 },
-    { name: "Progress", image: img12 },
-    { name: "Progress", image: img13 },
-    { name: "Progress", image: img14 },
-    { name: "Progress", image: img15 },
-    { name: "Progress", image: img16 },
-    { name: "Progress", image: img17 },
-    { name: "Progress", image: img18 },
-    { name: "Progress", image: img19 },
-    { name: "Progress", image: img20 },
-    { name: "Progress", image: img21 },
-    { name: "Progress", image: img22 },
-    { name: "Progress", image: img23 },
-    { name: "Progress", image: img24 },
-    { name: "Progress", image: img25 },
-    { name: "Progress", image: img26 },
-    { name: "Progress", image: img27 },
+const items = [
+  { name: "Innovation", image: img1 },
+  { name: "Technology", image: img2 },
+  { name: "Future", image: img3 },
+  { name: "Revolution", image: img4 },
+  { name: "Progress", image: img5 },
+  { name: "Progress", image: img6 },
+  { name: "Progress", image: img7 },
+  { name: "Progress", image: img8 },
+  { name: "Progress", image: img9 },
+  { name: "Progress", image: img10 },
+  { name: "Progress", image: img11 },
+  { name: "Progress", image: img12 },
+  { name: "Progress", image: img13 },
+  { name: "Progress", image: img14 },
+  { name: "Progress", image: img15 },
+  { name: "Progress", image: img16 },
+  { name: "Progress", image: img17 },
+  { name: "Progress", image: img18 },
+  { name: "Progress", image: img19 },
+  { name: "Progress", image: img20 },
+  { name: "Progress", image: img21 },
+  { name: "Progress", image: img22 },
+  { name: "Progress", image: img23 },
+  { name: "Progress", image: img24 },
+  { name: "Progress", image: img25 },
+  { name: "Progress", image: img26 },
+  { name: "Progress", image: img27 },
 
-  ];
+];
+
+const DisruptCarousel = () => {
 
   const containerRef = useRef(null);
   const isPaused = useRef(false);

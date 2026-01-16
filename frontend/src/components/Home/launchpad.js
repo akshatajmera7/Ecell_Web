@@ -4,30 +4,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import lpLogo from '../../assets/ecell/LP\'26.png';
 
+const events = [
+  "PITCHERS PILOT",
+  "INTERNSHIP DRIVE",
+  "GROUND REALITY",
+  "NETWORKING ARENA"
+];
+
+const carouselImages = [
+  "/ss.JPG",
+  "/na.png",
+  "/lp.png",
+  "/na1.png"
+];
+
 const Launchpad = () => {
   const navigate = useNavigate();
   const [currentImg, setCurrentImg] = useState(0);
-
-  const events = [
-    "PITCHERS PILOT",
-    "INTERNSHIP DRIVE",
-    "GROUND REALITY",
-    "NETWORKING ARENA"
-  ];
-
-  const carouselImages = [
-    "/ss.JPG",
-    "/na.png",
-    "/lp.png",
-    "/na1.png"
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImg((prev) => (prev + 1) % carouselImages.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, [carouselImages.length]);
+  }, []);
 
   const VerticalMarquee = ({ items }) => {
     return (

@@ -3,51 +3,51 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
+const initiatives = [
+  {
+    id: 'speaker-sessions',
+    title: 'Speaker Sessions',
+    subtitle: 'Engaging sessions throughout the year',
+    color: '#BCFF2F',
+    textColor: 'black',
+    type: 'triple',
+    images: ['/ss.JPG', '/ss1.png', '/majety.png'],
+    link: '/program'
+  },
+  {
+    id: 'launchpad',
+    title: 'Launchpad',
+    subtitle: 'Largest E-Summit of South India',
+    color: '#6F66FF',
+    textColor: 'white',
+    type: 'single',
+    image: '/lp.png',
+    link: '/launchpad'
+  },
+  {
+    id: 'networking-arena',
+    title: 'Networking Arena',
+    subtitle: 'Lorem Ipsum Dolor Sit Amet',
+    color: '#6F66FF',
+    textColor: 'white',
+    type: 'triple',
+    images: ['/na.png', '/na1.png', '/ss.JPG'],
+    link: '/program'
+  },
+  {
+    id: 'explore',
+    title: 'Explore All Our Programs',
+    subtitle: '',
+    color: 'transparent',
+    borderColor: '#BCFF2F',
+    textColor: '#BCFF2F',
+    type: 'cta',
+    link: '/program'
+  }
+];
+
 const Initiatives = () => {
   const navigate = useNavigate();
-
-  const initiatives = [
-    {
-      id: 'speaker-sessions',
-      title: 'Speaker Sessions',
-      subtitle: 'Engaging sessions throughout the year',
-      color: '#BCFF2F',
-      textColor: 'black',
-      type: 'triple',
-      images: ['/ss.JPG', '/ss1.png', '/majety.png'],
-      link: '/program'
-    },
-    {
-      id: 'launchpad',
-      title: 'Launchpad',
-      subtitle: 'Largest E-Summit of South India',
-      color: '#6F66FF',
-      textColor: 'white',
-      type: 'single',
-      image: '/lp.png',
-      link: '/launchpad'
-    },
-    {
-      id: 'networking-arena',
-      title: 'Networking Arena',
-      subtitle: 'Lorem Ipsum Dolor Sit Amet',
-      color: '#6F66FF',
-      textColor: 'white',
-      type: 'triple',
-      images: ['/na.png', '/na1.png', '/ss.JPG'],
-      link: '/program'
-    },
-    {
-      id: 'explore',
-      title: 'Explore All Our Programs',
-      subtitle: '',
-      color: 'transparent',
-      borderColor: '#BCFF2F',
-      textColor: '#BCFF2F',
-      type: 'cta',
-      link: '/program'
-    }
-  ];
 
   return (
     <section className="relative min-h-screen py-16 md:py-24 px-4 md:px-8 bg-transparent text-white overflow-hidden">

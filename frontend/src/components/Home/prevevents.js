@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 
+const slides = [
+  {
+    title: "Innovation",
+    subtitle: "Shaping the Future",
+    imageUrl: "/api/placeholder/800/400"
+  },
+  {
+    title: "Technology",
+    subtitle: "Advancing Human Potential",
+    imageUrl: "/api/placeholder/800/400"
+  },
+  {
+    title: "Future",
+    subtitle: "Paving the Path Forward",
+    imageUrl: "/api/placeholder/800/400"
+  },
+  {
+    title: "Revolution",
+    subtitle: "Transforming Industries",
+    imageUrl: "/api/placeholder/800/400"
+  }
+];
+
 const DisruptImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const slides = [
-    {
-      title: "Innovation",
-      subtitle: "Shaping the Future",
-      imageUrl: "/api/placeholder/800/400"
-    },
-    {
-      title: "Technology",
-      subtitle: "Advancing Human Potential",
-      imageUrl: "/api/placeholder/800/400"
-    },
-    {
-      title: "Future",
-      subtitle: "Paving the Path Forward",
-      imageUrl: "/api/placeholder/800/400"
-    },
-    {
-      title: "Revolution",
-      subtitle: "Transforming Industries",
-      imageUrl: "/api/placeholder/800/400"
-    }
-  ];
 
   const controls = useAnimation();
   const ref = React.useRef(null);
@@ -44,7 +44,7 @@ const DisruptImageCarousel = () => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, 4000); // 4 seconds for better readability
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -142,8 +142,8 @@ const DisruptImageCarousel = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex
-                      ? 'w-12 bg-ecell-primary shadow-[0_0_10px_rgba(212,255,0,0.5)]'
-                      : 'w-6 bg-white/30 hover:bg-white/50'
+                    ? 'w-12 bg-ecell-primary shadow-[0_0_10px_rgba(212,255,0,0.5)]'
+                    : 'w-6 bg-white/30 hover:bg-white/50'
                     }`}
                 />
               ))}
