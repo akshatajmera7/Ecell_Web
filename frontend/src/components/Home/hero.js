@@ -50,7 +50,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
                     >
-                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
+                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-1">
                             IDEATE
                         </h1>
                     </motion.div>
@@ -62,7 +62,7 @@ const Hero = () => {
                         transition={{ duration: 1, delay: 4.5, ease: "easeOut" }}
                         className="-mt-1 md:-mt-4 ml-[6vw] sm:ml-[8vw] md:ml-[10vw]"
                     >
-                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
+                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-2">
                             INNOVATE
                         </h1>
                     </motion.div>
@@ -74,7 +74,7 @@ const Hero = () => {
                         transition={{ duration: 1, delay: 5.5, ease: "easeOut" }}
                         className="-mt-1 md:-mt-4 ml-[12vw] sm:ml-[16vw] md:ml-[20vw]"
                     >
-                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text">
+                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-3">
                             INCUBATE
                         </h1>
                     </motion.div>
@@ -132,21 +132,53 @@ const Hero = () => {
 
             <style jsx>{`
                 .gradient-text {
-                    background: linear-gradient(90deg, #6F66FF 0%, #A5B6FF 30%, #BCFF2F 100%);
+                    background: linear-gradient(
+                        90deg, 
+                        #6F66FF 0%, 
+                        #A5B6FF 25%, 
+                        #BCFF2F 50%, 
+                        #A5B6FF 75%, 
+                        #6F66FF 100%
+                    );
+                    background-size: 200% auto;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                     display: inline-block;
                     white-space: nowrap;
+                    animation: gradient-flow 12s linear infinite;
+                }
+
+                .grad-1 { animation-delay: 0s; }
+                .grad-2 { animation-delay: 4s; }
+                .grad-3 { animation-delay: 8s; }
+
+                @keyframes gradient-flow {
+                    0% {
+                        background-position: 0% center;
+                    }
+                    100% {
+                        background-position: 200% center;
+                    }
                 }
                 
                 @media (max-width: 768px) {
                     .gradient-text {
-                        background: linear-gradient(135deg, #6F66FF 0%, #BCFF2F 100%);
+                        background: linear-gradient(
+                            135deg, 
+                            #6F66FF 0%, 
+                            #A5B6FF 50%, 
+                            #BCFF2F 100%
+                        );
+                        background-size: 200% auto;
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
+                        animation: gradient-flow 8s linear infinite;
                     }
+                    .grad-1 { animation-delay: 0s; }
+                    .grad-2 { animation-delay: 2.6s; }
+                    .grad-3 { animation-delay: 5.2s; }
                 }
             `}</style>
         </div >
