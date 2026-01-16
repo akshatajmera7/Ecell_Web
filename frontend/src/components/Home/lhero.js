@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import videohp from "../../assets/bgvid1.mp4";
-import { FaQq } from "react-icons/fa";
 
 // Simple arrow icon component
 const ArrowIcon = () => (
@@ -27,11 +26,7 @@ const Hero = () => {
 
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = (event) => {
-      const currentScrollY = window.scrollY;
-
       setScale((prevScale) => prevScale + 1);
 
       if (event.deltaY > 0) {
@@ -43,13 +38,11 @@ const Hero = () => {
         // setScale((prevScale) => Math.max(prevScale - 0.2, 0));
         setScale((prevScale) => Math.max(prevScale - 1.5, 1));
       }
-
-      lastScrollY = currentScrollY;
     };
 
     window.addEventListener("wheel", handleScroll);
     return () => window.removeEventListener("wheel", handleScroll);
-  }, []);
+  }, [scale]);
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
