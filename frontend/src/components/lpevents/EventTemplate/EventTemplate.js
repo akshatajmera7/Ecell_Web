@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaLinkedin, FaPhone, FaEnvelope } from 'react-icons/fa';
-import { Mail, Phone, Calendar, MapPin, ChevronDown, MessageCircle } from 'lucide-react';
+import { FaLinkedin } from 'react-icons/fa';
+import { Phone, Calendar, MapPin, ChevronDown, MessageCircle } from 'lucide-react';
 import './EventTemplate.css';
 
 const EventTemplate = ({ eventData }) => {

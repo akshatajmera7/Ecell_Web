@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
-  const initiativeItems = [
-    { label: 'Launchpad', to: '/launchpad' },
-    { label: 'Speakers Sessions', to: '/launchpad/speakers' },
-    { label: 'Startup Spotlight', to: '/launchpad/startup_expo' },
-    { label: 'Management Temptations', to: '/launchpad/events' },
-    { label: 'Networking Arena', to: '/launchpad/events' },
-  ];
-
   // Global site links (match App routes)
   const usefulLinks = [
     { label: 'Home', to: '/' },

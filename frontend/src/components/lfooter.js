@@ -12,14 +12,6 @@ const LFooter = () => {
   ];
 
   // Launchpad area links (match Launchpad menu)
-  const usefulLinks = [
-    { label: 'Home', to: '/launchpad' },
-    { label: 'Schedule', to: '/launchpad/schedules' },
-    { label: 'Events', to: '/launchpad/events' },
-    { label: 'Speakers', to: '/launchpad/speakers' },
-    { label: 'Contact Us', to: '/launchpad/contact' },
-  ];
-
   return (
     <footer className="pt-12 bg-ecell-bg text-ecell-text">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
