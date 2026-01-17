@@ -187,42 +187,44 @@ function MainContent() {
 
       <AnimatePresence mode="wait">
         <Suspense fallback={<ECellLoader />}>
-          <Routes location={location} key={location.pathname}>
-            {/* Normal Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/program" element={<Program />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/launchpad/gallery" element={<LaunchpadGallery />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/na" element={<Na />} />
+          <div className={`main-content ${location.pathname === "/" ? "no-padding" : ""}`}>
+            <Routes location={location} key={location.pathname}>
+              {/* Normal Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/program" element={<Program />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/launchpad/gallery" element={<LaunchpadGallery />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/na" element={<Na />} />
 
-            {/* Launchpad Routes */}
-            <Route path="/launchpad" element={<Launchpadhome />} />
-            <Route path="/launchpad/contact" element={<Lcontact />} />
-            <Route path="/launchpad/events" element={<Event />} />
-            <Route path="/launchpad/sponsor" element={<Sponsor />} />
+              {/* Launchpad Routes */}
+              <Route path="/launchpad" element={<Launchpadhome />} />
+              <Route path="/launchpad/contact" element={<Lcontact />} />
+              <Route path="/launchpad/events" element={<Event />} />
+              <Route path="/launchpad/sponsor" element={<Sponsor />} />
 
-            <Route path="/launchpad/speakers" element={<Speakers />} />
+              <Route path="/launchpad/speakers" element={<Speakers />} />
 
-            <Route path="/launchpad/schedules" element={<Schedules />} />
-            <Route path="/launchpad/team" element={<Lteam />} />
-            <Route path="/launchpad/ground_reality" element={<Gr />} />
-            <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
-            <Route path="/launchpad/teen_tycoons" element={<TT />} />
-            <Route path="/launchpad/beyond_profits" element={<Bp />} />
-            <Route path="/launchpad/internship_drive" element={<Id />} />
-            <Route path="/launchpad/pitch_perfect" element={<Pp />} />
-            <Route path="/launchpad/startup_expo" element={<Se />} />
-            <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
-            <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
-            <Route path="/launchpad/event-demo" element={<EventDemo />} />
-            <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
+              <Route path="/launchpad/schedules" element={<Schedules />} />
+              <Route path="/launchpad/team" element={<Lteam />} />
+              <Route path="/launchpad/ground_reality" element={<Gr />} />
+              <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
+              <Route path="/launchpad/teen_tycoons" element={<TT />} />
+              <Route path="/launchpad/beyond_profits" element={<Bp />} />
+              <Route path="/launchpad/internship_drive" element={<Id />} />
+              <Route path="/launchpad/pitch_perfect" element={<Pp />} />
+              <Route path="/launchpad/startup_expo" element={<Se />} />
+              <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
+              <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
+              <Route path="/launchpad/event-demo" element={<EventDemo />} />
+              <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
 
 
-            {/* startup connect form route */}
-            <Route path="/startup-connect" element={<StartupConnectForm />} />
-          </Routes>
+              {/* startup connect form route */}
+              <Route path="/startup-connect" element={<StartupConnectForm />} />
+            </Routes>
+          </div>
         </Suspense>
       </AnimatePresence>
 

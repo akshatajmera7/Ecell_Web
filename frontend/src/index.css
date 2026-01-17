@@ -289,15 +289,23 @@ main {
 
 /* Ensure content below fixed navbar is not hidden or misaligned */
 .main-content {
-  padding-top: 80px;
+  padding-top: 120px;
   /* Adjust this value based on your navbar height */
 }
 
+.main-content.no-padding {
+  padding-top: 0;
+}
+
 /* Responsive adjustments for mobile */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .main-content {
-    padding-top: 60px;
+    padding-top: 90px;
     /* Adjust for smaller devices if necessary */
+  }
+
+  .main-content.no-padding {
+    padding-top: 0;
   }
 }
 
