@@ -58,12 +58,12 @@ const Initiatives = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto mb-16 text-center relative z-10"
+        className="max-w-6xl mx-auto mb-12 md:mb-16 text-center relative z-10"
       >
-        <h2 className="text-5xl md:text-8xl font-bold tracking-tight mb-8 font-syne">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 md:mb-8 font-syne">
           <span className="text-[#BCFF2F]">Programs &</span> <span className="text-[#6F66FF]">Initiatives</span>
         </h2>
-        <p className="text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light px-4">
+        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light px-4">
           Fostering innovation through our curated programs designed to support and accelerate your entrepreneurial journey.
         </p>
       </motion.div>

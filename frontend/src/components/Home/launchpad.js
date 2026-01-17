@@ -91,7 +91,7 @@ const Launchpad = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold font-syne text-[#6F66FF] mb-12 md:mb-20 text-center"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold font-syne text-[#6F66FF] mb-10 md:mb-20 text-center"
         >
           Launchpad
         </motion.h2>
@@ -114,7 +114,7 @@ const Launchpad = () => {
             viewport={{ once: true }}
             className="text-center md:text-left px-4 md:px-0"
           >
-            <p className="text-[#BCFF2F] text-lg md:text-3xl font-manrope font-light leading-snug md:max-w-xl">
+            <p className="text-[#BCFF2F] text-base sm:text-lg md:text-3xl font-manrope font-light leading-snug md:max-w-xl">
               Ignite entrepreneurial passion at our 3-day summit featuring industry leaders, innovative startups, and knowledge-sharing for the next generation.
             </p>
           </motion.div>
@@ -182,7 +182,7 @@ const Launchpad = () => {
                 <ArrowUpRight className="text-[#BCFF2F] group-hover:text-black w-5 h-5 md:w-6 md:h-6" />
               </div>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold font-syne text-[#BCFF2F] leading-[1.1]">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-syne text-[#BCFF2F] leading-[1.1]">
               Explore <br /> More About <br /> Launchpad
             </h3>
           </motion.div>

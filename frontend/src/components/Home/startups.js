@@ -92,7 +92,7 @@ const StartupCard = ({ startup, isVisible }) => (
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 10 }}
-        className="absolute z-50 w-80 p-6 bg-[#e0e0e0] rounded-[2rem] shadow-2xl pointer-events-none border border-white/20"
+        className="absolute z-50 w-[70vw] sm:w-80 p-4 sm:p-6 bg-[#e0e0e0] rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl pointer-events-none border border-white/20"
         style={{
           left: startup.cardAlign === 'left' ? 'auto' : startup.cardAlign === 'right' ? '0' : '50%',
           right: startup.cardAlign === 'left' ? '0' : 'auto',
@@ -129,9 +129,9 @@ const Startup = () => {
   return (
     <div className="relative min-h-screen py-20 bg-black text-white overflow-hidden flex flex-col items-center justify-center">
       {/* Header */}
-      <div className="text-center mb-16 md:mb-24 px-4 z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-syne leading-tight">
-          <span className="text-[#6b5fff]">BITS Pilani:</span> Fueling the <span className="text-[#d4ff00]">Next Wave</span> of <br className="hidden md:block" /> Innovation.
+      <div className="text-center mb-10 md:mb-24 px-4 z-10">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-syne leading-tight">
+          <span className="text-[#6b5fff]">BITS Pilani:</span> Fueling the <span className="text-[#d4ff00]">Next Wave</span> of <br className="hidden sm:block" /> Innovation.
         </h1>
       </div>
 

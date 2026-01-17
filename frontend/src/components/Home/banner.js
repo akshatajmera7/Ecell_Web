@@ -11,7 +11,7 @@ const Banner = () => {
       <div className="relative text-center space-y-10" style={{ zIndex: 20, pointerEvents: 'auto' }}>
         {/* Text */}
         <motion.h1
-          className="text-4xl md:text-7xl font-bold transition-all duration-700 text-white font-syne leading-tight"
+          className="text-3xl sm:text-5xl md:text-7xl font-bold transition-all duration-700 text-white font-syne leading-tight"
           initial={{ opacity: 0, scale: 0.9, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}

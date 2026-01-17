@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
+// Import local images
 import img1 from "../../assets/Launchpad1.JPG";
 import img2 from "../../assets/speaker2.jpg";
 import img3 from "../../assets/startup.JPG";
@@ -8,132 +10,180 @@ import img4 from "../../assets/auction.jpg";
 import img5 from "../../assets/class.jpg";
 import img6 from "../../assets/pitch.jpg";
 
+const images = [img1, img2, img3, img4, img5, img6];
+
 const Memories = () => {
-  const images = [img1, img2, img3, img4, img5, img6];
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef(null);
+  const { ref: inViewRef, inView } = useInView({
+    threshold: 0.2,
+  });
+
+  // Mouse Parallax Values
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 100, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 100, damping: 30 });
 
   useEffect(() => {
+    if (isHovered || !inView) return;
     const interval = setInterval(() => {
-      setDirection(1);
-      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // Slower for better viewing
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [isHovered, inView]);
 
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-      scale: 0.8,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      zIndex: 1,
-    },
-    exit: (direction) => ({
-      x: direction > 0 ? -1000 : 1000,
-      opacity: 0,
-      scale: 0.8,
-      zIndex: 0,
-    }),
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
   };
 
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  const paginate = (newDirection) => {
-    setDirection(newDirection);
-    setActiveIndex(
-      (prevIndex) => (prevIndex + newDirection + images.length) % images.length
-    );
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    mouseX.set(0);
+    mouseY.set(0);
   };
 
   return (
-    <div className="w-full py-20 bg-ecell-bg relative overflow-hidden">
-      {/* Background Textural Element */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-ecell-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <div
+      className="w-full py-24 bg-black relative overflow-hidden"
+      ref={(el) => {
+        containerRef.current = el;
+        inViewRef(el);
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Background Glows */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#6F66FF]/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#BCFF2F]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-white text-center mb-16 font-syne"
-        >
-          Memory <span className="text-ecell-secondary">Lane</span>
-        </motion.h2>
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Title Section */}
+        <div className="text-center mb-16 md:mb-24">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-7xl font-bold font-syne tracking-tight"
+          >
+            <span className="text-white">Memory</span>{" "}
+            <span className="bg-gradient-to-r from-[#6F66FF] to-[#BCFF2F] bg-clip-text text-transparent">Lane</span>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: 100 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="h-1 bg-gradient-to-r from-[#6F66FF] to-[#BCFF2F] mx-auto mt-4 rounded-full"
+          />
+        </div>
 
-        <div className="h-[60vh] md:h-[70vh] relative overflow-hidden rounded-[2rem] glass-dark border border-white/5">
-          <div className="flex justify-center items-center h-full relative p-8">
-            <AnimatePresence initial={false} custom={direction} mode="popLayout">
-              <motion.div
-                key={activeIndex}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="absolute w-full md:w-3/4 h-3/4 md:h-4/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.4 },
-                  scale: { duration: 0.4 },
-                }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1}
-                onDragEnd={(_, { offset, velocity }) => {
-                  const swipe = swipePower(offset.x, velocity.x);
-                  if (swipe < -swipeConfidenceThreshold) {
-                    paginate(1);
-                  } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(-1);
-                  }
-                }}
-              >
-                <img
-                  src={images[activeIndex]}
-                  alt={`Carousel Slide ${activeIndex}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-              </motion.div>
+        {/* 3D Gallery Container */}
+        <div className="relative h-[400px] md:h-[600px] flex items-center justify-center" style={{ perspective: "1500px" }}>
+          <motion.div
+            className="relative w-full max-w-4xl h-full flex items-center justify-center"
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+          >
+            <AnimatePresence mode="popLayout">
+              {images.map((img, idx) => {
+                const isCenter = idx === activeIndex;
+                const offset = (idx - activeIndex + images.length) % images.length;
+
+                // Hide images that are far back
+                if (offset > 3 && offset < images.length - 1) return null;
+
+                let xTranslate = 0;
+                let zTranslate = 0;
+                let scale = 1;
+                let opacity = 0;
+                let rotateYCard = 0;
+
+                if (offset === 0) { // Center
+                  zTranslate = 100;
+                  opacity = 1;
+                } else if (offset === 1) { // Right 1
+                  xTranslate = "30%";
+                  zTranslate = -100;
+                  scale = 0.85;
+                  opacity = 0.4;
+                  rotateYCard = -15;
+                } else if (offset === images.length - 1) { // Left 1
+                  xTranslate = "-30%";
+                  zTranslate = -100;
+                  scale = 0.85;
+                  opacity = 0.4;
+                  rotateYCard = 15;
+                } else if (offset === 2) { // Right 2
+                  xTranslate = "55%";
+                  zTranslate = -300;
+                  scale = 0.7;
+                  opacity = 0.1;
+                  rotateYCard = -25;
+                } else if (offset === images.length - 2) { // Left 2
+                  xTranslate = "-55%";
+                  zTranslate = -300;
+                  scale = 0.7;
+                  opacity = 0.1;
+                  rotateYCard = 25;
+                }
+
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.5, z: -500 }}
+                    animate={{
+                      opacity,
+                      scale,
+                      x: xTranslate,
+                      z: zTranslate,
+                      rotateY: rotateYCard,
+                    }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                    className={`absolute w-[85%] md:w-[70%] h-[70%] md:h-[85%] rounded-[2rem] overflow-hidden shadow-2xl cursor-pointer ${isCenter ? 'z-30 pointer-events-auto' : 'z-10 pointer-events-none'}`}
+                    onClick={() => isCenter && setActiveIndex((idx + 1) % images.length)}
+                    onMouseEnter={() => isCenter && setIsHovered(true)}
+                    onMouseLeave={() => isCenter && setIsHovered(false)}
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    <img src={img} alt={`Memory ${idx}`} className="w-full h-full object-cover" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
-          </div>
+          </motion.div>
+        </div>
 
-          {/* Navigation and Indicators */}
-          <div className="absolute bottom-6 left-0 w-full flex justify-center items-center gap-4 z-10">
+        {/* Dynamic Pagination Bars */}
+        <div className="flex justify-center items-center gap-3 mt-12 md:mt-20">
+          {images.map((_, idx) => (
             <button
-              onClick={() => paginate(-1)}
-              className="p-3 rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              className="group relative flex items-center h-8"
             >
-              ←
-            </button>
-            <div className="flex space-x-2">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setDirection(index > activeIndex ? 1 : -1);
-                    setActiveIndex(index);
-                  }}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === index ? "w-8 bg-ecell-secondary" : "w-2 bg-white/30"
-                    }`}
+              <motion.div
+                animate={{
+                  width: activeIndex === idx ? 40 : 8,
+                  backgroundColor: activeIndex === idx ? "#6F66FF" : "rgba(255, 255, 255, 0.2)",
+                }}
+                className="h-1.5 rounded-full transition-all duration-500"
+              />
+              {activeIndex === idx && (
+                <motion.div
+                  layoutId="indicator"
+                  className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#BCFF2F] blur-[2px]"
                 />
-              ))}
-            </div>
-            <button
-              onClick={() => paginate(1)}
-              className="p-3 rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
-            >
-              →
+              )}
             </button>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -141,3 +191,4 @@ const Memories = () => {
 };
 
 export default Memories;
+
