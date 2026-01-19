@@ -42,7 +42,7 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
       </div>
 
       <a
-        href="#"
+        href="/launchpad/events"
         className={`w-full py-4 rounded-xl font-bold text-center transition-all duration-300 transform font-manrope flex items-center justify-center gap-2 ${isPopular
           ? 'bg-ecell-primary text-black hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(212,255,0,0.5)]'
           : 'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20'
@@ -190,7 +190,7 @@ const Passes = () => {
               <span className="text-6xl font-bold text-white mb-2 italic tracking-tighter">Custom</span>
               <span className="text-ecell-primary font-manrope font-bold mb-8">Tailored for Groups</span>
               <a
-                href="#"
+                href="/launchpad/contact"
                 className="px-10 py-4 rounded-xl bg-white text-black font-bold hover:bg-ecell-primary transition-all duration-300 transform hover:scale-105"
               >
                 Contact Sales
