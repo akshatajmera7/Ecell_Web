@@ -3,28 +3,48 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
 const ECellLoader = () => {
-    const [loading, setLoading] = useState(true);
     const location = useLocation();
+    const [loading, setLoading] = useState(() => {
+        const path = window.location.pathname;
+        const isECellHome = path === '/';
+        const isLPHome = path === '/launchpad';
+
+        if (!isECellHome && !isLPHome) return false;
+
+        const storageKey = isECellHome ? 'ecell_loader_shown' : 'lp_loader_shown';
+        return !sessionStorage.getItem(storageKey);
+    });
 
     useEffect(() => {
-        // Check if we are on the home page or launchpad
-        const isHomePage = location.pathname === '/' || location.pathname === '/launchpad';
+        const path = location.pathname;
+        const isECellHome = path === '/';
+        const isLPHome = path === '/launchpad';
 
-        if (!isHomePage) {
+        if (!isECellHome && !isLPHome) {
             setLoading(false);
             return;
         }
 
-        // Ensure loading is true initially if conditions are met
-        setLoading(true);
+        const storageKey = isECellHome ? 'ecell_loader_shown' : 'lp_loader_shown';
+        const hasBeenShown = sessionStorage.getItem(storageKey);
 
-        // Set loading to false after a delay
+        if (hasBeenShown) {
+            setLoading(false);
+            return;
+        }
+
+        // Show loader and mark as shown
+        setLoading(true);
+        sessionStorage.setItem(storageKey, 'true');
+
         const timer = setTimeout(() => {
             setLoading(false);
         }, 3500);
 
         return () => clearTimeout(timer);
     }, [location.pathname]);
+
+
 
     return (
         <AnimatePresence>

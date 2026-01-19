@@ -22,14 +22,14 @@ const EventTemplate = ({ eventData }) => {
     return (
         <div className="event-template-container overflow-hidden">
             {/* 1. HERO BANNER */}
-            <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+            <section className="relative min-h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden py-20">
                 <div
                     className="absolute inset-0 z-0 scale-110"
                     style={{
                         backgroundImage: `url(${bannerImage || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80'})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
-                        filter: 'brightness(0.4)'
+                        filter: 'brightness(0.3)'
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ecell-bg/60 to-ecell-bg z-1" />
@@ -38,19 +38,19 @@ const EventTemplate = ({ eventData }) => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="relative z-10 text-center px-4"
+                    className="relative z-10 text-center px-6"
                 >
-                    <h1 className="text-6xl md:text-8xl font-futuristic-header text-ecell-primary mb-4 uppercase tracking-tighter">
+                    <h1 className="text-5xl sm:text-7xl md:text-9xl font-futuristic-header text-ecell-primary mb-6 uppercase tracking-tighter leading-none">
                         {title}
                     </h1>
-                    <p className="text-xl md:text-2xl font-futuristic-box text-white/80 max-w-2xl mx-auto">
+                    <p className="text-lg sm:text-xl md:text-2xl font-futuristic-box text-white/80 max-w-2xl mx-auto font-manrope">
                         {tagline}
                     </p>
                 </motion.div>
 
                 {/* Decorative elements */}
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
-                    <span className="text-xs uppercase tracking-[0.3em]">Scroll to Explore</span>
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/40">
+                    <span className="text-xs uppercase tracking-[0.3em] font-manrope">Scroll to Explore</span>
                     <motion.div
                         animate={{ y: [0, 10, 0] }}
                         transition={{ repeat: Infinity, duration: 2 }}
@@ -110,37 +110,57 @@ const EventTemplate = ({ eventData }) => {
             </section>
 
             {/* 3. TIMELINE SECTION */}
-            <section className="py-24 bg-ecell-bg-light/30">
-                <div className="max-w-4xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-5xl font-futuristic-header text-white mb-4 uppercase">Event <span className="text-ecell-primary">Timeline</span></h2>
-                        <div className="w-24 h-1 bg-ecell-primary mx-auto rounded-full" />
+            <section className="py-24 bg-transparent">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="text-center mb-20">
+                        <motion.h2
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            className="text-4xl md:text-6xl font-syne font-bold text-white mb-4 uppercase inline-block"
+                        >
+                            EVENT <span className="text-ecell-primary">TIMELINE</span>
+                        </motion.h2>
+                        <div className="w-24 h-1 bg-ecell-primary mx-auto rounded-full mt-2" />
                     </div>
 
-                    <div className="relative border-l-2 border-ecell-primary/20 ml-4 md:ml-0 md:left-1/2">
+                    <div className="relative">
+                        {/* Middle Line */}
+                        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-ecell-primary/50 via-ecell-primary/20 to-transparent -translate-x-1/2 z-0" />
+
                         {timeline && timeline.map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className={`relative mb-12 flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                                viewport={{ once: true }}
+                                className={`relative mb-16 flex flex-col md:flex-row items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
                                     }`}
                             >
-                                {/* Dots */}
-                                <div className="absolute left-[-9px] md:left-1/2 md:-ml-2 w-4 h-4 rounded-full bg-ecell-primary shadow-[0_0_15px_#d4ff00]" />
+                                {/* Dot */}
+                                <div className="absolute left-4 md:left-1/2 w-6 h-6 md:w-8 md:h-8 -translate-x-1/2 flex items-center justify-center z-10">
+                                    <div className="w-3 h-3 md:w-4 md:h-4 bg-ecell-primary rounded-full shadow-[0_0_15px_#d4ff00] animate-pulse" />
+                                </div>
 
-                                {/* Content Area */}
-                                <div className={`w-full md:w-1/2 px-8 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                                    <div className="glass p-6 rounded-2xl border-white/5 hover:border-ecell-primary/30 transition-colors group">
-                                        <span className="text-ecell-primary font-futuristic-box text-sm font-bold tracking-widest uppercase mb-2 block">
+                                {/* Content Side */}
+                                <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'
+                                    }`}>
+                                    <motion.div
+                                        whileHover={{ y: -5 }}
+                                        className="glass p-6 md:p-8 rounded-[2rem] border-white/5 hover:border-ecell-primary/30 transition-all duration-300 relative group overflow-hidden"
+                                    >
+                                        <div className="absolute inset-0 bg-ecell-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                                        <span className="text-ecell-primary font-manrope text-sm font-bold tracking-[0.2em] uppercase mb-3 block">
                                             {item.date}
                                         </span>
-                                        <h3 className="text-xl font-futuristic-header text-white group-hover:text-ecell-primary transition-colors">
+                                        <h3 className="text-xl md:text-2xl font-syne font-bold text-white group-hover:text-ecell-primary transition-colors leading-tight">
                                             {item.event}
                                         </h3>
-                                    </div>
+                                    </motion.div>
                                 </div>
+
+                                {/* Empty Side for desktop */}
+                                <div className="hidden md:block md:w-[45%]" />
                             </motion.div>
                         ))}
                     </div>
