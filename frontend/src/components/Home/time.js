@@ -89,7 +89,7 @@ const EventsPage = () => {
   }, []);
 
   // Smooth animation loop
-  useAnimationFrame((time, delta) => {
+  useAnimationFrame((_, delta) => {
     if (isPaused || !baseWidth) return;
 
     // speed is pixels per second

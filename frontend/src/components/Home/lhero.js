@@ -18,13 +18,7 @@ const ArrowIcon = () => (
   </svg>
 );
 
-// Simple chevron down icon component
-
-
 const Hero = () => {
-  // Fixed scale to 1 to remove scroll animation
-  const scale = 1;
-
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background Video */}
