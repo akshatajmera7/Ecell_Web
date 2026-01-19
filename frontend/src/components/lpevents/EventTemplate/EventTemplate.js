@@ -7,6 +7,14 @@ import './EventTemplate.css';
 const EventTemplate = ({ eventData }) => {
     const [activeFaq, setActiveFaq] = useState(null);
 
+    // Placeholder images for memories
+    const memoryImages = [
+        "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1475721027187-402cd7459d4f?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80"
+    ];
+
     if (!eventData) return <div className="text-white text-center py-20">Loading Event Data...</div>;
 
     const {
@@ -264,6 +272,51 @@ const EventTemplate = ({ eventData }) => {
                             </AnimatePresence>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* 6. IMAGE CAROUSEL SECTION */}
+            <section className="py-24 bg-ecell-bg-light/10 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-futuristic-header text-white uppercase">Event <span className="text-ecell-primary">Memories</span></h2>
+                    <div className="w-24 h-1 bg-ecell-primary mx-auto rounded-full mt-4" />
+                </div>
+
+                <div className="relative">
+                    <motion.div
+                        animate={{ x: ["0%", "-50%"] }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                        className="flex gap-6 w-max px-6"
+                    >
+                        {/* Duplicate icons for seamless loop */}
+                        {[...memoryImages, ...memoryImages].map((img, idx) => (
+                            <motion.div
+                                key={idx}
+                                whileHover={{ scale: 1.02, zIndex: 10 }}
+                                className="w-[300px] md:w-[500px] h-[350px] md:h-[600px] rounded-[2.5rem] overflow-hidden border border-white/10 relative group shrink-0"
+                            >
+                                <img
+                                    src={img}
+                                    alt={`Memory ${idx}`}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-ecell-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
+                                    <div>
+                                        <p className="text-ecell-primary font-bold tracking-[0.2em] uppercase text-xs mb-2">Launchpad 2024</p>
+                                        <p className="text-white font-syne text-2xl font-bold">Unforgettable Moments</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Gradient Fades */}
+                    <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ecell-bg to-transparent z-10 pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-ecell-bg to-transparent z-10 pointer-events-none" />
                 </div>
             </section>
         </div>
