@@ -23,10 +23,6 @@ const Hero = () => {
     return (
         <div ref={containerRef} className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black text-white">
 
-            {/* Background elements */}
-            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#6F66FF]/5 blur-[150px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[#BCFF2F]/5 blur-[150px] rounded-full pointer-events-none"></div>
-
             {/* Grid & Glow */}
             <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
             <div
@@ -50,7 +46,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
                     >
-                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-1">
+                        <h1 className="text-[7.3vw] sm:text-[6.9vw] md:text-[6.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-1">
                             IDEATE
                         </h1>
                     </motion.div>
@@ -60,7 +56,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 4.5, ease: "easeOut" }}
-                        className="-mt-1 md:-mt-4 ml-[6vw] sm:ml-[8vw] md:ml-[10vw]"
+                        className="mt-2 md:mt-6 ml-[10vw] sm:ml-[12vw] md:ml-[15vw]"
                     >
                         <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-2">
                             INNOVATE
@@ -72,9 +68,9 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 5.5, ease: "easeOut" }}
-                        className="-mt-1 md:-mt-4 ml-[12vw] sm:ml-[16vw] md:ml-[20vw]"
+                        className="mt-2 md:mt-6 ml-[25vw] sm:ml-[30vw] md:ml-[35vw]"
                     >
-                        <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-3">
+                        <h1 className="text-[7.8vw] sm:text-[7.4vw] md:text-[7vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-3">
                             INCUBATE
                         </h1>
                     </motion.div>

@@ -36,9 +36,47 @@ const profiles = [
   { id: 16, name: "PRANAY PAI", role: "FOUNDING PARTNER 30NE4 CAPITAL", image: img16, link: "https://www.linkedin.com/in/pranavpai/?originalSubdomain=in" },
 ];
 
+const ProfileCard = ({ profile, index }) => (
+  <motion.a
+    href={profile.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay: index * 0.05 }}
+    className="group relative bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden backdrop-blur-sm hover:border-[#6b5fff]/50 transition-all duration-500"
+  >
+    <div className="aspect-[4/5] overflow-hidden relative">
+      <img
+        src={profile.image}
+        alt={profile.name}
+        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+
+      {/* Decorative lines */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#6b5fff] to-transparent" />
+    </div>
+
+    <div className="p-6 relative">
+      <h3 className="text-lg font-black text-white mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
+        {profile.name}
+      </h3>
+      <p className="text-[#6b5fff] font-bold text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
+        {profile.role}
+      </p>
+
+      {/* Hover Glow */}
+      <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#d4ff00]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+    </div>
+  </motion.a>
+);
+
 const PastSpeakers = () => {
   return (
-    <div className="relative w-full bg-[#0a0a0a] py-20 overflow-hidden">
+    <div className="relative w-full bg-[#0a0a0a] py-24 overflow-hidden font-poppins">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,47 +84,22 @@ const PastSpeakers = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-syne">
-            Past <span className="text-blue-500">Speakers</span>
+          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4">
+            Past <span className="text-[#d4ff00] drop-shadow-[0_0_20px_rgba(212,255,0,0.3)]">Speakers</span>
           </h2>
-          <p className="text-gray-400 font-manrope">Visionaries who inspired our journey</p>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-[#6b5fff] to-[#d4ff00] mx-auto rounded-full" />
+          <p className="text-gray-400 mt-6 tracking-widest uppercase text-xs font-bold opacity-60">Visionaries who inspired our journey</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {profiles.map((profile, index) => (
-            <motion.a
-              key={profile.id}
-              href={profile.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative h-[400px] overflow-hidden rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <div className="h-full w-full relative">
-                <img
-                  src={profile.image}
-                  alt={profile.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-300" />
-
-                <div className="absolute bottom-0 left-0 w-full p-6">
-                  <h3 className="text-xl font-bold text-white mb-1 font-syne group-hover:text-blue-400 transition-colors uppercase">
-                    {profile.name}
-                  </h3>
-                  <p className="text-xs text-gray-400 font-manrope font-semibold tracking-wide uppercase">
-                    {profile.role}
-                  </p>
-                </div>
-              </div>
-            </motion.a>
+            <ProfileCard key={profile.id} profile={profile} index={index} />
           ))}
         </div>
       </div>
+
+      {/* Background Decorative Blur */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#6b5fff]/5 blur-[120px] rounded-full pointer-events-none" />
     </div>
   );
 };

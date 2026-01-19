@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const days = [
-  { id: "day1", name: "Day 0", date: "20th March" },
-  { id: "day2", name: "Day 1", date: "21st March" },
-  { id: "day3", name: "Day 2", date: "22nd March" },
-  { id: "day4", name: "Day 3", date: "23rd March" },
+  { id: "day1", name: "Day 0", date: "2nd April" },
+  { id: "day2", name: "Day 1", date: "3rd April" },
+  { id: "day3", name: "Day 2", date: "4th April" },
+  { id: "day4", name: "Day 3", date: "5th April" },
 ];
 
 const scheduleData = {
@@ -142,7 +142,7 @@ const scheduleData = {
     {
       time: "12:00 PM - 12:00 AM",
       title: "Campus War (LUDO NO 1)",
-      location: "online Tournament Code - BITS25",
+      location: "online Tournament Code - BITS26",
       type: "event",
     },
     {
@@ -153,7 +153,7 @@ const scheduleData = {
     },
     {
       time: "7:30 PM",
-      title: "Live Screening IPL 2025 (KKR VS RCB)",
+      title: "Live Screening IPL 2026 (KKR VS RCB)",
       location: "Library Lawns",
       type: "event",
     },
@@ -291,7 +291,7 @@ const EventSchedule = () => {
           <h2 className="text-5xl font-extrabold tracking-tight text-ecell-text">
             Event Schedule
           </h2>
-          <p className="text-lg mt-2 text-ecell-text opacity-75">Launchpad 2025</p>
+          <p className="text-lg mt-2 text-ecell-text opacity-75">Launchpad 2026</p>
         </div>
 
         {/* Day Selection */}
@@ -304,8 +304,8 @@ const EventSchedule = () => {
                 setAnimatedItems([]);
               }}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-white ${activeDay === day.id
-                  ? "bg-ecell-secondary shadow-lg shadow-ecell-secondary/30 scale-105"
-                  : "bg-ecell-dark hover:bg-ecell-dark/80 border border-ecell-secondary/30"
+                ? "bg-ecell-secondary shadow-lg shadow-ecell-secondary/30 scale-105"
+                : "bg-ecell-dark hover:bg-ecell-dark/80 border border-ecell-secondary/30"
                 }`}
             >
               {day.name}
@@ -322,8 +322,8 @@ const EventSchedule = () => {
               key={type.id}
               onClick={() => setSelectedType(type.id)}
               className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${selectedType === type.id
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-700 hover:bg-gray-600"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-700 hover:bg-gray-600"
                 }`}
             >
               {type.name}
@@ -338,8 +338,8 @@ const EventSchedule = () => {
               <div
                 key={index}
                 className={`p-6 rounded-xl shadow-xl text-white transform transition-all duration-500 ${animatedItems.includes(index)
-                    ? "opacity-100 translate-y-0 scale-105"
-                    : "opacity-0 -translate-y-4 scale-95"
+                  ? "opacity-100 translate-y-0 scale-105"
+                  : "opacity-0 -translate-y-4 scale-95"
                   } ${typeColors[event.type]}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import videohp from "../../assets/bgvid1.mp4";
 
 // Simple arrow icon component
@@ -22,24 +22,8 @@ const ArrowIcon = () => (
 
 
 const Hero = () => {
-  const [scale, setScale] = useState(1);
-
-
-  useEffect(() => {
-    const handleScroll = (event) => {
-      // Sensitivity factor
-      const sensitivity = 0.05;
-
-      if (event.deltaY > 0) {
-        setScale((prevScale) => Math.min(prevScale + sensitivity, 25));
-      } else {
-        setScale((prevScale) => Math.max(prevScale - sensitivity * 15, 1));
-      }
-    };
-
-    window.addEventListener("wheel", handleScroll, { passive: true });
-    return () => window.removeEventListener("wheel", handleScroll);
-  }, []);
+  // Fixed scale to 1 to remove scroll animation
+  const scale = 1;
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
@@ -47,7 +31,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          opacity: `${Math.min(20 + scale * 3.2, 100) / 100}`, // Start at 20%, reach 100% at scale >= 25
+          opacity: 1, // Fixed opacity
           transition: "opacity 0.5s ease-in-out",
         }}
       >
@@ -73,13 +57,13 @@ const Hero = () => {
       <div
         className="relative z-10 text-center text-white px-6 flex flex-col items-center max-w-5xl"
         style={{
-          transform: `scale(${scale})`,
-          opacity: `${scale < 25 ? 1 / scale : 0}`,
+          transform: `scale(1)`,
+          opacity: 1,
         }}
       >
         <h1 className="text-6xl md:text-7xl lg:text-9xl font-bold mb-6 transition-transform duration-200 drop-shadow-[0_0_15px_rgba(107,95,255,0.5)]">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-ecell-secondary via-white to-ecell-primary animate-gradient-x">
-            Launchpad 2025
+            Launchpad 2026
           </span>
         </h1>
 
@@ -88,7 +72,7 @@ const Hero = () => {
         </h2>
 
         <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl transition-transform duration-200 font-medium tracking-wide">
-          21st - 23rd March 2025
+          3rd - 5th April 2026
         </p>
 
         {/* Buttons */}

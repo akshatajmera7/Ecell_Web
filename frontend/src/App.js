@@ -9,6 +9,7 @@ import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import ECellLoader from './components/ECellLoader';
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
+import GlobalBackground from './components/GlobalBackground';
 
 // Lazy load components
 const Home = lazy(() => import("./components/Home/home"));
@@ -140,6 +141,7 @@ function MainContent() {
 
   return (
     <div className="app-container">
+      <GlobalBackground />
       <ScrollToTop />
 
       {/* Conditional Navbar */}
@@ -187,7 +189,7 @@ function MainContent() {
 
       <AnimatePresence mode="wait">
         <Suspense fallback={<ECellLoader />}>
-          <div className={`main-content ${location.pathname === "/" ? "no-padding" : ""}`}>
+          <div className={`main-content ${location.pathname === "/" || location.pathname === "/launchpad" ? "no-padding" : ""}`}>
             <Routes location={location} key={location.pathname}>
               {/* Normal Routes */}
               <Route path="/" element={<Home />} />

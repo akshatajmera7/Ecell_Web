@@ -116,7 +116,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-10 py-4 text-center text-sm text-ecell-primary">
-          © 2025 Copyright: E-Cell BITS Pilani Hyderabad
+          © 2026 Copyright: E-Cell BITS Pilani Hyderabad
         </div>
       </div>
     </footer>

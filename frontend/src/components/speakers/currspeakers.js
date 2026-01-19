@@ -51,13 +51,47 @@ const profiles = [
   },
 ];
 
+const ProfileCard = ({ profile, index }) => (
+  <motion.a
+    href={profile.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
+    className="group relative bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden backdrop-blur-sm hover:border-[#6b5fff]/50 transition-all duration-500"
+  >
+    <div className="aspect-[4/5] overflow-hidden relative">
+      <img
+        src={profile.image}
+        alt={profile.name}
+        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+
+      {/* Decorative lines */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#d4ff00] to-transparent" />
+    </div>
+
+    <div className="p-6 relative">
+      <h3 className="text-xl font-black text-white mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
+        {profile.name}
+      </h3>
+      <p className="text-[#d4ff00] font-bold text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
+        {profile.role}
+      </p>
+
+      {/* Hover Glow */}
+      <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#6b5fff]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+    </div>
+  </motion.a>
+);
+
 const CurrentSpeakers = () => {
   return (
-    <div className="relative w-full bg-black py-20 overflow-hidden">
-      {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-ecell-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
-
+    <div className="relative w-full bg-black py-24 overflow-hidden font-poppins">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,50 +99,22 @@ const CurrentSpeakers = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 font-syne">
-            Launchpad 2025 <span className="text-ecell-primary">Speakers</span>
-          </h1>
-          <div className="h-1 w-24 bg-ecell-primary mx-auto rounded-full" />
+          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4">
+            Launchpad 2026 <span className="text-[#d4ff00] drop-shadow-[0_0_20px_rgba(212,255,0,0.3)]">Speakers</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-[#6b5fff] to-[#d4ff00] mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center">
           {profiles.map((profile, index) => (
-            <motion.a
-              key={profile.id}
-              href={profile.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative h-[450px] overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(212,255,0,0.1)]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              {/* Image Container */}
-              <div className="h-full w-full relative">
-                <img
-                  src={profile.image}
-                  alt={profile.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
-
-                {/* Text Content */}
-                <div className="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-2 font-syne uppercase tracking-wide leading-tight group-hover:text-ecell-primary transition-colors">
-                    {profile.name}
-                  </h3>
-                  <p className="text-base text-gray-300 font-manrope font-medium leading-normal border-l-2 border-ecell-primary pl-3">
-                    {profile.role}
-                  </p>
-                </div>
-              </div>
-            </motion.a>
+            <ProfileCard key={profile.id} profile={profile} index={index} />
           ))}
         </div>
       </div>
+
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-ecell-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#6b5fff]/5 rounded-full blur-[120px] pointer-events-none" />
     </div>
   );
 };

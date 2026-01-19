@@ -37,6 +37,7 @@ module.exports = {
         'outfit': ['Outfit', 'sans-serif'],
         'syne': ['Syne', 'sans-serif'],
         'hypebuzz': ['Hypebuzz', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
       },
       letterSpacing: {
         'startup-header': '0.02em',
@@ -62,6 +63,8 @@ module.exports = {
       animation: {
         'gradient-x': 'gradient-x 6s ease infinite',
         'fade-in': 'fade-in 2s ease-out',
+        'pulse-glow': 'pulse-glow 2s infinite',
+        'spin-slow': 'spin-slow 10s linear infinite',
       },
       keyframes: {
         'gradient-x': {
@@ -80,12 +83,6 @@ module.exports = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
-      },
-      animation: {
-        'gradient-x': 'gradient-x 6s ease infinite',
-        'fade-in': 'fade-in 2s ease-out',
-        'pulse-glow': 'pulse-glow 2s infinite',
-        'spin-slow': 'spin-slow 10s linear infinite',
       },
     },
   },

@@ -41,10 +41,10 @@ const Navbar = ({ onToggleMenu, isOpen }) => {
               Our Team
             </NavLink>
             <NavLink
-              to="/na"
+              to="/gallery"
               className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
             >
-              Networking Arena
+              Gallery
             </NavLink>
           </div>
           <div className="nav-row-bottom">
