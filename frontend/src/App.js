@@ -43,6 +43,7 @@ const PaymentFailed = lazy(() => import("./components/paymentfailed"));
 const PaymentCancel = lazy(() => import("./components/paymentcancel"));
 const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"));
 const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
+const Passes = lazy(() => import("./components/passes"));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -131,6 +132,7 @@ function MainContent() {
     { label: 'Home', ariaLabel: 'Go to Launchpad home', link: '/launchpad' },
     { label: 'Schedule', ariaLabel: 'View schedule', link: '/launchpad/schedules' },
     { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
+    { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
     { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
@@ -217,6 +219,7 @@ function MainContent() {
               <Route path="/launchpad/internship_drive" element={<Id />} />
               <Route path="/launchpad/pitch_perfect" element={<Pp />} />
               <Route path="/launchpad/startup_expo" element={<Se />} />
+              <Route path="/launchpad/passes" element={<Passes />} />
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
               <Route path="/launchpad/event-demo" element={<EventDemo />} />
