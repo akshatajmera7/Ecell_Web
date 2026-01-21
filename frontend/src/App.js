@@ -34,9 +34,7 @@ const Gr = lazy(() => import("./components/lpevents/gr/grindex"));
 const Pitchp = lazy(() => import("./components/lpevents/pitcherspilot/ppindex"));
 const TT = lazy(() => import("./components/lpevents/t3/t3index"));
 const Id = lazy(() => import("./components/lpevents/id/idindex"));
-const Bp = lazy(() => import("./components/lpevents/bp/bpindex"));
 const Na = lazy(() => import("./components/lpevents/na/naindex"));
-const Pp = lazy(() => import("./components/lpevents/pitchperfect/ppfindex"));
 const Se = lazy(() => import("./components/lpevents/startupexpo/seindex"));
 const PaymentSuccess = lazy(() => import("./components/paymentsuccess"));
 const PaymentFailed = lazy(() => import("./components/paymentfailed"));
@@ -215,9 +213,7 @@ function MainContent() {
               <Route path="/launchpad/ground_reality" element={<Gr />} />
               <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
               <Route path="/launchpad/teen_tycoons" element={<TT />} />
-              <Route path="/launchpad/beyond_profits" element={<Bp />} />
               <Route path="/launchpad/internship_drive" element={<Id />} />
-              <Route path="/launchpad/pitch_perfect" element={<Pp />} />
               <Route path="/launchpad/startup_expo" element={<Se />} />
               <Route path="/launchpad/passes" element={<Passes />} />
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />

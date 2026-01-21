@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaLinkedin } from 'react-icons/fa';
-import { Phone, Calendar, MapPin, ChevronDown, MessageCircle } from 'lucide-react';
+import { Phone, Calendar, MapPin, ChevronDown, MessageCircle, Mail } from 'lucide-react';
 import './EventTemplate.css';
 
 const EventTemplate = ({ eventData }) => {
@@ -194,6 +194,14 @@ const EventTemplate = ({ eventData }) => {
                                     src={poc.image || `https://api.dicebear.com/7.x/avataaars/svg?seed=${poc.name}`}
                                     alt={poc.name}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    style={{
+                                        objectPosition: poc.objectPosition || 'center',
+                                        objectFit: poc.objectFit || 'cover',
+                                        width: poc.scale ? `${poc.scale * 100}%` : '100%',
+                                        height: poc.scale ? `${poc.scale * 100}%` : '100%',
+                                        marginLeft: poc.scale ? `-${(poc.scale - 1) * 50}%` : '0',
+                                        marginTop: poc.scale ? `-${(poc.scale - 1) * 50}%` : '0'
+                                    }}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-ecell-bg to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
                             </div>
@@ -203,10 +211,10 @@ const EventTemplate = ({ eventData }) => {
 
                             <div className="flex flex-wrap gap-3">
                                 <a
-                                    href={`tel:${poc.contact}`}
+                                    href={`mailto:${poc.email}`}
                                     className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-ecell-primary text-white hover:text-ecell-bg rounded-xl transition-all text-sm font-medium"
                                 >
-                                    <Phone size={14} /> Contact
+                                    <Mail size={14} /> Contact
                                 </a>
                                 <a
                                     href={poc.linkedin}

@@ -2,16 +2,31 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Sagnik from "../../../assets/ishika.jpeg";
-
+import Tanishq from "../../../assets/Tanishq.jpg";
+import Dhaanvi from "../../../assets/Dhaanvi.jpeg";
+import Tejas from "../../../assets/Tejas.jpeg";
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Ishika ",
-      image: Sagnik,
-      email: "f20221462@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/ishika-ratnawat/",
+      name: "Tanishq Gupta",
+      image: Tanishq,
+      email: "f20240470@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/tanishq-gupta-390310313/",
+    },
+    {
+      id: 2,
+      name: "Dhaanvi Bhadani",
+      image: Dhaanvi,
+      email: "f20240762@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/dhaanvi-bhadani-533a08322/",
+    },
+    {
+      id: 3,
+      name: "Tejas Ajmera",
+      image: Tejas,
+      email: "f20240330@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/tejas-ajmera-44ab19322/",
     }
   ];
 
@@ -37,7 +52,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
+              <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
                 <EnvelopeIcon className="w-5 h-5" />
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
@@ -64,12 +79,12 @@ const ContactSection = () => {
 
       {/* Guest Relations Section */}
       <section className="w-full flex justify-center items-center">
-  <div className="grid place-items-center">
-    {guestRelationsContacts.map((person) => (
-      <ContactCard key={person.id} person={person} />
-    ))}
-  </div>
-</section>
+        <div className="grid place-items-center">
+          {guestRelationsContacts.map((person) => (
+            <ContactCard key={person.id} person={person} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

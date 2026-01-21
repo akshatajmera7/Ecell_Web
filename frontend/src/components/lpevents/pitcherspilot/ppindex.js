@@ -1,7 +1,9 @@
 import React from 'react';
 import EventTemplate from '../EventTemplate/EventTemplate';
 import ppimg from '../../../assets/lpevents/pitchers pilot.png'
-import Manav from "../../../assets/manav.jpeg";
+import Aditya from "../../../assets/Aditya.jpg";
+import Sharduli from "../../../assets/Sharduli.jpg";
+import Vedant from "../../../assets/Vedant.jpg";
 
 const eventData = {
   title: "Pitcher's Pilot",
@@ -15,11 +17,25 @@ const eventData = {
   ],
   pocs: [
     {
-      name: "Manav Sharma",
-      role: "Vice Chairman",
-      email: "f20221347@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
-      image: Manav
+      name: "Aditya Maheshwari",
+      role: "Senior Associate",
+      email: "f20240261@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/aditya-maheshwari-94157a323",
+      image: Aditya
+    },
+    {
+      name: "Sharduli Thakur",
+      role: "Senior Associate",
+      email: "f20242235@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://linkedin.com/in/sharduli-thakur/",
+      image: Sharduli
+    },
+    {
+      name: "Vedant Nichal",
+      role: "Senior Associate",
+      email: "f20240174@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/vedant-nichal",
+      image: Vedant
     }
   ],
   faqs: [

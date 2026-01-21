@@ -1,7 +1,9 @@
 import React from 'react';
 import EventTemplate from '../EventTemplate/EventTemplate';
 import Grimg from '../../../assets/lpevents/gr.jpg'
-import Manav from "../../../assets/manav.jpeg";
+import Divvij from "../../../assets/Divvij.jpeg";
+import Ramya from "../../../assets/Ramya.jpeg";
+import sonakshi from "../../../assets/sonakshi.jpeg";
 
 const eventData = {
   title: "Ground Reality",
@@ -15,11 +17,28 @@ const eventData = {
   ],
   pocs: [
     {
-      name: "Manav Sharma",
-      role: "Vice Chairman",
-      email: "f20221347@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
-      image: Manav
+      name: "Divvij Chichra",
+      role: "Senior Associate",
+      email: "f20240298@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://in.linkedin.com/in/divvij-chichra-3ab7b4327",
+      image: Divvij,
+      objectPosition: 'top'
+    },
+    {
+      name: "Ramya S",
+      role: "Senior Associate",
+      email: "f20240745@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/ramya-s-88514422a",
+      image: Ramya,
+      objectPosition: 'top'
+    },
+    {
+      name: "Sonakshi Bhaumik",
+      role: "Senior Associate",
+      email: "f20242433@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/sonakshi-bhaumik-761525311",
+      image: sonakshi,
+      objectPosition: 'top'
     }
   ],
   faqs: [

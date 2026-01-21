@@ -1,7 +1,9 @@
 import React from 'react';
 import EventTemplate from '../EventTemplate/EventTemplate';
 import ttimg from '../../../assets/lpevents/teen tycoons.png'
-import Raghav from "../../../assets/raghav.jpeg";
+import Sampooran from "../../../assets/Sampooran.jpeg";
+import Sejal from "../../../assets/Sejal.jpeg";
+import Deepali from "../../../assets/Deepali.jpeg";
 
 const eventData = {
   title: "Teen Tycoons",
@@ -15,12 +17,28 @@ const eventData = {
   ],
   pocs: [
     {
-      name: "Raghav Agarwal",
-      role: "Vice President Projects and Learning",
-      email: "f20220892@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/raghav-agarwal-984b44266/",
-      image: Raghav
+      name: "Sampooran Sinha",
+      role: "Senior Associate",
+      email: "f20240997@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/sampooran-sinha?trk=contact-info",
+      image: Sampooran
+    },
+    {
+      name: "Sejal Mittal",
+      role: "Senior Associate",
+      email: "f20240161@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/sejal-mittal-496458326",
+      image: Sejal,
+      objectPosition: '0% 15%'
+    },
+    {
+      name: "Deepali Singh",
+      role: "Senior Associate",
+      email: "f20240352@hyderabad.bits-pilani.ac.in",
+      linkedin: "https://www.linkedin.com/in/deepali139",
+      image: Deepali
     }
+
   ],
   faqs: [
     {
