@@ -127,7 +127,7 @@ const Startup = () => {
   const pathData = "M 8 88 C 13 88, 17 65, 21 65 S 35 82, 43 77 S 48 47, 53 47 S 70 60, 80 55 S 88 33, 93 33";
 
   return (
-    <div className="relative min-h-screen py-20 bg-black text-white overflow-hidden flex flex-col items-center justify-center">
+    <div className="relative min-h-screen py-10 md:py-20 bg-black text-white overflow-hidden flex flex-col items-center justify-center">
       {/* Header */}
       <div className="text-center mb-10 md:mb-24 px-4 z-10">
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-syne leading-tight">
@@ -135,8 +135,63 @@ const Startup = () => {
         </h1>
       </div>
 
-      {/* Timeline Container */}
-      <div className="relative w-full max-w-7xl h-[400px] md:h-[600px] px-4 md:px-20">
+      {/* =======================
+          MOBILE LAYOUT (< md)
+          Vertical Timeline
+         ======================= */}
+      <div className="relative w-full max-w-md px-6 md:hidden flex flex-col gap-8 pb-10">
+        {/* Vertical Dashed Line */}
+        <div className="absolute left-9 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#d4ff00] opacity-30"></div>
+
+        {startups.map((startup, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative flex items-start gap-4"
+          >
+            {/* Timeline Node */}
+            <div className="relative flex-shrink-0 z-10 mt-4">
+              <div className="w-6 h-6 bg-[#d4ff00] rounded-full shadow-[0_0_10px_rgba(212,255,0,0.6)] flex items-center justify-center">
+                <div className="w-2 h-2 bg-black rounded-full" />
+              </div>
+            </div>
+
+            {/* Content Card */}
+            <div className="flex-1 bg-[#1a1a1a] border border-white/10 rounded-xl p-4 shadow-lg">
+              {/* Logo Area */}
+              <div className="mb-3 flex justify-start">
+                <div className={`p-2 rounded-lg ${startup.name === 'bigbasket' ? 'bg-[#98cb4b]' : startup.name === 'redBus' ? 'bg-[#d84e55]' : startup.name === 'SanDisk' ? 'bg-white' : 'bg-transparent'}`}>
+                  <img
+                    src={startup.logo}
+                    alt={startup.name}
+                    className="h-8 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Details */}
+              <div className="space-y-1">
+                <div className="text-[#999] text-sm font-manrope">
+                  Founded By <span className="text-[#f1211e] font-bold block">{startup.foundedBy}</span>
+                </div>
+                <p className="text-[#ccc] text-xs leading-relaxed font-manrope mt-2">
+                  {startup.description}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* =======================
+          DESKTOP LAYOUT (>= md)
+          Horizontal Wave
+         ======================= */}
+      <div className="relative hidden md:block w-full max-w-7xl h-[400px] md:h-[600px] px-4 md:px-20">
         <svg
           viewBox="0 0 100 100"
           className="w-full h-full overflow-visible"
