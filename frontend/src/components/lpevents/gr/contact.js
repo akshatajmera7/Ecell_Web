@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { PhoneIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
 import Divvij from "../../../assets/Divvij.jpeg";
 import Ramya from "../../../assets/Ramya.jpeg";
@@ -11,21 +11,21 @@ const ContactSection = () => {
       id: 1,
       name: "Divvij Chichra",
       image: Divvij,
-      email: "f20240298@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9313135129",
       linkedin: "https://in.linkedin.com/in/divvij-chichra-3ab7b4327",
     },
     {
       id: 2,
       name: "Ramya S",
       image: Ramya,
-      email: "f20240745@hyderabad.bits-pilani.ac.in",
+      phone: "+91 6382757845",
       linkedin: "https://www.linkedin.com/in/ramya-s-88514422a",
     },
     {
       id: 3,
       name: "Sonakshi Bhaumik",
       image: sonakshi,
-      email: "f20242433@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9902536008",
       linkedin: "https://www.linkedin.com/in/sonakshi-bhaumik-761525311",
     }
   ];
@@ -52,8 +52,9 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-              <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
-                <EnvelopeIcon className="w-5 h-5" />
+              <a href={`tel:${person.phone}`} className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+                <PhoneIcon className="w-5 h-5" />
+                <span className="text-sm">{person.phone}</span>
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
                 <FaLinkedin className="w-5 h-5" />

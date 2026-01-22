@@ -19,21 +19,21 @@ const eventData = {
     {
       name: "Aditya Maheshwari",
       role: "Senior Associate",
-      email: "f20240261@hyderabad.bits-pilani.ac.in",
+      phone: "+91 7023161401",
       linkedin: "https://www.linkedin.com/in/aditya-maheshwari-94157a323",
       image: Aditya
     },
     {
       name: "Sharduli Thakur",
       role: "Senior Associate",
-      email: "f20242235@hyderabad.bits-pilani.ac.in",
+      phone: "+91 8130636333",
       linkedin: "https://linkedin.com/in/sharduli-thakur/",
       image: Sharduli
     },
     {
       name: "Vedant Nichal",
       role: "Senior Associate",
-      email: "f20240174@hyderabad.bits-pilani.ac.in",
+      phone: "+91 8956134149",
       linkedin: "https://www.linkedin.com/in/vedant-nichal",
       image: Vedant
     }

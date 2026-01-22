@@ -19,14 +19,14 @@ const eventData = {
     {
       name: "Sampooran Sinha",
       role: "Senior Associate",
-      email: "f20240997@hyderabad.bits-pilani.ac.in",
+      phone: "+91 7003712277",
       linkedin: "https://www.linkedin.com/in/sampooran-sinha?trk=contact-info",
       image: Sampooran
     },
     {
       name: "Sejal Mittal",
       role: "Senior Associate",
-      email: "f20240161@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9821689504",
       linkedin: "https://www.linkedin.com/in/sejal-mittal-496458326",
       image: Sejal,
       objectPosition: '0% 15%'
@@ -34,7 +34,7 @@ const eventData = {
     {
       name: "Deepali Singh",
       role: "Senior Associate",
-      email: "f20240352@hyderabad.bits-pilani.ac.in",
+      phone: "+91 8303934014",
       linkedin: "https://www.linkedin.com/in/deepali139",
       image: Deepali
     }
@@ -42,12 +42,36 @@ const eventData = {
   ],
   faqs: [
     {
-      question: "Who can participate in Teen Tycoons?",
-      answer: "It is primarily aimed at high school and early college students looking to test their business acumen."
+      question: "What is Teen Tycoons?",
+      answer: "Teen Tycoons is a structured business plan competition for school students (Classes 8–12), designed to take participants from idea generation to final pitching through guided learning and competitive rounds."
     },
     {
-      question: "What is the format of the competition?",
-      answer: "It consists of multiple rounds including case studies, problem-solving, and a final pitch."
+      question: "Who can participate?",
+      answer: "Students currently studying in Classes 8–12 from any school are eligible to participate."
+    },
+    {
+      question: "Is prior business or startup experience required?",
+      answer: "No. The competition is beginner-friendly and includes a guided bootcamp."
+    },
+    {
+      question: "When and where will the event be held?",
+      answer: "The event transitions from an Online Bootcamp and Elimination Round (focused on Business Model Canvases) to a Live Grand Finale on April 5th at BITS Pilani, Hyderabad."
+    },
+    {
+      question: "What is the team size and fee?",
+      answer: "Students can compete solo or in teams of up to 3 for a flat registration fee of ₹600 per team, which includes all mentorship and rounds."
+    },
+    {
+      question: "How will teams be evaluated?",
+      answer: "Finalists will pitch startup ideas to a professional jury, with scoring based on innovation, feasibility, and presentation clarity."
+    },
+    {
+      question: "What recognition do participants receive?",
+      answer: "Every student finishing the bootcamp receives a Certificate of Participation, while finalists and winners earn special recognition and prizes."
+    },
+    {
+      question: "Are supervision and refreshments provided?",
+      answer: "One parent or a teacher escort is encouraged to accompany students; refreshments are provided on-site, with additional food available for purchase at campus outlets."
     }
   ]
 };

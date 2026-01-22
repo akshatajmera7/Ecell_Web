@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaLinkedin } from 'react-icons/fa';
-import { Phone, Calendar, MapPin, ChevronDown, MessageCircle, Mail } from 'lucide-react';
+import { Phone, Calendar, MapPin, ChevronDown, MessageCircle } from 'lucide-react';
 import './EventTemplate.css';
 
 const EventTemplate = ({ eventData }) => {
@@ -211,10 +211,10 @@ const EventTemplate = ({ eventData }) => {
 
                             <div className="flex flex-wrap gap-3">
                                 <a
-                                    href={`mailto:${poc.email}`}
+                                    href={`tel:${poc.phone}`}
                                     className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-ecell-primary text-white hover:text-ecell-bg rounded-xl transition-all text-sm font-medium"
                                 >
-                                    <Mail size={14} /> Contact
+                                    <Phone size={14} /> {poc.phone}
                                 </a>
                                 <a
                                     href={poc.linkedin}

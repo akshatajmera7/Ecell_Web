@@ -19,7 +19,7 @@ const eventData = {
     {
       name: "Divvij Chichra",
       role: "Senior Associate",
-      email: "f20240298@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9313135129",
       linkedin: "https://in.linkedin.com/in/divvij-chichra-3ab7b4327",
       image: Divvij,
       objectPosition: 'top'
@@ -27,7 +27,7 @@ const eventData = {
     {
       name: "Ramya S",
       role: "Senior Associate",
-      email: "f20240745@hyderabad.bits-pilani.ac.in",
+      phone: "+91 6382757845",
       linkedin: "https://www.linkedin.com/in/ramya-s-88514422a",
       image: Ramya,
       objectPosition: 'top'
@@ -35,7 +35,7 @@ const eventData = {
     {
       name: "Sonakshi Bhaumik",
       role: "Senior Associate",
-      email: "f20242433@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9902536008",
       linkedin: "https://www.linkedin.com/in/sonakshi-bhaumik-761525311",
       image: sonakshi,
       objectPosition: 'top'

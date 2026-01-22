@@ -19,21 +19,21 @@ const eventData = {
     {
       name: "Anshul Nanwani",
       role: "Senior Associate",
-      email: "f20241126@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9552586398",
       linkedin: "https://www.linkedin.com/in/anshul-nanwani-040559322",
       image: Anshul
     },
     {
       name: "Girisha Chalana",
       role: "Senior Associate",
-      email: "f20240497@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9352293509",
       linkedin: "https://www.linkedin.com/in/girisha-chalana-703a46323",
       image: Girisha
     },
     {
-      name: "Prarthana SIngh",
+      name: "Prarthana Singh",
       role: "Senior Associate",
-      email: "f20240587@hyderabad.bits-pilani.ac.in",
+      phone: "+91 9369641454",
       linkedin: "https://www.linkedin.com/in/prarthana-singh-77463a318",
       image: Prarthana
     }
