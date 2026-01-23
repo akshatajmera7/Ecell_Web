@@ -1,17 +1,33 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { PhoneIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Sagnik from "../../../assets/manav.jpeg";
+import Aditya from "../../../assets/Aditya.jpg";
+import Sharduli from "../../../assets/Sharduli.jpg";
+import Vedant from "../../../assets/Vedant.jpg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Manav Sharma",
-      image: Sagnik,
-      email: "f20221347@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
+      name: "Aditya Maheshwari",
+      image: Aditya,
+      phone: "+91 7023161401",
+      linkedin: "https://www.linkedin.com/in/aditya-maheshwari-94157a323",
+    },
+    {
+      id: 2,
+      name: "Sharduli Thakur",
+      image: Sharduli,
+      phone: "+91 8130636333",
+      linkedin: "https://linkedin.com/in/sharduli-thakur/",
+    },
+    {
+      id: 3,
+      name: "Vedant Nichal",
+      image: Vedant,
+      phone: "+91 8956134149",
+      linkedin: "https://www.linkedin.com/in/vedant-nichal",
     }
   ];
 
@@ -37,8 +53,9 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
-                <EnvelopeIcon className="w-5 h-5" />
+              <a href={`tel:${person.phone}`} className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+                <PhoneIcon className="w-5 h-5" />
+                <span className="text-sm">{person.phone}</span>
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
                 <FaLinkedin className="w-5 h-5" />
@@ -64,12 +81,12 @@ const ContactSection = () => {
 
       {/* Guest Relations Section */}
       <section className="w-full flex justify-center items-center">
-  <div className="grid place-items-center">
-    {guestRelationsContacts.map((person) => (
-      <ContactCard key={person.id} person={person} />
-    ))}
-  </div>
-</section>
+        <div className="grid place-items-center">
+          {guestRelationsContacts.map((person) => (
+            <ContactCard key={person.id} person={person} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
