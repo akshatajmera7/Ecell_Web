@@ -2,7 +2,9 @@ import React from 'react';
 import EventTemplate from '../EventTemplate/EventTemplate';
 import Companies from "./companies";
 import idimg from '../../../assets/lpevents/internship drive.png'
-import Ishika from "../../../assets/ishika.jpeg";
+import Tanishq from "../../../assets/Tanishq.jpeg";
+import Dhaanvi from "../../../assets/Dhaanvi.jpeg";
+import Tejas from "../../../assets/Tejas.jpeg";
 
 const eventData = {
   title: "Internship Drive",
@@ -17,11 +19,29 @@ const eventData = {
   ],
   pocs: [
     {
-      name: "Ishika Ratnawat",
-      role: "Internship Coordinator",
-      email: "f20221462@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/ishika-ratnawat/",
-      image: Ishika
+      name: "Tanishq Gupta",
+      role: "Senior Associate",
+      phone: "+91 9691241336",
+      linkedin: "https://www.linkedin.com/in/tanishq-gupta-390310313/",
+      image: Tanishq,
+      objectPosition: 'center 20%'
+    },
+    {
+      name: "Dhaanvi Bhadani",
+      role: "Senior Associate",
+      phone: "+91 6361803120",
+      linkedin: "https://www.linkedin.com/in/dhaanvi-bhadani-533a08322/",
+      image: Dhaanvi,
+      objectPosition: 'top'
+    },
+    {
+      name: "Tejas Ajmera",
+      role: "Senior Associate",
+      phone: "+91 8625093335",
+      linkedin: "https://www.linkedin.com/in/tejas-ajmera-44ab19322/",
+
+      image: Tejas,
+      objectPosition: '0% 20%'
     }
   ],
   faqs: [

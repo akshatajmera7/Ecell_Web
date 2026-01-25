@@ -4,7 +4,6 @@ import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import BlurImage from '../BlurImage';
 
 import img1 from '../../assets/1.png';
-import img2 from '../../assets/2.png';
 import img3 from '../../assets/3.png';
 import img5 from '../../assets/5.png';
 import img6 from '../../assets/6.png';
@@ -62,7 +61,6 @@ const EventCard = ({ event, index }) => {
 const EventsPage = () => {
   const events = [
     { id: 1, title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", images: [img1], registerLink: "https://rzp.io/rzp/66fqi0c", exploreLink: "/launchpad/startup_expo" },
-    { id: 2, title: "Pitch Perfect", description: "Where innovation meets opportunity, and entrepreneurs and investors thrive together.", images: [img2], registerLink: "https://unstop.com/competitions/pitch-perfect-an-online-bussiness-plan-competition-launchpad-25-birla-institute-of-technology-and-sciences--1319979", exploreLink: "/launchpad/pitch_perfect" },
     { id: 3, title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", images: [img3], registerLink: "https://pmny.in/ZJi5eWmeNiNH", exploreLink: "/launchpad/internship_drive" },
     { id: 5, title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", images: [img5], registerLink: "https://rzp.io/rzp/KAUB2dMB", exploreLink: "/launchpad/teen_tycoons" },
     { id: 6, title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth.", images: [img6], registerLink: "https://rzp.io/rzp/Fn5oSxt", exploreLink: "/launchpad/pitchers_pilot" },

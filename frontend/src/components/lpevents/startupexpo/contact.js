@@ -1,18 +1,35 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { PhoneIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Sagnik from "../../../assets/sagnik.jpg";
-
+import Anshul from "../../../assets/anshul.jpeg";
+import Girisha from "../../../assets/girisha.jpg";
+import Prarthana from "../../../assets/Prarthana.jpeg";
 const ContactSection = () => {
   const guestRelationsContacts = [
     {
       id: 1,
-      name: "Sagnik Paul",
-      role: "Chairman",
-      image: Sagnik,
-      email: "f20220852@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
+      name: "Anshul Nanwani",
+      role: "Senior Associate",
+      image: Anshul,
+      phone: "+91 9552586398",
+      linkedin: "https://www.linkedin.com/in/anshul-nanwani-040559322",
+    },
+    {
+      id: 2,
+      name: "Girisha Chalana",
+      role: "Senior Associate",
+      image: Girisha,
+      phone: "+91 9352293509",
+      linkedin: "https://www.linkedin.com/in/girisha-chalana-703a46323",
+    },
+    {
+      id: 3,
+      name: "Prarthana SIngh",
+      role: "Senior Associate",
+      image: Prarthana,
+      phone: "+91 9369641454",
+      linkedin: "https://www.linkedin.com/in/prarthana-singh-77463a318",
     }
   ];
 
@@ -34,12 +51,13 @@ const ContactSection = () => {
           </div>
           <div className="text-center mt-4">
             <h3 className="text-lg font-semibold text-white">{person.name}</h3>
-           
+
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center mt-3">
-            <a href={`mailto:${person.email}`} className="text-blue-400 hover:text-blue-300">
-                <EnvelopeIcon className="w-5 h-5" />
+              <a href={`tel:${person.phone}`} className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+                <PhoneIcon className="w-5 h-5" />
+                <span className="text-sm">{person.phone}</span>
               </a>
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
                 <FaLinkedin className="w-5 h-5" />
@@ -50,7 +68,7 @@ const ContactSection = () => {
       </div>
     </motion.div>
   );
-
+  console.log("Curernt contact", guestRelationsContacts)
   return (
     <div className="relative w-full min-h-screen bg-black py-16 flex flex-col items-center justify-center">
       {/* Overall Heading */}
@@ -65,12 +83,12 @@ const ContactSection = () => {
 
       {/* Guest Relations Section */}
       <section className="w-full flex justify-center items-center">
-  <div className="grid place-items-center">
-    {guestRelationsContacts.map((person) => (
-      <ContactCard key={person.id} person={person} />
-    ))}
-  </div>
-</section>
+        <div className="flex flex-wrap justify-center gap-8">
+          {guestRelationsContacts.map((person) => (
+            <ContactCard key={person.id} person={person} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

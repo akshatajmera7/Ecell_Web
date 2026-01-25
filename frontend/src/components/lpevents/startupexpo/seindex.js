@@ -1,8 +1,9 @@
 import React from 'react';
 import EventTemplate from '../EventTemplate/EventTemplate';
 import seimg from "../../../assets/lpevents/startup expo.png";
-import Sagnik from "../../../assets/sagnik.jpg";
-
+import Anshul from "../../../assets/Anshul.jpeg";
+import Girisha from "../../../assets/Girisha.jpg";
+import Prarthana from "../../../assets/Prarthana.jpeg";
 const eventData = {
   title: "Startup Expo",
   tagline: "The Ultimate Battlefield for Emerging Innovators",
@@ -16,11 +17,25 @@ const eventData = {
   ],
   pocs: [
     {
-      name: "Sagnik Paul",
-      role: "Chairman",
-      email: "f20220852@hyderabad.bits-pilani.ac.in",
-      linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
-      image: Sagnik
+      name: "Anshul Nanwani",
+      role: "Senior Associate",
+      phone: "+91 9552586398",
+      linkedin: "https://www.linkedin.com/in/anshul-nanwani-040559322",
+      image: Anshul
+    },
+    {
+      name: "Girisha Chalana",
+      role: "Senior Associate",
+      phone: "+91 9352293509",
+      linkedin: "https://www.linkedin.com/in/girisha-chalana-703a46323",
+      image: Girisha
+    },
+    {
+      name: "Prarthana Singh",
+      role: "Senior Associate",
+      phone: "+91 9369641454",
+      linkedin: "https://www.linkedin.com/in/prarthana-singh-77463a318",
+      image: Prarthana
     }
   ],
   faqs: [
