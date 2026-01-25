@@ -27,7 +27,8 @@ const Launchpadhome = lazy(() => import("./components/Home/launchpadhome"));
 const Event = lazy(() => import("./components/events/event"));
 const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
 
-const Schedules = lazy(() => import("./components/schedules"));
+//const Schedules = lazy(() => import("./components/schedules"));
+const ScheduleSoon = lazy(() => import("./components/ScheduleSoon"));
 const Speakers = lazy(() => import("./components/speakers/launchpadspeakers"));
 
 const Gr = lazy(() => import("./components/lpevents/gr/grindex"));
@@ -44,6 +45,7 @@ const PaymentCancel = lazy(() => import("./components/paymentcancel"));
 const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"));
 const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
 const Passes = lazy(() => import("./components/passes"));
+const PassesSoon = lazy(() => import("./components/PassesSoon"));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -147,7 +149,7 @@ function MainContent() {
       <ScrollToTop />
 
       {/* Conditional Navbar */}
-      {!isLaunchpadRoute && <Navbar onToggleMenu={toggleMenu} isOpen={isMenuOpen} />}
+      <Navbar onToggleMenu={toggleMenu} isOpen={isMenuOpen} isLaunchpad={isLaunchpadRoute} />
 
       {isLaunchpadRoute ? (
         <StaggeredMenu
@@ -165,7 +167,7 @@ function MainContent() {
           logoLink="/launchpad"
           accentColor="#d4ff00"
           isFixed={true}
-          showHamburgerAlways={true}
+          showHamburgerAlways={false}
           onMenuOpen={() => setIsMenuOpen(true)}
           onMenuClose={() => setIsMenuOpen(false)}
         />
@@ -191,7 +193,7 @@ function MainContent() {
 
       <AnimatePresence mode="wait">
         <Suspense fallback={<ECellLoader />}>
-          <div className={`main-content ${location.pathname === "/" || location.pathname === "/launchpad" ? "no-padding" : ""}`}>
+          <div className={`main-content ${location.pathname === "/" ? "no-padding" : ""}`}>
             <Routes location={location} key={location.pathname}>
               {/* Normal Routes */}
               <Route path="/" element={<Home />} />
@@ -210,7 +212,7 @@ function MainContent() {
 
               <Route path="/launchpad/speakers" element={<Speakers />} />
 
-              <Route path="/launchpad/schedules" element={<Schedules />} />
+              <Route path="/launchpad/schedules" element={<ScheduleSoon />} />
               <Route path="/launchpad/team" element={<Lteam />} />
               <Route path="/launchpad/ground_reality" element={<Gr />} />
               <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
@@ -220,6 +222,7 @@ function MainContent() {
               <Route path="/launchpad/pitch_perfect" element={<Pp />} />
               <Route path="/launchpad/startup_expo" element={<Se />} />
               <Route path="/launchpad/passes" element={<Passes />} />
+              <Route path="/launchpad/passes-soon" element={<PassesSoon />} />
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
               <Route path="/launchpad/event-demo" element={<EventDemo />} />

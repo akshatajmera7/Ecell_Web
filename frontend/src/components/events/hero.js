@@ -11,7 +11,7 @@ const EventsHero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col"
         >
-          <h1 className="text-7xl md:text-9xl font-black font-syne leading-[0.8] uppercase tracking-tighter">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-black font-syne leading-[0.8] uppercase tracking-tighter">
             Our<br />Events
           </h1>
         </motion.div>

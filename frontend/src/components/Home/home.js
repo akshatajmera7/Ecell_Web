@@ -11,8 +11,8 @@ function Home() {
     <div className="relative">
       <Hero />
       <Startup />
-      <Initiatives />
       <Launchpad />
+      <Initiatives />
       <Banner />
 
     </div>

@@ -68,10 +68,12 @@ function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <label className="block text-sm font-manrope text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
+            <label htmlFor="name" className="block text-sm font-manrope text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
             <input
               type="text"
+              id="name"
               name="name"
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               required
@@ -85,10 +87,12 @@ function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <label className="block text-sm font-manrope text-gray-400 mb-2 uppercase tracking-wider">Your Email</label>
+            <label htmlFor="email" className="block text-sm font-manrope text-gray-400 mb-2 uppercase tracking-wider">Your Email</label>
             <input
               type="email"
+              id="email"
               name="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -102,9 +106,11 @@ function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <label className="block text-sm font-manrope text-gray-400 mb-2 uppercase tracking-wider">Your Message</label>
+            <label htmlFor="message" className="block text-sm font-manrope text-gray-400 mb-2 uppercase tracking-wider">Your Message</label>
             <textarea
+              id="message"
               name="message"
+              autoComplete="off"
               value={formData.message}
               onChange={handleChange}
               required

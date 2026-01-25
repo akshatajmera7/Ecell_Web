@@ -60,11 +60,11 @@ const ProfileCard = ({ profile, index }) => (
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#6b5fff] to-transparent" />
     </div>
 
-    <div className="p-6 relative">
-      <h3 className="text-lg font-black text-white mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
+    <div className="p-4 md:p-6 relative">
+      <h3 className="text-sm md:text-lg font-black text-white mb-1 md:mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
         {profile.name}
       </h3>
-      <p className="text-[#6b5fff] font-bold text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
+      <p className="text-[#6b5fff] font-bold text-[8px] md:text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
         {profile.role}
       </p>
 
@@ -76,22 +76,22 @@ const ProfileCard = ({ profile, index }) => (
 
 const PastSpeakers = () => {
   return (
-    <div className="relative w-full bg-[#0a0a0a] py-24 overflow-hidden font-poppins">
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <div className="relative w-full bg-[#0a0a0a] py-12 md:py-24 overflow-hidden font-poppins">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-7xl font-black text-white tracking-tighter mb-3 md:mb-4">
             Past <span className="text-[#d4ff00] drop-shadow-[0_0_20px_rgba(212,255,0,0.3)]">Speakers</span>
           </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-[#6b5fff] to-[#d4ff00] mx-auto rounded-full" />
-          <p className="text-gray-400 mt-6 tracking-widest uppercase text-xs font-bold opacity-60">Visionaries who inspired our journey</p>
+          <div className="h-1 md:h-1.5 w-16 md:w-24 bg-gradient-to-r from-[#6b5fff] to-[#d4ff00] mx-auto rounded-full" />
+          <p className="text-gray-400 mt-4 md:mt-6 tracking-widest uppercase text-[10px] md:text-xs font-bold opacity-60">Visionaries who inspired our journey</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-8">
           {profiles.map((profile, index) => (
             <ProfileCard key={profile.id} profile={profile} index={index} />
           ))}

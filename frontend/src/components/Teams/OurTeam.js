@@ -184,8 +184,8 @@ const OurTeam = () => {
         {/* ChromaGrid for PORs */}
         <div className="max-w-7xl mx-auto flex justify-center">
           <ChromaGrid
-            columns={3}
-            rows={Math.ceil(teamMembers.length / 3)}
+            columns={isMobile ? 1 : 3}
+            rows={Math.ceil(teamMembers.length / (isMobile ? 1 : 3))}
             radius={300}
             damping={0.45}
             fadeOut={0.6}

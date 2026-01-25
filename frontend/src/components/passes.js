@@ -2,14 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Shield, Star, Rocket, Users } from 'lucide-react';
 
-const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
+const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position }) => {
+  // Determine border glow color based on position
+  const getBorderGlowClass = () => {
+    if (position === 'center') {
+      return 'border-[#BCFF2F] shadow-[0_0_15px_rgba(188,255,47,0.3)] hover:shadow-[0_0_25px_rgba(188,255,47,0.45)]';
+    }
+    return 'border-[#6F66FF] shadow-[0_0_15px_rgba(111,102,255,0.3)] hover:shadow-[0_0_25px_rgba(111,102,255,0.45)]';
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className={`relative glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col h-full transition-all duration-500 hover:border-ecell-primary/30 group ${isPopular ? 'bg-ecell-primary/5 ring-1 ring-ecell-primary/20' : ''}`}
+      className={`relative glass p-8 rounded-[2.5rem] border-2 flex flex-col h-full transition-all duration-500 group ${getBorderGlowClass()} ${isPopular ? 'bg-ecell-primary/5' : ''}`}
     >
       {isPopular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-ecell-primary text-black text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(212,255,0,0.4)]">
@@ -42,7 +50,7 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
       </div>
 
       <a
-        href="/launchpad/events"
+        href="/launchpad/passes-soon"
         className={`w-full py-4 rounded-xl font-bold text-center transition-all duration-300 transform font-manrope flex items-center justify-center gap-2 ${isPopular
           ? 'bg-ecell-primary text-black hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(212,255,0,0.5)]'
           : 'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20'
@@ -61,6 +69,7 @@ const Passes = () => {
       price: "499",
       icon: Shield,
       delay: 0.1,
+      position: 'left',
       perks: [
         { text: "Access to Speaker Sessions", included: true },
         { text: "Entry to Startup Expo", included: true },
@@ -76,6 +85,7 @@ const Passes = () => {
       icon: Rocket,
       isPopular: true,
       delay: 0.2,
+      position: 'center',
       perks: [
         { text: "All Starter Benefits", included: true },
         { text: "Workshop Participation", included: true },
@@ -90,6 +100,7 @@ const Passes = () => {
       price: "1999",
       icon: Star,
       delay: 0.3,
+      position: 'right',
       perks: [
         { text: "All Pro Benefits", included: true },
         { text: "VIP Networking Lunch", included: true },

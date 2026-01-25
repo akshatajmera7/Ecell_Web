@@ -66,16 +66,17 @@ const Hero = () => {
         </h2>
 
         <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl transition-transform duration-200 font-medium tracking-wide">
-          3rd - 5th April 2026
+          March 23rd - 25th, 2026
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 mt-4">
           <a
             href="/launchpad/schedules"
-            className="group flex items-center gap-3 px-10 py-4 bg-ecell-primary text-black text-lg font-bold rounded-full 
-                     shadow-[0_0_20px_rgba(212,255,0,0.4)] hover:shadow-[0_0_30px_rgba(212,255,0,0.6)] 
+            className="group flex items-center gap-3 px-10 py-4 text-black text-lg font-bold rounded-full 
+                     shadow-[0_0_20px_rgba(255,255,0,0.4)] hover:shadow-[0_0_30px_rgba(255,255,0,0.6)] 
                      hover:scale-105 transition-all duration-300"
+            style={{ backgroundColor: '#ffff00' }}
           >
             Check Out the Schedule
             <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
