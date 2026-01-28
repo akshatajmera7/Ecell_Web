@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { ArrowDownRight } from 'lucide-react';
 import BlurImage from '../BlurImage';
 
 import img1 from '../../assets/1.png';
