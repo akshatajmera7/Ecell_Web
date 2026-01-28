@@ -38,14 +38,14 @@ const EventCard = ({ event, index }) => {
         </p>
 
         <div className="flex gap-4 mt-auto">
-          <a
+          {/* <a
             href={event.registerLink}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 py-4 px-6 rounded-xl bg-ecell-primary text-black font-bold text-center transform transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(212,255,0,0.4)] active:scale-[0.98] font-manrope flex items-center justify-center gap-2"
           >
             Register <ArrowUpRight size={18} />
-          </a>
+          </a> */}
           <a
             href={event.exploreLink}
             className="flex-1 py-4 px-6 rounded-xl border border-white/10 text-white font-bold text-center transition-all duration-300 hover:bg-white/5 hover:border-white/20 active:scale-[0.98] font-manrope flex items-center justify-center gap-2"
