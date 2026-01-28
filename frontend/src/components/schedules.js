@@ -1,361 +1,65 @@
-import React, { useState, useEffect } from "react";
-
-const days = [
-  { id: "day1", name: "Day 0", date: "2nd April" },
-  { id: "day2", name: "Day 1", date: "3rd April" },
-  { id: "day3", name: "Day 2", date: "4th April" },
-  { id: "day4", name: "Day 3", date: "5th April" },
-];
-
-const scheduleData = {
-  day1: [
-    {
-      time: "4:00 PM - 6:00 PM",
-      title: "Formal Inauguration",
-      location: "Auditorium",
-      type: "event",
-    },
-    {
-      time: "5:00 PM",
-      title: "Speech by Mr. Jayesh",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "5:45 PM",
-      title: "Speech by Mr. Suresh Prabhu",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "6:30 PM - 12:00 AM",
-      title: "Informal Inauguration",
-      location: "Auditorium",
-      type: "event",
-    },
-    {
-      time: "7:30 PM",
-      title: "Special Performance by Gini",
-      location: "Auditorium",
-      type: "performance",
-    },
-  ],
-  day2: [
-    {
-      time: "4:00 PM - 5:00 PM",
-      title: "Speaker Session by Maheshwar Peri",
-      location: "F101",
-      type: "speaker",
-    },
-    {
-      time: "5:00 PM - 6:00 PM",
-      title: "Speaker Session by Ravi Kabra",
-      location: "F101",
-      type: "speaker",
-    },
-    {
-      time: "5:00 PM - 7:00 PM",
-      title: "Speaker Session by General Vijay Kumar Singh",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "7:00 PM - 8:00 PM",
-      title: "Speaker Session by Ankur Warikoo",
-      location: "Library Lawns",
-      type: "speaker",
-    },
-  ],
-  day3: [
-    {
-      time: "10:00 AM - 8:00 PM",
-      title: "Startup Expo",
-      location: "Library Lawns",
-      type: "event",
-    },
-    // {
-    //   time: "10:00 AM - 8:00 PM",
-    //   title: "Internship Drive",
-    //   location: "I212 , I213 , I221 , I222",
-    //   type: "event",
-    // },
-    {
-      time: "12:00 PM - 6:00 PM",
-      title: "Pitch Perfect",
-      location: "Online",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 6:00 PM",
-      title: "Beyond Profits",
-      location: "Library Seminar Halls",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 6:00 PM",
-      title: "Ground Reality - Semi Finals",
-      location: "F201 , F202 , F203",
-      type: "event",
-    },
-    {
-      time: "8:00 PM - 10:00 PM",
-      title: "Comedy Night",
-      location: "Auditorium",
-      type: "performance",
-    },
-    {
-      time: "11:00 AM - 12:00 PM",
-      title: "Anup Gupta (Founder and CEO of Mathongo)",
-      location: "F104",
-      type: "speaker",
-    },
-    {
-      time: "12:00 PM - 1:00 PM",
-      title: "Big 4 Consulting Panel",
-      location: "F104",
-      type: "speaker",
-    },
-    // {
-    //   time: "1:00 PM - 2:00 PM",
-    //   title: "CA Sakshi Jain (Social Media Personality and Entrepreneurship Guide)",
-    //   location: "Auditorium",
-    //   type: "speaker",
-    // },
-    {
-      time: "2:00 PM - 3:00 PM",
-      title: "HireVC Panel (Panel of VCs)",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "3:00 PM - 4:00 PM",
-      title: "Startup Panel (Ajay Rungta , Bharadwaj , Kirthi Jain)",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "10:00 AM - 5:00 PM",
-      title: "WORKSHOPS",
-      location: "Workshop Hall",
-      type: "workshop",
-    },
-    {
-      time: "12:00 PM - 12:00 AM",
-      title: "Campus War (LUDO NO 1)",
-      location: "online Tournament Code - BITS26",
-      type: "event",
-    },
-    {
-      time: "5:00 PM",
-      title: "IPL AUCTION (PRIZE MONEY - 10K)",
-      location: "G105",
-      type: "event",
-    },
-    {
-      time: "7:30 PM",
-      title: "Live Screening IPL 2026 (KKR VS RCB)",
-      location: "Library Lawns",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 8:00 PM",
-      title: "BGMI Tournament (PRIZE POOL - 1L+)",
-      location: "https://forms.gle/hhzksTJLgU4UztGG6",
-      type: "event",
-    },
-
-  ],
-  day4: [
-    {
-      time: "10:00 AM - 8:00 PM",
-      title: "Startup Expo",
-      location: "Library Lawns",
-      type: "event",
-    },
-    // {
-    //   time: "10:00 AM - 8:00 PM",
-    //   title: "Internship Drive",
-    //   location: "I212 , I213 , I221 , I222",
-    //   type: "event",
-    // },
-    {
-      time: "10:00 AM - 11:00 AM",
-      title: "Shashank Randev(CoFounder , 100xVC)",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    // {
-    //   time: "11:00 PM - 12:00 PM",
-    //   title: "Miheeka Daggubati (Founder of Mudita Tribe)",
-    //   location: "Auditorium",
-    //   type: "speaker",
-    // },
-    {
-      time: "12:00 PM - 2:00 PM",
-      title: "Meeraj Faheem",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "2:00 PM",
-      title: "Aman Gupta (Founder and CMO , Boat)",
-      location: "Auditorium",
-      type: "speaker",
-    },
-    {
-      time: "9:00 AM - 6:00 PM",
-      title: "Teen Tycoons (Case Study Competetion for school students)",
-      location: "F205 , F206 , F207 , F208",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 6:00 PM",
-      title: "Ground Reality - Finals",
-      location: "F103",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 6:00 PM",
-      title: "Teen Tycoons Jr (Science Exhibition by school students)",
-      location: "Library Lawns",
-      type: "event",
-    },
-    {
-      time: "7:00 PM - 10:00 PM",
-      title: "Pitcher's Pilot (Flagship Fundraising Competetion)",
-      location: "Library Lawns",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 6:00 PM",
-      title: "Startup Odyssey (PRIZE POOL - 7K)",
-      location: "G105,G106",
-      type: "event",
-    },
-    {
-      time: "4:00 PM - 6:00 PM",
-      title: "Takeoff (PRIZE POOL - 5K)",
-      location: "F107",
-      type: "event",
-    },
-    {
-      time: "10:00 AM - 8:00 PM",
-      title: "Valorant Tournament (PRIZE POOL - 1L+)",
-      location: "https://forms.gle/LKcDNWanc2kRRV8BA",
-      type: "event",
-    },
-
-  ],
-};
-
-const typeColors = {
-  speaker: "bg-purple-600",
-  performance: "bg-pink-600",
-  event: "bg-blue-700",
-  workshop: "bg-teal-600",
-};
-
-const eventTypes = [
-  { id: "all", name: "All" },
-  { id: "speaker", name: "Speaker Sessions" },
-  { id: "performance", name: "Performances" },
-  { id: "event", name: "Events" },
-  { id: "workshop", name: "Workshops" },
-];
+import { motion } from "framer-motion";
 
 const EventSchedule = () => {
-
-  const [activeDay, setActiveDay] = useState("day1");
-  const [animatedItems, setAnimatedItems] = useState([]);
-  const [selectedType, setSelectedType] = useState("all");
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (scheduleData[activeDay]) {
-        const newAnimatedItems = scheduleData[activeDay].map((_, index) => index);
-        setAnimatedItems(newAnimatedItems);
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [activeDay]);
-
-  const filteredEvents =
-    selectedType === "all"
-      ? scheduleData[activeDay]
-      : scheduleData[activeDay].filter((event) => event.type === selectedType);
-
   return (
-    <div className="text-white py-16 px-4 md:px-8 min-h-screen bg-ecell-bg">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl font-extrabold tracking-tight text-ecell-text">
-            Event Schedule
-          </h2>
-          <p className="text-lg mt-2 text-ecell-text opacity-75">Launchpad 2026</p>
-        </div>
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden px-6">
+      {/* Background Ambience */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6b5fff]/20 rounded-full blur-[128px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#d4ff00]/10 rounded-full blur-[128px] pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30 pointer-events-none" />
 
-        {/* Day Selection */}
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
-          {days.map((day) => (
-            <button
-              key={day.id}
-              onClick={() => {
-                setActiveDay(day.id);
-                setAnimatedItems([]);
-              }}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-white ${activeDay === day.id
-                ? "bg-ecell-secondary shadow-lg shadow-ecell-secondary/30 scale-105"
-                : "bg-ecell-dark hover:bg-ecell-dark/80 border border-ecell-secondary/30"
-                }`}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 text-center max-w-4xl"
+      >
+        <span className="text-[#6b5fff] font-bold text-sm md:text-base uppercase tracking-[0.3em] mb-4 block">
+          Launchpad 2026
+        </span>
+
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+          Schedule <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4ff00] to-white drop-shadow-[0_0_20px_rgba(212,255,0,0.3)]">
+            Coming Soon
+          </span>
+        </h1>
+
+        <div className="h-px w-full max-w-xs mx-auto bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-12" />
+
+        <div className="space-y-6">
+          <h3 className="text-xl font-semibold text-white mb-6">For any further information contact</h3>
+
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            <div
+              className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 transition-all duration-300"
             >
-              {day.name}
-              <br />
-              <span className="text-sm text-ecell-primary">{day.date}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Event Type Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {eventTypes.map((type) => (
-            <button
-              key={type.id}
-              onClick={() => setSelectedType(type.id)}
-              className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${selectedType === type.id
-                ? "bg-blue-500 text-white"
-                : "bg-gray-700 hover:bg-gray-600"
-                }`}
-            >
-              {type.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Schedule List */}
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {filteredEvents.length > 0 ? (
-            filteredEvents.map((event, index) => (
-              <div
-                key={index}
-                className={`p-6 rounded-xl shadow-xl text-white transform transition-all duration-500 ${animatedItems.includes(index)
-                  ? "opacity-100 translate-y-0 scale-105"
-                  : "opacity-0 -translate-y-4 scale-95"
-                  } ${typeColors[event.type]}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-                <p className="text-sm text-gray-200">
-                  {event.time} • {event.location}
-                </p>
+              <div className="p-2 rounded-full bg-[#6b5fff]/20 text-[#6b5fff]">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
               </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-400">
-              No events found for this category.
-            </p>
-          )}
+              <span className="text-gray-300">
+                jainsonaayush0808@gmail.com
+              </span>
+            </div>
+
+            <div
+              className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 transition-all duration-300"
+            >
+              <div className="p-2 rounded-full bg-[#d4ff00]/20 text-[#d4ff00]">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Aayush Jain</span>
+                <span className="text-gray-300">+91 9098658361</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

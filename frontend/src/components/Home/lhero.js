@@ -62,7 +62,7 @@ const Hero = () => {
         </h1>
 
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-ecell-text-muted font-light mb-8 transition-transform duration-200">
-          Annual Entrepreneurship Summit of <span className="text-ecell-primary font-medium">BITS Pilani Hyderabad Campus</span>
+          An Entrepreneurship Workshop <span className="text-ecell-primary font-medium"></span>
         </h2>
 
         <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl transition-transform duration-200 font-medium tracking-wide">
