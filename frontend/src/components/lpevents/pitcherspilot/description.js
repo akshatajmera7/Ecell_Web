@@ -16,7 +16,7 @@ const ProgramDescription = () => {
             
         
             <p className="text-lg mb-8">
-            Beyond showcasing their ventures, participants gain invaluable feedback from potential customers and unlock a world of opportunities to accelerate their growth..
+            Beyond showcasing their ventures, participants gain invaluable feedback from potential customers and unlock a world of opportunities for their growth..
             </p>
                
             <p className="text-lg mb-8">

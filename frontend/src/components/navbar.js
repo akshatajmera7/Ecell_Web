@@ -21,9 +21,9 @@ const Navbar = ({ onToggleMenu, isOpen }) => {
     <nav className={`navbar-new ${isScrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""}`}>
       <div className="navbar-container-new">
         <div className="nav-logo-box">
-          <Link to="/" className="navbar-logo-link">
+          {/* <Link to="/" className="navbar-logo-link">
             <img src={logo} alt="E-CELL" className="nav-logo-img" />
-          </Link>
+          </Link> */}
         </div>
 
         <div className="nav-main-content">

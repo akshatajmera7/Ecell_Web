@@ -8,7 +8,7 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-              Launchpad is three-day annual entrepreneurial summit by E-Cell, BITS Pilani Hyderabad Campus, celebrating innovation and startups.
+              Launchpad is three-day annual Entrepreneurship Learning Series by E-Cell, BITS Pilani Hyderabad Campus, celebrating innovation and startups.
             </p>
 
             <p className="text-lg mb-8">

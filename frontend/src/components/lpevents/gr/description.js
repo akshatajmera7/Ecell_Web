@@ -24,7 +24,7 @@ const ProgramDescription = () => {
             <p className="text-lg mb-8">
               The winners receive a prize pool of Rs. 4 Lakhs, along
               with legal services, mentoring vouchers, cloud space,
-              accelerator programs, and incubation support,
+              and incubation support,
               offering invaluable resources for business growth.
             </p>
           </div>

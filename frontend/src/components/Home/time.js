@@ -12,7 +12,7 @@ import img7 from '../../assets/7.png';
 const events = [
   { id: 1, title: "Startup Expo", images: [img1], link: "/launchpad/startup_expo" },
   { id: 2, title: "Pitcher's Pilot", images: [img6], link: "/launchpad/pitchers_pilot" },
-  { id: 3, title: "Internship Drive", images: [img3], link: "/launchpad/internship_drive" },
+  // { id: 3, title: "Internship Drive", images: [img3], link: "/launchpad/internship_drive" },
   { id: 4, title: "Teen Tycoons", images: [img5], link: "/launchpad/teen_tycoons" },
   { id: 5, title: "Ground Reality", images: [img7], link: "/launchpad/ground_reality" },
   { id: 6, title: "Beyond Profits", images: [img4], link: "/launchpad/beyond_profits" },

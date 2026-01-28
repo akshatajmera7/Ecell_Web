@@ -19,8 +19,8 @@ const Footer = () => {
           {/* Brand + Social */}
           <div>
             <div className="mb-6">
-              <div className="text-xl text-elegant-header leading-tight" style={{ fontWeight: 800 }}>E-CELL</div>
-              <div className="text-sm text-elegant-body opacity-80">BITS Pilani Hyderabad Campus</div>
+              <div className="text-xl text-elegant-header leading-tight" style={{ fontWeight: 800 }}>Launchpad</div>
+              <div className="text-sm text-elegant-body opacity-80">by Aayush Jain</div>
             </div>
 
             <div className="text-sm mb-3 opacity-90">Get connected with us on social networks:</div>
@@ -83,11 +83,11 @@ const Footer = () => {
                 <span>Hyderabad, Telangana 500078</span>
               </li>
               <li className="opacity-90 hover:text-ecell-primary transition-colors">
-                <a href="mailto:ecell@hyderabad.bits-pilani.ac.in">ecell@hyderabad.bits-pilani.ac.in</a>
+                <a href="mailto:jainsonaayush0808@gmail.com">jainsonaayush0808@gmail.com</a>
               </li>
 
               <li className="opacity-90">
-                <a href="tel:+919347270686" className="hover:text-ecell-primary transition-colors">Shihab- +91 9347270686</a>
+                <a href="tel:+919098658361" className="hover:text-ecell-primary transition-colors">Aayush Jain- +91 9098658361</a>
               </li>
             </ul>
           </div>
@@ -116,7 +116,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-10 py-4 text-center text-sm text-ecell-primary">
-          © 2026 Copyright: E-Cell BITS Pilani Hyderabad
+          © 2026 Copyright: Launchpad by Aayush Jain
         </div>
       </div>
     </footer>

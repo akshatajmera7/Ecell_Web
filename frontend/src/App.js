@@ -77,7 +77,7 @@ function App() {
 // Extracted main content to keep `useLocation()` inside `Router`
 function MainContent() {
   const location = useLocation();
-  const isLaunchpadRoute = location.pathname.startsWith("/launchpad");
+  const isLaunchpadRoute = location.pathname.startsWith("/launchpad") || location.pathname === "/";
 
   // Lenis Smooth Scroll
   useEffect(() => {
@@ -141,7 +141,7 @@ function MainContent() {
     { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
     // { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
-    { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
+    // { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
   ];
 
   return (
@@ -197,7 +197,7 @@ function MainContent() {
           <div className={`main-content ${location.pathname === "/" || location.pathname === "/launchpad" ? "no-padding" : ""}`}>
             <Routes location={location} key={location.pathname}>
               {/* Normal Routes */}
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Launchpadhome />} />
               <Route path="/team" element={<Team />} />
               <Route path="/program" element={<Program />} />
               <Route path="/gallery" element={<Gallery />} />

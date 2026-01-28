@@ -61,7 +61,7 @@ const EventCard = ({ event, index }) => {
 const EventsPage = () => {
   const events = [
     { id: 1, title: "Startup Expo", description: "Unleash innovation and connect with industry leaders at the ultimate Startup Expo!", images: [img1], registerLink: "https://rzp.io/rzp/66fqi0c", exploreLink: "/launchpad/startup_expo" },
-    { id: 3, title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", images: [img3], registerLink: "https://pmny.in/ZJi5eWmeNiNH", exploreLink: "/launchpad/internship_drive" },
+    // { id: 3, title: "Internship Drive", description: "Launch your career with the Internship Drive – connect, learn, and grow with top startups!", images: [img3], registerLink: "https://pmny.in/ZJi5eWmeNiNH", exploreLink: "/launchpad/internship_drive" },
     { id: 5, title: "Teen Tycoons", description: "Shaping the next generation of entrepreneurs through dynamic challenges and expert mentorship.", images: [img5], registerLink: "https://rzp.io/rzp/KAUB2dMB", exploreLink: "/launchpad/teen_tycoons" },
     { id: 6, title: "Pitcher's Pilot", description: "A dynamic platform for entrepreneurs to showcase their ventures, gain valuable feedback, and connect with investors for growth.", images: [img6], registerLink: "https://rzp.io/rzp/Fn5oSxt", exploreLink: "/launchpad/pitchers_pilot" },
     { id: 7, title: "Ground Reality", description: "Pitch your startup to top investors and win Rs. 2 Lakhs with mentorship and resources for growth!", images: [img7], registerLink: "https://unstop.com/competitions/ground-reality-a-business-plan-competition-birla-institute-of-technology-science-pilani-hyderabad-campus-1316405", exploreLink: "/launchpad/ground_reality" }

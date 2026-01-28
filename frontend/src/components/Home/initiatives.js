@@ -64,7 +64,7 @@ const Initiatives = () => {
           <span className="text-[#BCFF2F]">Programs &</span> <span className="text-[#6F66FF]">Initiatives</span>
         </h2>
         <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light px-4">
-          Fostering innovation through our curated programs designed to support and accelerate your entrepreneurial journey.
+          Fostering innovation through our curated programs designed to support and grow your entrepreneurial journey.
         </p>
       </motion.div>
 
