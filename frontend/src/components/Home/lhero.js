@@ -83,7 +83,8 @@ const Hero = () => {
             </span>
           </a>
 
-          <a
+          {/* TEMPORARILY HIDDEN - Uncomment to restore */}
+          {/* <a
             href="/launchpad/passes"
             className="group flex items-center gap-3 px-10 py-4 border-2 border-ecell-secondary text-ecell-secondary text-lg font-bold rounded-full 
                      hover:bg-ecell-secondary hover:text-white shadow-[0_0_15px_rgba(107,95,255,0.2)] 
@@ -93,7 +94,7 @@ const Hero = () => {
             <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
               <ArrowIcon />
             </span>
-          </a>
+          </a> */}
         </div>
 
         {/* Scroll Indicator */}
