@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Phone } from "lucide-react";
 import "./Navbar.css";
-import logo from "../assets/navbarlogo.png";
+// import logo from "../assets/navbarlogo.png";
 import lplogo from "../assets/lplogo.jpeg";
 
 const Navbar = ({ onToggleMenu, isOpen }) => {

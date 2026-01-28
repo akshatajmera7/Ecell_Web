@@ -4,7 +4,7 @@ import { ArrowDownRight } from 'lucide-react';
 import BlurImage from '../BlurImage';
 
 import img1 from '../../assets/1.png';
-import img3 from '../../assets/3.png';
+// import img3 from '../../assets/3.png';
 import img5 from '../../assets/5.png';
 import img6 from '../../assets/6.png';
 import img7 from '../../assets/7.png';

@@ -12,7 +12,7 @@ import { AnimatePresence } from 'framer-motion';
 import GlobalBackground from './components/GlobalBackground';
 
 // Lazy load components
-const Home = lazy(() => import("./components/Home/home"));
+// const Home = lazy(() => import("./components/Home/home"));
 const Team = lazy(() => import("./components/Teams/team"));
 const Program = lazy(() => import("./components/Programs/program"));
 const Contact = lazy(() => import("./components/contact"));
