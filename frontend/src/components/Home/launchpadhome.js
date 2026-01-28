@@ -22,9 +22,9 @@ function Home() {
       <Past />
 
       <div className="relative ">
-        <Sponsor />
+        {/* <Sponsor />
         <Partners />
-        <Media />
+        <Media /> */}
       </div>
     </div>
   );
