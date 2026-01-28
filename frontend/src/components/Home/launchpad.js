@@ -8,14 +8,17 @@ const events = [
   "PITCHERS PILOT",
   "INTERNSHIP DRIVE",
   "GROUND REALITY",
-  "NETWORKING ARENA"
+  // TEMPORARILY HIDDEN - Uncomment to restore
+  // "NETWORKING ARENA"
 ];
 
 const carouselImages = [
   "/ss.JPG",
-  "/na.png",
+  // TEMPORARILY HIDDEN - Uncomment to restore
+  // "/na.png",
   "/lp.png",
-  "/na1.png"
+  // TEMPORARILY HIDDEN - Uncomment to restore
+  // "/na1.png"
 ];
 
 const Launchpad = () => {

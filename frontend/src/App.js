@@ -35,7 +35,8 @@ const Gr = lazy(() => import("./components/lpevents/gr/grindex"));
 const Pitchp = lazy(() => import("./components/lpevents/pitcherspilot/ppindex"));
 const TT = lazy(() => import("./components/lpevents/t3/t3index"));
 const Id = lazy(() => import("./components/lpevents/id/idindex"));
-const Na = lazy(() => import("./components/lpevents/na/naindex"));
+// TEMPORARILY HIDDEN - Uncomment to restore
+// const Na = lazy(() => import("./components/lpevents/na/naindex"));
 const Se = lazy(() => import("./components/lpevents/startupexpo/seindex"));
 const PaymentSuccess = lazy(() => import("./components/paymentsuccess"));
 const PaymentFailed = lazy(() => import("./components/paymentfailed"));
@@ -202,7 +203,8 @@ function MainContent() {
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/launchpad/gallery" element={<LaunchpadGallery />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/na" element={<Na />} />
+              {/* TEMPORARILY HIDDEN - Uncomment to restore */}
+              {/* <Route path="/na" element={<Na />} /> */}
 
               {/* Launchpad Routes */}
               <Route path="/launchpad" element={<Launchpadhome />} />

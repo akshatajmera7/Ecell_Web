@@ -8,7 +8,8 @@ const LFooter = () => {
     { label: 'Speakers Sessions', to: '/launchpad/speakers' },
     { label: 'Startup Spotlight', to: '/launchpad/startup_expo' },
     { label: 'Management Temptations', to: '/launchpad/events' },
-    { label: 'Networking Arena', to: '/launchpad/events' },
+    // TEMPORARILY HIDDEN - Uncomment to restore
+    // { label: 'Networking Arena', to: '/launchpad/events' },
   ];
 
   // Launchpad area links (match Launchpad menu)
