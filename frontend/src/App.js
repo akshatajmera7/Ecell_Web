@@ -25,7 +25,8 @@ const Lteam = lazy(() => import("./components/team/team"));
 const Lcontact = lazy(() => import("./components/lcontact"));
 const Launchpadhome = lazy(() => import("./components/Home/launchpadhome"));
 const Event = lazy(() => import("./components/events/event"));
-const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
+// TEMPORARILY HIDDEN - Uncomment to restore
+// const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
 
 const Schedules = lazy(() => import("./components/schedules"));
 const Speakers = lazy(() => import("./components/speakers/launchpadspeakers"));
@@ -41,7 +42,8 @@ const PaymentFailed = lazy(() => import("./components/paymentfailed"));
 const PaymentCancel = lazy(() => import("./components/paymentcancel"));
 const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"));
 const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
-const Passes = lazy(() => import("./components/passes"));
+// TEMPORARILY HIDDEN - Uncomment to restore
+// const Passes = lazy(() => import("./components/passes"));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -130,9 +132,11 @@ function MainContent() {
     { label: 'Home', ariaLabel: 'Go to Launchpad home', link: '/launchpad' },
     { label: 'Schedule', ariaLabel: 'View schedule', link: '/launchpad/schedules' },
     { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
-    { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
+    // TEMPORARILY HIDDEN - Uncomment to restore
+    // { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
-    { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
+    // TEMPORARILY HIDDEN - Uncomment to restore
+    // { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
     { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
@@ -204,7 +208,8 @@ function MainContent() {
               <Route path="/launchpad" element={<Launchpadhome />} />
               <Route path="/launchpad/contact" element={<Lcontact />} />
               <Route path="/launchpad/events" element={<Event />} />
-              <Route path="/launchpad/sponsor" element={<Sponsor />} />
+              {/* TEMPORARILY HIDDEN - Uncomment to restore */}
+              {/* <Route path="/launchpad/sponsor" element={<Sponsor />} /> */}
 
               <Route path="/launchpad/speakers" element={<Speakers />} />
 
@@ -215,7 +220,8 @@ function MainContent() {
               <Route path="/launchpad/teen_tycoons" element={<TT />} />
               <Route path="/launchpad/internship_drive" element={<Id />} />
               <Route path="/launchpad/startup_expo" element={<Se />} />
-              <Route path="/launchpad/passes" element={<Passes />} />
+              {/* TEMPORARILY HIDDEN - Uncomment to restore */}
+              {/* <Route path="/launchpad/passes" element={<Passes />} /> */}
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
               <Route path="/launchpad/event-demo" element={<EventDemo />} />

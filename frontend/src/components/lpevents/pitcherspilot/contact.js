@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import Aditya from "../../../assets/Aditya.jpg";
 import Sharduli from "../../../assets/Sharduli.jpg";
 import Vedant from "../../../assets/Vedant.jpg";
+import aarya from "../../../assets/aarya tripathi.jpeg";
 
 const ContactSection = () => {
   const guestRelationsContacts = [
@@ -28,6 +29,13 @@ const ContactSection = () => {
       image: Vedant,
       phone: "+91 8956134149",
       linkedin: "https://www.linkedin.com/in/vedant-nichal",
+    },
+    {
+      id: 4,
+      name: "Aarya Tripathi",
+      image: aarya,
+      phone: "+91 9022801833",
+      linkedin: "https://www.linkedin.com/in/aarya-tripathi",
     }
   ];
 
