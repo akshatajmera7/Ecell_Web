@@ -115,7 +115,7 @@ function MainContent() {
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
     { label: 'Programs', ariaLabel: 'View our programs', link: '/program' },
-    { label: 'Our Team', ariaLabel: 'Meet the team', link: '/team' },
+    // { label: 'Our Team', ariaLabel: 'Meet the team', link: '/team' },
     { label: 'Gallery', ariaLabel: 'View our gallery', link: '/gallery' },
     { label: 'Launchpad', ariaLabel: 'Explore Launchpad', link: '/launchpad' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
@@ -139,7 +139,7 @@ function MainContent() {
     // TEMPORARILY HIDDEN - Uncomment to restore
     // { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
     { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
-    { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
+    // { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
     { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
   ];

@@ -52,7 +52,7 @@ const CosmicNavbar = () => {
       { name: "Speakers", href: "/launchpad/speakers" },
       // TEMPORARILY HIDDEN - Uncomment to restore
       // { name: "Sponsors", href: "/launchpad/sponsor" },
-      { name: "Our Team", href: "/launchpad/team" },
+      // { name: "Our Team", href: "/launchpad/team" },
       { name: "Contact", href: "/launchpad/contact" },
     ],
     []

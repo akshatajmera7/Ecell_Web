@@ -26,7 +26,7 @@ const initiatives = [
   },
   {
     id: 'networking-arena',
-    title: 'Networking Arena',
+    title: 'Free College Workshops',
     subtitle: 'Lorem Ipsum Dolor Sit Amet',
     color: '#6F66FF',
     textColor: 'white',

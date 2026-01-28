@@ -34,12 +34,12 @@ const Navbar = ({ onToggleMenu, isOpen }) => {
             >
               Programs & Initiatives
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/team"
               className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
             >
               Our Team
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/gallery"
               className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
