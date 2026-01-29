@@ -81,7 +81,7 @@ const KeyFeatures = () => {
             <StatCard title="STARTUPS" value="1000+" className="h-full" />
           </div>
           <div className="md:col-span-1 md:row-span-1">
-            <StatCard title="EVENTS" value="20+" className="h-full" />
+            <StatCard title="WORKSHOPS" value="20+" className="h-full" />
           </div>
           <div className="md:col-span-1 md:row-span-1">
             <StatCard title="SPEAKERS" value="50+" className="h-full" />

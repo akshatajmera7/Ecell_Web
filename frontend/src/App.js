@@ -132,7 +132,7 @@ function MainContent() {
   const launchpadMenuItems = [
     { label: 'Home', ariaLabel: 'Go to Launchpad home', link: '/launchpad' },
     { label: 'Schedule', ariaLabel: 'View schedule', link: '/launchpad/schedules' },
-    { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
+    { label: 'Workshops', ariaLabel: 'View workshops', link: '/launchpad/workshop' },
     // TEMPORARILY HIDDEN - Uncomment to restore
     // { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
@@ -209,7 +209,7 @@ function MainContent() {
               {/* Launchpad Routes */}
               <Route path="/launchpad" element={<Launchpadhome />} />
               <Route path="/launchpad/contact" element={<Lcontact />} />
-              <Route path="/launchpad/events" element={<Event />} />
+              <Route path="/launchpad/workshop" element={<Event />} />
               {/* TEMPORARILY HIDDEN - Uncomment to restore */}
               {/* <Route path="/launchpad/sponsor" element={<Sponsor />} /> */}
 
@@ -226,7 +226,7 @@ function MainContent() {
               {/* <Route path="/launchpad/passes" element={<Passes />} /> */}
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
-              <Route path="/launchpad/event-demo" element={<EventDemo />} />
+              <Route path="/launchpad/workshop-demo" element={<EventDemo />} />
               <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
 
 

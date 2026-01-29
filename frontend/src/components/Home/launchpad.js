@@ -131,7 +131,7 @@ const Launchpad = () => {
             viewport={{ once: true }}
             className="px-10 py-3 rounded-full border border-[#6F66FF]/30 mb-12 bg-[#6F66FF]/5"
           >
-            <span className="text-[#6F66FF] text-xl md:text-2xl font-bold font-syne uppercase tracking-widest">Our Events</span>
+            <span className="text-[#6F66FF] text-xl md:text-2xl font-bold font-syne uppercase tracking-widest">Our Workshops</span>
           </motion.div>
           <VerticalMarquee items={events} />
         </div>
@@ -162,10 +162,10 @@ const Launchpad = () => {
             {/* Explore Events Button */}
             <div className="absolute bottom-6 right-6 z-10">
               <button
-                onClick={() => navigate('/launchpad/events')}
+                onClick={() => navigate('/launchpad/workshop')}
                 className="bg-white/95 backdrop-blur-sm text-black px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#BCFF2F] transition-all duration-300 shadow-xl scale-90 md:scale-100"
               >
-                Explore Events <ArrowDownRight className="w-4 h-4" />
+                Explore Workshops <ArrowDownRight className="w-4 h-4" />
               </button>
             </div>
             {/* Dark overlay for contrast */}

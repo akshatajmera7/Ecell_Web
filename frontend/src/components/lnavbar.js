@@ -48,7 +48,7 @@ const CosmicNavbar = () => {
       { name: "Schedule", href: "/launchpad/schedules" },
       // TEMPORARILY HIDDEN - Uncomment to restore
       // { name: "Passes", href: "/launchpad/passes" },
-      { name: "Events", href: "/launchpad/events" },
+      { name: "Workshops", href: "/launchpad/workshop" },
       { name: "Speakers", href: "/launchpad/speakers" },
       // TEMPORARILY HIDDEN - Uncomment to restore
       // { name: "Sponsors", href: "/launchpad/sponsor" },
