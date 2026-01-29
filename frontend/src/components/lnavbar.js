@@ -50,10 +50,10 @@ const CosmicNavbar = () => {
       { name: "Passes", href: "/launchpad/passes" },
       { name: "Events", href: "/launchpad/workshop" },
       { name: "Speakers", href: "/launchpad/speakers" },
-      // TEMPORARILY HIDDEN - Uncomment to restore
-      // { name: "Sponsors", href: "/launchpad/sponsor" },
+      { name: "Sponsors", href: "/launchpad/sponsor" },
       { name: "Our Team", href: "/launchpad/team" },
       { name: "Contact", href: "/launchpad/contact" },
+      { name: "E-Cell", href: "/" },
     ],
     []
   );

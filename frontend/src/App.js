@@ -141,7 +141,7 @@ function MainContent() {
     { label: 'Gallery', ariaLabel: 'View gallery', link: '/gallery' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
-    // { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
+    { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
   ];
 
   return (

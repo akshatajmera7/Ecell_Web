@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Frame4 = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative w-full overflow-hidden font-syne -mt-20 py-20 pb-0">
       {/* Background Glow - Seamlesly continuing behind the card */}
@@ -15,7 +17,10 @@ const Frame4 = () => {
           <h3 className="text-[#CBF327] text-3xl md:text-[42px] font-medium mb-8 leading-none tracking-tight">
             Limited Seats
           </h3>
-          <button className="inline-flex items-center gap-3 bg-white px-8 py-3 rounded-full text-[#161616] text-lg font-bold shadow-lg hover:scale-105 transition-all duration-300 group">
+          <button
+            onClick={() => navigate('/launchpad/passes')}
+            className="inline-flex items-center gap-3 bg-white px-8 py-3 rounded-full text-[#161616] text-lg font-bold shadow-lg hover:scale-105 transition-all duration-300 group"
+          >
             Get Your Passes Now
             <span className="text-xl group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">↘</span>
           </button>
