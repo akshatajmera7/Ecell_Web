@@ -25,8 +25,9 @@ const Lteam = lazy(() => import("./components/team/team"));
 const Lcontact = lazy(() => import("./components/lcontact"));
 const Launchpadhome = lazy(() => import("./components/Home/launchpadhome"));
 const Event = lazy(() => import("./components/events/event"));
-// TEMPORARILY HIDDEN - Uncomment to restore
-// const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
+const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
+const PartnerPage = lazy(() => import("./components/sponsors/PartnerPage"));
+const MediaPage = lazy(() => import("./components/sponsors/MediaPage"));
 
 //const Schedules = lazy(() => import("./components/schedules"));
 const ScheduleSoon = lazy(() => import("./components/ScheduleSoon"));
@@ -133,11 +134,12 @@ function MainContent() {
   const launchpadMenuItems = [
     { label: 'Home', ariaLabel: 'Go to Launchpad home', link: '/launchpad' },
     { label: 'Schedule', ariaLabel: 'View schedule', link: '/launchpad/schedules' },
-    { label: 'Events', ariaLabel: 'View events', link: '/launchpad/workshop' },
-    // TEMPORARILY HIDDEN - Uncomment to restore
+    { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
     { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
+    { label: 'Partners', ariaLabel: 'View partners', link: '/launchpad/partner' },
+    { label: 'Media', ariaLabel: 'View media partners', link: '/launchpad/media' },
     { label: 'Gallery', ariaLabel: 'View gallery', link: '/gallery' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
@@ -209,9 +211,10 @@ function MainContent() {
               {/* Launchpad Routes */}
               <Route path="/launchpad" element={<Launchpadhome />} />
               <Route path="/launchpad/contact" element={<Lcontact />} />
-              <Route path="/launchpad/workshop" element={<Event />} />
-              {/* TEMPORARILY HIDDEN - Uncomment to restore */}
-              {/* <Route path="/launchpad/sponsor" element={<Sponsor />} /> */}
+              <Route path="/launchpad/events" element={<Event />} />
+              <Route path="/launchpad/sponsor" element={<Sponsor />} />
+              <Route path="/launchpad/partner" element={<PartnerPage />} />
+              <Route path="/launchpad/media" element={<MediaPage />} />
 
               <Route path="/launchpad/speakers" element={<Speakers />} />
 

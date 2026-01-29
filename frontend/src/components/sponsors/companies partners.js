@@ -126,7 +126,7 @@ const MediaAssociates = () => {
           whileInView={{ opacity: 1, y: 0 }}
         // transition={{ duration: 0.6 }}
         >
-          PAST PARTNERS
+          PAST PARTNER
         </motion.h2>
 
         <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 md:gap-5 lg:gap-6">

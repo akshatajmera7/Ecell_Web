@@ -45,7 +45,7 @@ const EventCard = ({ event }) => {
 
       <div className="flex justify-between items-end mt-auto z-10">
         <div className="flex flex-col text-left font-poppins">
-          <span className="text-[#6b5fff] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-1 opacity-80">LP Workshop</span>
+          <span className="text-[#6b5fff] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-1 opacity-80">LP Event</span>
           <h3 className="text-xl md:text-2xl font-black text-white leading-tight">
             {event.title.split(' ')[0]} <br />
             <span className="text-[#d4ff00]">{event.title.split(' ').slice(1).join(' ')}</span>
@@ -121,7 +121,7 @@ const EventsPage = () => {
         >
           <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-none mb-4">
             <span className="text-[#6b5fff] inline-block font-poppins">Launchpad</span>{" "}
-            <span className="text-[#d4ff00] inline-block drop-shadow-[0_0_30px_rgba(212,255,0,0.4)] font-poppins">Workshops</span>
+            <span className="text-[#d4ff00] inline-block drop-shadow-[0_0_30px_rgba(212,255,0,0.4)] font-poppins">Events</span>
           </h2>
           <div className="h-1 w-16 md:w-24 bg-gradient-to-r from-[#6b5fff] to-[#d4ff00] rounded-full mt-2 md:mt-4 mx-auto md:mx-0" />
         </motion.div>

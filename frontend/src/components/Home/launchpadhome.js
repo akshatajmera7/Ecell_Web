@@ -21,8 +21,12 @@ function Home() {
       <Past />
 
       <div className="relative ">
-        <Sponsor />
-        <Partners />
+        <div id="sponsor">
+          <Sponsor />
+        </div>
+        <div id="partner">
+          <Partners />
+        </div>
         <Media />
       </div>
     </GradientBackground>
