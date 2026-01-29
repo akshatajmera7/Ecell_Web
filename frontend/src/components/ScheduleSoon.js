@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Hourglass, Bell, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, Hourglass, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ScheduleSoon = () => {

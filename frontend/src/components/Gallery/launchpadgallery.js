@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import DomeGallery from './DomeGallery';
 
 // Import optimized gallery images (compressed from 404MB to 7.5MB)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, X, Shield, Star, Rocket, Users } from 'lucide-react';
+import { Check, X, Star, Rocket, Users } from 'lucide-react';
 
 const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position }) => {
   // Determine border glow color based on position

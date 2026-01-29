@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "./lhero";
 import GradientBackground from "../GradientBackground";
-import Sponsor from "./sponsor";
+// import Sponsor from "./sponsor";
 import Past from "./past";
 import Feature from "./feature";
 // import Partners from "./partner";
