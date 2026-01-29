@@ -12,7 +12,7 @@ import { AnimatePresence } from 'framer-motion';
 import GlobalBackground from './components/GlobalBackground';
 
 // Lazy load components
-// const Home = lazy(() => import("./components/Home/home"));
+const Home = lazy(() => import("./components/Home/home"));
 const Team = lazy(() => import("./components/Teams/team"));
 const Program = lazy(() => import("./components/Programs/program"));
 const Contact = lazy(() => import("./components/contact"));
@@ -78,7 +78,7 @@ function App() {
 // Extracted main content to keep `useLocation()` inside `Router`
 function MainContent() {
   const location = useLocation();
-  const isLaunchpadRoute = location.pathname.startsWith("/launchpad") || location.pathname === "/";
+  const isLaunchpadRoute = location.pathname.startsWith("/launchpad");
 
   // Lenis Smooth Scroll
   useEffect(() => {
@@ -197,7 +197,7 @@ function MainContent() {
           <div className={`main-content ${location.pathname === "/" ? "no-padding" : ""}`}>
             <Routes location={location} key={location.pathname}>
               {/* Normal Routes */}
-              <Route path="/" element={<Launchpadhome />} />
+              <Route path="/" element={<Home />} />
               <Route path="/team" element={<Team />} />
               <Route path="/program" element={<Program />} />
               <Route path="/gallery" element={<Gallery />} />
