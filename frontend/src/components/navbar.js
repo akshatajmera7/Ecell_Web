@@ -2,10 +2,15 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Phone } from "lucide-react";
 import "./Navbar.css";
+<<<<<<< HEAD
 // import logo from "../assets/navbarlogo.png";
 import lplogo from "../assets/lplogo.jpeg";
+=======
+import logo from "../assets/navbarlogo.png";
+import lplogo from "../assets/ecell/lp_logo_new.png";
+>>>>>>> divvij-updates
 
-const Navbar = ({ onToggleMenu, isOpen }) => {
+const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,7 +23,7 @@ const Navbar = ({ onToggleMenu, isOpen }) => {
   }, []);
 
   return (
-    <nav className={`navbar-new ${isScrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""}`}>
+    <nav className={`navbar-new ${isScrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""} ${isLaunchpad ? "launchpad-mode" : ""}`}>
       <div className="navbar-container-new">
         <div className="nav-logo-box">
           {/* <Link to="/" className="navbar-logo-link">
@@ -51,7 +56,7 @@ const Navbar = ({ onToggleMenu, isOpen }) => {
             <div className="nav-cell-bottom border-right">
               <NavLink
                 to="/launchpad"
-                className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
+                className={({ isActive }) => `nav-link-new launchpad-link ${isActive ? "active" : ""}`}
               >
                 <img src={lplogo} alt="LP" className="lp-icon-nav" />
                 Launchpad

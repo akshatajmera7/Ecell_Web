@@ -59,17 +59,17 @@ const ContactSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Networking Arena Handled By
+        Gallery Handled By
       </motion.h1>
 
       {/* Guest Relations Section */}
       <section className="w-full flex justify-center items-center">
-  <div className="grid place-items-center">
-    {guestRelationsContacts.map((person) => (
-      <ContactCard key={person.id} person={person} />
-    ))}
-  </div>
-</section>
+        <div className="grid place-items-center">
+          {guestRelationsContacts.map((person) => (
+            <ContactCard key={person.id} person={person} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

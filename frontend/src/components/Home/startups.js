@@ -138,7 +138,7 @@ const Startup = () => {
       {/* =======================
           MOBILE LAYOUT (< md)
           Vertical Timeline
-         ======================= */}
+          ======================= */}
       <div className="relative w-full max-w-md px-6 md:hidden flex flex-col gap-8 pb-10">
         {/* Vertical Dashed Line */}
         <div className="absolute left-9 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-[#d4ff00] opacity-30"></div>
@@ -220,7 +220,6 @@ const Startup = () => {
             stroke="#d4ff00"
             strokeWidth="3"
             strokeDasharray="12 12"
-            strokeLinecap="round"
             strokeLinejoin="round"
             mask="url(#pathMask)"
             style={{ vectorEffect: 'non-scaling-stroke' }}

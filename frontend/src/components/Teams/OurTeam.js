@@ -2,116 +2,80 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import Sagnik from "../../assets/PORs/sagnik.jpg";
-import Advik from "../../assets/PORs/advik.png";
-import Manav from "../../assets/PORs/manav.jpg";
-import Shoaib from "../../assets/shoaib.png";
-import Shreshth from "../../assets/PORs/shreshth.jpg";
-import Surbhit from "../../assets/PORs/surbhit.jpeg";
-import Vaishnavi from "../../assets/PORs/vaishnavi.png";
-import Raghav from "../../assets/PORs/raghav.jpeg";
-import Om from "../../assets/PORs/om.jpeg";
-import Ananya from "../../assets/PORs/ananya.jpeg";
-import Siddhant from "../../assets/PORs/siddhant.jpeg";
-import Ishika from "../../assets/PORs/ishika.jpeg";
+import shihab from "../../assets/por_photos/shihab.jpg";
+import ayush from "../../assets/por_photos/ayush.jpg";
+import akshaye from "../../assets/por_photos/akshaye.jpg";
+import darsh from "../../assets/por_photos/darsh.jpg";
+import manas from "../../assets/por_photos/manas.jpg";
+import raungta from "../../assets/por_photos/raungta.jpg";
+import akshat from "../../assets/por_photos/akshat_ajmera.jpeg";
+import mitesh from "../../assets/por_photos/mitesh.jpeg";
+
 import ChromaGrid from "./ChromaGrid";
 
 const teamMembers = [
   {
-    name: "Om Sonkusare",
-    role: "President",
-    image: Om,
-    linkedin: "https://www.linkedin.com/in/johndoe",
-    email: "john.doe@example.com",
+    name: "Shihab Saiyad",
+    role: "Chairman",
+    image: shihab,
+    linkedin: "https://www.linkedin.com/in/shihab-saiyad/",
+    email: "f20230223@hyderabad.bits-pilani.ac.in",
     bio: "Visionary leader passionate about entrepreneurship",
   },
   {
-    name: "Sagnik Paul",
-    role: "Launchpad Chairman",
-    image: Sagnik,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
-    bio: "Strategic thinker with a focus on innovation",
-  },
-  {
-    name: "Advik Kulkarni",
-    role: "Vice President Collaboration and Initiatives",
-    image: Advik,
-    linkedin: "https://www.linkedin.com/in/johndoe",
-    email: "john.doe@example.com",
-    bio: "Visionary leader passionate about entrepreneurship",
-  },
-  {
-    name: "Raghav Agarwal",
-    role: "Vice President Projects and Learning",
-    image: Raghav,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
-    bio: "Technology enthusiast driving digital transformation",
-  },
-  {
-    name: "Manav Sharma",
+    name: "Akshay Srivastava",
     role: "Vice Chairman",
-    image: Manav,
-    linkedin: "https://www.linkedin.com/in/johndoe",
-    email: "john.doe@example.com",
+    image: akshaye,
+    linkedin: "https://www.linkedin.com/in/akshay-srivastava-389ba92b4/",
+    email: "f20230810@hyderabad.bits-pilani.ac.in",
     bio: "Visionary leader passionate about entrepreneurship",
   },
   {
-    name: "Shreshth Borkar",
+    name: "Manas Tripathi",
+    role: "Vice President",
+    image: manas,
+    linkedin: "https://www.linkedin.com/in/tripathi-manas/",
+    email: "f20230129@hyderabad.bits-pilani.ac.in",
+    bio: "Technology enthusiast driving digital transformation",
+  },
+  {
+    name: "Divyansh Rungta",
+    role: "Director of Patnerships",
+    image: raungta,
+    linkedin: "https://www.linkedin.com/in/divyansh-rungta-4923752b5/",
+    email: "f20230241@hyderabad.bits-pilani.ac.in",
+    bio: "Visionary leader passionate about entrepreneurship",
+  },
+  {
+    name: "Ayush Jain",
     role: "Treasurer",
-    image: Shreshth,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
+    image: ayush,
+    linkedin: "https://www.linkedin.com/in/aayush-jain-56a6a9225/",
+    email: "f20230507@hyderabad.bits-pilani.ac.in",
     bio: "Strategic thinker with a focus on innovation",
   },
   {
-    name: "Surbhit Jain",
-    role: "Operations Coordinator",
-    image: Surbhit,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
+    name: "Darsh Saxena",
+    role: "Director of Initiatives & Strategy",
+    image: darsh,
+    linkedin: "https://www.linkedin.com/in/darsh-saxena-2a1610201/",
+    email: "f20230508@hyderabad.bits-pilani.ac.in",
     bio: "Technology enthusiast driving digital transformation",
   },
   {
-    name: "Shoaib Khan",
+    name: "Akshat Ajmera",
     role: "Tech Head",
-    image: Shoaib,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
+    image: akshat,
+    linkedin: "https://www.linkedin.com/in/akshatajmera07/",
+    email: "f20230141@hyderabad.bits-pilani.ac.in",
     bio: "Strategic thinker with a focus on innovation",
   },
   {
-    name: "Vaishnavi K",
+    name: "Mitesh Agarwal",
     role: "Media Head",
-    image: Vaishnavi,
-    linkedin: "https://www.linkedin.com/in/janesmith",
-    email: "jane.smith@example.com",
-    bio: "Technology enthusiast driving digital transformation",
-  },
-  {
-    name: "Ananya Agarwal",
-    role: "Technical Coordinator",
-    image: Ananya,
-    linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-    email: "jane.smith@example.com",
-    bio: "Technology enthusiast driving digital transformation",
-  },
-  {
-    name: "Siddhant",
-    role: "Editorial Head",
-    image: Siddhant,
-    linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-    email: "jane.smith@example.com",
-    bio: "Technology enthusiast driving digital transformation",
-  },
-  {
-    name: "Ishika",
-    role: "Internship Coordinator",
-    image: Ishika,
-    linkedin:
-      "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    email: "jane.smith@example.com",
+    image: mitesh,
+    linkedin: "https://www.linkedin.com/in/mitesh-agrawal-2a3949327/",
+    email: "f20230749@hyderabad.bits-pilani.ac.in",
     bio: "Technology enthusiast driving digital transformation",
   },
 ];
@@ -165,9 +129,55 @@ const OurTeam = () => {
             variants={fadeIn}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            E - Cell 24-25
+            E - Cell 25-26
           </motion.p>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-24 sm:bottom-28 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          onClick={() => {
+            const teamSection = document.querySelector('section[ref]');
+            teamSection?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <motion.div
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center"
+          >
+            {/* Double Chevron for more immersive effect */}
+            <svg
+              className="w-10 h-10 text-ecell-primary"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+            <svg
+              className="w-10 h-10 text-ecell-primary -mt-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
       </motion.section>
 
       {/* Team Members Section */}
@@ -227,6 +237,28 @@ const OurTeam = () => {
                 url: m.linkedin,
                 gradient,
                 borderColor,
+                imgStyle: (() => {
+                  const name = m.name.toLowerCase();
+
+                  // "Middle 3" (Row 2): Divyansh Rungta, Ayush Jain, Darsh Saxena
+                  // All at default scale (1.0) to avoid spacing
+                  if (name.includes("rungta") || name.includes("raungta")) return undefined; // Default scale (1.0)
+                  if (name.includes("ayush") || name.includes("darsh")) return undefined; // Default scale (1.0)
+
+                  // "All Others" (Row 1 & 3): Zoom in
+
+                  // Row 3: Akshat Ajmera (Specific request: zoom in more + center)
+                  if (name.includes("akshat ajmera")) return { transform: "scale(1.2)", objectPosition: "center" };
+
+                  // Row 1: Manas (Previously out of frame, so moderate zoom), Shihab, Akshay
+                  // Row 3: Mitesh (Default zoom in)
+
+                  // Manas: slight zoom to reduce background but keep in frame
+                  if (name.includes("manas")) return { transform: "scale(1.05)", objectPosition: "top" };
+
+                  // Default zoom for the rest (Shihab, Akshay, Mitesh)
+                  return { transform: "scale(1.15)", objectPosition: "top" };
+                })()
               };
             })}
           />

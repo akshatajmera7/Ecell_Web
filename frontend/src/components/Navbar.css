@@ -46,7 +46,7 @@
 }
 
 .nav-logo-img {
-  height: 54px;
+  height: 70px;
   width: auto;
   object-fit: contain;
 }
@@ -104,7 +104,7 @@
 
 .nav-link-new:hover,
 .nav-link-new.active {
-  color: #fff;
+  color: #d4ff00;
   transform: translateY(-1px);
 }
 
@@ -119,6 +119,17 @@
 .nav-icon-phone {
   color: #fff;
   opacity: 0.7;
+}
+
+/* Launchpad Link - Default to white, yellow only when active */
+.nav-link-new.launchpad-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-link-new.launchpad-link:hover,
+.nav-link-new.launchpad-link.active {
+  color: #d4ff00;
+  text-shadow: 0 0 10px rgba(212, 255, 0, 0.3);
 }
 
 /* Hamburger Section */
@@ -186,6 +197,12 @@
   width: 100% !important;
 }
 
+/* Launchpad Compact Mode - Only slight transparency now, no height change */
+.navbar-new.launchpad-mode .navbar-container-new {
+  background: rgba(10, 10, 10, 0.4);
+  /* More transparent as requested previously */
+}
+
 /* Responsiveness */
 @media (max-width: 1100px) {
   .nav-link-new {
@@ -203,6 +220,11 @@
     justify-content: space-between;
     height: 72px;
     border-radius: 16px;
+  }
+
+  /* Ensure launchpad mode stays compact on mobile too */
+  .navbar-new.launchpad-mode .navbar-container-new {
+    height: 64px;
   }
 
   .nav-logo-box {

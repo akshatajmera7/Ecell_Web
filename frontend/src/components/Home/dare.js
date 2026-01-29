@@ -1,44 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import bannerImg from '../../assets/ecell/lp_banner_yellow.png';
 
 const TypographyComponent = () => {
   return (
-    <div className="flex items-center justify-center min-h-[50vh] bg-black m-0 p-0">
-      <motion.h1
+    <div className="flex items-center justify-center py-20 px-4">
+      <motion.div
         initial={{
           opacity: 0,
-          scale: 0.8,
-          rotateX: 15,
-          rotateY: 15,
-          y: 50,
-        }}  // Initial state: faded out, slightly rotated, and zoomed out
+          scale: 0.9,
+          y: 30,
+        }}
         whileInView={{
           opacity: 1,
           scale: 1,
-          rotateX: 0,
-          rotateY: 0,
           y: 0,
-        }}    // On entry: fades in, zooms in, and rotates to normal position
-        exit={{
-          opacity: 0,
-          scale: 0.8,
-          rotateX: -15,
-          rotateY: -15,
-          y: 50,
-        }}    // On exit: fades out, zooms out, and rotates in the opposite direction
-        transition={{
-          duration: 1.5,
-          ease: "easeOut",
-          type: "spring",
-          stiffness: 120,
         }}
-        viewport={{ once: false }}    // Triggers animation on both entry and exit on scroll
-        className="text-center text-5xl sm:text-6xl lg:text-7xl font-extrabold"
+        transition={{
+          duration: 1.2,
+          ease: "easeOut",
+        }}
+        viewport={{ once: true }}
+        className="w-full max-w-6xl"
       >
-        <span className="text-white">A</span>{' '}
-        <span className="text-blue-600">decennial</span>{' '}
-        <span className="text-white">journey</span>
-      </motion.h1>
+        <img
+          src={bannerImg}
+          alt="A Decennial Journey"
+          className="w-full h-auto object-contain rounded-[2rem] shadow-2xl"
+        />
+      </motion.div>
     </div>
   );
 };

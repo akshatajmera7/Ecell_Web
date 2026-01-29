@@ -162,10 +162,12 @@ const StartupConnectForm = () => {
         </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Startup Name <span className="text-ecell-primary">*</span></label>
+            <label htmlFor="startupName" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Startup Name <span className="text-ecell-primary">*</span></label>
             <input
               type="text"
+              id="startupName"
               name="startupName"
+              autoComplete="organization"
               value={formData.startupName}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -175,10 +177,12 @@ const StartupConnectForm = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">One-line Pitch / Tagline</label>
+            <label htmlFor="tagline" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">One-line Pitch / Tagline</label>
             <input
               type="text"
+              id="tagline"
               name="tagline"
+              autoComplete="off"
               value={formData.tagline}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -188,10 +192,12 @@ const StartupConnectForm = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Website / Social Media Links</label>
+            <label htmlFor="website" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Website / Social Media Links</label>
             <input
               type="text"
+              id="website"
               name="website"
+              autoComplete="url"
               value={formData.website}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -201,10 +207,12 @@ const StartupConnectForm = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Founder(s) Name(s) <span className="text-ecell-primary">*</span></label>
+            <label htmlFor="founders" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Founder(s) Name(s) <span className="text-ecell-primary">*</span></label>
             <input
               type="text"
+              id="founders"
               name="founders"
+              autoComplete="name"
               value={formData.founders}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -215,10 +223,12 @@ const StartupConnectForm = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Email <span className="text-ecell-primary">*</span></label>
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Email <span className="text-ecell-primary">*</span></label>
               <input
                 type="email"
+                id="email"
                 name="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -227,10 +237,12 @@ const StartupConnectForm = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Contact Number <span className="text-ecell-primary">*</span></label>
+              <label htmlFor="contact" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Contact Number <span className="text-ecell-primary">*</span></label>
               <input
                 type="tel"
+                id="contact"
                 name="contact"
+                autoComplete="tel"
                 value={formData.contact}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -241,10 +253,12 @@ const StartupConnectForm = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">LinkedIn Profile(s)</label>
+            <label htmlFor="linkedin" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">LinkedIn Profile(s)</label>
             <input
               type="text"
+              id="linkedin"
               name="linkedin"
+              autoComplete="url"
               value={formData.linkedin}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -255,10 +269,12 @@ const StartupConnectForm = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Team Size</label>
+              <label htmlFor="teamSize" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Team Size</label>
               <input
                 type="number"
+                id="teamSize"
                 name="teamSize"
+                autoComplete="off"
                 value={formData.teamSize}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -267,9 +283,11 @@ const StartupConnectForm = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Stage <span className="text-ecell-primary">*</span></label>
+              <label htmlFor="stage" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Stage <span className="text-ecell-primary">*</span></label>
               <select
+                id="stage"
                 name="stage"
+                autoComplete="off"
                 value={formData.stage}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all shadow-inner appearance-none cursor-pointer"
@@ -283,10 +301,12 @@ const StartupConnectForm = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Industry / Sector</label>
+              <label htmlFor="industry" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Industry / Sector</label>
               <input
                 type="text"
+                id="industry"
                 name="industry"
+                autoComplete="off"
                 value={formData.industry}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -295,9 +315,11 @@ const StartupConnectForm = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Current Status <span className="text-ecell-primary">*</span></label>
+              <label htmlFor="status" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Current Status <span className="text-ecell-primary">*</span></label>
               <select
+                id="status"
                 name="status"
+                autoComplete="off"
                 value={formData.status}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all shadow-inner appearance-none cursor-pointer"
@@ -310,9 +332,11 @@ const StartupConnectForm = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Achievements / Funding</label>
+            <label htmlFor="achievements" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Achievements / Funding</label>
             <textarea
+              id="achievements"
               name="achievements"
+              autoComplete="off"
               value={formData.achievements}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-ecell-primary transition-all placeholder-gray-600 shadow-inner"
@@ -347,9 +371,10 @@ const StartupConnectForm = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Pitch Deck (PDF, max 5MB) <span className="text-ecell-primary">*</span></label>
+            <label htmlFor="pitchDeck" className="block text-sm font-semibold text-gray-300 mb-2 ml-1">Pitch Deck (PDF, max 5MB) <span className="text-ecell-primary">*</span></label>
             <input
               type="file"
+              id="pitchDeck"
               accept="application/pdf"
               onChange={handleFileChange}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white/10 file:text-white hover:file:bg-white/20 transition-all"
@@ -358,10 +383,11 @@ const StartupConnectForm = () => {
           </div>
 
           <div className="py-2">
-            <label className="flex items-start gap-3 group cursor-pointer">
+            <label htmlFor="consent" className="flex items-start gap-3 group cursor-pointer">
               <div className="relative flex items-center justify-center mt-1">
                 <input
                   type="checkbox"
+                  id="consent"
                   name="consent"
                   checked={formData.consent}
                   onChange={handleChange}

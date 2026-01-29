@@ -28,7 +28,8 @@ const Event = lazy(() => import("./components/events/event"));
 // TEMPORARILY HIDDEN - Uncomment to restore
 // const Sponsor = lazy(() => import("./components/sponsors/sponsor"));
 
-const Schedules = lazy(() => import("./components/schedules"));
+//const Schedules = lazy(() => import("./components/schedules"));
+const ScheduleSoon = lazy(() => import("./components/ScheduleSoon"));
 const Speakers = lazy(() => import("./components/speakers/launchpadspeakers"));
 
 const Gr = lazy(() => import("./components/lpevents/gr/grindex"));
@@ -43,8 +44,8 @@ const PaymentFailed = lazy(() => import("./components/paymentfailed"));
 const PaymentCancel = lazy(() => import("./components/paymentcancel"));
 const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"));
 const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
-// TEMPORARILY HIDDEN - Uncomment to restore
-// const Passes = lazy(() => import("./components/passes"));
+const Passes = lazy(() => import("./components/passes"));
+const PassesSoon = lazy(() => import("./components/PassesSoon"));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -136,10 +137,9 @@ function MainContent() {
     // TEMPORARILY HIDDEN - Uncomment to restore
     // { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
-    // TEMPORARILY HIDDEN - Uncomment to restore
-    // { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
-    { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
-    // { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
+    { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
+    { label: 'Gallery', ariaLabel: 'View gallery', link: '/gallery' },
+    { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
     // { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
   ];
@@ -150,7 +150,7 @@ function MainContent() {
       <ScrollToTop />
 
       {/* Conditional Navbar */}
-      {!isLaunchpadRoute && <Navbar onToggleMenu={toggleMenu} isOpen={isMenuOpen} />}
+      <Navbar onToggleMenu={toggleMenu} isOpen={isMenuOpen} isLaunchpad={isLaunchpadRoute} />
 
       {isLaunchpadRoute ? (
         <StaggeredMenu
@@ -164,11 +164,11 @@ function MainContent() {
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={false}
           colors={['#1a1a1a', '#2a2a2a']}
-          logoUrl="/lplogo.jpeg"
+          logoUrl="/lp_logo_new.png"
           logoLink="/launchpad"
           accentColor="#d4ff00"
           isFixed={true}
-          showHamburgerAlways={true}
+          showHamburgerAlways={false}
           onMenuOpen={() => setIsMenuOpen(true)}
           onMenuClose={() => setIsMenuOpen(false)}
         />
@@ -194,7 +194,7 @@ function MainContent() {
 
       <AnimatePresence mode="wait">
         <Suspense fallback={<ECellLoader />}>
-          <div className={`main-content ${location.pathname === "/" || location.pathname === "/launchpad" ? "no-padding" : ""}`}>
+          <div className={`main-content ${location.pathname === "/" ? "no-padding" : ""}`}>
             <Routes location={location} key={location.pathname}>
               {/* Normal Routes */}
               <Route path="/" element={<Launchpadhome />} />
@@ -215,15 +215,15 @@ function MainContent() {
 
               <Route path="/launchpad/speakers" element={<Speakers />} />
 
-              <Route path="/launchpad/schedules" element={<Schedules />} />
+              <Route path="/launchpad/schedules" element={<ScheduleSoon />} />
               <Route path="/launchpad/team" element={<Lteam />} />
               <Route path="/launchpad/ground_reality" element={<Gr />} />
               <Route path="/launchpad/pitchers_pilot" element={<Pitchp />} />
               <Route path="/launchpad/teen_tycoons" element={<TT />} />
               <Route path="/launchpad/internship_drive" element={<Id />} />
               <Route path="/launchpad/startup_expo" element={<Se />} />
-              {/* TEMPORARILY HIDDEN - Uncomment to restore */}
-              {/* <Route path="/launchpad/passes" element={<Passes />} /> */}
+              <Route path="/launchpad/passes" element={<Passes />} />
+              <Route path="/launchpad/passes-soon" element={<PassesSoon />} />
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
               <Route path="/launchpad/workshop-demo" element={<EventDemo />} />

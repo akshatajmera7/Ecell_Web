@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import lpLogo from '../../assets/ecell/LP\'26.png';
+import lpLogo from '../../assets/ecell/lp_logo_new.png';
 
 const events = [
   "PITCHERS PILOT",
@@ -21,6 +21,51 @@ const carouselImages = [
   // "/na1.png"
 ];
 
+const VerticalMarquee = ({ items }) => {
+  // Octagon has 8 sides, we have 4 items, so double them to fill all 8 faces
+  const fullItems = [...items, ...items];
+  const radius = 75; // Significantly reduced from 180 to bring them "very close"
+
+  return (
+    <div className="relative h-[320px] w-full flex items-center justify-center overflow-hidden"
+      style={{ perspective: '1000px' }}>
+      <motion.div
+        animate={{ rotateX: [0, 360] }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="relative w-full h-[60px]"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {fullItems.map((item, idx) => (
+          <div
+            key={idx}
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              transform: `rotateX(${idx * 45}deg) translateZ(${radius}px)`,
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
+          >
+            <h3
+              className="text-[24px] md:text-[48px] leading-none font-hypebuzz font-normal uppercase tracking-[2px] md:tracking-[6px] text-center bg-gradient-to-r from-[#7E74FF] via-white to-[#A1A1C2] bg-clip-text text-transparent select-none whitespace-nowrap"
+            >
+              {item}
+            </h3>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* No fade overlays - clean gradient background throughout */}
+
+      {/* Glow for the focus area */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-16 bg-[#6F66FF]/5 blur-[60px] pointer-events-none z-10" />
+    </div>
+  );
+};
+
 const Launchpad = () => {
   const navigate = useNavigate();
   const [currentImg, setCurrentImg] = useState(0);
@@ -32,55 +77,8 @@ const Launchpad = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const VerticalMarquee = ({ items }) => {
-    // Octagon has 8 sides, we have 4 items, so double them to fill all 8 faces
-    const fullItems = [...items, ...items];
-    const radius = 75; // Significantly reduced from 180 to bring them "very close"
-
-    return (
-      <div className="relative h-[320px] w-full flex items-center justify-center overflow-hidden"
-        style={{ perspective: '1000px' }}>
-        <motion.div
-          animate={{ rotateX: [0, 360] }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="relative w-full h-[60px]"
-          style={{ transformStyle: 'preserve-3d' }}
-        >
-          {fullItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="absolute inset-0 flex items-center justify-center"
-              style={{
-                transform: `rotateX(${idx * 45}deg) translateZ(${radius}px)`,
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden'
-              }}
-            >
-              <h3
-                className="text-[24px] md:text-[48px] leading-none font-hypebuzz font-normal uppercase tracking-[2px] md:tracking-[6px] text-center bg-gradient-to-r from-[#7E74FF] via-white to-[#A1A1C2] bg-clip-text text-transparent select-none whitespace-nowrap"
-              >
-                {item}
-              </h3>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Adjusted fading to match the tighter spacing */}
-        <div className="absolute top-0 left-0 w-full h-[32%] bg-gradient-to-b from-black via-black/90 to-transparent z-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-[32%] bg-gradient-to-t from-black via-black/90 to-transparent z-20 pointer-events-none" />
-
-        {/* Glow for the focus area */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-16 bg-[#6F66FF]/5 blur-[60px] pointer-events-none z-10" />
-      </div>
-    );
-  };
-
   return (
-    <section className="relative py-16 md:py-24 px-4 md:px-8 bg-black text-white overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 md:px-8 bg-transparent text-white overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
         <div className="absolute top-1/4 left-0 w-full max-w-[600px] aspect-square bg-[#6F66FF]/10 rounded-full blur-[120px] -translate-x-1/2" />
@@ -105,10 +103,15 @@ const Launchpad = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex justify-center md:justify-end"
+            className="flex justify-center md:justify-start md:ml-8"
           >
             <div className="w-[180px] md:w-[280px]">
-              <img src={lpLogo} alt="LP'26" className="w-full h-auto object-contain" loading="lazy" />
+              <img
+                src={lpLogo}
+                alt="LP'26"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
             </div>
           </motion.div>
           <motion.div
@@ -143,7 +146,7 @@ const Launchpad = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-3 relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-white/10 glass-dark group aspect-video md:aspect-auto h-[300px] md:h-full"
+            className="md:col-span-3 relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-white/10 glass-dark group h-[300px] md:h-full"
           >
             <AnimatePresence mode="wait">
               <motion.img

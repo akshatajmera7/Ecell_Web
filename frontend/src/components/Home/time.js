@@ -28,7 +28,7 @@ const ArrowIcon = () => (
 const EventCard = ({ event }) => {
   return (
     <motion.div
-      className="relative group bg-[#0A0A0A] border border-[#6b5fff]/40 rounded-3xl overflow-hidden w-[240px] md:w-[280px] h-[320px] md:h-[360px] flex-shrink-0 mx-3 md:mx-4 p-6 md:p-8 flex flex-col justify-between transition-all duration-500 hover:border-[#d4ff00] hover:shadow-[0_0_50px_rgba(107,95,255,0.25)] backdrop-blur-xl"
+      className="relative group bg-[#0A0A0A] border border-[#6b5fff]/40 rounded-3xl overflow-hidden w-[240px] md:w-[280px] h-[320px] md:h-[360px] flex-shrink-0 mx-3 md:mx-4 p-6 md:p-8 flex flex-col justify-between transition-all duration-500 hover:border-[#6b5fff] hover:shadow-[0_0_50px_rgba(107,95,255,0.25)] backdrop-blur-xl"
     >
       {/* Background Subtle Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#6b5fff]/5 to-transparent opacity-100 group-hover:from-[#6b5fff]/10 transition-colors duration-700" />
@@ -60,7 +60,7 @@ const EventCard = ({ event }) => {
       </div>
 
       {/* Dynamic Corner Accents */}
-      <div className="absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 bg-[#6b5fff]/10 blur-3xl rounded-full" />
+      <div className="absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 bg-[#d4ff00]/10 blur-3xl rounded-full" />
       <div className="absolute bottom-0 left-0 w-16 md:w-20 h-16 md:h-20 bg-[#d4ff00]/10 blur-3xl rounded-full" />
     </motion.div>
   );
@@ -106,7 +106,7 @@ const EventsPage = () => {
   const springX = useSpring(x, { stiffness: 400, damping: 50 });
 
   return (
-    <section className="bg-black py-20 md:py-32 relative overflow-hidden flex flex-col items-center justify-center min-h-[600px] md:min-h-[700px]">
+    <section className="py-20 md:py-32 relative overflow-hidden flex flex-col items-center justify-center min-h-[600px] md:min-h-[700px]">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#6b5fff]/10 blur-[100px] md:blur-[180px] rounded-full mix-blend-screen pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#d4ff00]/5 blur-[100px] md:blur-[180px] rounded-full mix-blend-screen pointer-events-none" />

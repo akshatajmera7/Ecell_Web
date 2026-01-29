@@ -5,7 +5,11 @@ const ProductExplorer = () => {
     <div className="bg-black py-32 px-6 flex items-center justify-center min-h-[40vh]">
       <div className="max-w-5xl mx-auto w-full flex flex-col items-center text-center space-y-6">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8 leading-tight text-white drop-shadow-lg">
+<<<<<<< HEAD
           Free College Workshops
+=======
+          Gallery
+>>>>>>> divvij-updates
         </h1>
         <p className="text-xl md:text-2xl text-gray-400 leading-relaxed tracking-wide max-w-3xl">
           An exclusive event bringing together startup founders, investors, VCs, and mentors for high-impact conversations and collaborations.

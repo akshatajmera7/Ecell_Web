@@ -2,14 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Shield, Star, Rocket, Users } from 'lucide-react';
 
-const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
+const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position }) => {
+  // Determine border glow color based on position
+  const getBorderGlowClass = () => {
+    if (position === 'center') {
+      return 'border-[#BCFF2F] shadow-[0_0_15px_rgba(188,255,47,0.3)] hover:shadow-[0_0_25px_rgba(188,255,47,0.45)]';
+    }
+    return 'border-[#6F66FF] shadow-[0_0_15px_rgba(111,102,255,0.3)] hover:shadow-[0_0_25px_rgba(111,102,255,0.45)]';
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className={`relative glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col h-full transition-all duration-500 hover:border-ecell-primary/30 group ${isPopular ? 'bg-ecell-primary/5 ring-1 ring-ecell-primary/20' : ''}`}
+      className={`relative glass p-8 rounded-[2.5rem] border-2 flex flex-col h-full transition-all duration-500 group ${getBorderGlowClass()} ${isPopular ? 'bg-ecell-primary/5' : ''}`}
     >
       {isPopular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-ecell-primary text-black text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(212,255,0,0.4)]">
@@ -31,10 +39,10 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
       <div className="space-y-4 mb-10 flex-grow">
         {perks.map((perk, idx) => (
           <div key={idx} className="flex items-start gap-3">
-            <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-white/20'}`}>
+            <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-red-500'}`}>
               {perk.included ? <Check size={18} /> : <X size={18} />}
             </div>
-            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-white/20 line-through'}`}>
+            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-red-500'}`}>
               {perk.text}
             </span>
           </div>
@@ -42,7 +50,7 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
       </div>
 
       <a
-        href="/launchpad/workshop"
+        href="/launchpad/passes-soon"
         className={`w-full py-4 rounded-xl font-bold text-center transition-all duration-300 transform font-manrope flex items-center justify-center gap-2 ${isPopular
           ? 'bg-ecell-primary text-black hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(212,255,0,0.5)]'
           : 'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20'
@@ -57,46 +65,58 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay }) => {
 const Passes = () => {
   const tiers = [
     {
-      title: "Starter",
-      price: "499",
-      icon: Shield,
+      title: "Delegate",
+      price: "300",
+      icon: Users,
       delay: 0.1,
+      position: 'left',
       perks: [
-        { text: "Access to Speaker Sessions", included: true },
-        { text: "Entry to Startup Expo", included: true },
-        { text: "Networking Opportunities", included: true },
-        { text: "Workshop Participation", included: false },
-        { text: "Priority Seating", included: false },
-        { text: "Exclusive Merchandise", included: false },
+        { text: "Startup expo (viewing rights)", included: true },
+        { text: "Pitchers pilot, BP (GR), T3 (Viewing Audience)", included: true },
+        { text: "Speaker sessions (audience)", included: true },
+        { text: "Internship drive (external participants)", included: false },
+        { text: "Hackathons + Workshop", included: false },
+        { text: "Highlight speaker sessions", included: false },
+        { text: "Comedy Night + performances", included: false },
+        { text: "Networking lunch * ARENA", included: false },
       ]
     },
     {
-      title: "Pro",
-      price: "999",
+      title: "Executive",
+      price: "749 + Workshop cost (subsidized)",
       icon: Rocket,
       isPopular: true,
       delay: 0.2,
+      position: 'center',
       perks: [
-        { text: "All Starter Benefits", included: true },
-        { text: "Workshop Participation", included: true },
-        { text: "Access to Internship Drive", included: true },
-        { text: "Panel Discussions", included: true },
-        { text: "Pitching Session Auditing", included: true },
-        { text: "Priority Seating", included: false },
+        { text: "Startup expo (viewing rights)", included: true },
+        { text: "Pitchers pilot, BP (GR), T3 (VIEWING Audience)", included: true },
+        { text: "Speaker sessions (audience)", included: true },
+        { text: "E-Cell in house workshop", included: true },
+        { text: "Highlight speaker sessions", included: true },
+        { text: "Internship drive (external participants)", included: true },
+        { text: "Workshop (in house free)", included: true },
+        { text: "Comedy Night", included: true },
+        { text: "Networking lunch * ARENA", included: false },
       ]
     },
     {
-      title: "Elite",
-      price: "1999",
+      title: "Nexus",
+      price: "1399 + Workshop cost (subsidized)",
       icon: Star,
       delay: 0.3,
+      position: 'right',
       perks: [
-        { text: "All Pro Benefits", included: true },
-        { text: "VIP Networking Lunch", included: true },
-        { text: "Priority Front-Row Seating", included: true },
-        { text: "All-Access Backstage Pass", included: true },
-        { text: "Limited Edition Merch Kit", included: true },
-        { text: "Private Q&A with Speakers", included: true },
+        { text: "Startup expo (viewing rights)", included: true },
+        { text: "Pitchers pilot, BP (GR) (competitions Audience)", included: true },
+        { text: "Speaker sessions (audience)", included: true },
+        { text: "E-Cell in house workshop", included: true },
+        { text: "Highlight speaker sessions", included: true },
+        { text: "Internship drive (external participants)", included: true },
+        { text: "Hackathons + Workshop", included: true },
+        { text: "Comedy Night", included: true },
+        { text: "Networking lunch arena * ARENA", included: true },
+        { text: "Freebies", included: true },
       ]
     }
   ];
@@ -116,7 +136,7 @@ const Passes = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-ecell-primary font-bold tracking-[0.3em] uppercase text-sm mb-4 block"
           >
-            Launchpad 2025
+            Launchpad 2026
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

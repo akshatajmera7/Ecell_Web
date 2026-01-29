@@ -126,7 +126,7 @@ const Hero = () => {
                 </div>
             </motion.div>
 
-            <style jsx>{`
+            <style>{`
                 .gradient-text {
                     background: linear-gradient(
                         90deg, 
