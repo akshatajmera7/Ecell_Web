@@ -12,7 +12,7 @@ const EventsHero = () => {
           className="flex flex-col"
         >
           <h1 className="text-7xl md:text-9xl font-black font-syne leading-[0.8] uppercase tracking-tighter">
-            Our<br />Workshops
+            Our<br />Events
           </h1>
         </motion.div>
 
