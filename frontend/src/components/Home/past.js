@@ -41,7 +41,7 @@ const ProfileCard = ({ profile }) => (
       <h3 className="text-lg font-black text-white mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
         {profile.name}
       </h3>
-      <p className="text-[#6b5fff] font-bold text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
+      <p className="text-[#d4ff00] font-bold text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
         {profile.role}
       </p>
 
@@ -53,7 +53,7 @@ const ProfileCard = ({ profile }) => (
 
 const ProfileGrid = () => {
   return (
-    <div className="bg-black py-24 px-6 relative overflow-hidden">
+    <div className="py-24 px-6 relative overflow-hidden">
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#6b5fff]/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -88,7 +88,7 @@ const ProfileGrid = () => {
               className="group relative px-12 py-4 bg-zinc-900 border border-zinc-800 text-white font-black rounded-full transition-all duration-500 font-poppins flex items-center gap-4 hover:border-[#d4ff00] hover:shadow-[0_0_50px_rgba(212,255,0,0.2)] hover:scale-105"
             >
               <span className="tracking-[0.2em] text-sm group-hover:text-[#d4ff00] transition-colors duration-300">VIEW ALL SPEAKERS</span>
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-hover:bg-[#d4ff00] transition-colors duration-500">
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-hover:bg-white transition-colors duration-500">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:rotate-45 transition-transform duration-500">
                   <path d="M7 7L17 17M17 17V7M17 17H7" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

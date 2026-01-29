@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import lplogo from "../assets/lplogo.jpeg"; // Import the logo
+import lplogo from "../assets/ecell/lp_logo_new.png"; // Import the logo
 
 const MenuIcon = () => (
   <svg

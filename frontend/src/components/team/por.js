@@ -2,154 +2,149 @@ import React from "react";
 import { motion } from "framer-motion";
 import ChromaGrid from "../Teams/ChromaGrid";
 
-import Sagnik from "../../assets/sagnik.png";
-import Advik from "../../assets/advik.png";
-import Manav from "../../assets/manav.jpeg";
-import Shoaib from "../../assets/shoaib.png";
-import Shreshth from "../../assets/shreshth.jpg";
-import Surbhit from "../../assets/surbhit.jpeg";
-import Vaishnavi from "../../assets/vaishnavi.png";
-import Raghav from "../../assets/raghav.jpeg";
-import Om from "../../assets/om.jpeg";
-import Dev from "../../assets/dev.jpg";
-import Varshith from "../../assets/varshith.jpg";
-import Riddhi from "../../assets/riddhi.jpg";
-import Sreenandan from "../../assets/nandan.jpg";
-import Purushotam from "../../assets/purushotam.jpeg";
-import Utkarsh from "../../assets/utkarsh.jpeg";
-import Ananya from "../../assets/ananya.jpeg";
-import Siddhant from "../../assets/siddhant.jpeg";
-import Ishika from "../../assets/ishika.jpeg";
-
+import shihab from "../../assets/por_photos/shihab.jpg";
+import darsh from "../../assets/por_photos/darsh.jpg";
+import hamaid from "../../assets/por_photos/hamaid.jpg";
+import manas from "../../assets/por_photos/manas.jpg";
+import raungta from "../../assets/por_photos/raungta.jpg";
+import akshaye from "../../assets/por_photos/akshaye.jpg";
+import ayush from "../../assets/por_photos/ayush.jpg";
+import akshat_ajmera from "../../assets/por_photos/akshat_ajmera.jpeg";
+import akshat_kumar from "../../assets/por_photos/akshat_kumar.jpeg";
+import priyansh from "../../assets/por_photos/priyansh.jpeg";
+import mitesh from "../../assets/por_photos/mitesh.jpeg";
+import dhruv from "../../assets/por_photos/dhruv.jpeg";
+import shaan from "../../assets/por_photos/shaan.jpeg";
+import gunabhirup from "../../assets/por_photos/guna.jpeg";
+import sriniketh from "../../assets/por_photos/sriniketh_mulagada.jpeg";
+import shahil from "../../assets/por_photos/shahil.jpeg";
+import rounak from "../../assets/por_photos/rounak.jpeg";
+import harshit from "../../assets/por_photos/harshit.jpeg";
 const teams = [
   {
     title: "Launchpad Executives",
     members: [
       {
-        name: "Sagnik Paul",
+        name: "Shihab Saiyad",
         role: "Chairman",
-        image: Sagnik,
-        linkedin: "https://www.linkedin.com/in/sagnik-paul-7a0656275/",
-        email: "f20220852@hyderabad.bits-pilani.ac.in",
+        image: shihab,
+        linkedin: "https://www.linkedin.com/in/shihab-saiyad/",
+        email: "f20230223@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Om Sonkusare",
-        role: "President",
-        image: Om,
-        linkedin: "https://www.linkedin.com/in/omsonkusare/",
-        email: "f20221703@hyderabad.bits-pilani.ac.in",
-      },
-      {
-        name: "Manav Sharma",
+        name: "Akshay Srivastava",
         role: "Vice Chairman",
-        image: Manav,
-        linkedin: "https://www.linkedin.com/in/manav-sharma-033771247/",
-        email: "f20221347@hyderabad.bits-pilani.ac.in",
+        image: akshaye,
+        linkedin: "https://www.linkedin.com/in/akshay-srivastava-389ba92b4/",
+        email: "f20230810@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Advik Kulkarni",
-        role: "Vice President Collaboration and Initiatives",
-        image: Advik,
-        linkedin: "https://www.linkedin.com/in/advik-kulkarni-3386461b7/",
-        email: "f20221632@hyderabad.bits-pilani.ac.in",
+        name: "Manas Tripathi",
+        role: "Vice President",
+        image: manas,
+        linkedin: "https://www.linkedin.com/in/tripathi-manas/",
+        email: "f20230129@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Raghav Agarwal",
-        role: "Vice President Projects and Learning",
-        image: Raghav,
-        linkedin: "https://www.linkedin.com/in/raghav-agarwal-984b44266/",
-        email: "f20220892@hyderabad.bits-pilani.ac.in",
+        name: "Divyansh Rungta",
+        role: "Director of Patnerships",
+        image: raungta,
+        linkedin: "https://www.linkedin.com/in/divyansh-rungta-4923752b5/",
+        email: "f20230241@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Shreshth Borkar",
+        name: "Ayush Jain",
         role: "Treasurer",
-        image: Shreshth,
-        linkedin: "https://www.linkedin.com/in/shreshth-borkar-46abaa2a9/",
-        email: "f20221650@hyderabad.bits-pilani.ac.in",
+        image: ayush,
+        linkedin: "https://www.linkedin.com/in/aayush-jain-56a6a9225/",
+        email: "f20230507@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Surbhit Jain",
-        role: "Operations Coordinator",
-        image: Surbhit,
-        linkedin: "https://www.linkedin.com/in/surbhit-jain-b04b72259/",
-        email: "f20220868@hyderabad.bits-pilani.ac.in",
+        name: "Darsh Saxena",
+        role: "Director of Initiatives & Strategy",
+        image: darsh,
+        linkedin: "https://www.linkedin.com/in/darsh-saxena-2a1610201/",
+        email: " f20230508@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Shoaib Khan",
+        name: "Akshat Ajmera",
         role: "Tech Head",
-        image: Shoaib,
-        linkedin: "https://www.linkedin.com/in/shoaibkhan1501/",
-        email: "f20220573@hyderabad.bits-pilani.ac.in",
+        image: akshat_ajmera,
+        linkedin: "https://www.linkedin.com/in/akshatajmera07/",
+        email: "f20230141@hyderabad.bits-pilani.ac.in",
       },
       {
-        name: "Vaishnavi K",
+        name: "Mitesh Agarwal",
         role: "Media Head",
-        image: Vaishnavi,
-        linkedin: "https://www.linkedin.com/in/vaishnavi-katragadda-9b62a3268/",
-        email: "f20220783@hyderabad.bits-pilani.ac.in",
+        image: mitesh,
+        linkedin: "https://www.linkedin.com/in/mitesh-agrawal-2a3949327/",
+        email: "f20230749@hyderabad.bits-pilani.ac.in",
       },
-      {
-        name: "Ananya Agarwal",
-        role: "Technical Coordinator",
-        image: Ananya,
-        linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-        email: "f20221697@hyderabad.bits-pilani.ac.in",
-      },
-      {
-        name: "Siddhant",
-        role: "Editorial Head",
-        image: Siddhant,
-        linkedin: "https://www.linkedin.com/in/ananya-agrawal-797687243",
-        email: "f20221655@hyderabad.bits-pilani.ac.in",
-      },
-      {
-        name: "Ishika",
-        role: "Internship Coordinator",
-        image: Ishika,
-        linkedin:
-          "https://www.linkedin.com/in/ishika-ratnawat?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "f20221462@hyderabad.bits-pilani.ac.in",
-      },
+
     ],
   },
   {
     title: "Launchpad Heads",
     members: [
       {
-        name: "Mohana Varshith Bolloju",
+        name: "Hamaid Izhar",
+        role: "Events Head",
+        image: hamaid,
+        linkedin: "https://www.linkedin.com/in/hamaid-izhar-9946a02a7/",
+      },
+      {
+        name: "Akshat Kumar",
+        role: "Execution Head",
+        image: akshat_kumar,
+        linkedin: "https://www.linkedin.com/in/akshat-kumar-a898a61a7/",
+      },
+      {
+        name: "Priyansh Sharma",
         role: "Publicity Head",
-        image: Varshith,
-        linkedin: "https://www.linkedin.com/in/mohana-varshith-bolloju-18821b256/",
+        image: priyansh,
+        linkedin: "https://www.linkedin.com/in/priyansh-sharma-/",
       },
       {
-        name: "Dev Sahu",
-        role: "Operations Head",
-        image: Dev,
-        linkedin: "https://www.linkedin.com/in/dev-sahu-41422a1aa/",
-      },
-      {
-        name: "Purushotam Gupta",
-        role: "Operations Head",
-        image: Purushotam,
-        linkedin: "https://www.linkedin.com/in/purushotam-gupta-62574b250/",
-      },
-      {
-        name: "Riddhi Khandelwal",
+        name: "Rounak Singh",
         role: "Design Head",
-        image: Riddhi,
-        linkedin: "https://www.linkedin.com/in/riddhi-khandelwal-496947254/",
+        image: rounak,
+        linkedin: "https://www.linkedin.com/in/rounak-singh-42800420b/",
       },
       {
-        name: "Sreenandan MS",
+        name: "Harshit Singh",
         role: "Videography Head",
-        image: Sreenandan,
-        linkedin: "https://www.linkedin.com/in/sreenandan-m-s-783902279/",
+        image: harshit,
+        linkedin: "https://www.linkedin.com/in/harshit-singh-3a13b6295/",
       },
       {
-        name: "Utkarsh Pandey",
+        name: "Shahil Singh",
+        role: "Photography Head",
+        image: shahil,
+        linkedin: "https://www.linkedin.com/in/shahilsingh/",
+      },
+      {
+        name: "Gunabhirup Meka",
         role: "Hospitality Head",
-        image: Utkarsh,
-        linkedin: "https://www.linkedin.com/in/utkarsh-pandey-98a51327b/",
+        image: gunabhirup,
+        linkedin: "https://www.linkedin.com/in/gunabhirup-meka-a673342b1/",
+      },
+      {
+        name: "Sri Niketh Mulagada",
+        role: "Hospitality Head",
+        image: sriniketh,
+        linkedin: "https://www.linkedin.com/in/sri-niketh-mulagada-58350b360/",
+      },
+      {
+        name: "Shaan Sharma",
+        role: "Operations Head",
+        image: shaan,
+        linkedin: "https://www.linkedin.com/in/shaan-sharma-358399226/",
+      },
+      {
+        name: "Dhruv Sharma",
+        role: "Operations Head",
+        image: dhruv,
+        linkedin: "https://www.linkedin.com/in/dhruv-sharma-296370283/",
       },
     ],
   },
@@ -207,6 +202,22 @@ const ContactSection = () => {
                   url: m.linkedin,
                   gradient,
                   borderColor,
+                  imgStyle: (() => {
+                    const name = m.name.toLowerCase();
+
+                    // Hamaid: zoom in to reduce background
+                    if (name.includes("hamaid")) {
+                      return { transform: "scale(1.35)", objectPosition: "center" };
+                    }
+
+                    // Dhruv: zoom in more to center face
+                    if (name.includes("dhruv")) {
+                      return { transform: "scale(1.3)", objectPosition: "center" };
+                    }
+
+                    // Default styling for others
+                    return undefined;
+                  })()
                 };
               })}
             />

@@ -1,5 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import img2025_1 from "../../assets/SPEAKER PICS/amangupta.jpeg";
+import img2025_2 from "../../assets/SPEAKER PICS/SP.jpeg";
+import img2025_4 from "../../assets/SPEAKER PICS/gov_mizo.avif";
+import img2025_5 from "../../assets/SPEAKER PICS/gupta_mathongo.jpg";
+import img2025_6 from "../../assets/SPEAKER PICS/periperi.png";
+import img2025_9 from "../../assets/SPEAKER PICS/jayesh.jpeg";
 import img1 from "../../assets/SPEAKER PICS/vp_india_naidu.jpg";
 import img2 from "../../assets/SPEAKER PICS/piyush-goyal.jpeg";
 import img3 from "../../assets/SPEAKER PICS/kiran_mazumdar_shaw.jpeg";
@@ -18,6 +24,12 @@ import img15 from "../../assets/SPEAKER PICS/varun.jpeg";
 import img16 from "../../assets/SPEAKER PICS/PRANAY-PAI.png";
 
 const profiles = [
+  { id: 20251, name: "AMAN GUPTA", role: "Co-Founder and CMO at boAt", image: img2025_1, link: "https://www.linkedin.com/in/aman-gupta-7217a515/" },
+  { id: 20252, name: "SURESH PRABHU", role: "Former Union Minister", image: img2025_2, link: "https://www.linkedin.com/in/sureshpprabhu/" },
+  { id: 20254, name: "GENERAL VIJAY KUMAR SINGH", role: "Governer of Mizoram", image: img2025_4 },
+  { id: 20255, name: "ANUP GUPTA", role: "Founder and CEO - Mathongo", image: img2025_5, link: "https://www.linkedin.com/in/anup-gupta-8a3a986" },
+  { id: 20256, name: "MAHESHWAR PERI", role: "Founder and CEO - Careers360", image: img2025_6, link: "https://in.linkedin.com/in/maheshwer-peri-1723ba3b" },
+  { id: 20259, name: "JAYESH RANJAN", role: "SPECIAL CHIEF SECRETARY", image: img2025_9, link: "https://www.linkedin.com/in/jayesh-ranjan-37415963/" },
   { id: 1, name: "SHRI VENKAIAH NAIDU", role: "FORMER VICE-PRESIDENT OF INDIA", image: img1, link: "https://x.com/mvenkaiahnaidu?lang=en&mx=2" },
   { id: 2, name: "PIYUSH GOYAL", role: "UNION CABINET MINISTER", image: img2, link: "https://www.linkedin.com/in/piyushgoyalofficial/?originalSubdomain=in" },
   { id: 3, name: "KIRAN MAZUMDAR SHAW", role: "CHAIRPERSON BIOCON", image: img3, link: "https://www.linkedin.com/in/kmazumdarshaw/" },
@@ -57,19 +69,19 @@ const ProfileCard = ({ profile, index }) => (
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
 
       {/* Decorative lines */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#6b5fff] to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#d4ff00] to-transparent" />
     </div>
 
     <div className="p-4 md:p-6 relative">
-      <h3 className="text-sm md:text-lg font-black text-white mb-1 md:mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
+      <h3 className="text-base md:text-xl font-black text-white mb-1 md:mb-2 leading-tight font-poppins group-hover:text-[#d4ff00] transition-colors">
         {profile.name}
       </h3>
-      <p className="text-[#6b5fff] font-bold text-[8px] md:text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
+      <p className="text-[#d4ff00] font-bold text-[8px] md:text-[10px] tracking-[0.1em] uppercase opacity-80 font-poppins">
         {profile.role}
       </p>
 
       {/* Hover Glow */}
-      <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#d4ff00]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#6b5fff]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
     </div>
   </motion.a>
 );
@@ -105,3 +117,4 @@ const PastSpeakers = () => {
 };
 
 export default PastSpeakers;
+

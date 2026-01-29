@@ -135,7 +135,7 @@ function MainContent() {
     { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
-    { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
+    { label: 'Gallery', ariaLabel: 'View gallery', link: '/gallery' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
     { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
@@ -161,7 +161,7 @@ function MainContent() {
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={false}
           colors={['#1a1a1a', '#2a2a2a']}
-          logoUrl="/lplogo.jpeg"
+          logoUrl="/lp_logo_new.png"
           logoLink="/launchpad"
           accentColor="#d4ff00"
           isFixed={true}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import lpLogo from '../../assets/ecell/LP\'26.png';
+import lpLogo from '../../assets/ecell/lp_logo_new.png';
 
 const events = [
   "PITCHERS PILOT",
@@ -55,9 +55,7 @@ const VerticalMarquee = ({ items }) => {
         ))}
       </motion.div>
 
-      {/* Adjusted fading to match the tighter spacing */}
-      <div className="absolute top-0 left-0 w-full h-[32%] bg-gradient-to-b from-black via-black/90 to-transparent z-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-[32%] bg-gradient-to-t from-black via-black/90 to-transparent z-20 pointer-events-none" />
+      {/* No fade overlays - clean gradient background throughout */}
 
       {/* Glow for the focus area */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-16 bg-[#6F66FF]/5 blur-[60px] pointer-events-none z-10" />
@@ -77,7 +75,7 @@ const Launchpad = () => {
   }, []);
 
   return (
-    <section className="relative py-16 md:py-24 px-4 md:px-8 bg-black text-white overflow-hidden">
+    <section className="relative py-16 md:py-24 px-4 md:px-8 bg-transparent text-white overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
         <div className="absolute top-1/4 left-0 w-full max-w-[600px] aspect-square bg-[#6F66FF]/10 rounded-full blur-[120px] -translate-x-1/2" />
@@ -102,10 +100,15 @@ const Launchpad = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex justify-center md:justify-end"
+            className="flex justify-center md:justify-start md:ml-8"
           >
             <div className="w-[180px] md:w-[280px]">
-              <img src={lpLogo} alt="LP'26" className="w-full h-auto object-contain" loading="lazy" />
+              <img
+                src={lpLogo}
+                alt="LP'26"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
             </div>
           </motion.div>
           <motion.div

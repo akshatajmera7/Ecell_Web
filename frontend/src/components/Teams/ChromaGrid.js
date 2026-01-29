@@ -76,7 +76,8 @@ export const ChromaGrid = ({
       ref={rootRef}
       className={`chroma-grid ${className}`}
       style={{
-        '--r': `${radius}px`
+        '--r': `${radius}px`,
+        '--cols': columns
       }}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
@@ -85,13 +86,16 @@ export const ChromaGrid = ({
         items.map((c, i) => (
           <article
             key={i}
-            className="chroma-card"
-            onMouseMove={handleCardMove}
-            onClick={() => handleCardClick(c.url)}
+            className={`chroma-card ${c.type === 'header' ? 'chroma-header' : ''}`}
+            onMouseMove={c.type === 'header' ? undefined : handleCardMove}
+            onClick={c.type === 'header' ? undefined : () => handleCardClick(c.url)}
             style={{
               '--card-border': c.borderColor || 'transparent',
               '--card-gradient': c.gradient,
-              cursor: c.url ? 'pointer' : 'default'
+              gridColumn: c.type === 'header' ? `1 / span ${columns}` : 'auto',
+              cursor: c.url ? 'pointer' : (c.type === 'header' ? 'default' : 'default'),
+              background: c.type === 'header' ? 'transparent' : undefined,
+              border: c.type === 'header' ? 'none' : undefined,
             }}
           >
             <div className="chroma-img-wrapper">

@@ -1,38 +1,66 @@
 import React from 'react';
-import lp from '../../assets/Launchpad1.JPG';
+import lp1 from '../../assets/Launchpad1.JPG';
+import lp2 from '../../assets/startup.JPG';
+import lp3 from '../../assets/pic.JPG';
+import lp4 from '../../assets/ss.JPG';
 
 const ProgramDescription = () => {
   return (
-    <div className="bg-black text-white p-8 pb-0">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
-          <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
-            <p className="text-lg mb-6">
-              Launchpad is three-day annual entrepreneurial summit by E-Cell, BITS Pilani Hyderabad Campus, celebrating innovation and startups.
-            </p>
+    <div className="w-full max-w-5xl mx-auto px-6 py-20 pb-0">
+      {/* Unified Card Container with Border */}
+      <div className="rounded-[30px] border-4 border-white/80 overflow-hidden bg-[#6B60FE]">
 
-            <p className="text-lg mb-8">
-              Learn from industry-leading CEOs and founders who share their success stories. Participate in unique events like Pitchers Pilot, Startup Expo and many more. Get a chance to connect with investors, entrepreneurs, and like-minded peers, empowering you to grow your ideas and unleash the true entrepreneur within you.
-            </p>
+        {/* Top Section: 4 Image Bento Grid */}
+        <div className="grid grid-cols-2 grid-rows-2 gap-1 h-[400px] md:h-[500px]">
+          {/* Top Left - Large */}
+          <div className="col-span-1 row-span-1 md:col-span-1 md:row-span-1 overflow-hidden relative group">
+            <img
+              src={lp1}
+              alt="Launchpad Main"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
           </div>
 
-          <div className="lg:w-1/2 w-full order-first lg:order-last">
-            <div className="relative">
-              <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full hidden lg:block"></div>
-              <div className="bg-black p-4 border-2 border-blue-600 rounded-lg shadow-lg">
-                <div className="aspect-video w-full rounded-lg overflow-hidden">
-                  <img
-                    src={lp}
-                    alt="Launchpad Logo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+          {/* Top Right */}
+          <div className="col-span-1 row-span-1 overflow-hidden relative group">
+            <img
+              src={lp2}
+              alt="Startup"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Bottom Left */}
+          <div className="col-span-1 row-span-1 overflow-hidden relative group">
+            <img
+              src={lp3}
+              alt="Crowd"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Bottom Right */}
+          <div className="col-span-1 row-span-1 overflow-hidden relative group">
+            <img
+              src={lp4}
+              alt="Speaker"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
           </div>
         </div>
+
+        {/* Bottom Section: Purple Text Area */}
+        <div className="p-8 md:p-12 text-left bg-[#6B60FE]">
+          <p className="text-white text-lg md:text-xl font-light leading-relaxed mb-6 font-manrope">
+            Launchpad is three-day <span className="font-bold text-[#CBF327]">annual entrepreneurial summit</span> by E-Cell, BITS Pilani Hyderabad Campus, celebrating innovation and startups.
+          </p>
+
+          <p className="text-white text-lg md:text-xl font-light leading-relaxed font-manrope">
+            <span className="text-[#CBF327] font-bold">Learn from industry-leading CEOs and founders who share their success stories.</span> Participate in unique events like Pitchers Pilot, Startup Expo, Beyond Profits and many more. Get a chance to connect with investors, entrepreneurs, and like-minded peers, empowering you to grow your ideas and unleash the true entrepreneur within you.
+          </p>
+        </div>
       </div>
-    </div >
+    </div>
   );
 };
 

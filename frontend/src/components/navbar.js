@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Phone } from "lucide-react";
 import "./Navbar.css";
 import logo from "../assets/navbarlogo.png";
-import lplogo from "../assets/lplogo.jpeg";
+import lplogo from "../assets/ecell/lp_logo_new.png";
 
 const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,7 +51,7 @@ const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
             <div className="nav-cell-bottom border-right">
               <NavLink
                 to="/launchpad"
-                className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
+                className={({ isActive }) => `nav-link-new launchpad-link ${isActive ? "active" : ""}`}
               >
                 <img src={lplogo} alt="LP" className="lp-icon-nav" />
                 Launchpad

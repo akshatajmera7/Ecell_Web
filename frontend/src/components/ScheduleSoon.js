@@ -66,7 +66,7 @@ const ScheduleSoon = () => {
                             transition={{ delay: 0.2 }}
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-bold uppercase tracking-widest mb-10 backdrop-blur-md"
                         >
-                            <Calendar size={16} className="text-ecell-primary" /> March 23rd - 25th, 2026
+                            <Calendar size={16} className="text-ecell-primary" /> 3rd - 5th April, 2026
                         </motion.div>
 
                         <motion.h1
@@ -94,11 +94,7 @@ const ScheduleSoon = () => {
                             transition={{ delay: 0.5 }}
                             className="flex flex-col sm:flex-row gap-6 mt-4"
                         >
-                            <div className="p-[2px] rounded-xl bg-gradient-to-r from-ecell-primary to-ecell-secondary">
-                                <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-black text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-                                    <Bell size={20} /> Notify Me
-                                </button>
-                            </div>
+
 
                             <Link
                                 to="/launchpad"

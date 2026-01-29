@@ -39,10 +39,10 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position 
       <div className="space-y-4 mb-10 flex-grow">
         {perks.map((perk, idx) => (
           <div key={idx} className="flex items-start gap-3">
-            <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-white/20'}`}>
+            <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-red-500'}`}>
               {perk.included ? <Check size={18} /> : <X size={18} />}
             </div>
-            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-white/20 line-through'}`}>
+            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-red-500'}`}>
               {perk.text}
             </span>
           </div>
@@ -65,49 +65,58 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position 
 const Passes = () => {
   const tiers = [
     {
-      title: "Starter",
-      price: "499",
-      icon: Shield,
+      title: "Delegate",
+      price: "300",
+      icon: Users,
       delay: 0.1,
       position: 'left',
       perks: [
-        { text: "Access to Speaker Sessions", included: true },
-        { text: "Entry to Startup Expo", included: true },
-        { text: "Networking Opportunities", included: true },
-        { text: "Workshop Participation", included: false },
-        { text: "Priority Seating", included: false },
-        { text: "Exclusive Merchandise", included: false },
+        { text: "Startup expo (viewing rights)", included: true },
+        { text: "Pitchers pilot, BP (GR), T3 (Viewing Audience)", included: true },
+        { text: "Speaker sessions (audience)", included: true },
+        { text: "Internship drive (external participants)", included: false },
+        { text: "Hackathons + Workshop", included: false },
+        { text: "Highlight speaker sessions", included: false },
+        { text: "Comedy Night + performances", included: false },
+        { text: "Networking lunch * ARENA", included: false },
       ]
     },
     {
-      title: "Pro",
-      price: "999",
+      title: "Executive",
+      price: "749 + Workshop cost (subsidized)",
       icon: Rocket,
       isPopular: true,
       delay: 0.2,
       position: 'center',
       perks: [
-        { text: "All Starter Benefits", included: true },
-        { text: "Workshop Participation", included: true },
-        { text: "Access to Internship Drive", included: true },
-        { text: "Panel Discussions", included: true },
-        { text: "Pitching Session Auditing", included: true },
-        { text: "Priority Seating", included: false },
+        { text: "Startup expo (viewing rights)", included: true },
+        { text: "Pitchers pilot, BP (GR), T3 (VIEWING Audience)", included: true },
+        { text: "Speaker sessions (audience)", included: true },
+        { text: "E-Cell in house workshop", included: true },
+        { text: "Highlight speaker sessions", included: true },
+        { text: "Internship drive (external participants)", included: true },
+        { text: "Workshop (in house free)", included: true },
+        { text: "Comedy Night", included: true },
+        { text: "Networking lunch * ARENA", included: false },
       ]
     },
     {
-      title: "Elite",
-      price: "1999",
+      title: "Nexus",
+      price: "1399 + Workshop cost (subsidized)",
       icon: Star,
       delay: 0.3,
       position: 'right',
       perks: [
-        { text: "All Pro Benefits", included: true },
-        { text: "VIP Networking Lunch", included: true },
-        { text: "Priority Front-Row Seating", included: true },
-        { text: "All-Access Backstage Pass", included: true },
-        { text: "Limited Edition Merch Kit", included: true },
-        { text: "Private Q&A with Speakers", included: true },
+        { text: "Startup expo (viewing rights)", included: true },
+        { text: "Pitchers pilot, BP (GR) (competitions Audience)", included: true },
+        { text: "Speaker sessions (audience)", included: true },
+        { text: "E-Cell in house workshop", included: true },
+        { text: "Highlight speaker sessions", included: true },
+        { text: "Internship drive (external participants)", included: true },
+        { text: "Hackathons + Workshop", included: true },
+        { text: "Comedy Night", included: true },
+        { text: "Networking lunch arena * ARENA", included: true },
+        { text: "Freebies", included: true },
       ]
     }
   ];
@@ -127,7 +136,7 @@ const Passes = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-ecell-primary font-bold tracking-[0.3em] uppercase text-sm mb-4 block"
           >
-            Launchpad 2025
+            Launchpad 2026
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

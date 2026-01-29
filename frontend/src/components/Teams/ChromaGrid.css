@@ -76,6 +76,10 @@
   transition: opacity 0.3s ease;
 }
 
+.chroma-header::before {
+  display: none;
+}
+
 .chroma-card::after {
   content: "";
   position: absolute;
