@@ -34,12 +34,12 @@ const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
             >
               Programs & Initiatives
             </NavLink>
-            {/* <NavLink
-              to="/team"
+            <NavLink
+              to={isLaunchpad ? "/launchpad/team" : "/team"}
               className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
             >
               Our Team
-            </NavLink> */}
+            </NavLink>
             <NavLink
               to="/gallery"
               className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
