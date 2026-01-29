@@ -19,8 +19,8 @@ const LFooter = () => {
           {/* Brand + Social */}
           <div>
             <div className="mb-6">
-              <div className="text-xl text-ecell-text leading-tight" style={{ fontWeight: 800 }}>Launchpad</div>
-              <div className="text-sm text-ecell-text opacity-80">by Aayush Jain</div>
+              <div className="text-xl text-ecell-text leading-tight" style={{ fontWeight: 800 }}>E-Cell BITS Hyderabad</div>
+              <div className="text-sm text-ecell-text opacity-80">BITS Pilani Hyderabad Campus</div>
             </div>
 
             <div className="text-sm mb-3 opacity-90">Get connected with us on social networks:</div>
@@ -99,7 +99,7 @@ const LFooter = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-10 py-4 text-center text-sm text-ecell-primary">
-          © 2026 Copyright: Launchpad by Aayush Jain
+          © {new Date().getFullYear()} Copyright: E-Cell BITS Pilani Hyderabad Campus
         </div>
       </div>
     </footer>
