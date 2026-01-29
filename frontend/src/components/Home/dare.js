@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import bannerImg from '../../assets/ecell/lp_banner_yellow.png';
 
 const TypographyComponent = () => {
@@ -23,11 +24,13 @@ const TypographyComponent = () => {
         viewport={{ once: true }}
         className="w-full max-w-6xl"
       >
-        <img
-          src={bannerImg}
-          alt="A Decennial Journey"
-          className="w-full h-auto object-contain rounded-[2rem] shadow-2xl"
-        />
+        <Link to="/launchpad/passes" className="block w-full h-auto">
+          <img
+            src={bannerImg}
+            alt="A Decennial Journey"
+            className="w-full h-auto object-contain rounded-[2rem] shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+          />
+        </Link>
       </motion.div>
     </div>
   );
