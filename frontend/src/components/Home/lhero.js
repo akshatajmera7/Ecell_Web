@@ -46,21 +46,8 @@ const Hero = () => {
           />
         </div>
 
-<<<<<<< HEAD
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-ecell-text-muted font-light mb-8 transition-transform duration-200">
-          An Entrepreneurship Workshop <span className="text-ecell-primary font-medium"></span>
-        </h2>
-
-        <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl transition-transform duration-200 font-medium tracking-wide">
-          3rd - 5th April 2026
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 mt-4">
-=======
         {/* Center CTA Button - Thin Neon Style */}
         <div className="flex justify-center mt-8">
->>>>>>> divvij-updates
           <a
             href="/launchpad/schedules"
             className="group flex items-center gap-4 px-6 py-2.5 text-black text-xl font-bold rounded-full 
@@ -68,33 +55,14 @@ const Hero = () => {
                      hover:scale-105 transition-all duration-300"
             style={{ backgroundColor: '#CBF327' }}
           >
-<<<<<<< HEAD
-            Check Out the Schedule
-            <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-              <ArrowIcon />
-            </span>
-          </a>
-
-          {/* TEMPORARILY HIDDEN - Uncomment to restore */}
-          {/* <a
-            href="/launchpad/passes"
-            className="group flex items-center gap-3 px-10 py-4 border-2 border-ecell-secondary text-ecell-secondary text-lg font-bold rounded-full 
-                     hover:bg-ecell-secondary hover:text-white shadow-[0_0_15px_rgba(107,95,255,0.2)] 
-                     hover:shadow-[0_0_25px_rgba(107,95,255,0.5)] hover:scale-105 transition-all duration-300"
-          >
-            Get Your Passes Now !!
-            <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-              <ArrowIcon />
-=======
             Schedule
             <span className="text-2xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
               ↗
->>>>>>> divvij-updates
             </span>
-          </a> */}
+          </a>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

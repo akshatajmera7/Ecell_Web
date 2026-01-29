@@ -33,14 +33,9 @@ const Frame4 = () => {
             <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">STARTUPS</p>
             <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-none tracking-tighter">1,000+</p>
           </div>
-<<<<<<< HEAD
-          <div className="md:col-span-1 md:row-span-1">
-            <StatCard title="WORKSHOPS" value="20+" className="h-full" />
-=======
           <div className="flex flex-col items-start text-left">
-            <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">EVENTS</p>
+            <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">WORKSHOPS</p>
             <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-none tracking-tighter">20+</p>
->>>>>>> divvij-updates
           </div>
           <div className="flex flex-col items-start text-left">
             <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">SPEAKERS</p>

@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import DomeGallery from './DomeGallery';
 
-<<<<<<< HEAD
 // Import optimized gallery images (compressed from 404MB to 7.5MB)
 import img1 from '../../assets/Gallery-optimized/1f4814c7-a5cd-4a44-96e8-4cd4956d33a1.jpg';
 import img2 from '../../assets/Gallery-optimized/2bc82188-5eaa-4975-a051-0858f493c8c8.jpg';
@@ -77,39 +76,6 @@ export default function LaunchpadGallery() {
         { src: img34, alt: 'Launchpad Gallery Image 34' },
         { src: img35, alt: 'Launchpad Gallery Image 35' },
     ];
-=======
-/**
- * Import all images from lp event wise folder dynamically
- */
-function importAllImages() {
-    try {
-        // Use require.context to import all images from the folder
-        const context = require.context(
-            '../../assets/lp event wise',
-            false, // Don't search subdirectories
-            /\.(jpe?g|png|gif|webp)$/i
-        );
-
-        const images = context.keys().map((key) => {
-            const filename = key.replace('./', '');
-            return {
-                src: context(key),
-                alt: filename
-            };
-        });
-
-        console.log('Loaded images from lp event wise:', images.length, images);
-        return images;
-    } catch (error) {
-        console.error('Error loading images:', error);
-        return [];
-    }
-}
-
-export default function LaunchpadGallery() {
-    // Load all images from lp event wise folder
-    const images = useMemo(() => importAllImages(), []);
->>>>>>> divvij-updates
 
     return (
         <div style={{ width: '100%', height: '100dvh', background: '#000' }}>

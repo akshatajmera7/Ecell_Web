@@ -1,11 +1,7 @@
 import React from "react";
 import Hero from "./lhero";
-<<<<<<< HEAD
-// import Sponsor from "./sponsor";
-=======
 import GradientBackground from "../GradientBackground";
 import Sponsor from "./sponsor";
->>>>>>> divvij-updates
 import Past from "./past";
 import Feature from "./feature";
 // import Partners from "./partner";

@@ -25,15 +25,9 @@ const initiatives = [
     link: '/launchpad'
   },
   {
-<<<<<<< HEAD
-    id: 'networking-arena',
-    title: 'Free College Workshops',
-    subtitle: 'Lorem Ipsum Dolor Sit Amet',
-=======
     id: 'gallery',
     title: 'Gallery',
     subtitle: 'Relive our previous summits',
->>>>>>> divvij-updates
     color: '#6F66FF',
     textColor: 'white',
     type: 'triple',
@@ -68,13 +62,8 @@ const Initiatives = () => {
         <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 md:mb-8 font-syne">
           <span className="text-white">Programs &</span> <span className="text-[#d4ff00]">Initiatives</span>
         </h2>
-<<<<<<< HEAD
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 max-w-2xl mx-auto font-manrope font-light px-4">
-          Fostering innovation through our curated programs designed to support and grow your entrepreneurial journey.
-=======
         <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-400 max-w-2xl mx-auto font-manrope font-light px-4">
           Fostering innovation through our curated programs designed to support and accelerate your entrepreneurial journey.
->>>>>>> divvij-updates
         </p>
       </motion.div>
 

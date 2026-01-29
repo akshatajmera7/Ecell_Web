@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// import React from 'react';
-// import lp from '../../assets/Launchpad1.JPG';
-
-const ProgramDescription = () => {
-  return null; // Section removed as per request
-=======
 import React from 'react';
 import lp1 from '../../assets/Launchpad1.JPG';
 import lp2 from '../../assets/startup.JPG';
@@ -69,7 +62,6 @@ const ProgramDescription = () => {
       </div>
     </div>
   );
->>>>>>> divvij-updates
 };
 
 export default ProgramDescription;

@@ -2,13 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Phone } from "lucide-react";
 import "./Navbar.css";
-<<<<<<< HEAD
-// import logo from "../assets/navbarlogo.png";
-import lplogo from "../assets/lplogo.jpeg";
-=======
 import logo from "../assets/navbarlogo.png";
 import lplogo from "../assets/ecell/lp_logo_new.png";
->>>>>>> divvij-updates
 
 const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
   const [isScrolled, setIsScrolled] = useState(false);

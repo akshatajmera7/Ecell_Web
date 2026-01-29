@@ -7,14 +7,8 @@ const LFooter = () => {
     { label: 'Launchpad', to: '/launchpad' },
     { label: 'Speakers Sessions', to: '/launchpad/speakers' },
     { label: 'Startup Spotlight', to: '/launchpad/startup_expo' },
-<<<<<<< HEAD
-    { label: 'Management Temptations', to: '/launchpad/workshop' },
-    // TEMPORARILY HIDDEN - Uncomment to restore
-    // { label: 'Networking Arena', to: '/launchpad/workshop' },
-=======
     { label: 'Management Temptations', to: '/launchpad/events' },
     { label: 'Gallery', to: '/launchpad/events' },
->>>>>>> divvij-updates
   ];
 
   // Launchpad area links (match Launchpad menu)

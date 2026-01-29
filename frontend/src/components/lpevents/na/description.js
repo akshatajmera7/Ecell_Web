@@ -8,12 +8,8 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-[#18181B] p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-<<<<<<< HEAD
-              Networking Arena is an exclusive workshop bringing together startup founders, investors, VCs, and mentors for high-impact conversations and collaborations.
-=======
               Gallery is an exclusive event bringing together startup founders, investors, VCs, and mentors for high-impact conversations and collaborations.
->>>>>>> divvij-updates
-            </p>
+            </p >
 
             <p className="text-lg mb-8">
               <ul className="list-disc list-inside">
@@ -29,7 +25,7 @@ const ProgramDescription = () => {
               Time: 2PM - 6PM <br />
               Venue: The Headquarters, Hi-Tech City, Hyderabad
             </p>
-          </div>
+          </div >
 
           <div className="lg:w-1/2 w-full order-first lg:order-last">
             <div className="relative">
@@ -38,20 +34,16 @@ const ProgramDescription = () => {
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <img
                     src={bpimg}
-<<<<<<< HEAD
-                    alt="Networking Arena"
-=======
                     alt="Gallery"
->>>>>>> divvij-updates
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </div >
+      </div >
+    </div >
   );
 };
 
