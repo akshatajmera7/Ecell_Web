@@ -15,7 +15,7 @@ const ProgramDescription = () => {
           {/* Top Left - Large */}
           <div className="col-span-1 row-span-1 md:col-span-1 md:row-span-1 overflow-hidden relative group">
             <img
-              src={lp1}
+              loading="lazy" src={lp1}
               alt="Launchpad Main"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -24,7 +24,7 @@ const ProgramDescription = () => {
           {/* Top Right */}
           <div className="col-span-1 row-span-1 overflow-hidden relative group">
             <img
-              src={lp2}
+              loading="lazy" src={lp2}
               alt="Startup"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -33,7 +33,7 @@ const ProgramDescription = () => {
           {/* Bottom Left */}
           <div className="col-span-1 row-span-1 overflow-hidden relative group">
             <img
-              src={lp3}
+              loading="lazy" src={lp3}
               alt="Crowd"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -42,7 +42,7 @@ const ProgramDescription = () => {
           {/* Bottom Right */}
           <div className="col-span-1 row-span-1 overflow-hidden relative group">
             <img
-              src={lp4}
+              loading="lazy" src={lp4}
               alt="Speaker"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

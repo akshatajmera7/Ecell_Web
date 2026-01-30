@@ -117,7 +117,7 @@ const ProgramCard = ({ item, isTall, navigate }) => {
                             <div className="grid grid-cols-3 h-full gap-0.5 md:gap-1">
                                 {item.images.map((img, idx) => (
                                     <img
-                                        key={idx}
+                                        loading="lazy" key={idx}
                                         src={img}
                                         alt=""
                                         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
@@ -126,7 +126,7 @@ const ProgramCard = ({ item, isTall, navigate }) => {
                             </div>
                         ) : (
                             <img
-                                src={item.image}
+                                loading="lazy" src={item.image}
                                 alt={item.title}
                                 className="w-full h-full object-cover transition-all duration-700 saturate-[1.1] group-hover:scale-105"
                             />

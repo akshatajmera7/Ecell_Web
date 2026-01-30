@@ -215,6 +215,11 @@ const ContactSection = () => {
                       return { transform: "scale(1.3)", objectPosition: "center" };
                     }
 
+                    // Ayush: Align top to show face
+                    if (name.includes("ayush")) {
+                      return { objectPosition: "top" };
+                    }
+
                     // Default styling for others
                     return undefined;
                   })()

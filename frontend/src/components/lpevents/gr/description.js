@@ -35,7 +35,7 @@ const ProgramDescription = () => {
               <div className="bg-black p-4 border-2 border-blue-600 rounded-lg shadow-lg">
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <img 
-                    src={Grimg} 
+                    loading="lazy" src={Grimg} 
                     alt="Ground Reality" 
                     className="w-full h-full object-cover"
                   />

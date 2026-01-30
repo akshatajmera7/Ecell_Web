@@ -40,7 +40,7 @@ const BentoItem = ({
             {image && (
                 <div className="absolute inset-0 h-full w-full">
                     <img
-                        src={image}
+                        loading="lazy" src={image}
                         alt={title}
                         className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                     />

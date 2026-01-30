@@ -243,7 +243,12 @@ const OurTeam = () => {
                   // "Middle 3" (Row 2): Divyansh Rungta, Ayush Jain, Darsh Saxena
                   // All at default scale (1.0) to avoid spacing
                   if (name.includes("rungta") || name.includes("raungta")) return undefined; // Default scale (1.0)
-                  if (name.includes("ayush") || name.includes("darsh")) return undefined; // Default scale (1.0)
+                  if (name.includes("darsh")) return undefined; // Default scale (1.0) for Darsh
+
+                  // Ayush: Align top to show face
+                  if (name.includes("ayush")) {
+                    return { objectPosition: "top" };
+                  }
 
                   // "All Others" (Row 1 & 3): Zoom in
 

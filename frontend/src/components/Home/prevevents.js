@@ -95,7 +95,7 @@ const DisruptImageCarousel = () => {
                 <div key={index} className="w-full flex-shrink-0 relative">
                   {/* Darkened overlay for better text contrast */}
                   <img
-                    src={slide.imageUrl}
+                    loading="lazy" src={slide.imageUrl}
                     alt={slide.title}
                     className="w-full h-full object-cover filter brightness-75 transition-all duration-700 group-hover:scale-105"
                   />

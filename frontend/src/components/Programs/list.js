@@ -34,13 +34,13 @@ const ProgramCard = ({ program, navigate }) => {
         {program.type === 'triple' ? (
           // ✅ ONLY MIDDLE IMAGE
           <img
-            src={program.images[1]}
+            loading="lazy" src={program.images[1]}
             alt={program.title}
             className="w-full h-full object-cover transition-all duration-700 saturate-[1.1] group-hover:scale-105"
           />
         ) : (
           <img
-            src={program.image}
+            loading="lazy" src={program.image}
             alt={program.title}
             className="w-full h-full object-cover transition-all duration-700 saturate-[1.1] group-hover:scale-105"
           />

@@ -7,9 +7,7 @@ import StaggeredMenu from "./components/StaggeredMenu";
 import Footer from "./components/footer";
 import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import ECellLoader from './components/ECellLoader';
-import Lenis from 'lenis';
-import { AnimatePresence } from 'framer-motion';
-import GlobalBackground from './components/GlobalBackground';
+import { SmoothScroll, useLenis } from './components/SmoothScroll';
 
 // Lazy load components
 const Home = lazy(() => import("./components/Home/home"));
@@ -51,13 +49,15 @@ const PassesSoon = lazy(() => import("./components/PassesSoon"));
 // Scroll to top on route change
 const ScrollToTop = () => {
   const location = useLocation();
+  const lenis = useLenis();
 
   useEffect(() => {
-    console.log("Scrolling to top", location.pathname);
-    setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // Force scroll
-    }, 0);
-  }, [location]);
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location, lenis]);
 
   return null;
 };
@@ -66,11 +66,13 @@ function App() {
   return (
     <>
       <ErrorBoundary>
-        <Router>
-          <ECellLoader />
-          <ScrollToTop />
-          <MainContent />
-        </Router>
+        <SmoothScroll>
+          <Router>
+            <ECellLoader />
+            <ScrollToTop />
+            <MainContent />
+          </Router>
+        </SmoothScroll>
       </ErrorBoundary>
     </>
   );
@@ -80,31 +82,6 @@ function App() {
 function MainContent() {
   const location = useLocation();
   const isLaunchpadRoute = location.pathname.startsWith("/launchpad");
-
-  // Lenis Smooth Scroll
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
 
   const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -148,7 +125,7 @@ function MainContent() {
 
   return (
     <div className="app-container">
-      <GlobalBackground />
+      {!isLaunchpadRoute && <GlobalBackground />}
       <ScrollToTop />
 
       {/* Conditional Navbar */}

@@ -41,7 +41,7 @@ const ContactSection = () => {
         <div className="flex flex-col items-center">
           <div className="w-full h-48 rounded-xl overflow-hidden border border-blue-700/50">
             <img
-              src={person.image}
+              loading="lazy" src={person.image}
               alt={person.name}
               className="w-full h-full object-cover"
             />

@@ -103,7 +103,7 @@ const DisruptCarousel = () => {
                 className="flex-none w-48 h-48 flex items-center justify-center rounded-lg bg-white shadow-lg shadow-gray-500 hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src={item.image}
+                  loading="lazy" src={item.image}
                   alt={item.name}
                   className="w-36 h-36 object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />

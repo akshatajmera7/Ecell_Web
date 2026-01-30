@@ -191,7 +191,7 @@ const EventTemplate = ({ eventData }) => {
                         >
                             <div className="aspect-square rounded-2xl overflow-hidden mb-6 relative">
                                 <img
-                                    src={poc.image || `https://api.dicebear.com/7.x/avataaars/svg?seed=${poc.name}`}
+                                    loading="lazy" src={poc.image || `https://api.dicebear.com/7.x/avataaars/svg?seed=${poc.name}`}
                                     alt={poc.name}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     style={{
@@ -308,7 +308,7 @@ const EventTemplate = ({ eventData }) => {
                                 className="w-[300px] md:w-[500px] h-[350px] md:h-[600px] rounded-[2.5rem] overflow-hidden border border-white/10 relative group shrink-0"
                             >
                                 <img
-                                    src={img}
+                                    loading="lazy" src={img}
                                     alt={`Memory ${idx}`}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />

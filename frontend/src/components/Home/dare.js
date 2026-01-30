@@ -26,7 +26,7 @@ const TypographyComponent = () => {
       >
         <Link to="/launchpad/passes" className="block w-full h-auto">
           <img
-            src={bannerImg}
+            loading="lazy" src={bannerImg}
             alt="A Decennial Journey"
             className="w-full h-auto object-contain rounded-[2rem] shadow-2xl hover:scale-[1.02] transition-transform duration-500"
           />

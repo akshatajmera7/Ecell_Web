@@ -134,7 +134,7 @@ const MediaAssociates = () => {
               <div className="relative rounded-2xl backdrop-blur-md bg-white/5 border border-white/[0.08] p-2 md:p-2.5 lg:p-3 transform transition-all duration-300 group-hover:scale-105 group-hover:bg-white/10 group-hover:border-white/20 group-hover:shadow-xl group-hover:shadow-orange-500/25">
                 <div className="aspect-square rounded-lg overflow-hidden bg-white/95 backdrop-blur-sm">
                   <img
-                    src={associate.image}
+                    loading="lazy" src={associate.image}
                     alt={associate.name}
                     className="w-full h-full object-contain p-0.5 md:p-1 transition-all duration-300"
                   />

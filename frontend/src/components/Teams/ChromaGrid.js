@@ -28,7 +28,6 @@ export const ChromaGrid = ({
     setX.current(pos.current.x);
     setY.current(pos.current.y);
 
-    // Set fade to 0 initially for always bright cards
     if (fadeRef.current) {
       gsap.set(fadeRef.current, { opacity: 0 });
     }
@@ -51,12 +50,9 @@ export const ChromaGrid = ({
   const handleMove = e => {
     const r = rootRef.current.getBoundingClientRect();
     moveTo(e.clientX - r.left, e.clientY - r.top);
-    // Fade stays at 0 for always bright cards
   };
 
-  const handleLeave = () => {
-    // No fade animation on leave - cards stay bright
-  };
+  const handleLeave = () => {};
 
   const handleCardClick = url => {
     if (url) window.open(url, '_blank', 'noopener,noreferrer');
@@ -82,8 +78,12 @@ export const ChromaGrid = ({
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
     >
-      {
-        items.map((c, i) => (
+      {items.map((c, i) => {
+        const name = c.title?.toLowerCase();
+        const needsFix =
+          name === "ayush jain" || name === "divyansh rungta";
+
+        return (
           <article
             key={i}
             className={`chroma-card ${c.type === 'header' ? 'chroma-header' : ''}`}
@@ -93,14 +93,31 @@ export const ChromaGrid = ({
               '--card-border': c.borderColor || 'transparent',
               '--card-gradient': c.gradient,
               gridColumn: c.type === 'header' ? `1 / span ${columns}` : 'auto',
-              cursor: c.url ? 'pointer' : (c.type === 'header' ? 'default' : 'default'),
+              cursor: c.url ? 'pointer' : 'default',
               background: c.type === 'header' ? 'transparent' : undefined,
               border: c.type === 'header' ? 'none' : undefined,
             }}
           >
             <div className="chroma-img-wrapper">
-              <img src={c.image} alt={c.title} loading="lazy" />
+              <img
+                src={c.image}
+                alt={c.title}
+                loading="lazy"
+                style={
+                  needsFix
+                    ? {
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center top",
+                        transform: "none",      // ✅ FULL BLEED
+                        display: "block"
+                      }
+                    : undefined
+                }
+              />
             </div>
+
             <footer className="chroma-info">
               <h3 className="name">{c.title}</h3>
               {c.handle && <span className="handle">{c.handle}</span>}
@@ -108,11 +125,12 @@ export const ChromaGrid = ({
               {c.location && <span className="location">{c.location}</span>}
             </footer>
           </article>
-        ))
-      }
-      < div className="chroma-overlay" />
+        );
+      })}
+
+      <div className="chroma-overlay" />
       <div ref={fadeRef} className="chroma-fade" />
-    </div >
+    </div>
   );
 };
 

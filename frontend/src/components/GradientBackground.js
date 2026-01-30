@@ -13,7 +13,7 @@ export default function GradientBackground({ children }) {
                     style={{
                         background: 'radial-gradient(circle, rgba(107,96,254,0.32) 0%, rgba(59,51,137,0.22) 40%, transparent 70%)',
                         filter: 'blur(120px)',
-                        willChange: 'transform'
+
                     }}
                 />
 
@@ -23,7 +23,7 @@ export default function GradientBackground({ children }) {
                     style={{
                         background: 'radial-gradient(circle, rgba(170,220,0,0.30) 0%, rgba(100,140,0,0.20) 40%, transparent 70%)',
                         filter: 'blur(120px)',
-                        willChange: 'transform'
+
                     }}
                 />
 
@@ -33,7 +33,7 @@ export default function GradientBackground({ children }) {
                     style={{
                         background: 'radial-gradient(circle, rgba(107,96,254,0.30) 0%, rgba(59,51,137,0.20) 40%, transparent 70%)',
                         filter: 'blur(140px)',
-                        willChange: 'transform'
+
                     }}
                 />
 
@@ -43,7 +43,7 @@ export default function GradientBackground({ children }) {
                     style={{
                         background: 'radial-gradient(circle, rgba(190,255,0,0.30) 0%, rgba(100,150,0,0.20) 40%, transparent 70%)',
                         filter: 'blur(140px)',
-                        willChange: 'transform'
+
                     }}
                 />
             </div>
