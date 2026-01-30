@@ -66,11 +66,11 @@ const LFooter = () => {
                 <span>Hyderabad, Telangana 500078</span>
               </li> */}
               <li className="opacity-90 hover:text-ecell-primary transition-colors">
-                <a href="mailto:jainsonaayush0808@gmail.com">jainsonaayush0808@gmail.com</a>
+                <a href="mailto:ecell@hyderabad.bits-pilani.ac.in">ecell@hyderabad.bits-pilani.ac.in</a>
               </li>
 
               <li className="opacity-90">
-                <a href="tel:+919098658361" className="hover:text-ecell-primary transition-colors">Aayush Jain- +91 9098658361</a>
+                <a href="tel:+919347270686" className="hover:text-ecell-primary transition-colors">Shihab- +91 9347270686</a>
               </li>
             </ul>
           </div>

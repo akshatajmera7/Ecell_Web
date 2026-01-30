@@ -175,8 +175,8 @@ function Contact() {
 
               <div className="flex flex-col">
                 <span className="text-xs text-gray-500 uppercase tracking-wider mb-1">Email</span>
-                <a href="mailto:jainsonaayush0808@gmail.com" className="text-white hover:text-ecell-primary transition-colors font-semibold">
-                  jainsonaayush0808@gmail.com
+                <a href="mailto:ecell@hyderabad.bits-pilani.ac.in" className="text-white hover:text-ecell-primary transition-colors font-semibold">
+                  ecell@hyderabad.bits-pilani.ac.in
                 </a>
               </div>
 
@@ -184,8 +184,8 @@ function Contact() {
                 <span className="text-xs text-gray-500 uppercase tracking-wider mb-1">Phone</span>
 
                 <p className="flex justify-between items-center bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors">
-                  <span className="text-white">Aayush Jain</span>
-                  <a href="tel:+919098658361" className="text-ecell-primary hover:text-white transition">+91 9098658361</a>
+                  <span className="text-white">Shihab</span>
+                  <a href="tel:+919347270686" className="text-ecell-primary hover:text-white transition">+91 9347270686</a>
                 </p>
               </div>
             </div>

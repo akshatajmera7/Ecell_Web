@@ -40,7 +40,7 @@ const EventSchedule = () => {
                 </svg>
               </div>
               <span className="text-gray-300">
-                jainsonaayush0808@gmail.com
+                ecell@hyderabad.bits-pilani.ac.in
               </span>
             </div>
 
@@ -53,8 +53,8 @@ const EventSchedule = () => {
                 </svg>
               </div>
               <div className="flex flex-col items-start">
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Aayush Jain</span>
-                <span className="text-gray-300">+91 9098658361</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Shihab</span>
+                <span className="text-gray-300">+91 9347270686</span>
               </div>
             </div>
           </div>
