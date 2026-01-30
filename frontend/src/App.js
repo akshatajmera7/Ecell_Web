@@ -8,6 +8,8 @@ import Footer from "./components/footer";
 import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import ECellLoader from './components/ECellLoader';
 import { SmoothScroll, useLenis } from './components/SmoothScroll';
+import { AnimatePresence } from 'framer-motion';
+import GlobalBackground from './components/GlobalBackground';
 
 // Lazy load components
 const Home = lazy(() => import("./components/Home/home"));
