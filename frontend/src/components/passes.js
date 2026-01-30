@@ -98,7 +98,8 @@ const Passes = () => {
         { text: "E-Cell in house workshop", included: true },
         { text: "Highlight speaker sessions", included: true },
         { text: "Internship drive (external participants)", included: true },
-        { text: "Hackathons + Workshop", included: true, tag: "red" },
+        { text: "Hackathons + Workshop", included: false },
+        { text: "Freebies", included: false },
         { text: "Comedy Night", included: true },
         { text: "Networking lunch * ARENA", included: false },
       ]
