@@ -42,8 +42,11 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position 
             <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-red-500'}`}>
               {perk.included ? <Check size={18} /> : <X size={18} />}
             </div>
-            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-red-500'}`}>
+            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-red-500'} flex items-center`}>
               {perk.text}
+              {perk.tag === 'red' && (
+                <span className="inline-block w-2.5 h-2.5 bg-[#FF4D00] rounded-full ml-2 shadow-[0_0_8px_rgba(255,77,0,0.6)]" />
+              )}
             </span>
           </div>
         ))}
@@ -95,7 +98,7 @@ const Passes = () => {
         { text: "E-Cell in house workshop", included: true },
         { text: "Highlight speaker sessions", included: true },
         { text: "Internship drive (external participants)", included: true },
-        { text: "Workshop (in house free)", included: true },
+        { text: "Hackathons + Workshop", included: true, tag: "red" },
         { text: "Comedy Night", included: true },
         { text: "Networking lunch * ARENA", included: false },
       ]
@@ -113,10 +116,10 @@ const Passes = () => {
         { text: "E-Cell in house workshop", included: true },
         { text: "Highlight speaker sessions", included: true },
         { text: "Internship drive (external participants)", included: true },
-        { text: "Hackathons + Workshop", included: true },
+        { text: "Hackathons + Workshop", included: true, tag: "red" },
         { text: "Comedy Night", included: true },
         { text: "Networking lunch arena * ARENA", included: true },
-        { text: "Freebies", included: true },
+        { text: "Freebies", included: true, tag: "red" },
       ]
     }
   ];
