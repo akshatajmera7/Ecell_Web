@@ -47,7 +47,7 @@ const EventCard = ({ event, index }) => {
             Register <ArrowUpRight size={18} />
           </a> */}
           <a
-            href={event.exploreLink.replace('/events', '/workshop')}
+            href={event.exploreLink}
             className="flex-1 py-4 px-6 rounded-xl border border-white/10 text-white font-bold text-center transition-all duration-300 hover:bg-white/5 hover:border-white/20 active:scale-[0.98] font-manrope flex items-center justify-center gap-2"
           >
             Details <ArrowDownRight size={18} />

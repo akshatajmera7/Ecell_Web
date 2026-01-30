@@ -8,16 +8,16 @@ const ProgramDescription = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="lg:w-1/2 bg-blue-600/10 p-6 rounded-lg shadow-lg">
             <p className="text-lg mb-6">
-              The Startup Expo at Launchpad is a key workshop for
-              entrepreneurs to showcase their companies to
-              investors, customers, and industry experts.
-              Featuring startups from various industries and
-              stages, it offers a platform for discovering
-              innovative ideas.
+            The Startup Expo at Launchpad is a key event for
+entrepreneurs to showcase their companies to
+investors, customers, and industry experts.
+Featuring startups from various industries and
+stages, it offers a platform for discovering
+innovative ideas.
             </p>
 
             <p className="text-lg mb-8">
-              The Workshop Expo at Launchpad is a key workshop for entrepreneurs to showcase their companies to investors, customers, and industry experts. Featuring startups from various industries and stages, it offers a dynamic platform for discovering innovative ideas and emerging businesses.
+            The Startup Expo at Launchpad is a key event for entrepreneurs to showcase their companies to investors, customers, and industry experts. Featuring startups from various industries and stages, it offers a dynamic platform for discovering innovative ideas and emerging businesses.
             </p>
           </div>
 

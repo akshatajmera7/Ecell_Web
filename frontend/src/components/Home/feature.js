@@ -38,9 +38,14 @@ const Frame4 = () => {
             <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">STARTUPS</p>
             <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-none tracking-tighter">1,000+</p>
           </div>
+<<<<<<< HEAD
           <div className="flex flex-col items-start text-left">
             <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">WORKSHOPS</p>
             <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-none tracking-tighter">20+</p>
+=======
+          <div className="md:col-span-1 md:row-span-1">
+            <StatCard title="EVENTS" value="20+" className="h-full" />
+>>>>>>> parent of 49c0731 (Refactor: Rename Events to Workshops across the website)
           </div>
           <div className="flex flex-col items-start text-left">
             <p className="text-[12px] font-bold tracking-[0.2em] mb-1 uppercase">SPEAKERS</p>
