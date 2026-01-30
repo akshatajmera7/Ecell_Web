@@ -20,7 +20,7 @@ const Gallery = lazy(() => import("./components/Gallery/gallery"));
 const LaunchpadGallery = lazy(() => import("./components/Gallery/launchpadgallery"));
 const Navbar = lazy(() => import("./components/navbar"));
 
-const LFooter = lazy(() => import("./components/lfooter"));
+
 const Lteam = lazy(() => import("./components/team/team"));
 const Lcontact = lazy(() => import("./components/lcontact"));
 const Launchpadhome = lazy(() => import("./components/Home/launchpadhome"));
@@ -240,8 +240,8 @@ function MainContent() {
         </Suspense>
       </AnimatePresence>
 
-      {/* Conditional Footer */}
-      {isLaunchpadRoute ? <LFooter /> : <Footer />}
+      {/* Global Footer */}
+      <Footer />
       <SpeedInsights />
     </div>
   );
