@@ -21,7 +21,7 @@ const ProgramDescription = () => {
               The workshop culminates in the Grand Finale, where teams
               pitch innovative solutions to a distinguished panel,
               showcasing creativity, critical thinking, and business
-              acumen.With a prize pool of more than 50L INR, Teen Tycoons offers unparalleled opportunities for aspiring entrepreneurs to bring their ideas to life.
+              acumen. With a prize pool of more than 1.25L INR, Teen Tycoons offers unparalleled opportunities for aspiring entrepreneurs to bring their ideas to life.
             </p>
           </div>
 

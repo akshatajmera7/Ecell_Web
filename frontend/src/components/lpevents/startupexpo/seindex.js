@@ -10,10 +10,21 @@ const eventData = {
   bannerImage: seimg,
   description: `The Startup Expo at Launchpad is a key event for entrepreneurs to showcase their companies to investors, customers, and industry experts. Featuring startups from various industries and stages, it offers a dynamic platform for discovering innovative ideas and emerging businesses.`,
   timeline: [
-    { date: "Day 1 - 9:00 AM", event: "Stall Setup and Visitor Interaction" },
-    { date: "Day 1 - 2:00 PM", event: "Networking Session with Mentors" },
-    { date: "Day 2 - 10:00 AM", event: "Investor Walkthrough" },
-    { date: "Day 2 - 4:00 PM", event: "Closing and Feedback" }
+    {
+      date: "28 Jan - 26 Feb 2026",
+      event: "Registration and Payment",
+      description: "Complete registration and participation fee payment through Unstop to confirm your slot."
+    },
+    {
+      date: "01 Mar - 15 Mar 2026",
+      event: "Pitch Deck & Video Submission",
+      description: "Submit your pitch deck and a promotional video for startup profiling and on-ground promotion."
+    },
+    {
+      date: "03 Apr - 05 Apr 2026",
+      event: "Offline Startup Expo",
+      description: "Showcase products and ventures at the on-ground Startup Expo, engaging with investors, mentors, and the audience."
+    }
   ],
   pocs: [
     {

@@ -161,9 +161,14 @@ const EventTemplate = ({ eventData }) => {
                                         <span className="text-ecell-primary font-manrope text-sm font-bold tracking-[0.2em] uppercase mb-3 block">
                                             {item.date}
                                         </span>
-                                        <h3 className="text-xl md:text-2xl font-syne font-bold text-white group-hover:text-ecell-primary transition-colors leading-tight">
+                                        <h3 className="text-xl md:text-2xl font-syne font-bold text-white group-hover:text-ecell-primary transition-colors leading-tight mb-2">
                                             {item.event}
                                         </h3>
+                                        {item.description && (
+                                            <p className="text-white/60 font-manrope text-sm leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        )}
                                     </motion.div>
                                 </div>
 

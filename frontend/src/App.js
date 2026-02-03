@@ -11,6 +11,8 @@ import { SmoothScroll, useLenis } from './components/SmoothScroll';
 import { AnimatePresence } from 'framer-motion';
 import GlobalBackground from './components/GlobalBackground';
 
+import lplogo from "./assets/ecell/lp_logo_new.png"; // Import the logo
+
 // Lazy load components
 const Home = lazy(() => import("./components/Home/home"));
 const Team = lazy(() => import("./components/Teams/team"));
@@ -49,6 +51,17 @@ const Passes = lazy(() => import("./components/passes"));
 const PassesSoon = lazy(() => import("./components/PassesSoon"));
 
 // Scroll to top on route change
+
+const PageHead = () => {
+  useEffect(() => {
+    document.title = "E-Cell BITS Hyderabad";
+    const link = document.querySelector("link[rel~='icon']");
+    if (link) link.href = "/navbarlogo.png";
+  }, []);
+
+  return null;
+};
+
 const ScrollToTop = () => {
   const location = useLocation();
   const lenis = useLenis();
@@ -72,6 +85,7 @@ function App() {
           <Router>
             <ECellLoader />
             <ScrollToTop />
+            <PageHead />
             <MainContent />
           </Router>
         </SmoothScroll>
@@ -145,7 +159,7 @@ function MainContent() {
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={false}
           colors={['#1a1a1a', '#2a2a2a']}
-          logoUrl="/lp_logo_new.png"
+          logoUrl={lplogo}
           logoLink="/launchpad"
           accentColor="#d4ff00"
           isFixed={true}

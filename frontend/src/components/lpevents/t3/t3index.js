@@ -9,11 +9,28 @@ const eventData = {
   title: "Teen Tycoons",
   tagline: "Nurturing the Next Generation of Business Leaders",
   bannerImage: ttimg,
-  description: `Teen Tycoons is a case-based business plan competition that nurtures entrepreneurial talent through a structured, multi-stage process. Participants solve analytical guesstimates, tailored problem statements according to their selected ventures, and finalists undergo a skill-building bootcamp with expert mentorship. The event culminates in the Grand Finale, where teams pitch innovative solutions to a distinguished panel, showcasing creativity, critical thinking, and business acumen. With a prize pool of more than 50L INR, Teen Tycoons offers unparalleled opportunities for aspiring entrepreneurs to bring their ideas to life.`,
+  description: `Teen Tycoons is a case-based business plan competition that nurtures entrepreneurial talent through a structured, multi-stage process. Participants solve analytical guesstimates, tailored problem statements according to their selected ventures, and finalists undergo a skill-building bootcamp with expert mentorship. The event culminates in the Grand Finale, where teams pitch innovative solutions to a distinguished panel, showcasing creativity, critical thinking, and business acumen. With a prize pool of more than 1.25L INR, Teen Tycoons offers unparalleled opportunities for aspiring entrepreneurs to bring their ideas to life.`,
   timeline: [
-    { date: "Stage 1", event: "Analytical Guesstimates & Problem Solving" },
-    { date: "Stage 2", event: "Skill-building Bootcamp" },
-    { date: "Finale", event: "Grand Pitch to Distinguished Panel" }
+    {
+      date: "20 Mar - 24 Mar 2026",
+      event: "Bootcamp (Phase I)",
+      description: "Online workshops on strategy, market research, and pitching, with mentor guidance."
+    },
+    {
+      date: "20 Mar - 25 Mar 2026",
+      event: "Venture Allocation (Phase II)",
+      description: "Teams are allotted ventures and case-based problem statements."
+    },
+    {
+      date: "21 Mar - 25 Mar 2026",
+      event: "Elimination Round (Phase III)",
+      description: "Teams are evaluated using the Business Model Canvas (BMC)."
+    },
+    {
+      date: "05 Apr 2026",
+      event: "Grand Finale (Offline Round)",
+      description: "Finalists present their business plans at BITS Pilani, Hyderabad Campus, followed by a structured Q&A with judges."
+    }
   ],
   pocs: [
     {

@@ -8,12 +8,7 @@ const LFooter = () => {
     { label: 'Speakers Sessions', to: '/launchpad/speakers' },
     { label: 'Startup Spotlight', to: '/launchpad/startup_expo' },
     { label: 'Management Temptations', to: '/launchpad/events' },
-<<<<<<< HEAD
     { label: 'Gallery', to: '/launchpad/events' },
-=======
-    // TEMPORARILY HIDDEN - Uncomment to restore
-    // { label: 'Networking Arena', to: '/launchpad/events' },
->>>>>>> parent of 49c0731 (Refactor: Rename Events to Workshops across the website)
   ];
 
   // Launchpad area links (match Launchpad menu)
@@ -76,6 +71,17 @@ const LFooter = () => {
 
               <li className="opacity-90">
                 <a href="tel:+919347270686" className="hover:text-ecell-primary transition-colors">Shihab- +91 9347270686</a>
+              </li>
+              <li className="opacity-90 pt-2">
+                <span className="block text-xs uppercase tracking-widest text-ecell-text/60 mb-1">Join our community</span>
+                <a
+                  href="https://chat.whatsapp.com/GRGDBbVBNiV6WvTpw1g182"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ecell-primary hover:underline font-bold"
+                >
+                  WhatsApp Group
+                </a>
               </li>
             </ul>
           </div>

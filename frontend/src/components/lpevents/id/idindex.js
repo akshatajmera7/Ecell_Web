@@ -10,7 +10,7 @@ const eventData = {
   title: "Internship Drive",
   tagline: "Bridging Academics and Industry",
   bannerImage: idimg,
-  description: `Internship Drive connects enthusiastic students with 50+ start-ups, offering stipends up to 125K INR. With 75% of the opportunities being remote, this initiative provides students with the chance to gain hands-on experience in a variety of industries while working from home. It also offers valuable exposure to the selection processes and interviews of leading companies, helping students develop the skills and confidence needed to step into the corporate world.`,
+  description: `Internship Drive connects enthusiastic students with 50+ start-ups, offering stipends up to 125K INR. With 75% of the opportunities being remote, this initiative provides students with the chance to gain hands-on experience in a variety of industries. It also offers valuable exposure to the selection processes and interviews of leading companies, helping students develop the skills and confidence needed to step into the corporate world.`,
   timeline: [
     { date: "Registration", event: "Applications Open for Various Profiles" },
     { date: "Shortlisting", event: "Resume Screening by Startups" },

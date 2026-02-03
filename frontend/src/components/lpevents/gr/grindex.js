@@ -9,11 +9,28 @@ const eventData = {
   title: "Ground Reality",
   tagline: "The Foremost B-Plan Competition",
   bannerImage: Grimg,
-  description: `Ground Reality is a prestigious annual competition giving start-ups and aspiring entrepreneurs the chance to pitch their ideas to top venture capitalists and angel investors. With over 20 mentors guiding 200+ participants, it bridges the gap between students, industry, and market needs. The winners receive a prize pool of Rs. 4 Lakhs, along with legal services, mentoring vouchers, cloud space, and incubation support, offering invaluable resources for business growth.`,
+  description: `Ground Reality is a prestigious annual competition giving start-ups and aspiring entrepreneurs the chance to pitch their ideas to top venture capitalists and angel investors. With over 20 mentors guiding 200+ participants, it bridges the gap between students, industry, and market needs. The winners receive a total prize pool worth 2 lakhs, along with legal services, mentoring vouchers, cloud space, and incubation support, offering invaluable resources for business growth.`,
   timeline: [
-    { date: "Elimination", event: "Initial Pitch Deck Screening" },
-    { date: "Mentorship", event: "One-on-one sessions with Industry Experts" },
-    { date: "Grand Finale", event: "Final Pitch to Top VCs and Angel Investors" }
+    {
+      date: "03 Feb - 21 Feb 2026",
+      event: "BMC Submission",
+      description: "Submit a one-page BMC in PDF via Unstop. Top 25% shortlist for Mentorship."
+    },
+    {
+      date: "23 Feb - 27 Mar 2026",
+      event: "Mentorship Phase",
+      description: "One month of expert mentorship to refine business models, USPs, and pitching strategies."
+    },
+    {
+      date: "04 Apr 2026",
+      event: "Semi-finals",
+      description: "3-minute elevator pitch + 2-minute Q&A. Top 20% advance to the Grand Finale."
+    },
+    {
+      date: "05 Apr 2026",
+      event: "Finals",
+      description: "10-minute final presentation + Q&A. Top 3 teams win from a 2 Lakh prize pool."
+    }
   ],
   pocs: [
     {

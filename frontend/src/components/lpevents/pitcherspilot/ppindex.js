@@ -9,11 +9,23 @@ const eventData = {
   title: "Pitcher's Pilot",
   tagline: "Connecting Innovation with Capital",
   bannerImage: ppimg,
-  description: `Pitchers Pilot is an initiative that provides budding entrepreneurs with the spotlight they deserve by connecting them directly with top investors. Beyond showcasing their ventures, participants gain invaluable feedback from potential customers and unlock a world of opportunities to accelerate their growth. With a 4-week mentorship cohort, direct access to top VCs and angel investors, and a chance to secure funding for your dream venture, Pitchers Pilot is the place where great ideas come alive.`,
+  description: `Pitchers Pilot is an initiative that provides budding entrepreneurs with the spotlight they deserve by connecting them directly with top investors. Beyond showcasing their ventures, participants gain invaluable feedback from distinguished members of the startup ecosystem and unlock a world of opportunities to accelerate their growth. With direct access to top VCs and angel investors, and a chance to secure funding for your dream venture, Pitchers Pilot is the place where great ideas come alive.`,
   timeline: [
-    { date: "Week 1-4", event: "Mentorship Cohort" },
-    { date: "Demo Day", event: "Pitch to Top VCs and Angel Investors" },
-    { date: "Post-Event", event: "Funding and Growth Support" }
+    {
+      date: "07 Jan 26 - 04 Feb 26",
+      event: "Pitch Deck Submission",
+      description: "Register for ₹1500 and submit a pitch deck showcasing your idea, market opportunity, and growth potential to qualify for the next stage."
+    },
+    {
+      date: "09 Feb 26 - 09 Mar 26",
+      event: "Online Pitching and Feedback Round",
+      description: "Founders pitch to distinguished ecosystem members for feedback, insights, and exclusive mentorship sessions to prepare for fundraising."
+    },
+    {
+      date: "03 Apr 26 - 05 Apr 26",
+      event: "Grand Finale",
+      description: "Top startups pitch to leading VCs and angel networks at Launchpad for a chance to secure funding and scale their ventures."
+    }
   ],
   pocs: [
     {
