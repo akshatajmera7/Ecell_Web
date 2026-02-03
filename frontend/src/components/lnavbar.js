@@ -47,21 +47,13 @@ const CosmicNavbar = () => {
     () => [
       { name: "Schedule", href: "/launchpad/schedules" },
       // TEMPORARILY HIDDEN - Uncomment to restore
-<<<<<<< HEAD
       { name: "Passes", href: "/launchpad/passes" },
       { name: "Events", href: "/launchpad/events" },
+      { name: "Speakers", href: "/launchpad/speakers" },
       { name: "Sponsors", href: "/launchpad/sponsor" },
       { name: "Partners", href: "/launchpad/partner" },
       { name: "Media", href: "/launchpad/media" },
       { name: "Our Team", href: "/launchpad/team" },
-=======
-      // { name: "Passes", href: "/launchpad/passes" },
-      { name: "Events", href: "/launchpad/events" },
-      { name: "Speakers", href: "/launchpad/speakers" },
-      // TEMPORARILY HIDDEN - Uncomment to restore
-      // { name: "Sponsors", href: "/launchpad/sponsor" },
-      // { name: "Our Team", href: "/launchpad/team" },
->>>>>>> parent of 49c0731 (Refactor: Rename Events to Workshops across the website)
       { name: "Contact", href: "/launchpad/contact" },
       { name: "E-Cell", href: "/" },
     ],
