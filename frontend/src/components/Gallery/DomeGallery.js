@@ -1,6 +1,49 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react';
+import { useEffect, useMemo, useRef, useCallback, useState } from 'react';
 import { useGesture } from '@use-gesture/react';
 import './DomeGallery.css';
+
+const LazyImage = ({ src, alt, ...props }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={imgRef} style={{ width: '100%', height: '100%', background: 'transparent' }}>
+      {isVisible && (
+        <img
+          src={src}
+          alt={alt}
+          {...props}
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transition: 'opacity 0.5s ease-in-out',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+      )}
+    </div>
+  );
+};
 
 const DEFAULT_IMAGES = [
   { src: '/ss.JPG', alt: 'E-Cell Gallery Image' }
@@ -600,7 +643,7 @@ export default function DomeGallery({
                   onClick={onTileClick}
                   onPointerUp={onTilePointerUp}
                 >
-                  <img src={it.src} draggable={false} alt={it.alt} loading="lazy" />
+                  <LazyImage src={it.src} draggable={false} alt={it.alt} />
                 </div>
               </div>
             ))}
