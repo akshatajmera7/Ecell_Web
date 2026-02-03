@@ -179,7 +179,7 @@ function MainContent() {
           openMenuButtonColor="#fff"
           changeMenuColorOnOpen={false}
           colors={['#1a1a1a', '#2a2a2a']}
-          logoUrl="/navbarlogo.png"
+          logoUrl={lplogo}
           accentColor="#d4ff00"
           isFixed={true}
           onMenuOpen={() => setIsMenuOpen(true)}

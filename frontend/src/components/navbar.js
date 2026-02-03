@@ -22,7 +22,7 @@ const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
       <div className="navbar-container-new">
         <div className="nav-logo-box">
           <NavLink to="/" className="navbar-logo-link">
-            <img src={logo} alt="E-CELL" className="nav-logo-img" />
+            <img src={lplogo} alt="E-CELL" className="nav-logo-img" />
           </NavLink>
         </div>
 
