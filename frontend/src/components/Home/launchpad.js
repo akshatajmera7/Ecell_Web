@@ -8,6 +8,7 @@ const events = [
   "PITCHERS PILOT",
   "INTERNSHIP DRIVE",
   "GROUND REALITY",
+  "STARTUP EXPO",
   // TEMPORARILY HIDDEN - Uncomment to restore
   // "NETWORKING ARENA"
 ];
@@ -133,7 +134,8 @@ const Launchpad = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="px-10 py-3 rounded-full border border-[#6F66FF]/30 mb-12 bg-[#6F66FF]/5"
+            onClick={() => navigate('/launchpad/events')}
+            className="px-10 py-3 rounded-full border border-[#6F66FF]/30 mb-12 bg-[#6F66FF]/5 cursor-pointer hover:bg-[#6F66FF]/10 transition-colors duration-300"
           >
             <span className="text-[#6F66FF] text-xl md:text-2xl font-bold font-syne uppercase tracking-widest">Our Events</span>
           </motion.div>
