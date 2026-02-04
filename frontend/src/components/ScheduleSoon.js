@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ScheduleSoon = () => {
     return (
-        <div className="min-h-screen bg-ecell-bg py-32 px-6 relative overflow-hidden flex items-center justify-center">
+        <div className="min-h-screen bg-ecell-bg py-20 md:py-32 px-6 relative overflow-hidden flex items-center justify-center">
             {/* Background Effects */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-ecell-secondary/20 blur-[150px] rounded-full animate-pulse" />
@@ -17,7 +17,10 @@ const ScheduleSoon = () => {
                     content: "";
                     position: absolute;
                     inset: 0;
-                    border-radius: 3rem; 
+                    border-radius: 2rem; 
+                    @media (min-width: 768px) {
+                        border-radius: 3rem;
+                    }
                     padding: 2px; 
                     background: linear-gradient(135deg, #BCFF2F, #ffffff80, #6F66FF); 
                     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -32,7 +35,7 @@ const ScheduleSoon = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="glass p-12 md:p-24 rounded-[3rem] gradient-border-glass relative overflow-hidden"
+                    className="glass p-6 md:p-24 rounded-[2rem] md:rounded-[3rem] gradient-border-glass relative overflow-hidden"
                 >
                     {/* Floating Time Icons */}
                     <motion.div
@@ -64,7 +67,7 @@ const ScheduleSoon = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm font-bold uppercase tracking-widest mb-10 backdrop-blur-md"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs md:text-sm font-bold uppercase tracking-widest mb-6 md:mb-10 backdrop-blur-md"
                         >
                             <Calendar size={16} className="text-ecell-primary" /> 3rd - 5th April, 2026
                         </motion.div>
@@ -73,7 +76,7 @@ const ScheduleSoon = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-5xl md:text-8xl font-syne font-bold text-white mb-8 leading-[0.9] uppercase tracking-tighter"
+                            className="text-4xl md:text-8xl font-syne font-bold text-white mb-6 md:mb-8 leading-[0.9] uppercase tracking-tighter"
                         >
                             Schedule <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-ecell-primary via-white to-ecell-secondary">Unveiling Soon</span>
@@ -83,7 +86,7 @@ const ScheduleSoon = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-white/60 max-w-2xl mx-auto text-xl font-manrope mb-12 leading-relaxed"
+                            className="text-white/60 max-w-2xl mx-auto text-lg md:text-xl font-manrope mb-8 md:mb-12 leading-relaxed"
                         >
                             We are curating an electrifying lineup of sessions, workshops, and networking events. Get ready to mark your calendars!
                         </motion.p>

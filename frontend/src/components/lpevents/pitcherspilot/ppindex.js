@@ -4,11 +4,17 @@ import ppimg from '../../../assets/lpevents/pitchers pilot.png'
 import Aditya from "../../../assets/Aditya.jpg";
 import Sharduli from "../../../assets/Sharduli.jpg";
 import Vedant from "../../../assets/Vedant.jpg";
+import memory1 from '../../../assets/lpevents/pitcherspilot/memory1.png';
+import memory2 from '../../../assets/lpevents/pitcherspilot/memory2.jpg';
+import memory3 from '../../../assets/lpevents/pitcherspilot/memory3.png';
+import memory4 from '../../../assets/lpevents/pitcherspilot/memory4.png';
+import memory5 from '../../../assets/lpevents/pitcherspilot/memory5.png';
 
 const eventData = {
   title: "Pitcher's Pilot",
   tagline: "Connecting Innovation with Capital",
   bannerImage: ppimg,
+  gallery: [memory1, memory2, memory3, memory4, memory5],
   description: `Pitchers Pilot is an initiative that provides budding entrepreneurs with the spotlight they deserve by connecting them directly with top investors. Beyond showcasing their ventures, participants gain invaluable feedback from distinguished members of the startup ecosystem and unlock a world of opportunities to accelerate their growth. With direct access to top VCs and angel investors, and a chance to secure funding for your dream venture, Pitchers Pilot is the place where great ideas come alive.`,
   timeline: [
     {

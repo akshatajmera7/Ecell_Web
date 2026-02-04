@@ -29,30 +29,30 @@ const EventCard = ({ event, index }) => {
       </div>
 
       {/* Content Section */}
-      <div className="p-8 flex flex-col flex-grow bg-gradient-to-b from-[#1a1a1a] to-[#141414]">
-        <h3 className="text-3xl font-bold text-white mb-4 font-syne group-hover:text-ecell-primary transition-colors">
+      <div className="p-6 md:p-8 flex flex-col flex-grow bg-gradient-to-b from-[#1a1a1a] to-[#141414]">
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-syne group-hover:text-ecell-primary transition-colors">
           {event.title}
         </h3>
-        <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow font-manrope">
+        <p className="text-gray-400 text-sm leading-relaxed mb-6 md:mb-8 flex-grow font-manrope">
           {event.description}
         </p>
 
-        <div className="flex gap-4 mt-auto">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-auto">
           {event.registerLink && (
             <a
               href={event.registerLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-4 px-6 rounded-xl bg-ecell-primary text-black font-bold text-center transform transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(212,255,0,0.4)] active:scale-[0.98] font-manrope flex items-center justify-center gap-2"
+              className="flex-1 py-3 md:py-4 px-4 md:px-6 rounded-xl bg-ecell-primary text-black font-bold text-center transform transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(212,255,0,0.4)] active:scale-[0.98] font-manrope flex items-center justify-center gap-2 text-sm md:text-base"
             >
-              Register <ArrowUpRight size={18} />
+              Register <ArrowUpRight size={16} />
             </a>
           )}
           <a
             href={event.exploreLink}
-            className="flex-1 py-4 px-6 rounded-xl border border-white/10 text-white font-bold text-center transition-all duration-300 hover:bg-white/5 hover:border-white/20 active:scale-[0.98] font-manrope flex items-center justify-center gap-2"
+            className="flex-1 py-3 md:py-4 px-4 md:px-6 rounded-xl border border-white/10 text-white font-bold text-center transition-all duration-300 hover:bg-white/5 hover:border-white/20 active:scale-[0.98] font-manrope flex items-center justify-center gap-2 text-sm md:text-base"
           >
-            Details <ArrowDownRight size={18} />
+            Details <ArrowDownRight size={16} />
           </a>
         </div>
       </div>

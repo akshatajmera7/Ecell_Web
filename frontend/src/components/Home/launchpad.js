@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import lpLogo from '../../assets/ecell/lp_logo_new.png';
+import memory1 from '../../assets/lpevents/pitcherspilot/memory1.png';
+import memory2 from '../../assets/lpevents/pitcherspilot/memory2.jpg';
+import memory3 from '../../assets/lpevents/pitcherspilot/memory3.png';
+import memory4 from '../../assets/lpevents/pitcherspilot/memory4.png';
+import memory5 from '../../assets/lpevents/pitcherspilot/memory5.png';
 
 const events = [
   "PITCHERS PILOT",
@@ -14,12 +19,11 @@ const events = [
 ];
 
 const carouselImages = [
-  "/ss.JPG",
-  // TEMPORARILY HIDDEN - Uncomment to restore
-  // "/na.png",
-  "/lp.png",
-  // TEMPORARILY HIDDEN - Uncomment to restore
-  // "/na1.png"
+  memory1,
+  memory2,
+  memory3,
+  memory4,
+  memory5
 ];
 
 const VerticalMarquee = ({ items }) => {

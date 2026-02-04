@@ -7,14 +7,6 @@ import './EventTemplate.css';
 const EventTemplate = ({ eventData }) => {
     const [activeFaq, setActiveFaq] = useState(null);
 
-    // Placeholder images for memories
-    const memoryImages = [
-        "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1475721027187-402cd7459d4f?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80"
-    ];
-
     if (!eventData) return <div className="text-white text-center py-20">Loading Event Data...</div>;
 
     const {
@@ -24,8 +16,17 @@ const EventTemplate = ({ eventData }) => {
         description,
         timeline,
         pocs,
-        faqs
+        faqs,
+        gallery
     } = eventData;
+
+    // Placeholder images for memories
+    const activeMemoryImages = gallery || [
+        "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1475721027187-402cd7459d4f?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80"
+    ];
 
     return (
         <div className="event-template-container overflow-hidden">
@@ -306,7 +307,7 @@ const EventTemplate = ({ eventData }) => {
                         className="flex gap-6 w-max px-6"
                     >
                         {/* Duplicate icons for seamless loop */}
-                        {[...memoryImages, ...memoryImages].map((img, idx) => (
+                        {[...activeMemoryImages, ...activeMemoryImages].map((img, idx) => (
                             <motion.div
                                 key={idx}
                                 whileHover={{ scale: 1.02, zIndex: 10 }}
