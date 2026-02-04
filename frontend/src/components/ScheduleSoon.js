@@ -18,15 +18,18 @@ const ScheduleSoon = () => {
                     position: absolute;
                     inset: 0;
                     border-radius: 2rem; 
-                    @media (min-width: 768px) {
-                        border-radius: 3rem;
-                    }
                     padding: 2px; 
                     background: linear-gradient(135deg, #BCFF2F, #ffffff80, #6F66FF); 
                     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
                     -webkit-mask-composite: xor;
                     mask-composite: exclude;
                     pointer-events: none;
+                }
+
+                @media (min-width: 768px) {
+                    .gradient-border-glass::before {
+                        border-radius: 3rem;
+                    }
                 }
             `}</style>
 

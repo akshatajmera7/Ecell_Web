@@ -5,7 +5,6 @@ import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 // Import Launchpad event images
 import ss1 from '../../assets/ss.JPG';
-import ss2 from '../../assets/speaker2.jpg';
 import ss3 from '../../assets/Speaker_session.png';
 import startup from '../../assets/startup.JPG';
 import lp1 from '../../assets/LaunchPad.JPG';
