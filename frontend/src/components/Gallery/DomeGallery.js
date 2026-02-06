@@ -152,9 +152,6 @@ export default function DomeGallery({
   const movedRef = useRef(false);
   const startRotRef = useRef({ x: 0, y: 0 });
   const startPosRef = useRef(null);
-  const draggingStartedAt = useRef(0);
-  const lastXBeforeInertia = useRef(0);
-  const lastYBeforeInertia = useRef(0);
   const inertiaRAF = useRef(null);
   const openingRef = useRef(false);
   const openStartedAtRef = useRef(0);
