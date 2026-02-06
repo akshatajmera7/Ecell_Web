@@ -53,7 +53,9 @@ const eventData = {
       question: "Are these paid internships?",
       answer: "Most roles offer a competitive stipend, with some going up to 1.25 Lakhs INR."
     }
-  ]
+  ],
+  registerLink: "",
+  hideGallery: true
 };
 
 function InternshipDrive() {

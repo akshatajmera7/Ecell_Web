@@ -58,7 +58,8 @@ const eventData = {
       question: "What is the primary goal of the expo?",
       answer: "To provide a platform for startups to showcase their products, network with industry leaders, and connect with potential investors."
     }
-  ]
+  ],
+  registerLink: "https://unstop.com/competitions/startup-expo-launchpad-26-bits-1631560"
 };
 
 function StartupExpo() {

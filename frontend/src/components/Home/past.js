@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import img1 from '../../assets/SPEAKER PICS/vp_india_naidu.jpg';
-import img2 from '../../assets/SPEAKER PICS/piyush-goyal.jpeg';
-import img3 from '../../assets/SPEAKER PICS/kiran_mazumdar_shaw.jpeg';
-import img4 from '../../assets/SPEAKER PICS/dham.webp';
+import img1 from '../../assets/SPEAKER PICS/home_speaker_1_v2.jpg';
+import img2 from '../../assets/SPEAKER PICS/home_speaker_2_v2.jpg';
+import img3 from '../../assets/SPEAKER PICS/home_speaker_3.jpg';
+import img4 from '../../assets/SPEAKER PICS/home_speaker_4.jpg';
 
 const profiles = [
-  { id: 1, name: "SHRI VENKAIAH NAIDU", role: "FORMER VICE-PRESIDENT OF INDIA", image: img1, link: "https://x.com/mvenkaiahnaidu?lang=en&mx=2" },
-  { id: 2, name: "PIYUSH GOYAL", role: "UNION CABINET MINISTER", image: img2, link: "https://www.linkedin.com/in/piyushgoyalofficial/?originalSubdomain=in" },
-  { id: 3, name: "KIRAN MAZUMDAR SHAW", role: "CHAIRPERSON BIOCON", image: img3, link: "https://www.linkedin.com/in/kmazumdarshaw/" },
-  { id: 4, name: "VINOD DHAM", role: "INDIAN INVENTOR", image: img4, link: "https://www.linkedin.com/in/vinod-vin-dham-b07a7935/" },
+  { id: 1, name: "AMAN GUPTA", role: "CO-FOUNDER AND CMO AT BOAT", image: img1, link: "https://www.linkedin.com/in/aman-gupta-7217a515/", objectPosition: "80% 50%" },
+  { id: 2, name: "SHRI VENKAIAH NAIDU", role: "FORMER VICE-PRESIDENT OF INDIA", image: img2, link: "https://x.com/mvenkaiahnaidu?lang=en&mx=2" },
+  { id: 3, name: "ANKUR WARIKOO", role: "ENTREPRENEUR & CONTENT CREATOR", image: img3, link: "https://www.linkedin.com/in/warikoo/" },
+  { id: 4, name: "GEN. V.K. SINGH", role: "GOVERNOR OF MIZORAM", image: img4 },
 ];
 
 const ProfileCard = ({ profile }) => (
@@ -29,6 +29,7 @@ const ProfileCard = ({ profile }) => (
         src={profile.image}
         alt={profile.name}
         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+        style={{ objectPosition: profile.objectPosition || 'center' }}
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />

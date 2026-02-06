@@ -215,6 +215,11 @@ const ContactSection = () => {
                       return { transform: "scale(1.3)", objectPosition: "center" };
                     }
 
+                    // Priyansh: zoom in to make face more visible
+                    if (name.includes("priyansh")) {
+                      return { transform: "scale(1.4)", objectPosition: "center 20%" };
+                    }
+
                     // Ayush: Align top to show face
                     if (name.includes("ayush")) {
                       return { objectPosition: "top" };

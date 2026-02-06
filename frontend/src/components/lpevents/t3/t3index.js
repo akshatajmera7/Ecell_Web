@@ -4,6 +4,10 @@ import ttimg from '../../../assets/lpevents/teen tycoons.png'
 import Sampooran from "../../../assets/Sampooran.jpeg";
 import Sejal from "../../../assets/Sejal.jpeg";
 import Deepali from "../../../assets/Deepali.jpeg";
+import mem1 from "../../../assets/t3_mem_1.jpg";
+import mem2 from "../../../assets/t3_mem_2.jpg";
+import mem3 from "../../../assets/t3_mem_3.jpg";
+import mem4 from "../../../assets/t3_mem_4.jpg";
 
 const eventData = {
   title: "Teen Tycoons",
@@ -90,7 +94,14 @@ const eventData = {
       question: "Are supervision and refreshments provided?",
       answer: "One parent or a teacher escort is encouraged to accompany students; refreshments are provided on-site, with additional food available for purchase at campus outlets."
     }
-  ]
+  ],
+  gallery: [
+    mem1,
+    mem2,
+    mem3,
+    mem4
+  ],
+  registerLink: "https://unstop.com/competitions/teen-tycoons-launchpad-26-bits-1631539"
 };
 
 function TeenTycoons() {

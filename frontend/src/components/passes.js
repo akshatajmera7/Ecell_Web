@@ -1,8 +1,46 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, Star, Rocket, Users } from 'lucide-react';
 
-const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position }) => {
+const PaymentModal = ({ isOpen, onClose, iframeSrc }) => {
+  return ReactDOM.createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+      <div
+        className="absolute inset-0 bg-black/80 backdrop-blur-md"
+        onClick={onClose}
+      />
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative w-full max-w-4xl bg-[#1e1f24] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 hover:bg-white/20 text-white transition-colors"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="w-full h-[80vh] md:h-[600px] bg-white">
+          <iframe
+            src={iframeSrc}
+            id="konfhub-widget"
+            title="Register for Launchpad 2026- A Decennial Journey"
+            width="100%"
+            height="100%"
+            style={{ border: 'none' }}
+          />
+        </div>
+      </motion.div>
+    </div>,
+    document.body
+  );
+};
+
+const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position, onGetStarted }) => {
   // Determine border glow color based on position
   const getBorderGlowClass = () => {
     if (position === 'center') {
@@ -42,82 +80,94 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position 
             <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-red-500'}`}>
               {perk.included ? <Check size={18} /> : <X size={18} />}
             </div>
-            <span className={`text-sm font-manrope ${perk.included ? 'text-white/80' : 'text-red-500'}`}>
-              {perk.text}
-            </span>
+            <div className="flex flex-col">
+              <span className={`text-sm font-manrope font-bold ${perk.included ? 'text-ecell-primary' : 'text-red-500/80'}`}>
+                {perk.text}
+              </span>
+              {perk.subtext && (
+                <span className={`text-xs font-manrope ${perk.included ? 'text-white/50' : 'text-red-500/50'}`}>
+                  {perk.subtext}
+                </span>
+              )}
+            </div>
           </div>
         ))}
       </div>
 
-      <a
-        href="/launchpad/passes-soon"
+      <button
+        onClick={onGetStarted}
         className={`w-full py-4 rounded-xl font-bold text-center transition-all duration-300 transform font-manrope flex items-center justify-center gap-2 ${isPopular
           ? 'bg-ecell-primary text-black hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(212,255,0,0.5)]'
-          : 'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20'
+          : 'bg-transparent text-ecell-primary border-2 border-ecell-primary hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(188,255,47,0.4)]'
           }`}
       >
         Get Started <Rocket size={18} />
-      </a>
-    </motion.div>
+      </button>
+    </motion.div >
   );
 };
 
 const Passes = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIframeSrc, setActiveIframeSrc] = useState('');
+
   const tiers = [
     {
       title: "Delegate",
-      price: "300",
+      price: "299",
       icon: Users,
       delay: 0.1,
       position: 'left',
+      paymentUrl: "https://konfhub.com/widget/launchpad-2026?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=quick&screen=1&tickets=74038&ticketId=74038%7C1",
       perks: [
-        { text: "Startup expo (viewing rights)", included: true },
-        { text: "Pitchers pilot, BP (GR), T3 (Viewing Audience)", included: true },
-        { text: "Speaker sessions (audience)", included: true },
-        { text: "Internship drive (external participants)", included: false },
-        { text: "Hackathons + Workshop", included: false },
-        { text: "Highlight speaker sessions", included: false },
-        { text: "Comedy Night + performances", included: false },
-        { text: "Networking lunch * ARENA", included: false },
+        { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
+        { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
+        { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
+        { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: false },
+        { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: false },
+        { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: false },
+        { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: false },
+        { text: "Networking Lunch", subtext: "Founder & peer networking", included: false },
+        { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: false },
       ]
     },
     {
       title: "Executive",
-      price: "749 + Workshop cost (subsidized)",
+      price: "749",
       icon: Rocket,
       isPopular: true,
       delay: 0.2,
       position: 'center',
+      paymentUrl: "https://konfhub.com/widget/launchpad-2026?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=quick&screen=1&tickets=74242&ticketId=74242%7C1",
       perks: [
-        { text: "Startup expo (viewing rights)", included: true },
-        { text: "Pitchers pilot, BP (GR), T3 (VIEWING Audience)", included: true },
-        { text: "Speaker sessions (audience)", included: true },
-        { text: "E-Cell in house workshop", included: true },
-        { text: "Highlight speaker sessions", included: true },
-        { text: "Internship drive (external participants)", included: true },
-        { text: "Comedy Night", included: true },
-        { text: "Hackathons + Workshop", included: false },
-        { text: "Freebies", included: false },
-        { text: "Networking lunch * ARENA", included: false },
+        { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
+        { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
+        { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
+        { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: true },
+        { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: true },
+        { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: true },
+        { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
+        { text: "Networking Lunch", subtext: "Founder & peer networking", included: false },
+        { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: false },
       ]
     },
     {
       title: "Nexus",
-      price: "1399 + Workshop cost (subsidized)",
+      price: "1399",
       icon: Star,
       delay: 0.3,
       position: 'right',
+      paymentUrl: "https://konfhub.com/widget/launchpad-2026?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=74243&ticketId=74243%7C1",
       perks: [
-        { text: "Startup expo (viewing rights)", included: true },
-        { text: "Pitchers pilot, BP (GR) (competitions Audience)", included: true },
-        { text: "Speaker sessions (audience)", included: true },
-        { text: "E-Cell in house workshop", included: true },
-        { text: "Highlight speaker sessions", included: true },
-        { text: "Internship drive (external participants)", included: true },
-        { text: "Hackathons + Workshop", included: true },
-        { text: "Comedy Night", included: true },
-        { text: "Networking lunch arena * ARENA", included: true },
-        { text: "Freebies", included: true },
+        { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
+        { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
+        { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
+        { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: true },
+        { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: true },
+        { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: true },
+        { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
+        { text: "Networking Lunch", subtext: "Founder & peer networking", included: true },
+        { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: true },
       ]
     }
   ];
@@ -158,7 +208,15 @@ const Passes = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {tiers.map((tier, idx) => (
-            <PassCard key={idx} {...tier} />
+            <PassCard
+              key={idx}
+              {...tier}
+              onGetStarted={() => {
+                console.log("Opening Payment Modal for", tier.title);
+                setActiveIframeSrc(tier.paymentUrl);
+                setIsModalOpen(true);
+              }}
+            />
           ))}
         </div>
 
@@ -166,60 +224,76 @@ const Passes = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          className="glass p-10 md:p-16 rounded-[3rem] border border-white/5 relative overflow-hidden group"
+          className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/5 relative overflow-hidden group"
         >
-          <div className="absolute top-0 right-0 p-12 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-700">
-            <Users size={200} className="text-ecell-primary" />
+          <div className="absolute top-0 right-0 p-8 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-700">
+            <Users size={160} className="text-ecell-primary" />
           </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:max-w-xl text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-syne font-bold text-white mb-6">Contingent <span className="text-ecell-primary">Pass</span></h2>
-              <p className="text-white/60 text-lg font-manrope mb-8">
+              <h2 className="text-3xl md:text-4xl font-syne font-bold text-white mb-4">Contingent <span className="text-ecell-primary">Pass</span></h2>
+              <p className="text-white/60 text-base font-manrope mb-6">
                 Coming in a group? Experience Launchpad with your team. Our Contingent Pass offers exclusive bulk benefits, discounted rates, and collective networking opportunities for college delegations.
               </p>
-              <div className="grid grid-cols-2 gap-6 mb-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
-                    <Check size={20} />
+              <div className="grid grid-cols-2 gap-4 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
+                    <Check size={16} />
                   </div>
-                  <span className="text-white font-medium">Flat 20% Discount</span>
+                  <span className="text-white text-sm font-medium">Dedicated Manager</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
-                    <Check size={20} />
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
+                    <Check size={16} />
                   </div>
-                  <span className="text-white font-medium">Dedicated Manager</span>
+                  <span className="text-white text-sm font-medium">Group Workshops</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
-                    <Check size={20} />
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
+                    <Check size={16} />
                   </div>
-                  <span className="text-white font-medium">Group Workshops</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
-                    <Check size={20} />
-                  </div>
-                  <span className="text-white font-medium">Team Certificates</span>
+                  <span className="text-white text-sm font-medium">Team Certificates</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 rounded-[2rem] bg-white/5 border border-white/10 min-w-[280px]">
-              <span className="text-white/40 uppercase tracking-[0.2em] text-xs font-bold mb-4">Starting at</span>
-              <span className="text-6xl font-bold text-white mb-2 italic tracking-tighter">Custom</span>
-              <span className="text-ecell-primary font-manrope font-bold mb-8">Tailored for Groups</span>
-              <a
-                href="/launchpad/contact"
-                className="px-10 py-4 rounded-xl bg-white text-black font-bold hover:bg-ecell-primary transition-all duration-300 transform hover:scale-105"
-              >
-                Contact Sales
-              </a>
+            <div className="flex flex-col items-center p-6 rounded-[2rem] bg-white/5 border border-white/10 min-w-[270px]">
+              <span className="text-white/40 uppercase tracking-[0.2em] text-[10px] font-bold mb-3">Starting at</span>
+              <span className="text-5xl font-bold text-white mb-1 italic tracking-tighter">Custom</span>
+              <span className="text-ecell-primary text-xs font-manrope font-bold mb-6 tracking-wide">Tailored for Groups</span>
+
+              <div className="w-full space-y-2.5">
+                <span className="text-white/40 uppercase tracking-[0.1em] text-[9px] font-bold block text-center mb-0.5">Direct Contacts</span>
+                <a
+                  href="tel:+917992350341"
+                  className="w-full py-3 px-5 rounded-xl bg-white/5 border border-white/10 text-white flex flex-col items-center hover:scale-105 transition-all duration-300"
+                >
+                  <span className="font-bold text-[11px] opacity-60 mb-0.5">Sujoy</span>
+                  <span className="text-base font-bold text-ecell-primary">+91 79923 50341</span>
+                </a>
+                <a
+                  href="tel:+918667088026"
+                  className="w-full py-3 px-5 rounded-xl bg-white/5 border border-white/10 text-white flex flex-col items-center hover:scale-105 transition-all duration-300"
+                >
+                  <span className="font-bold text-[11px] opacity-60 mb-0.5">Cris</span>
+                  <span className="text-base font-bold text-ecell-primary">+91 866 708 8026</span>
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <PaymentModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            iframeSrc={activeIframeSrc}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

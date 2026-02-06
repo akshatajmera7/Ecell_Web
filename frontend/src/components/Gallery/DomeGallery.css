@@ -40,7 +40,8 @@ main.sphere-main {
   place-items: center;
   perspective: calc(var(--radius) * 2);
   perspective-origin: 50% 50%;
-  contain: layout paint size;
+  contain: strict;
+  will-change: transform;
 }
 
 .sphere {
@@ -64,7 +65,8 @@ main.sphere-main {
 .overlay--blur {
   -webkit-mask-image: radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, #060010) 90%);
   mask-image: radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, #060010) 90%);
-  backdrop-filter: blur(3px);
+  /* Removed backdrop-filter: blur(3px) for performance */
+  background: radial-gradient(circle, transparent 50%, var(--overlay-blur-color, #060010) 100%);
 }
 
 .item {
@@ -78,8 +80,9 @@ main.sphere-main {
   margin: auto;
   transform-origin: 50% 50%;
   backface-visibility: hidden;
-  transition: transform 300ms;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg))) rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg))) translateZ(var(--radius));
+  will-change: transform;
 }
 
 .item__image {
@@ -95,8 +98,9 @@ main.sphere-main {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   pointer-events: auto;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .item__image:focus {

@@ -65,7 +65,8 @@ const eventData = {
       question: "Who are the mentors?",
       answer: "Industry experts, successful entrepreneurs, and seasoned investors from various sectors."
     }
-  ]
+  ],
+  registerLink: "https://unstop.com/competitions/pitchers-pilot-launchpad-26-bits-1631551"
 };
 
 function PitchersPilot() {

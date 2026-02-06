@@ -58,13 +58,31 @@ const EventTemplate = ({ eventData }) => {
                 </motion.div>
 
                 {/* Decorative elements */}
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/40">
-                    <span className="text-xs uppercase tracking-[0.3em] font-manrope">Scroll to Explore</span>
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                        className="w-[1px] h-12 bg-gradient-to-b from-ecell-primary to-transparent"
-                    />
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 z-20">
+                    {eventData.registerLink && (
+                        <motion.a
+                            href={eventData.registerLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-ecell-primary text-black font-syne font-bold text-lg md:text-xl px-8 py-3 rounded-full hover:bg-white hover:text-black transition-colors duration-300 shadow-[0_0_20px_rgba(212,255,0,0.4)]"
+                        >
+                            Register Now
+                        </motion.a>
+                    )}
+
+                    <div className="hidden md:flex flex-col items-center gap-2 text-white/40">
+                        <span className="text-xs uppercase tracking-[0.3em] font-manrope">Scroll to Explore</span>
+                        <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className="w-[1px] h-12 bg-gradient-to-b from-ecell-primary to-transparent"
+                        />
+                    </div>
                 </div>
             </section>
 
@@ -290,49 +308,51 @@ const EventTemplate = ({ eventData }) => {
             </section>
 
             {/* 6. IMAGE CAROUSEL SECTION */}
-            <section className="py-24 bg-ecell-bg-light/10 overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-futuristic-header text-white uppercase">Event <span className="text-ecell-primary">Memories</span></h2>
-                    <div className="w-24 h-1 bg-ecell-primary mx-auto rounded-full mt-4" />
-                </div>
+            {!eventData.hideGallery && (
+                <section className="py-24 bg-ecell-bg-light/10 overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-futuristic-header text-white uppercase">Event <span className="text-ecell-primary">Memories</span></h2>
+                        <div className="w-24 h-1 bg-ecell-primary mx-auto rounded-full mt-4" />
+                    </div>
 
-                <div className="relative">
-                    <motion.div
-                        animate={{ x: ["0%", "-50%"] }}
-                        transition={{
-                            duration: 30,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        className="flex gap-6 w-max px-6"
-                    >
-                        {/* Duplicate icons for seamless loop */}
-                        {[...activeMemoryImages, ...activeMemoryImages].map((img, idx) => (
-                            <motion.div
-                                key={idx}
-                                whileHover={{ scale: 1.02, zIndex: 10 }}
-                                className="w-[300px] md:w-[500px] h-[350px] md:h-[600px] rounded-[2.5rem] overflow-hidden border border-white/10 relative group shrink-0"
-                            >
-                                <img
-                                    loading="lazy" src={img}
-                                    alt={`Memory ${idx}`}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-ecell-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
-                                    <div>
-                                        <p className="text-ecell-primary font-bold tracking-[0.2em] uppercase text-xs mb-2">Launchpad 2024</p>
-                                        <p className="text-white font-syne text-2xl font-bold">Unforgettable Moments</p>
+                    <div className="relative">
+                        <motion.div
+                            animate={{ x: ["0%", "-50%"] }}
+                            transition={{
+                                duration: 30,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                            className="flex gap-6 w-max px-6"
+                        >
+                            {/* Duplicate icons for seamless loop */}
+                            {[...activeMemoryImages, ...activeMemoryImages].map((img, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    whileHover={{ scale: 1.02, zIndex: 10 }}
+                                    className="w-[300px] md:w-[500px] h-[350px] md:h-[600px] rounded-[2.5rem] overflow-hidden border border-white/10 relative group shrink-0"
+                                >
+                                    <img
+                                        loading="lazy" src={img}
+                                        alt={`Memory ${idx}`}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-ecell-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
+                                        <div>
+                                            <p className="text-ecell-primary font-bold tracking-[0.2em] uppercase text-xs mb-2">Launchpad 2024</p>
+                                            <p className="text-white font-syne text-2xl font-bold">Unforgettable Moments</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
 
-                    {/* Gradient Fades */}
-                    <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ecell-bg to-transparent z-10 pointer-events-none" />
-                    <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-ecell-bg to-transparent z-10 pointer-events-none" />
-                </div>
-            </section>
+                        {/* Gradient Fades */}
+                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ecell-bg to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-ecell-bg to-transparent z-10 pointer-events-none" />
+                    </div>
+                </section>
+            )}
         </div>
     );
 };

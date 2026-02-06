@@ -148,10 +148,13 @@ export default function DomeGallery({
   const originalTilePositionRef = useRef(null);
 
   const rotationRef = useRef({ x: 0, y: 0 });
-  const startRotRef = useRef({ x: 0, y: 0 });
-  const startPosRef = useRef(null);
   const draggingRef = useRef(false);
   const movedRef = useRef(false);
+  const startRotRef = useRef({ x: 0, y: 0 });
+  const startPosRef = useRef(null);
+  const draggingStartedAt = useRef(0);
+  const lastXBeforeInertia = useRef(0);
+  const lastYBeforeInertia = useRef(0);
   const inertiaRAF = useRef(null);
   const openingRef = useRef(false);
   const openStartedAtRef = useRef(0);
@@ -175,7 +178,7 @@ export default function DomeGallery({
   const applyTransform = (xDeg, yDeg) => {
     const el = sphereRef.current;
     if (el) {
-      el.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
+      el.style.transform = `translate3d(0, 0, calc(var(--radius) * -1)) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
     }
   };
 

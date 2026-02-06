@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import Launchpad1 from '../../assets/Launchpad1.JPG';
 
 const initiatives = [
   {
@@ -21,7 +22,7 @@ const initiatives = [
     color: '#6F66FF',
     textColor: 'white',
     type: 'single',
-    image: '/lp.png',
+    image: Launchpad1,
     link: '/launchpad'
   },
   {

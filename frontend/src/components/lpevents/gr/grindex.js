@@ -4,6 +4,11 @@ import Grimg from '../../../assets/lpevents/gr.jpg'
 import Divvij from "../../../assets/Divvij.jpeg";
 import Ramya from "../../../assets/Ramya.jpeg";
 import sonakshi from "../../../assets/sonakshi.jpeg";
+import mem1 from "../../../assets/lpevents/gr/gr_mem_1.jpg";
+import mem2 from "../../../assets/lpevents/gr/gr_mem_2.jpg";
+import mem3 from "../../../assets/lpevents/gr/gr_mem_3.jpg";
+import mem4 from "../../../assets/lpevents/gr/gr_mem_4.jpg";
+import mem5 from "../../../assets/lpevents/gr/gr_mem_5.jpg";
 
 const eventData = {
   title: "Ground Reality",
@@ -32,6 +37,7 @@ const eventData = {
       description: "10-minute final presentation + Q&A. Top 3 teams win from a 2 Lakh prize pool."
     }
   ],
+  gallery: [mem1, mem2, mem3, mem4, mem5],
   pocs: [
     {
       name: "Divvij Chichra",
@@ -67,7 +73,8 @@ const eventData = {
       question: "What are the judging criteria?",
       answer: "Judging is based on innovation, market viability, scalability, and the strength of the team."
     }
-  ]
+  ],
+  registerLink: "https://unstop.com/competitions/ground-reality-business-plan-competition-launchpad-26-bits-1631135"
 };
 
 function GroundReality() {
