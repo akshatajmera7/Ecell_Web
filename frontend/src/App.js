@@ -49,6 +49,8 @@ const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"))
 const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
 const Passes = lazy(() => import("./components/passes"));
 const PassesSoon = lazy(() => import("./components/PassesSoon"));
+const PaymentPage = lazy(() => import("./components/PaymentPage"));
+
 
 // Scroll to top on route change
 
@@ -220,7 +222,9 @@ function MainContent() {
               <Route path="/launchpad/startup_expo" element={<Se />} />
               <Route path="/launchpad/passes" element={<Passes />} />
               <Route path="/launchpad/passes-soon" element={<PassesSoon />} />
+              <Route path="/launchpad/payment" element={<PaymentPage />} />
               <Route path="/launchpad/payment-success" element={<PaymentSuccess />} />
+
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
               <Route path="/launchpad/workshop-demo" element={<EventDemo />} />
               <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />

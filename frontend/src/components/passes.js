@@ -1,44 +1,8 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, Star, Rocket, Users } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
-const PaymentModal = ({ isOpen, onClose, iframeSrc }) => {
-  return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-      <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-md"
-        onClick={onClose}
-      />
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        className="relative w-full max-w-4xl bg-[#1e1f24] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 hover:bg-white/20 text-white transition-colors"
-        >
-          <X size={20} />
-        </button>
-
-        <div className="w-full h-[80vh] md:h-[600px] bg-white">
-          <iframe
-            src={iframeSrc}
-            id="konfhub-widget"
-            title="Register for Launchpad 2026- A Decennial Journey"
-            width="100%"
-            height="100%"
-            style={{ border: 'none' }}
-          />
-        </div>
-      </motion.div>
-    </div>,
-    document.body
-  );
-};
 
 const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position, onGetStarted }) => {
   // Determine border glow color based on position
@@ -108,8 +72,12 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position,
 };
 
 const Passes = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeIframeSrc, setActiveIframeSrc] = useState('');
+  const navigate = useNavigate();
+
+  const handleGetStarted = (tier) => {
+    const encodedUrl = encodeURIComponent(tier.paymentUrl);
+    navigate(`/launchpad/payment?url=${encodedUrl}&tier=${encodeURIComponent(tier.title)}`);
+  };
 
   const tiers = [
     {
@@ -157,7 +125,7 @@ const Passes = () => {
       icon: Star,
       delay: 0.3,
       position: 'right',
-      paymentUrl: "https://konfhub.com/widget/launchpad-2026?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=74243&ticketId=74243%7C1",
+      paymentUrl: "https://konfhub.com/widget/launchpad-2026?desc=true&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=74243&ticketId=74243%7C1&screen=1",
       perks: [
         { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
         { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
@@ -211,11 +179,7 @@ const Passes = () => {
             <PassCard
               key={idx}
               {...tier}
-              onGetStarted={() => {
-                console.log("Opening Payment Modal for", tier.title);
-                setActiveIframeSrc(tier.paymentUrl);
-                setIsModalOpen(true);
-              }}
+              onGetStarted={() => handleGetStarted(tier)}
             />
           ))}
         </div>
@@ -285,15 +249,6 @@ const Passes = () => {
         </motion.div>
       </div>
 
-      <AnimatePresence>
-        {isModalOpen && (
-          <PaymentModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            iframeSrc={activeIframeSrc}
-          />
-        )}
-      </AnimatePresence>
     </div>
   );
 };
