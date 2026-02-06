@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { FaLinkedin } from "react-icons/fa";
-import Anshul from "../../../assets/anshul.jpeg";
-import Girisha from "../../../assets/girisha.jpg";
+import Anshul from "../../../assets/Anshul.jpeg";
+import Girisha from "../../../assets/Girisha.jpg";
 import Prarthana from "../../../assets/Prarthana.jpeg";
 const ContactSection = () => {
   const guestRelationsContacts = [
