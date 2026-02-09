@@ -4,10 +4,16 @@ import seimg from "../../../assets/lpevents/startup expo.png";
 import Anshul from "../../../assets/Anshul.jpeg";
 import Girisha from "../../../assets/Girisha.jpg";
 import Prarthana from "../../../assets/Prarthana.jpeg";
+import mem1 from "../../../assets/lpevents/startup_expo_memories/mem1.png";
+import mem2 from "../../../assets/lpevents/startup_expo_memories/mem2.png";
+import mem3 from "../../../assets/lpevents/startup_expo_memories/mem3.png";
+import mem4 from "../../../assets/lpevents/startup_expo_memories/mem4.png";
+
 const eventData = {
   title: "Startup Expo",
   tagline: "The Ultimate Battlefield for Emerging Innovators",
   bannerImage: seimg,
+  gallery: [mem1, mem2, mem3, mem4],
   description: `The Startup Expo at Launchpad is a key event for entrepreneurs to showcase their companies to investors, customers, and industry experts. Featuring startups from various industries and stages, it offers a dynamic platform for discovering innovative ideas and emerging businesses.`,
   timeline: [
     {

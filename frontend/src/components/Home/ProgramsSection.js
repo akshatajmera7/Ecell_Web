@@ -4,10 +4,9 @@ import { motion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 // Import Launchpad event images
-import ss1 from '../../assets/ss.JPG';
+
 import startup from '../../assets/new_startup.jpg';
-import lp1 from '../../assets/LaunchPad.JPG';
-import lp2 from '../../assets/Launchpad1.JPG';
+import lp2 from '../../assets/lpevents/id/id1.jpeg'
 import pp_stage from '../../assets/lpevents/pitcherspilot/new_memory_stage.png';
 
 const programs = [
@@ -39,8 +38,8 @@ const programs = [
         subtitle: 'Connect and grow with startups',
         color: '#BCFF2F',
         textColor: 'black',
-        type: 'triple',
-        images: [lp1, lp2, ss1],
+        type: 'single',
+        image: lp2,
         link: '/launchpad/internship_drive',
         registerLink: ""
     },
