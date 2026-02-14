@@ -48,7 +48,7 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
+                        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
                     >
                         <h1 className="text-[7.3vw] sm:text-[6.9vw] md:text-[6.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-1">
                             IDEATE
@@ -59,7 +59,7 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 4.5, ease: "easeOut" }}
+                        transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
                         className="mt-2 md:mt-6 ml-[10vw] sm:ml-[12vw] md:ml-[15vw]"
                     >
                         <h1 className="text-[9.5vw] sm:text-[9vw] md:text-[8.5vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-2">
@@ -71,7 +71,7 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 5.5, ease: "easeOut" }}
+                        transition={{ duration: 1, delay: 2.5, ease: "easeOut" }}
                         className="mt-2 md:mt-6 ml-[25vw] sm:ml-[30vw] md:ml-[35vw]"
                     >
                         <h1 className="text-[7.8vw] sm:text-[7.4vw] md:text-[7vw] font-black font-syne leading-[0.8] tracking-tighter uppercase gradient-text grad-3">

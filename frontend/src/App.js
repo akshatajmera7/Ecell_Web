@@ -3,18 +3,17 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import ErrorBoundary from "./components/ErrorBoundary";
-import StaggeredMenu from "./components/StaggeredMenu";
-import Footer from "./components/footer";
 import { FaInstagram, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import ECellLoader from './components/ECellLoader';
 import { SmoothScroll, useLenis } from './components/SmoothScroll';
 import { AnimatePresence } from 'framer-motion';
-import GlobalBackground from './components/GlobalBackground';
-
-import lplogo from "./assets/ecell/lp_logo_new.png"; // Import the logo
+import lplogo from "./assets/ecell/lp_logo_new.png";
+import Home from "./components/Home/home";
 
 // Lazy load components
-const Home = lazy(() => import("./components/Home/home"));
+const StaggeredMenu = lazy(() => import("./components/StaggeredMenu"));
+const Footer = lazy(() => import("./components/footer"));
+const GlobalBackground = lazy(() => import('./components/GlobalBackground'));
 const Team = lazy(() => import("./components/Teams/team"));
 const Program = lazy(() => import("./components/Programs/program"));
 const Contact = lazy(() => import("./components/contact"));

@@ -125,6 +125,8 @@ const Card = ({ item, isTall, navigate }) => {
                     loading="lazy" key={idx}
                     src={img}
                     alt=""
+                    width="800"
+                    height="600"
                     className="w-full h-full object-cover transition-all duration-700"
                   />
                 ))}
@@ -133,6 +135,8 @@ const Card = ({ item, isTall, navigate }) => {
               <img
                 loading="lazy" src={item.image}
                 alt={item.title}
+                width="1200"
+                height="800"
                 className="w-full h-full object-cover transition-all duration-700 saturate-[1.1]"
               />
             )}

@@ -4,6 +4,7 @@ import ppimg from '../../../assets/lpevents/pitchers pilot.png'
 import Aditya from "../../../assets/Aditya.jpg";
 import Sharduli from "../../../assets/Sharduli.jpg";
 import Vedant from "../../../assets/Vedant.jpg";
+import Aarya from "../../../assets/aarya_tripathi.jpg";
 import memory1 from '../../../assets/lpevents/pitcherspilot/memory1.png';
 import memory2 from '../../../assets/lpevents/pitcherspilot/memory2.jpg';
 import memory3 from '../../../assets/lpevents/pitcherspilot/memory3.png';
@@ -18,12 +19,12 @@ const eventData = {
   description: `Pitchers Pilot is an initiative that provides budding entrepreneurs with the spotlight they deserve by connecting them directly with top investors. Beyond showcasing their ventures, participants gain invaluable feedback from distinguished members of the startup ecosystem and unlock a world of opportunities to accelerate their growth. With direct access to top VCs and angel investors, and a chance to secure funding for your dream venture, Pitchers Pilot is the place where great ideas come alive.`,
   timeline: [
     {
-      date: "07 Jan 26 - 04 Feb 26",
+      date: "07 Jan 26 - 15 Feb 26",
       event: "Pitch Deck Submission",
       description: "Register for ₹1500 and submit a pitch deck showcasing your idea, market opportunity, and growth potential to qualify for the next stage."
     },
     {
-      date: "09 Feb 26 - 09 Mar 26",
+      date: "15 Feb 26 - 21 Mar 26",
       event: "Online Pitching and Feedback Round",
       description: "Founders pitch to distinguished ecosystem members for feedback, insights, and exclusive mentorship sessions to prepare for fundraising."
     },
@@ -54,6 +55,13 @@ const eventData = {
       phone: "+91 8956134149",
       linkedin: "https://www.linkedin.com/in/vedant-nichal",
       image: Vedant
+    },
+    {
+      name: "Aarya Tripathi",
+      role: "Senior Associate",
+      phone: "+91 90228 01833",
+      linkedin: "https://www.linkedin.com/in/aarya-tripathi-7b670b327/",
+      image: Aarya
     }
   ],
   faqs: [

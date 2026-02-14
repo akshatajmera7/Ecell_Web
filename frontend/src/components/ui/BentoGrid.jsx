@@ -1,5 +1,4 @@
 import React from 'react';
-import { cn } from '../../lib/utils'; // Assuming a utils file exists for class merging, or I'll define a simple helper if not.
 
 // Simple class merger if 'cn' is not available in the project yet, 
 // but usually standard in these types of setups. 

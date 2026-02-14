@@ -52,7 +52,7 @@ export const ChromaGrid = ({
     moveTo(e.clientX - r.left, e.clientY - r.top);
   };
 
-  const handleLeave = () => {};
+  const handleLeave = () => { };
 
   const handleCardClick = url => {
     if (url) window.open(url, '_blank', 'noopener,noreferrer');
@@ -104,16 +104,16 @@ export const ChromaGrid = ({
                 alt={c.title}
                 loading="lazy"
                 style={
-                  needsFix
+                  c.imgStyle || (needsFix
                     ? {
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center top",
-                        transform: "none",      // ✅ FULL BLEED
-                        display: "block"
-                      }
-                    : undefined
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center top",
+                      transform: "none",      // ✅ FULL BLEED
+                      display: "block"
+                    }
+                    : undefined)
                 }
               />
             </div>

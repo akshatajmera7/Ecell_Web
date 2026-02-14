@@ -151,6 +151,21 @@ const teams = [
 ];
 
 const ContactSection = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
   return (
     <div className="relative w-full min-h-screen bg-ecell-bg py-16 flex flex-col items-center justify-center">
       {teams.map((team) => (
@@ -166,7 +181,7 @@ const ContactSection = () => {
 
           <div className="max-w-7xl mx-auto flex justify-center">
             <ChromaGrid
-              columns={3}
+              columns={isMobile ? 1 : 3}
               rows={Math.ceil(team.members.length / 3)}
               radius={300}
               damping={0.45}
@@ -220,8 +235,8 @@ const ContactSection = () => {
                       return { transform: "scale(1.4)", objectPosition: "center 20%" };
                     }
 
-                    // Ayush: Align top to show face
-                    if (name.includes("ayush")) {
+                    // Ayush, Harshit, Shaan: Align top to show face
+                    if (name.includes("ayush") || name.includes("harshit") || name.includes("shaan")) {
                       return { objectPosition: "top" };
                     }
 

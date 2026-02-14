@@ -7,33 +7,44 @@
   src: url('./assets/fonts/HypebuzzDemo.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
-/* Import Google Fonts for 5 Typography Themes */
-/* ⚡ Startup Minimal */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+/*
+ * Google Fonts & Fontshare are now loaded via <link> tags in index.html
+ * for non-render-blocking performance. See public/index.html.
+ */
 
-/* 💼 Professional Tech */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* ========================================
+   GLOBAL PERFORMANCE OPTIMIZATIONS
+   ======================================== */
 
-/* 🚀 Futuristic / LaunchPad */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
+/* Global image optimization */
+img {
+  content-visibility: auto;
+}
 
-/* 🧠 University + Modern */
+/* Optimize offscreen sections — browser can skip rendering until near viewport */
+section,
+.section-wrapper {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
 
-/* 🌐 Elegant + Premium */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
-/* ✨ New Modern Standard */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* ======================================== */
 
 html,
 body {
@@ -47,7 +58,9 @@ body {
   font-family: 'Syne', 'Inter', 'Manrope', 'Work Sans', sans-serif;
   position: relative;
   overflow-x: clip;
+  text-rendering: optimizeSpeed;
 }
+
 
 /* 5 Typography Theme System */
 @layer components {
