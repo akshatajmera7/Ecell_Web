@@ -188,7 +188,7 @@ const ProgramCard = ({ item, isTall, navigate }) => {
                         </div>
                     </div>
 
-                    <h3 className="text-4xl md:text-6xl font-bold font-syne leading-tight text-[#BCFF2F] mt-auto">
+                    <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold font-syne leading-tight text-[#BCFF2F] mt-auto">
                         Explore <br /> All Our <br /> Events
                     </h3>
                 </>

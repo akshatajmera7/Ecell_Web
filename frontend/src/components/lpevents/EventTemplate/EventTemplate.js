@@ -31,7 +31,7 @@ const EventTemplate = ({ eventData }) => {
     return (
         <div className="event-template-container overflow-hidden">
             {/* 1. HERO BANNER */}
-            <section className="relative min-h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden py-20">
+            <section className="relative min-h-[70vh] md:h-[80vh] flex flex-col items-center justify-center overflow-hidden py-20">
                 <div
                     className="absolute inset-0 z-0 scale-110"
                     style={{
@@ -49,16 +49,16 @@ const EventTemplate = ({ eventData }) => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="relative z-10 text-center px-6"
                 >
-                    <h1 className="text-5xl sm:text-7xl md:text-9xl font-futuristic-header text-ecell-primary mb-6 uppercase tracking-tighter leading-none">
+                    <h1 className="text-4xl sm:text-7xl md:text-9xl font-futuristic-header text-ecell-primary mb-6 uppercase tracking-tighter leading-none break-words">
                         {title}
                     </h1>
-                    <p className="text-lg sm:text-xl md:text-2xl font-futuristic-box text-white/80 max-w-2xl mx-auto font-manrope">
+                    <p className="text-base sm:text-xl md:text-2xl font-futuristic-box text-white/80 max-w-2xl mx-auto font-manrope">
                         {tagline}
                     </p>
                 </motion.div>
 
                 {/* Decorative elements */}
-                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 z-20">
+                <div className="relative md:absolute md:bottom-5 md:left-1/2 md:-translate-x-1/2 mt-12 md:mt-0 flex flex-col items-center gap-6 z-20">
                     {eventData.registerLink && (
                         <motion.a
                             href={eventData.registerLink}
