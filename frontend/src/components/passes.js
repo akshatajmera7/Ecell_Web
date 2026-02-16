@@ -8,7 +8,7 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position,
   // Determine border glow color based on position
   const getBorderGlowClass = () => {
     if (position === 'center') {
-      return 'border-[#BCFF2F] shadow-[0_0_15px_rgba(188,255,47,0.3)] hover:shadow-[0_0_25px_rgba(188,255,47,0.45)]';
+      return 'border-[#6F66FF] shadow-[0_0_15px_rgba(111,102,255,0.3)] hover:shadow-[0_0_25px_rgba(111,102,255,0.45)]';
     }
     return 'border-[#6F66FF] shadow-[0_0_15px_rgba(111,102,255,0.3)] hover:shadow-[0_0_25px_rgba(111,102,255,0.45)]';
   };

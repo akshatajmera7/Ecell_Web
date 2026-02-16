@@ -10,12 +10,11 @@ import memory4 from '../../assets/lpevents/pitcherspilot/memory4.png';
 import memory5 from '../../assets/lpevents/pitcherspilot/memory5.png';
 
 const events = [
-  "PITCHERS PILOT",
-  "INTERNSHIP DRIVE",
-  "GROUND REALITY",
-  "STARTUP EXPO",
-  // TEMPORARILY HIDDEN - Uncomment to restore
-  // "NETWORKING ARENA"
+  { name: "PITCHERS PILOT", link: "/launchpad/pitchers_pilot" },
+  { name: "INTERNSHIP DRIVE", link: "/launchpad/internship_drive" },
+  { name: "GROUND REALITY", link: "/launchpad/ground_reality" },
+  { name: "STARTUP EXPO", link: "/launchpad/startup_expo" },
+  { name: "TEEN TYCOONS", link: "/launchpad/teen_tycoons" },
 ];
 
 const carouselImages = [
@@ -55,11 +54,12 @@ const VerticalMarquee = ({ items }) => {
               WebkitBackfaceVisibility: 'hidden'
             }}
           >
-            <h3
-              className="text-[24px] md:text-[48px] leading-none font-hypebuzz font-normal uppercase tracking-[2px] md:tracking-[6px] text-center bg-gradient-to-r from-[#7E74FF] via-white to-[#A1A1C2] bg-clip-text text-transparent select-none whitespace-nowrap"
+            <a
+              href={item.link}
+              className="text-[24px] md:text-[48px] leading-none font-hypebuzz font-normal uppercase tracking-[2px] md:tracking-[6px] text-center bg-gradient-to-r from-[#7E74FF] via-white to-[#A1A1C2] bg-clip-text text-transparent select-none whitespace-nowrap hover:scale-105 transition-transform no-underline"
             >
-              {item}
-            </h3>
+              {item.name}
+            </a>
           </div>
         ))}
       </motion.div>
