@@ -87,7 +87,7 @@ const Footer = () => {
               </li>
 
               <li className="opacity-90">
-                <a href="tel:+919347270686" className="hover:text-ecell-primary transition-colors">Shihab- +91 9347270686</a>
+                <a href="tel:+917440532400" className="hover:text-ecell-primary transition-colors">Priyansh- +91 7440532400</a>
               </li>
               <li className="opacity-90 pt-2">
                 <span className="block text-xs uppercase tracking-widest text-ecell-text/60 mb-1">Join our community</span>

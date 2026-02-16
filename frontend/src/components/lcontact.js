@@ -178,8 +178,8 @@ function Contact() {
                 <span className="text-xs text-gray-500 uppercase tracking-wider mb-1">Phone</span>
 
                 <p className="flex justify-between items-center bg-white/5 p-3 rounded-lg hover:bg-white/10 transition-colors">
-                  <span className="text-white">Shihab</span>
-                  <a href="tel:+919347270686" className="text-ecell-primary hover:text-white transition">+91 9347270686</a>
+                  <span className="text-white">Priyansh</span>
+                  <a href="tel:+917440532400" className="text-ecell-primary hover:text-white transition">+91 7440532400</a>
                 </p>
               </div>
             </div>

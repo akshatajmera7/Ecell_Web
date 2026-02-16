@@ -41,7 +41,7 @@ const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
               Our Team
             </NavLink>
             <NavLink
-              to="/gallery"
+              to={isLaunchpad ? "/launchpad/gallery" : "/gallery"}
               className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
             >
               Gallery
@@ -59,7 +59,7 @@ const Navbar = ({ onToggleMenu, isOpen, isLaunchpad }) => {
             </div>
             <div className="nav-cell-bottom">
               <NavLink
-                to="/contact"
+                to={isLaunchpad ? "/launchpad/contact" : "/contact"}
                 className={({ isActive }) => `nav-link-new ${isActive ? "active" : ""}`}
               >
                 <Phone size={14} className="nav-icon-phone" />

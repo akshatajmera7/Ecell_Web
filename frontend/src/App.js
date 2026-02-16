@@ -134,9 +134,7 @@ function MainContent() {
     { label: 'Accoms', ariaLabel: 'View accommodation', link: '/launchpad/accommodation' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
-    { label: 'Partners', ariaLabel: 'View partners', link: '/launchpad/partner' },
-    { label: 'Media', ariaLabel: 'View media partners', link: '/launchpad/media' },
-    { label: 'Gallery', ariaLabel: 'View gallery', link: '/gallery' },
+    { label: 'Gallery', ariaLabel: 'View gallery', link: '/launchpad/gallery' },
     { label: 'Team', ariaLabel: 'Meet our team', link: '/launchpad/team' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/launchpad/contact' },
     { label: 'E-Cell', ariaLabel: 'Go back to E-Cell website', link: '/' }
