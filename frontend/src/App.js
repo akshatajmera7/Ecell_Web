@@ -48,6 +48,7 @@ const StartupConnectForm = lazy(() => import("./components/StartupConnectForm"))
 const EventDemo = lazy(() => import("./components/lpevents/EventTemplate/EventDemo"));
 const Passes = lazy(() => import("./components/passes"));
 const PassesSoon = lazy(() => import("./components/PassesSoon"));
+const Accommodation = lazy(() => import("./components/Accommodation"));
 const PaymentPage = lazy(() => import("./components/PaymentPage"));
 
 
@@ -130,6 +131,7 @@ function MainContent() {
     { label: 'Schedule', ariaLabel: 'View schedule', link: '/launchpad/schedules' },
     { label: 'Events', ariaLabel: 'View events', link: '/launchpad/events' },
     { label: 'Passes', ariaLabel: 'Buy passes', link: '/launchpad/passes' },
+    { label: 'Accoms', ariaLabel: 'View accommodation', link: '/launchpad/accommodation' },
     { label: 'Speakers', ariaLabel: 'Meet the speakers', link: '/launchpad/speakers' },
     { label: 'Sponsors', ariaLabel: 'View sponsors', link: '/launchpad/sponsor' },
     { label: 'Partners', ariaLabel: 'View partners', link: '/launchpad/partner' },
@@ -227,6 +229,7 @@ function MainContent() {
               <Route path="/launchpad/payment-failed" element={<PaymentFailed />} />
               <Route path="/launchpad/workshop-demo" element={<EventDemo />} />
               <Route path="/launchpad/payment-cancel" element={<PaymentCancel />} />
+              <Route path="/launchpad/accommodation" element={<Accommodation />} />
 
 
               {/* startup connect form route */}
