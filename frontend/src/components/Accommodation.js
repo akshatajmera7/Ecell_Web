@@ -162,7 +162,9 @@ const Accommodation = () => {
                     <div>
                         <h4 className="text-white font-bold font-syne mb-1">Important Note</h4>
                         <p className="text-white/60 text-sm font-manrope leading-relaxed">
-                            Accommodation is provided in common rooms.
+                            Accommodation will be arranged in hostel common halls. Mattresses will be provided, and participants will have access to washroom facilities.
+                            <br /><br />
+                            Please bring your personal essentials to ensure a comfortable stay.
                         </p>
                     </div>
                 </motion.div>
