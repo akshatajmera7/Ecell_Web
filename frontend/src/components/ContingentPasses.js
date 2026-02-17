@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, X, Star, Rocket, Users, ArrowLeft } from 'lucide-react';
+import { Check, X, Star, Rocket, ArrowLeft } from 'lucide-react';
 import ChromaGrid from "./Teams/ChromaGrid";
 import { useNavigate } from "react-router-dom";
 import prathviImg from "../assets/prathvi.jpeg";
