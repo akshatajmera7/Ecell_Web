@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Star, Rocket, Users } from 'lucide-react';
+import ChromaGrid from "./Teams/ChromaGrid";
 import { useNavigate } from "react-router-dom";
+import prathviImg from "../assets/prathvi.jpeg";
+import manishImg from "../assets/manish.jpeg";
 
 
 const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position, onGetStarted }) => {
@@ -76,7 +79,7 @@ const Passes = () => {
 
   const handleGetStarted = (tier) => {
     const encodedUrl = encodeURIComponent(tier.paymentUrl);
-    navigate(`/launchpad/payment?url=${encodedUrl}&tier=${encodeURIComponent(tier.title)}`);
+    navigate(`/launchpad/payment?url=${encodedUrl}&tier=${encodeURIComponent(tier.title)}&from=/launchpad/passes`);
   };
 
   const tiers = [
@@ -194,13 +197,19 @@ const Passes = () => {
             <Users size={160} className="text-ecell-primary" />
           </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="md:max-w-xl text-center md:text-left">
+          <div className="relative z-10 flex flex-col items-center text-center">
+            <div className="max-w-3xl">
               <h2 className="text-3xl md:text-4xl font-syne font-bold text-white mb-4">Contingent <span className="text-ecell-primary">Pass</span></h2>
-              <p className="text-white/60 text-base font-manrope mb-6">
+              <p className="text-white/60 text-base font-manrope mb-8">
                 Coming in a group? Experience Launchpad with your team. Our Contingent Pass offers exclusive bulk benefits, discounted rates, and collective networking opportunities for college delegations.
               </p>
-              <div className="grid grid-cols-2 gap-4 mb-2">
+              <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
+                    <Check size={16} />
+                  </div>
+                  <span className="text-white text-sm font-medium">Accommodation</span>
+                </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-ecell-primary/10 flex items-center justify-center text-ecell-primary">
                     <Check size={16} />
@@ -220,36 +229,93 @@ const Passes = () => {
                   <span className="text-white text-sm font-medium">Team Certificates</span>
                 </div>
               </div>
-            </div>
 
-            <div className="flex flex-col items-center p-6 rounded-[2rem] bg-white/5 border border-white/10 min-w-[270px]">
-              <span className="text-white/40 uppercase tracking-[0.2em] text-[10px] font-bold mb-3">Starting at</span>
-              <span className="text-5xl font-bold text-white mb-1 italic tracking-tighter">Custom</span>
-              <span className="text-ecell-primary text-xs font-manrope font-bold mb-6 tracking-wide">Tailored for Groups</span>
-
-              <div className="w-full space-y-2.5">
-                <span className="text-white/40 uppercase tracking-[0.1em] text-[9px] font-bold block text-center mb-0.5">Direct Contacts</span>
-                <a
-                  href="tel:+917992350341"
-                  className="w-full py-3 px-5 rounded-xl bg-white/5 border border-white/10 text-white flex flex-col items-center hover:scale-105 transition-all duration-300"
+              <div className="mt-10">
+                <button
+                  onClick={() => navigate('/launchpad/contingent-passes')}
+                  className="px-10 py-4 rounded-xl bg-ecell-primary text-black font-bold text-center hover:scale-105 transition-all duration-300 transform font-manrope inline-flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(212,255,0,0.5)]"
                 >
-                  <span className="font-bold text-[11px] opacity-60 mb-0.5">Sujoy</span>
-                  <span className="text-base font-bold text-ecell-primary">+91 79923 50341</span>
-                </a>
-                <a
-                  href="tel:+918667088026"
-                  className="w-full py-3 px-5 rounded-xl bg-white/5 border border-white/10 text-white flex flex-col items-center hover:scale-105 transition-all duration-300"
-                >
-                  <span className="font-bold text-[11px] opacity-60 mb-0.5">Cris</span>
-                  <span className="text-base font-bold text-ecell-primary">+91 866 708 8026</span>
-                </a>
+                  View More <Rocket size={18} />
+                </button>
               </div>
             </div>
           </div>
         </motion.div>
+
+
+        {/* Contact Section */}
+        <div className="mt-24 text-center">
+          <h3 className="text-2xl font-syne font-bold text-white mb-8">Please feel free to contact in case of query</h3>
+          <div className="max-w-2xl mx-auto flex justify-center">
+            <ChromaGrid
+              columns={2}
+              rows={1}
+              radius={300}
+              damping={0.45}
+              fadeOut={0.6}
+              items={[
+                {
+                  name: "Prathvi Raj Chauhan",
+                  role: "+91 78271 75012",
+                  image: prathviImg,
+                  linkedin: "https://www.linkedin.com/in/prathvirajchauhan/",
+                },
+                {
+                  name: "Manish Rumale",
+                  role: "+91 98861 17965",
+                  image: manishImg,
+                  linkedin: "https://www.linkedin.com/in/manish-rumale-99b5b534a/",
+                }
+              ].map((m) => {
+                const handle = m.linkedin
+                  ? m.linkedin.split("/").filter(Boolean).pop()
+                  : m.name.replace(/\s/g, "").toLowerCase();
+
+                const role = (m.role || "").toLowerCase();
+                let gradient = "linear-gradient(135deg, rgba(107,95,255,0.2), rgba(212,255,0,0.2))";
+                let borderColor = "#6b5fff";
+
+                if (role.includes("chairman") || role.includes("president")) {
+                  gradient = "linear-gradient(135deg, rgba(212,255,0,0.28), rgba(107,95,255,0.24))";
+                  borderColor = "#d4ff00";
+                } else if (role.includes("tech") || role.includes("technical") || role.includes("design") || role.includes("videography")) {
+                  gradient = "linear-gradient(135deg, rgba(107,95,255,0.26), rgba(212,255,0,0.18))";
+                  borderColor = "#8b7fff";
+                } else if (role.includes("media") || role.includes("publicity")) {
+                  gradient = "linear-gradient(135deg, rgba(107,95,255,0.22), rgba(212,255,0,0.22))";
+                  borderColor = "#6b5fff";
+                } else if (role.includes("treasurer") || role.includes("operations") || role.includes("hospitality")) {
+                  gradient = "linear-gradient(135deg, rgba(212,255,0,0.22), rgba(107,95,255,0.18))";
+                  borderColor = "#a1ff33";
+                }
+
+                return {
+                  title: m.name,
+                  subtitle: m.role,
+                  image: m.image,
+                  handle: handle ? `@${handle.substring(0, 15)}` : undefined,
+                  url: m.linkedin,
+                  gradient,
+                  borderColor,
+                  imgStyle: (() => {
+                    const name = m.name.toLowerCase();
+                    if (name.includes("prathvi")) {
+                      return { objectPosition: "center" };
+                    }
+                    if (name.includes("manish")) {
+                      return { objectPosition: "center" };
+                    }
+                    return undefined;
+                  })()
+                };
+              })}
+            />
+          </div>
+        </div>
+
       </div>
 
-    </div>
+    </div >
   );
 };
 

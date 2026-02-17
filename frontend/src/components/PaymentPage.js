@@ -11,7 +11,8 @@ const PaymentPage = () => {
     const tierName = searchParams.get('tier') || 'Launchpad Pass';
 
     const handleClose = () => {
-        navigate('/launchpad/passes');
+        const from = searchParams.get('from');
+        navigate(from || '/launchpad/passes');
     };
 
     return (
