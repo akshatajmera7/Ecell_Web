@@ -109,6 +109,11 @@ const ContingentPasses = () => {
             paymentUrl: "https://konfhub.com/widget/launchpad-2026?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=1e1f24&ticketCl=1e1f24&btnColor=002E6E&fontFamily=Hind&borderRadius=10&widget_type=standard&tickets=77853&ticketId=77853%7C5", // Placeholder url
             perks: [
                 { text: "Accommodation (2N Stay)", subtext: "Stay included for 2 nights", included: true },
+                { text: "Official Contingent Recognition", subtext: "College name featured on website & “Participating Colleges” board", included: true },
+                { text: "Guaranteed Group Seating", subtext: "For highlight talks & pitch competitions", included: true },
+                { text: "Dedicated Contingent Manager", subtext: "Single point of contact for coordination & support", included: true },
+                { text: "Custom Group Discounts", subtext: "Discounts based on contingent size", included: true },
+                { text: "Priority Entry & Group Check-In", subtext: "Fast-track access and smoother registration", included: true },
                 { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
                 { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
                 { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
@@ -118,11 +123,6 @@ const ContingentPasses = () => {
                 { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
                 { text: "Networking Lunch", subtext: "Founder & peer networking", included: true },
                 { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: true },
-                { text: "Official Contingent Recognition", subtext: "College name featured on website & “Participating Colleges” board", included: true },
-                { text: "Guaranteed Group Seating", subtext: "For highlight talks & pitch competitions", included: true },
-                { text: "Dedicated Contingent Manager", subtext: "Single point of contact for coordination & support", included: true },
-                { text: "Custom Group Discounts", subtext: "Discounts based on contingent size", included: true },
-                { text: "Priority Entry & Group Check-In", subtext: "Fast-track access and smoother registration", included: true },
             ]
         }
     ];
