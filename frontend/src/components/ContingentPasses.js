@@ -1,12 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Check, X, Star, Rocket, ArrowLeft } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Check, X, Star, Rocket, ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import ChromaGrid from "./Teams/ChromaGrid";
 import { useNavigate } from "react-router-dom";
 import prathviImg from "../assets/prathvi.jpeg";
 import manishImg from "../assets/manish.jpeg";
 
-const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position, onGetStarted }) => {
+const PassCard = ({ title, price, perks, commonPerks, isPopular, icon: Icon, delay, position, onGetStarted }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     const getBorderGlowClass = () => {
         return 'border-[#6F66FF] shadow-[0_0_15px_rgba(111,102,255,0.3)] hover:shadow-[0_0_25px_rgba(111,102,255,0.45)]';
     };
@@ -17,7 +19,7 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position,
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay }}
             viewport={{ once: true }}
-            className={`relative glass p-8 rounded-[2.5rem] border-2 flex flex-col h-full transition-all duration-500 group ${getBorderGlowClass()} ${isPopular ? 'bg-ecell-primary/5' : ''}`}
+            className={`relative glass p-8 rounded-[2.5rem] border-2 flex flex-col transition-all duration-500 group ${getBorderGlowClass()} ${isPopular ? 'bg-ecell-primary/5' : ''}`}
         >
             <div className="mb-8">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-500 bg-white/5 text-ecell-primary group-hover:bg-ecell-primary group-hover:text-black">
@@ -30,7 +32,7 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position,
                 </div>
             </div>
 
-            <div className="space-y-4 mb-10 flex-grow">
+            <div className="space-y-4 mb-4 flex-grow">
                 {perks.map((perk, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                         <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-red-500'}`}>
@@ -50,6 +52,50 @@ const PassCard = ({ title, price, perks, isPopular, icon: Icon, delay, position,
                         </div>
                     </div>
                 ))}
+
+                {commonPerks && (
+                    <div className="mt-6 border-t border-white/10 pt-4">
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="w-full flex items-center justify-between text-white/70 hover:text-ecell-primary transition-colors text-sm font-manrope font-bold py-2"
+                        >
+                            <span>{commonPerks.title}</span>
+                            {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                        </button>
+
+                        <AnimatePresence>
+                            {isExpanded && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="overflow-hidden"
+                                >
+                                    <div className="pt-2 space-y-4 pb-2">
+                                        {commonPerks.items.map((perk, idx) => (
+                                            <div key={idx} className="flex items-start gap-3">
+                                                <div className={`mt-1 shrink-0 ${perk.included ? 'text-ecell-primary' : 'text-red-500'}`}>
+                                                    {perk.included ? <Check size={18} /> : <X size={18} />}
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span className={`text-sm font-manrope font-bold ${perk.included ? 'text-ecell-primary' : 'text-red-500/80'}`}>
+                                                        {perk.text}
+                                                    </span>
+                                                    {perk.subtext && (
+                                                        <span className={`text-xs font-manrope ${perk.included ? 'text-white/50' : 'text-red-500/50'}`}>
+                                                            {perk.subtext}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                )}
             </div>
 
             <button
@@ -88,17 +134,21 @@ const ContingentPasses = () => {
                 { text: "Dedicated Contingent Manager", subtext: "Single point of contact for coordination & support", included: true },
                 { text: "Custom Group Discounts", subtext: "Discounts based on contingent size", included: true },
                 { text: "Priority Entry & Group Check-In", subtext: "Fast-track access and smoother registration", included: true },
-                { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
-                { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
-                { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
-                { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: true },
-                { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: true },
-                { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: true },
-                { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
-                { text: "Networking Lunch", subtext: "Founder & peer networking", included: false },
-                { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: false },
-
-            ]
+            ],
+            commonPerks: {
+                title: "Includes All Executive Pass Benefits",
+                items: [
+                    { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
+                    { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
+                    { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
+                    { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: true },
+                    { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: true },
+                    { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: true },
+                    { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
+                    { text: "Networking Lunch", subtext: "Founder & peer networking", included: false },
+                    { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: false },
+                ]
+            }
         },
         {
             title: "Contingent Nexus",
@@ -114,16 +164,21 @@ const ContingentPasses = () => {
                 { text: "Dedicated Contingent Manager", subtext: "Single point of contact for coordination & support", included: true },
                 { text: "Custom Group Discounts", subtext: "Discounts based on contingent size", included: true },
                 { text: "Priority Entry & Group Check-In", subtext: "Fast-track access and smoother registration", included: true },
-                { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
-                { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
-                { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
-                { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: true },
-                { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: true },
-                { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: true },
-                { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
-                { text: "Networking Lunch", subtext: "Founder & peer networking", included: true },
-                { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: true },
-            ]
+            ],
+            commonPerks: {
+                title: "Includes All Nexus Pass Benefits",
+                items: [
+                    { text: "Startup Expo Access", subtext: "Explore live startups & innovations", included: true },
+                    { text: "Competition Viewing Access", subtext: "Pitchers Pilot · Ground Reality · Teen Tycoons", included: true },
+                    { text: "Speaker Sessions Access", subtext: "Talks by founders & industry leaders", included: true },
+                    { text: "Internship Drive Access", subtext: "Tap into internship opportunities", included: true },
+                    { text: "E-Cell In-House Workshops", subtext: "Hands-on learning sessions", included: true },
+                    { text: "Highlight Speaker Session Access", subtext: "Flagship Talks by Founders & Industry Leaders", included: true },
+                    { text: "Comedy Night Entry", subtext: "Live stand-up entertainment", included: true },
+                    { text: "Networking Lunch", subtext: "Founder & peer networking", included: true },
+                    { text: "Event Freebies & Swag", subtext: "Merch, goodies & partner giveaways", included: true },
+                ]
+            }
         }
     ];
 
@@ -169,7 +224,7 @@ const ContingentPasses = () => {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24 items-start">
                     {tiers.map((tier, idx) => (
                         <PassCard
                             key={idx}
