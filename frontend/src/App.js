@@ -70,6 +70,13 @@ const ScrollToTop = () => {
   const lenis = useLenis();
 
   useEffect(() => {
+    // Track page view in Google Analytics on route change
+    if (window.gtag) {
+      window.gtag('config', 'G-4NKFEK9XLW', {
+        page_path: location.pathname + location.search,
+      });
+    }
+
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
