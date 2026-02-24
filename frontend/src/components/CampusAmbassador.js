@@ -174,88 +174,73 @@ const CampusAmbassador = () => {
                     </div>
                 </motion.div>
 
-                {/* Reward Tiers */}
+                {/* CA Rewards — All in One Block */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-20"
+                    className="mb-20 glass p-8 md:p-10 rounded-[2.5rem] border border-white/10 relative overflow-hidden"
                 >
-                    <h2 className="text-2xl md:text-3xl font-syne font-bold text-white text-center mb-4">
-                        CA <span className="text-ecell-primary">Rewards</span>
-                    </h2>
-                    <p className="text-white/40 text-center font-manrope text-sm mb-12 max-w-xl mx-auto">
-                        Rewards are progressive and will be upgraded as you achieve higher
-                        referral milestones.
-                    </p>
+                    <div className="absolute top-0 right-0 p-6 opacity-5 rotate-12">
+                        <BadgePercent size={140} className="text-ecell-primary" />
+                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {rewardTiers.map((tier, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: idx * 0.1 }}
-                                viewport={{ once: true }}
-                                className={`relative p-6 rounded-2xl border bg-gradient-to-b ${tier.gradient} ${tier.border} ${tier.glow} hover:scale-[1.04] transition-all duration-300 group/card`}
-                            >
-                                {/* Milestone Number */}
-                                <div className="absolute top-4 right-4 text-white/5 text-5xl font-bold font-syne select-none">
-                                    {tier.refs}
-                                </div>
+                    <div className="relative z-10">
+                        <h2 className="text-2xl md:text-3xl font-syne font-bold text-white text-center mb-2">
+                            CA <span className="text-ecell-primary">Rewards</span>
+                        </h2>
+                        <p className="text-white/40 text-center font-manrope text-sm mb-10 max-w-xl mx-auto">
+                            Rewards are progressive — hit milestones and your pass keeps upgrading.
+                        </p>
 
+                        {/* Reward Tier Cards */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                            {rewardTiers.map((tier, idx) => (
                                 <div
-                                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${tier.iconBg} group-hover/card:scale-110 transition-transform duration-300`}
+                                    key={idx}
+                                    className={`relative p-5 rounded-2xl border bg-gradient-to-b ${tier.gradient} ${tier.border} ${tier.glow} hover:scale-[1.04] transition-all duration-300 group/card`}
                                 >
-                                    <tier.icon size={24} />
-                                </div>
-
-                                <div className="text-4xl font-bold text-white font-manrope mb-1">
-                                    {tier.refs}
-                                </div>
-                                <div className="text-white/40 text-xs font-manrope uppercase tracking-wider mb-4">
-                                    Valid Registrations
-                                </div>
-
-                                <div className="h-px w-full bg-white/5 mb-4" />
-
-                                <div className="flex items-center gap-2">
+                                    <div className="absolute top-3 right-3 text-white/5 text-4xl font-bold font-syne select-none">
+                                        {tier.refs}
+                                    </div>
+                                    <div
+                                        className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${tier.iconBg} group-hover/card:scale-110 transition-transform duration-300`}
+                                    >
+                                        <tier.icon size={22} />
+                                    </div>
+                                    <div className="text-3xl font-bold text-white font-manrope mb-0.5">
+                                        {tier.refs}
+                                    </div>
+                                    <div className="text-white/40 text-xs font-manrope uppercase tracking-wider mb-3">
+                                        Registrations
+                                    </div>
+                                    <div className="h-px w-full bg-white/5 mb-3" />
                                     <span className="text-sm font-bold text-ecell-primary font-manrope">
                                         Free {tier.pass} Pass
                                     </span>
+                                    {tier.note && (
+                                        <div className="text-white/30 text-xs font-manrope mt-1">
+                                            {tier.note}
+                                        </div>
+                                    )}
                                 </div>
-                                {tier.note && (
-                                    <div className="text-white/30 text-xs font-manrope mt-1.5">
-                                        {tier.note}
-                                    </div>
-                                )}
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* 10% Discount Banner */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="mb-20 glass p-8 md:p-10 rounded-[2rem] border border-ecell-primary/20 relative overflow-hidden group"
-                >
-                    <div className="absolute top-0 right-0 p-6 opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                        <BadgePercent size={140} className="text-ecell-primary" />
-                    </div>
-                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                        <div className="w-16 h-16 rounded-2xl bg-ecell-primary/10 flex items-center justify-center shrink-0">
-                            <BadgePercent size={32} className="text-ecell-primary" />
+                            ))}
                         </div>
-                        <div className="text-center md:text-left">
-                            <h3 className="text-xl md:text-2xl font-syne font-bold text-white mb-2">
-                                Your Referrals Get{' '}
-                                <span className="text-ecell-primary">10% Off</span>
-                            </h3>
-                            <p className="text-white/50 text-sm font-manrope leading-relaxed max-w-3xl">
-                                Anyone who purchases a pass using your unique CA code will receive a <strong className="text-white/80">10% discount</strong> on their purchase. More value for them, more progress for you!
-                            </p>
+
+                        {/* 10% Discount — inline */}
+                        <div className="flex flex-col sm:flex-row items-center gap-5 p-5 md:p-6 rounded-2xl bg-ecell-primary/5 border border-ecell-primary/15">
+                            <div className="w-12 h-12 rounded-xl bg-ecell-primary/10 flex items-center justify-center shrink-0">
+                                <BadgePercent size={26} className="text-ecell-primary" />
+                            </div>
+                            <div className="text-center sm:text-left">
+                                <h3 className="text-lg font-syne font-bold text-white mb-1">
+                                    Your Referrals Get{' '}
+                                    <span className="text-ecell-primary">10% Off</span>
+                                </h3>
+                                <p className="text-white/50 text-sm font-manrope leading-relaxed">
+                                    Anyone who purchases a pass using your unique CA code gets a <strong className="text-white/80">10% discount</strong>. More value for them, more progress for you!
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
