@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, X, Star, Rocket, Users } from 'lucide-react';
+import { Check, X, Star, Rocket, Users, Gift, Award } from 'lucide-react';
 import ChromaGrid from "./Teams/ChromaGrid";
 import { useNavigate } from "react-router-dom";
 import prathviImg from "../assets/prathvi.jpeg";
@@ -186,6 +186,39 @@ const Passes = () => {
             />
           ))}
         </div>
+
+        {/* Campus Ambassador Teaser */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-24 glass p-8 md:p-10 rounded-[2.5rem] border border-ecell-secondary/20 relative overflow-hidden group cursor-pointer"
+          onClick={() => navigate('/launchpad/campus-ambassador')}
+        >
+          <div className="absolute top-0 right-0 p-6 opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
+            <Award size={120} className="text-ecell-secondary" />
+          </div>
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="w-16 h-16 rounded-2xl bg-ecell-secondary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <Gift size={30} className="text-ecell-secondary" />
+            </div>
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-2xl md:text-3xl font-syne font-bold text-white mb-2">
+                Want to attend LAUNCHPAD for <span className="text-ecell-primary">FREE</span>?
+              </h2>
+              <p className="text-white/50 text-sm font-manrope">
+                Become a Campus Ambassador — refer friends, earn free passes & exclusive rewards.
+              </p>
+            </div>
+            <button
+              onClick={(e) => { e.stopPropagation(); navigate('/launchpad/campus-ambassador'); }}
+              className="px-8 py-3.5 rounded-xl bg-ecell-secondary text-white font-bold hover:scale-105 transition-all duration-300 font-manrope inline-flex items-center gap-2 hover:shadow-[0_0_25px_rgba(107,95,255,0.5)] shrink-0"
+            >
+              I'm Interested <Rocket size={16} />
+            </button>
+          </div>
+        </motion.div>
 
         {/* Contingent Pass Section */}
         <motion.div
