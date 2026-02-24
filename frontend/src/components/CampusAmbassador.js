@@ -61,13 +61,13 @@ const rewardTiers = [
 const steps = [
     {
         icon: Share2,
-        title: 'Apply & Get Your Link',
-        desc: 'Register as a Campus Ambassador and receive your unique referral link & CA code.',
+        title: 'Apply & Get Your Code',
+        desc: 'Register as a Campus Ambassador and receive your unique referral code.',
     },
     {
         icon: TrendingUp,
         title: 'Promote & Climb',
-        desc: 'Share your link. Every pass sold using your code counts towards your progress.',
+        desc: 'Share your code. Every pass sold using your code counts towards your progress.',
     },
     {
         icon: Gift,
@@ -132,7 +132,7 @@ const CampusAmbassador = () => {
                     >
                         Join our Campus Ambassador Program and earn exclusive rewards by
                         referring your friends to register for LAUNCHPAD 2026. Promote the
-                        event using your unique referral link and climb the leaderboard to
+                        event using your unique referral code and climb the leaderboard to
                         unlock premium passes, networking opportunities, and more.
                     </motion.p>
                 </div>
