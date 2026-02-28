@@ -228,7 +228,7 @@ const CampusAmbassador = () => {
                         </div>
 
                         {/* 10% Discount — inline */}
-                        <div className="flex flex-col sm:flex-row items-center gap-5 p-5 md:p-6 rounded-2xl bg-ecell-primary/5 border border-ecell-primary/15">
+                        <div className="flex flex-col sm:flex-row items-center gap-5 p-5 md:p-6 rounded-2xl bg-ecell-primary/5 border border-ecell-primary/15 mb-5">
                             <div className="w-12 h-12 rounded-xl bg-ecell-primary/10 flex items-center justify-center shrink-0">
                                 <BadgePercent size={26} className="text-ecell-primary" />
                             </div>
@@ -239,6 +239,21 @@ const CampusAmbassador = () => {
                                 </h3>
                                 <p className="text-white/50 text-sm font-manrope leading-relaxed">
                                     Anyone who purchases a pass using your unique CA code gets a <strong className="text-white/80">10% discount</strong>. More value for them, more progress for you!
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Certificates — inline */}
+                        <div className="flex flex-col sm:flex-row items-center gap-5 p-5 md:p-6 rounded-2xl bg-[#6b5fff]/5 border border-[#6b5fff]/15">
+                            <div className="w-12 h-12 rounded-xl bg-[#6b5fff]/10 flex items-center justify-center shrink-0">
+                                <Award size={26} className="text-[#6b5fff]" />
+                            </div>
+                            <div className="text-center sm:text-left">
+                                <h3 className="text-lg font-syne font-bold text-white mb-1">
+                                    Official <span className="text-[#6b5fff]">Recognition</span>
+                                </h3>
+                                <p className="text-white/50 text-sm font-manrope leading-relaxed">
+                                    Receive <strong className="text-white/80">Official Certificates of recognition</strong> of your CA role and a <strong className="text-white/80">Letter of Recommendation (LOR)</strong> from E-Cell BPHC.
                                 </p>
                             </div>
                         </div>

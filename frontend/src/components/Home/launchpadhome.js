@@ -9,12 +9,14 @@ import Media from "./mediapartners";
 import Dare from "./dare";
 import About from "./labout";
 import ProgramsSection from "./ProgramsSection";
+import CABlock from "./CABlock";
 
 function Home() {
   return (
     <GradientBackground>
       <Hero />
       <Feature />
+      <CABlock />
       <About />
       <ProgramsSection />
       <Dare />
