@@ -72,7 +72,7 @@ const steps = [
     {
         icon: Gift,
         title: 'Unlock Rewards',
-        desc: "Hit milestones to unlock free passes. We'll notify you when you level up!",
+        desc: "Hit milestones to unlock free passes, Official Certificates of recognition, and LORs from E-Cell BPHC. We'll notify you when you level up!",
     },
 ];
 
@@ -253,7 +253,7 @@ const CampusAmbassador = () => {
                                     Official <span className="text-[#6b5fff]">Recognition</span>
                                 </h3>
                                 <p className="text-white/50 text-sm font-manrope leading-relaxed">
-                                    Receive <strong className="text-white/80">Official Certificates of recognition</strong> of your CA role and a <strong className="text-white/80">Letter of Recommendation (LOR)</strong> from E-Cell BPHC.
+                                    Receive <strong className="text-white/80">Official Certificates of recognition</strong> of your CA role and a <strong className="text-white/80">Letter of Recommendation (LOR)</strong> from E-Cell BPHC, alongside <strong className="text-white/80">custom benefits to those who rank the highest</strong>.
                                 </p>
                             </div>
                         </div>
